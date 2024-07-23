@@ -574,16 +574,16 @@ MaxHeapSpedizioni creaMaxHeap(int capacita) {
 }
 
 Spedizione rimuoviMax(MaxHeapSpedizioni* heap) {
-    if (heap->dimensione <= 0) {
+    if (heap->dimensione<=0) {
         Spedizione nullSpedizione = {"", 0, 0, 0};
         return nullSpedizione;
     }
-    Spedizione root = heap->spedizioni[0];
-    if (heap->dimensione == 1) {
+    Spedizione root=heap->spedizioni[0];
+    if (heap->dimensione==1) {
         heap->dimensione--;
         return root;
     }
-    heap->spedizioni[0] = heap->spedizioni[--heap->dimensione];
+    heap->spedizioni[0]=heap->spedizioni[--heap->dimensione];
     heapifySpedizioni(heap, 0);
     return root;
 }
