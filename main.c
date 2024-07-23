@@ -21,9 +21,9 @@ typedef struct {
 } MinHeapIngrediente;
 
 void heapify(MinHeapIngrediente* heap, int i);
-void inserisciIngredienteHeap(MinHeapIngrediente* heap, int scadenza, int quantita);
-void liberaMinHeapIngredienti(MinHeapIngrediente* heap);
-IngredienteMinHeap rimuoviIngredienteHeap(MinHeapIngrediente* heap);
+void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita);
+void liberaLotto(MinHeapIngrediente* heap);
+IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap);
 MinHeapIngrediente creaHeapIngredienti(int capacita);
 
 //Ingredienti - AVL - ordino i lotti di ingredienti lessicograficamente(disc), per velocizzare aggiunta, eliminazione e ricerca
@@ -35,17 +35,17 @@ typedef struct NodoAVL {
     int altezza;
 } NodoAVL;
 
-void inOrder(NodoAVL *root);
+void ordineAVL(NodoAVL *root);
 void liberaAVL(NodoAVL *root);
-int getBilancio(NodoAVL *nodo);
+int bilancia(NodoAVL *nodo);
 int altezza(NodoAVL *nodo);
 int max(int a, int b);
-NodoAVL* nuovoNodo(char* nome, int capacita);
+NodoAVL* nuovoNodoAVL(char* nome, int capacita);
 NodoAVL* ruotaDestra(NodoAVL *y);
 NodoAVL* ruotaSinistra(NodoAVL *x);
-NodoAVL* minValueNode(NodoAVL *nodo);
-NodoAVL* elimina(NodoAVL* root, char *nome);
-NodoAVL* inserisci(NodoAVL* nodo, char* nome, int scadenza, int quantita, int capacita);
+NodoAVL* minValueAVL(NodoAVL *nodo);
+NodoAVL* eliminaAVL(NodoAVL* root, char *nome);
+NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int capacita);
 
 //Ricette - Lista
 typedef struct IngredienteRicetta {
@@ -67,13 +67,13 @@ typedef struct NodoBST {
 } NodoBST;
 
 void liberaBST(NodoBST* root);
-void inOrderRicetta(NodoBST* root);
-void liberaListaIngredienti(IngredienteRicetta* ingrediente);
-NodoBST* nuovoNodoRicetta(Ricetta ricetta);
-NodoBST* minValueNodoRicetta(NodoBST* nodo);
-NodoBST* inserisciRicetta(NodoBST* nodo, Ricetta ricetta);
-NodoBST* cercaRicetta(NodoBST* nodo, char* nome);
-NodoBST* eliminaRicetta(NodoBST* root, char* nome);
+void ordineBST(NodoBST* root);
+void liberaListaIng(IngredienteRicetta* ingrediente);
+NodoBST* nuovoNodoBST(Ricetta ricetta);
+NodoBST* minValueBST(NodoBST* nodo);
+NodoBST* inserisciBST(NodoBST* nodo, Ricetta ricetta);
+NodoBST* cercaBST(NodoBST* nodo, char* nome);
+NodoBST* eliminaBST(NodoBST* root, char* nome);
 
 //Ordine da Fare - Coda FIFO
 typedef struct Ordine {
@@ -89,10 +89,10 @@ typedef struct {
 } CodaOrdini;
 
 void liberaCoda(CodaOrdini* coda);
-void aggiungiOrdine(CodaOrdini* coda, char* nome_ricetta, int quantita, int tempo_arrivo);
+void aggiungiCoda(CodaOrdini* coda, char* nome_ricetta, int quantita, int tempo_arrivo);
 int codaVuota(CodaOrdini* coda);
 CodaOrdini* creaCoda();
-Ordine* rimuoviOrdine(CodaOrdini* coda);
+Ordine* rimuoviCoda(CodaOrdini* coda);
 
 //Ordini fatti - minHeap
 typedef struct OrdineHeap {
@@ -137,6 +137,69 @@ int heapVuotoSpedizioni(MaxHeapSpedizioni* heap);
 MaxHeapSpedizioni creaMaxHeap(int capacita);
 Spedizione rimuoviMac(MaxHeapSpedizioni* heap);
 
+//Funzioni min-Heap Ingredienti
+void heapify(MinHeapIngrediente* heap, int i) {
+    int minore=i;
+    int sx= 2*i+1;
+    int dx= 2*i+2;
+    if(sx<heap->dimensione && heap->lotto[sx].scadenza< heap->lotto[minore].scadenza)
+        minore=sx;
+    if(dx<heap->dimensione && heap->lotto[dx].scadenza< heap->lotto[minore].scadenza)
+        minore=dx;
+    if(minore!=i) {
+        IngredienteMinHeap temp= heap->lotto[i];
+        heap->lotto[i]=heap->lotto[minore];
+        heap->lotto[minore]=temp;
+        heapify(heap, minore);
+        }
+}
+
+void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita) {
+    if(heap->dimensione==heap->capacita) {
+        heap->capacita *=2; //amplia per due lo spazio, potremmo provare sommando
+        heap->lotto =(IngredienteMinHeap*)realloc(heap->lotto, heap->capacita*sizeof(IngredienteMinHeap));
+        }
+    int i= heap->dimensione++;
+    heap->lotto[i].scadenza=scadenza;
+    heap->lotto[i].quantita=quantita;
+    while(i!=0 && heap->lotto[(i-1)/2].scadenza > heap->lotto[i].scadenza) {
+        IngredienteMinHeap temp= heap->lotto[i];
+        heap->lotto[i]= heap->lotto[(i-1)/2];
+        heap->lotto[(i-1)/2] = temp;
+        i=(i-1)/2;
+        }
+}
+
+void liberaLotto(MinHeapIngrediente* heap) {
+    free(heap->lotto);
+}
+
+IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
+    if(heap->dimensione <=0) {
+        IngredienteMinHeap LottoVuoto = {0,0};
+        return LottoVuoto;
+        }
+    IngredienteMinHeap root=heap->lotto[0];
+    if(heap->dimensione==1) {
+        heap->dimensione--;
+        return root;
+        }
+    heap->lotto[0]=heap->lotto[--heap->dimensione];
+    heapify(heap,0);
+    return root;
+}
+
+MinHeapIngrediente creaHeapIngredienti(int capacita) {
+    MinHeapIngrediente heap;
+    heap.lotto=(IngredienteMinHeap*)malloc(capacita*sizeof(IngredienteMinHeap));
+    heap.dimensione=0;
+    heap.capacita=capacita;
+    return heap;
+}
+
+//Funzioni AVL di min-Heap
+
+//Main - Gestione del giorno
 int main(void) {
     return 0;
 }
