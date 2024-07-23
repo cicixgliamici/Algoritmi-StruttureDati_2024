@@ -236,6 +236,7 @@ NodoAVL* ruotaDestra(NodoAVL *y) {
     y-> sinistro= z;
     y->altezza=max(altezza(y->sinistro), altezza((y->destro)))+1;
     x->altezza=max(altezza(y->sinistro), altezza((y->destro)))+1;
+    return x;
 }
 
 NodoAVL* ruotaSinistra(NodoAVL *x) {
@@ -245,6 +246,7 @@ NodoAVL* ruotaSinistra(NodoAVL *x) {
     x-> destro= z;
     x->altezza=max(altezza(x->sinistro), altezza((x->destro)))+1;
     y->altezza=max(altezza(y->sinistro), altezza((y->destro)))+1;
+    return y;
 }
 
 NodoAVL* minValueAVL(NodoAVL *nodo) {
