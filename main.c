@@ -35,7 +35,6 @@ typedef struct NodoAVL {
     int altezza;
 } NodoAVL;
 
-void ordineAVL(NodoAVL *root);
 void liberaAVL(NodoAVL *root);
 int bilancia(NodoAVL *nodo);
 int altezza(NodoAVL *nodo);
@@ -198,6 +197,18 @@ MinHeapIngrediente creaHeapIngredienti(int capacita) {
 }
 
 //Funzioni AVL di min-Heap
+void liberaAVL(NodoAVL *root){
+        if(root!= NULL) {
+        liberaAVL(root->sinistro);
+        liberaAVL(root->destro);
+        liberaMinHeap(&root->heap);
+        free(root);
+        }
+}
+
+int bilancia(NodoAVL *nodo){
+
+}
 
 //Main - Gestione del giorno
 int main(void) {
