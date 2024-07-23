@@ -201,5 +201,6 @@ MinHeapIngrediente creaHeapIngredienti(int capacita) {
 
 //Main - Gestione del giorno
 int main(void) {
+    int t=0; 
     return 0;
 }
