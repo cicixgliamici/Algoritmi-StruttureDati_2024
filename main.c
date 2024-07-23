@@ -1,15 +1,14 @@
-/* 5 Strutture dati:  Ingredienti - AVL con min-Heap
-*                     Ricette - BST con liste
+/* 5 Strutture dati:  Ingredienti - AVL di min-Heap
+*                     Ricette - BST di liste
 *                     Ordini da Fare - Coda FIFO
 *                     Ordini fatti - min-Heap
 *                     Camioncino - max-Heap
 */
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
-// Ingredienti - Heap
+// Ingredienti - Heap - ordino tutti i prodotti dello stesso tipo per scadenza(asc), così da rispettare la specifica 
 typedef struct IngredienteMinHeap {
     int scadenza;
     int quantita;
@@ -27,7 +26,7 @@ void liberaMinHeap(MinHeapIngrediente* heap);
 IngredienteMinHeap rimuoviIngredienteHeap(MinHeapIngrediente* heap);
 MinHeapIngrediente creaHeapIngredienti(int capacita);
 
-//Ingredienti - AVL
+//Ingredienti - AVL - ordino i lotti di ingredienti lessicograficamente(disc), per velocizzare aggiunta, eliminazione e ricerca
 typedef struct NodoAVL {
     char nome[256];
     MinHeapIngrediente heap;
