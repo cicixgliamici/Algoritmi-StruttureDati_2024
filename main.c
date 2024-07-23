@@ -20,7 +20,7 @@ typedef struct {
     int capacita;
 } MinHeapIngrediente;
 
-void heapify(MinHeapIngrediente* heap, int i);
+void heapifyIngredienti(MinHeapIngrediente* heap, int i);
 void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita);
 void liberaLotto(MinHeapIngrediente* heap);
 IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap);
@@ -96,7 +96,7 @@ Ordine* rimuoviCoda(CodaOrdini* coda);
 //Ordini fatti - minHeap
 typedef struct OrdineHeap {
     int tempo_arrivo;
-    char nome_ricetta[256];
+    char ricetta[256];
     int quantita;
 } OrdineHeap;
 
@@ -111,7 +111,7 @@ void scambiaOrdini(OrdineHeap* a, OrdineHeap* b);
 void heapifyOrdini(MinHeap* heap, int i);
 void inserisciOrdineHeap(MinHeap* heap, int tempo_arrivo, char* nome_ricetta, int quantita);
 int heapVuoto(MinHeap* heap);
-MinHeap creaMinHeap(int capacita);
+MinHeap* creaMinHeap(int capacita);
 OrdineHeap* rimuoviMin(MinHeap* heap);
 
 //Spedizione - maxHeap
@@ -125,19 +125,17 @@ typedef struct Spedizione {
 typedef struct {
     Spedizione* spedizioni;
     int dimensione;
-    int capacità;
+    int capacita;
 } MaxHeapSpedizioni;
 
 void heapifySpedizioni(MaxHeapSpedizioni* heap, int i);
 void inserisciSpedizione(MaxHeapSpedizioni* heap, char* nome, int istante_arrivo, int quantita, int peso);
-void stampaSpedizioni(MaxHeapSpedizioni* heap);
 void liberaMaxHeap(MaxHeapSpedizioni* heap);
-int heapVuotoSpedizioni(MaxHeapSpedizioni* heap);
 MaxHeapSpedizioni creaMaxHeap(int capacita);
-Spedizione rimuoviMac(MaxHeapSpedizioni* heap);
+Spedizione rimuoviMax(MaxHeapSpedizioni* heap);
 
 //Funzioni min-Heap - Ingredienti
-void heapify(MinHeapIngrediente* heap, int i) {
+void heapifyIngredienti(MinHeapIngrediente* heap, int i) {
     int minore=i;
     int sx= 2*i+1;
     int dx= 2*i+2;
@@ -149,7 +147,7 @@ void heapify(MinHeapIngrediente* heap, int i) {
         IngredienteMinHeap temp= heap->lotto[i];
         heap->lotto[i]=heap->lotto[minore];
         heap->lotto[minore]=temp;
-        heapify(heap, minore);
+        heapifyIngredienti(heap, minore);
     }
 }
 
@@ -184,7 +182,7 @@ IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
         return root;
     }
     heap->lotto[0]=heap->lotto[--heap->dimensione];
-    heapify(heap,0);
+    heapifyIngredienti(heap,0);
     return root;
 }
 
@@ -412,9 +410,184 @@ NodoBST* eliminaBST(NodoBST* root, char* nome) {
 }
 
 //Funzioni Coda FIFO - Ordini da Fare
+void liberaCoda(CodaOrdini* coda) {
+    Ordine* temp;
+    while(coda->testa!=NULL) {
+        temp=coda->testa;
+        coda->testa=coda->testa->next;
+        free(temp);
+    }
+    free(coda);
+}
+
+void aggiungiCoda(CodaOrdini* coda, char* nome_ricetta, int quantita, int tempo_arrivo) {
+    Ordine* nuovoOrdine=(Ordine*)malloc(sizeof(Ordine));
+    strcpy(nuovoOrdine->nome_ricetta, nome_ricetta);
+    nuovoOrdine->quantita=quantita;
+    nuovoOrdine->tempo_arrivo=tempo_arrivo;
+    nuovoOrdine->next=NULL;
+    if(coda->coda==NULL) {
+        coda->testa=nuovoOrdine;
+        coda->coda=nuovoOrdine;
+    }
+    else {
+        coda->coda->next=nuovoOrdine;
+        coda->coda=nuovoOrdine;
+    }
+}
+
+int codaVuota(CodaOrdini* coda) {
+    return coda->testa==NULL;
+}
+
+CodaOrdini* creaCoda() {
+    CodaOrdini* coda=(CodaOrdini*)malloc(sizeof(Ordine));
+    coda->testa=NULL;
+    coda->coda=NULL;
+    coda;
+}
+
+Ordine* rimuoviCoda(CodaOrdini* coda) {
+    if(coda->testa==NULL)
+        return NULL;
+    Ordine* ordineRimosso=coda->testa;
+    coda->testa=coda->testa->next;
+    if(coda->testa==NULL)
+        coda->coda=NULL;
+    return ordineRimosso;
+}
+
+//Funzioni minHeap - Ordini Fatti
+void liberaMinHeapOrdini(MinHeap* heap) {
+    free(heap->ordini);
+    free(heap);
+}
+
+void scambiaOrdini(OrdineHeap* a, OrdineHeap* b) {
+    OrdineHeap temp= *a;
+    *a=*b;
+    *b=temp;
+}
+
+void heapifyOrdini(MinHeap* heap, int i) {
+        int minore=i;
+        int sx= 2*i+1;
+        int dx= 2*i+2;
+        if(sx<heap->dimensione && heap->ordini[sx].tempo_arrivo< heap->ordini[minore].tempo_arrivo)
+            minore=sx;
+        if(dx<heap->dimensione && heap->ordini[dx].tempo_arrivo< heap->ordini[minore].tempo_arrivo)
+            minore=dx;
+        if(minore!=i) {
+            OrdineHeap temp = heap->ordini[i];
+            scambiaOrdini(&heap->ordini[i], &heap->ordini[minore]);
+            heapifyOrdini(heap, minore);
+        }
+}
+
+void inserisciOrdineHeap(MinHeap* heap, int tempo_arrivo, char* ricetta, int quantita) {
+    if(heap->dimensione==heap->capacita) {
+        heap->capacita*=2;
+        heap->ordini=(OrdineHeap*)realloc(heap->ordini, heap->capacita*sizeof(OrdineHeap));
+    }
+    int i=heap->dimensione++;
+    heap->ordini[i].tempo_arrivo=tempo_arrivo;
+    strcpy(heap->ordini[i].ricetta, ricetta);
+    heap->ordini[i].quantita=quantita;
+    while(i!=0 && heap->ordini[(i-1)/2].tempo_arrivo > heap->ordini[i].tempo_arrivo) {
+        scambiaOrdini(&heap->ordini[i], &heap->ordini[(i-1)/2]);
+        i=(i-1)/2;
+    }
+}
+
+int heapVuoto(MinHeap* heap) {
+    return heap->dimensione==0;
+}
+
+MinHeap* creaMinHeap(int capacita) {
+    MinHeap* heap=(MinHeap*)malloc(sizeof(MinHeap));
+    heap->ordini=(OrdineHeap*)malloc(capacita*sizeof(OrdineHeap));
+    heap->dimensione=0;
+    heap->capacita=capacita;
+    return heap;
+}
+
+OrdineHeap* rimuoviMin(MinHeap* heap) {
+    if (heap->dimensione <= 0)
+        return NULL;
+    OrdineHeap* root = &heap->ordini[0];
+    if (heap->dimensione == 1) {
+        heap->dimensione--;
+        return root;
+    }
+    heap->ordini[0] = heap->ordini[--heap->dimensione];
+    heapifyOrdini(heap, 0);
+    return root;
+}
+
+//Funzioni maxHeap - Camioncino Spedizioni
+void heapifySpedizioni(MaxHeapSpedizioni* heap, int i) {
+    int maggiore = i;
+    int sinistro = 2 * i + 1;
+    int destro = 2 * i + 2;
+    if (sinistro < heap->dimensione && heap->spedizioni[sinistro].peso > heap->spedizioni[maggiore].peso)
+        maggiore = sinistro;
+    if (destro < heap->dimensione && heap->spedizioni[destro].peso > heap->spedizioni[maggiore].peso)
+        maggiore = destro;
+    if (maggiore != i) {
+        Spedizione temp = heap->spedizioni[i];
+        heap->spedizioni[i] = heap->spedizioni[maggiore];
+        heap->spedizioni[maggiore] = temp;
+        heapifySpedizioni(heap, maggiore);
+    }
+}
+
+void inserisciSpedizione(MaxHeapSpedizioni* heap, char* nome, int istante_arrivo, int quantita, int peso) {
+    if (heap->dimensione == heap->capacita) {
+        heap->capacita *= 2;
+        heap->spedizioni = (Spedizione*) realloc(heap->spedizioni, heap->capacita * sizeof(Spedizione));
+    }
+    int i = heap->dimensione++;
+    strcpy(heap->spedizioni[i].nome, nome);
+    heap->spedizioni[i].istante_arrivo= istante_arrivo;
+    heap->spedizioni[i].quantita= quantita;
+    heap->spedizioni[i].peso= peso;
+    while (i!=0 && heap->spedizioni[(i-1)/2].peso < heap->spedizioni[i].peso) {
+        Spedizione temp=heap->spedizioni[i];
+        heap->spedizioni[i]=heap->spedizioni[(i - 1) / 2];
+        heap->spedizioni[(i-1)/2] = temp;
+        i=(i-1)/2;
+    }
+}
+
+void liberaMaxHeap(MaxHeapSpedizioni* heap) {
+    free(heap->spedizioni);
+}
+
+MaxHeapSpedizioni creaMaxHeap(int capacita) {
+    MaxHeapSpedizioni heap;
+    heap.spedizioni=(Spedizione*) malloc(capacita * sizeof(Spedizione));
+    heap.dimensione=0;
+    heap.capacita=capacita;
+    return heap;
+}
+
+Spedizione rimuoviMax(MaxHeapSpedizioni* heap) {
+    if (heap->dimensione <= 0) {
+        Spedizione nullSpedizione = {"", 0, 0, 0};
+        return nullSpedizione;
+    }
+    Spedizione root = heap->spedizioni[0];
+    if (heap->dimensione == 1) {
+        heap->dimensione--;
+        return root;
+    }
+    heap->spedizioni[0] = heap->spedizioni[--heap->dimensione];
+    heapifySpedizioni(heap, 0);
+    return root;
+}
 
 //Main - Gestione del giorno
-int main(void) {
+int main(void){
     int t=0; 
     return 0;
 }
