@@ -446,7 +446,7 @@ CodaOrdini* creaCoda() {
     CodaOrdini* coda=(CodaOrdini*)malloc(sizeof(Ordine));
     coda->testa=NULL;
     coda->coda=NULL;
-    coda;
+    return coda;
 }
 
 Ordine* rimuoviCoda(CodaOrdini* coda) {
