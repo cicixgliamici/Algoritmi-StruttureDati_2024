@@ -1,12 +1,11 @@
-/* 5 Strutture dati:  Ingredienti - AVL di min-Heap
-*                     Ricette - BST di liste
-*                     Ordini da Fare - Coda FIFO
-*                     Ordini fatti - min-Heap
-*                     Camioncino - max-Heap
+/* 5 Strutture dati:  Ingredienti:      AVL di min-Heap
+*                     Ricette:          BST di liste
+*                     Ordini da Fare:   Coda FIFO
+*                     Ordini fatti:     min-Heap
+*                     Camioncino:       max-Heap
 */
 #ifndef HEADER_H
 #define HEADER_H
-
 #include <stdio.h>
 
 // Ingredienti - Heap - ordino tutti i prodotti dello stesso tipo per scadenza(asc), così da rispettare la specifica

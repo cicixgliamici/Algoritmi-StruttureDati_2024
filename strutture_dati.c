@@ -262,7 +262,6 @@ NodoBST* eliminaBST(NodoBST* root, char* nome) {
             free(root);
             return temp;
         }
-
         NodoBST* temp = minValueBST(root->destro);
         root->ricetta = temp->ricetta;
         root->destro = eliminaBST(root->destro, temp->ricetta.nome);
