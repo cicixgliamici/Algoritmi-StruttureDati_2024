@@ -5,13 +5,6 @@
 #include <stdbool.h>
 
 //Funzioni di stampa
-void stampaHeap(MinHeapIngrediente* heap) {
-    printf("Stato attuale dell'heap (dimensione %d):\n", heap->dimensione);
-    for (int i = 0; i < heap->dimensione; i++) {
-        printf("Indice %d - Scadenza: %d, Quantita: %d\n", i, heap->lotto[i].scadenza, heap->lotto[i].quantita);
-    }
-}
-
 void testHeapOrder(MinHeapIngrediente* heap) {
     if (verificaMinHeap(heap)) {
         printf("L'heap e un min-heap valido.\n");
