@@ -123,6 +123,22 @@ void testMaxHeapSpedizioni() {
     liberaMaxHeap(&heap);
 }
 
+void testGestisciComandi() {
+    const char *input = "aggiungi_ricetta Pasta Pomodoro 2\n"
+                        "rimuovi_ricetta Pasta\n"
+                        "rifornimento Pomodoro 100 10\n"
+                        "ordine Pizza 5\n";
+    FILE *inputFile = fopen("test_input.txt", "w");
+    fprintf(inputFile, "%s", input);
+    fclose(inputFile);
+    freopen("test_input.txt", "r", stdin);
+    printf("Eseguo gestisciComandi:\n");
+    gestisciComandi(10, 50);
+    freopen("/dev/tty", "w", stdout); // Ripristina stdout
+    freopen("/dev/tty", "r", stdin);  // Ripristina stdin
+    remove("test_input.txt");
+}
+
 void testGenerale() {
     printf("Test MinHeapIngrediente:\n");
     testMinHeapIngrediente();
@@ -136,4 +152,6 @@ void testGenerale() {
     testMinHeapOrdini();
     printf("\nTest MaxHeapSpedizioni:\n");
     testMaxHeapSpedizioni();
+    printf("\nTest GestisciComandi:\n");
+    testGestisciComandi();
 }

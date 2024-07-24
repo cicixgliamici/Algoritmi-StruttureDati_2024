@@ -148,6 +148,12 @@ void testGenerale();                                                            
 int max(int a, int b);
 
 //Funzioni per l'Algoritmo
+void gestisciComandi(const int tempo_camioncino, const int capienza_camioncino);                              //Leggi comando con strcmp
+void aggiungi_ricetta(const char* nome_ricetta, const char* nome_ingrediente, int quantita);                  //
+void rimuovi_ricetta(const char* nome_ricetta);                                                               //
+void rifornimento(const char* nome_ingrediente, int quantita, int scadenza);                                  //
+void ordine(const char* nome_ricetta, int numero_elementi_ordinati);                                          //
 
+void testGestisciComandi();
 
 #endif //HEADER_H
