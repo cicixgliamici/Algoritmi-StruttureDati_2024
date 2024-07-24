@@ -3,64 +3,73 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <limits.h>
 
 //Funzioni min-Heap - Ingredienti
+void scambia(IngredienteMinHeap* a, IngredienteMinHeap* b) {
+    IngredienteMinHeap temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
 void heapifyIngredienti(MinHeapIngrediente* heap, int i) {
-    int minore=i;
-    int sx= 2*i+1;
-    int dx= 2*i+2;
-    if(sx<heap->dimensione && heap->lotto[sx].scadenza< heap->lotto[minore].scadenza)
-        minore=sx;
-    if(dx<heap->dimensione && heap->lotto[dx].scadenza< heap->lotto[minore].scadenza)
-        minore=dx;
-    if(minore!=i) {
-        IngredienteMinHeap temp= heap->lotto[i];
-        heap->lotto[i]=heap->lotto[minore];
-        heap->lotto[minore]=temp;
-        heapifyIngredienti(heap, minore);
+    int piuPiccolo = i;
+    int sinistra = 2 * i + 1;
+    int destra = 2 * i + 2;
+    if (sinistra < heap->dimensione && heap->lotto[sinistra].scadenza < heap->lotto[piuPiccolo].scadenza) {
+        piuPiccolo = sinistra;
+    }
+    if (destra < heap->dimensione && heap->lotto[destra].scadenza < heap->lotto[piuPiccolo].scadenza) {
+        piuPiccolo = destra;
+    }
+    if (piuPiccolo != i) {
+        scambia(&heap->lotto[i], &heap->lotto[piuPiccolo]);
+        heapifyIngredienti(heap, piuPiccolo);
     }
 }
 
 void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita) {
-    if(heap->dimensione==heap->capacita) {
-        heap->capacita *=2; //amplia per due lo spazio, potremmo provare sommando
-        heap->lotto =(IngredienteMinHeap*)realloc(heap->lotto, heap->capacita*sizeof(IngredienteMinHeap));
+    if (heap->dimensione == heap->capacita) {
+        heap->capacita *= 2;
+        heap->lotto = (IngredienteMinHeap*) realloc(heap->lotto, heap->capacita * sizeof(IngredienteMinHeap));
     }
-    int i= heap->dimensione++;
-    heap->lotto[i].scadenza=scadenza;
-    heap->lotto[i].quantita=quantita;
-    while(i!=0 && heap->lotto[(i-1)/2].scadenza > heap->lotto[i].scadenza) {
-        IngredienteMinHeap temp= heap->lotto[i];
-        heap->lotto[i]= heap->lotto[(i-1)/2];
-        heap->lotto[(i-1)/2] = temp;
-        i=(i-1)/2;
+    int i = heap->dimensione++;
+    heap->lotto[i].scadenza = scadenza;
+    heap->lotto[i].quantita = quantita;
+    while (i != 0 && heap->lotto[(i - 1) / 2].scadenza > heap->lotto[i].scadenza) {
+        scambia(&heap->lotto[i], &heap->lotto[(i - 1) / 2]);
+        i = (i - 1) / 2;
     }
+}
+
+IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
+    if (heap->dimensione == 0) {
+        printf("Errore: Il heap è vuoto\n");
+        IngredienteMinHeap ingredienteVuoto = { INT_MAX, 0 };
+        return ingredienteVuoto;
+    }
+    IngredienteMinHeap radice = heap->lotto[0];
+    heap->lotto[0] = heap->lotto[--heap->dimensione];
+    printf("Rimosso ingrediente con scadenza %d e quantita %d\n", radice.scadenza, radice.quantita);
+    printf("Stato dell'heap prima di heapify dopo rimozione:\n");
+    stampaHeap(heap);
+    heapifyIngredienti(heap, 0);
+    printf("Stato dell'heap dopo heapify:\n");
+    stampaHeap(heap);
+
+    return radice;
 }
 
 void liberaLotto(MinHeapIngrediente* heap) {
     free(heap->lotto);
-}
-
-IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
-    if(heap->dimensione <=0) {
-        IngredienteMinHeap LottoVuoto = {0,0};
-        return LottoVuoto;
-    }
-    IngredienteMinHeap root=heap->lotto[0];
-    if(heap->dimensione==1) {
-        heap->dimensione--;
-        return root;
-    }
-    heap->lotto[0]=heap->lotto[--heap->dimensione];
-    heapifyIngredienti(heap,0);
-    return root;
+    free(heap);
 }
 
 MinHeapIngrediente nuovoHeapIngredienti(int capacita) {
     MinHeapIngrediente heap;
-    heap.lotto=(IngredienteMinHeap*)malloc(capacita*sizeof(IngredienteMinHeap));
-    heap.dimensione=0;
-    heap.capacita=capacita;
+    heap.lotto = (IngredienteMinHeap*) malloc(capacita * sizeof(IngredienteMinHeap));
+    heap.dimensione = 0;
+    heap.capacita = capacita;
     return heap;
 }
 
@@ -90,10 +99,13 @@ NodoAVL* nuovoAVL(char* nome, int capacita) {
     NodoAVL* nodo = (NodoAVL*)malloc(sizeof(NodoAVL));
     strcpy(nodo->nome, nome);
     nodo->heap = nuovoHeapIngredienti(capacita);
-    nodo->sinistro=nodo->destro=NULL;
-    nodo->altezza=1;
+    nodo->sinistro = NULL;
+    nodo->destro = NULL;
+    nodo->altezza = 1;
+    printf("Nuovo nodo AVL creato con successo: %s con heap di capacita %d.\n", nome, capacita);
     return nodo;
 }
+
 
 NodoAVL* ruotaDestra(NodoAVL *y) {
     NodoAVL *x= y->sinistro;
@@ -175,31 +187,38 @@ NodoAVL* cercaAVL(NodoAVL* nodo, const char* nome) {
 }
 
 NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int capacita) {
-        if (nodo == NULL)
-            return nuovoAVL(nome, capacita);
-        if (strcmp(nome, nodo->nome) < 0)
-            nodo->sinistro=inserisciAVL(nodo->sinistro, nome, scadenza, quantita, capacita);
-        else if (strcmp(nome, nodo->nome) > 0)
-            nodo->destro=inserisciAVL(nodo->destro, nome, scadenza, quantita, capacita);
-        else {
-            inserisciIngrediente(&nodo->heap, scadenza, quantita);
-            return nodo;
-        }
-        nodo->altezza = 1 + max(altezza(nodo->sinistro), altezza(nodo->destro));
-        int bilancio= valBilancia(nodo);
-        if (bilancio> 1 && strcmp(nome, nodo->sinistro->nome) < 0)
-            return ruotaDestra(nodo);
-        if (bilancio< -1 && strcmp(nome, nodo->destro->nome) > 0)
-            return ruotaSinistra(nodo);
-        if (bilancio> 1 && strcmp(nome, nodo->sinistro->nome) > 0) {
-            nodo->sinistro=ruotaSinistra(nodo->sinistro);
-            return ruotaDestra(nodo);
-        }
-        if (bilancio< -1 && strcmp(nome, nodo->destro->nome) < 0) {
-            nodo->destro=ruotaDestra(nodo->destro);
-            return ruotaSinistra(nodo);
-        }
-        return nodo;
+    if (nodo == NULL) {
+        printf("Inserisco nuovo nodo: %s\n", nome);
+        NodoAVL* nuovo = nuovoAVL(nome, capacita);
+        inserisciIngrediente(&nuovo->heap, scadenza, quantita);
+        return nuovo;
+    }
+    if (strcmp(nome, nodo->nome) < 0) {
+        nodo->sinistro = inserisciAVL(nodo->sinistro, nome, scadenza, quantita, capacita);
+    } else if (strcmp(nome, nodo->nome) > 0) {
+        nodo->destro = inserisciAVL(nodo->destro, nome, scadenza, quantita, capacita);
+    } else {
+        inserisciIngrediente(&nodo->heap, scadenza, quantita);
+    }
+    nodo->altezza = 1 + max(altezza(nodo->sinistro), altezza(nodo->destro));
+    return bilanciaAVL(nodo);
+}
+
+NodoAVL* bilanciaAVL(NodoAVL* nodo) {
+    int bilancio = valBilancia(nodo);
+    if (bilancio > 1 && valBilancia(nodo->sinistro) >= 0)
+        return ruotaDestra(nodo);
+    if (bilancio > 1 && valBilancia(nodo->sinistro) < 0) {
+        nodo->sinistro = ruotaSinistra(nodo->sinistro);
+        return ruotaDestra(nodo);
+    }
+    if (bilancio < -1 && valBilancia(nodo->destro) <= 0)
+        return ruotaSinistra(nodo);
+    if (bilancio < -1 && valBilancia(nodo->destro) > 0) {
+        nodo->destro = ruotaDestra(nodo->destro);
+        return ruotaSinistra(nodo);
+    }
+    return nodo;
 }
 
 //Funzioni BST - Ricette

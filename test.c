@@ -2,24 +2,63 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdbool.h>
+
+//Funzioni di stampa
+void stampaHeap(MinHeapIngrediente* heap) {
+    printf("Stato attuale dell'heap (dimensione %d):\n", heap->dimensione);
+    for (int i = 0; i < heap->dimensione; i++) {
+        printf("Indice %d - Scadenza: %d, Quantita: %d\n", i, heap->lotto[i].scadenza, heap->lotto[i].quantita);
+    }
+}
+
+void testHeapOrder(MinHeapIngrediente* heap) {
+    if (verificaMinHeap(heap)) {
+        printf("L'heap e un min-heap valido.\n");
+    } else {
+        printf("L'heap non e un min-heap valido.\n");
+    }
+    for (int i = 0; i < heap->dimensione; i++) {
+        printf("Scadenza: %d, Quantita: %d\n", heap->lotto[i].scadenza, heap->lotto[i].quantita);
+    }
+}
+
+void stampaAVL(NodoAVL* nodo) {
+    if (nodo != NULL) {
+        stampaAVL(nodo->sinistro);
+        printf("Ingrediente: %s\n", nodo->nome);
+        stampaHeap(&nodo->heap);
+        stampaAVL(nodo->destro);
+    }
+}
 
 //Funzioni di Test
 void testMinHeapIngrediente() {
-    MinHeapIngrediente heap = nuovoHeapIngredienti(10);
-    inserisciIngrediente(&heap, 5, 10);
-    inserisciIngrediente(&heap, 3, 20);
-    inserisciIngrediente(&heap, 8, 15);
+    MinHeapIngrediente heap = nuovoHeapIngredienti(2);
+    inserisciIngrediente(&heap, 100, 10);
+    inserisciIngrediente(&heap, 99, 11);
+    inserisciIngrediente(&heap, 4, 12);
     printf("Stato MinHeapIngrediente dopo inserimenti:\n");
-    for (int i = 0; i < heap.dimensione; i++) {
-        printf("Ingrediente %d: scadenza = %d, quantita = %d\n", i, heap.lotto[i].scadenza, heap.lotto[i].quantita);
-    }
-    IngredienteMinHeap ing = rimuoviIngrediente(&heap);
-    printf("Rimosso ingrediente: scadenza = %d, quantita = %d\n", ing.scadenza, ing.quantita);
+    stampaHeap(&heap);
+    IngredienteMinHeap rimosso = rimuoviIngrediente(&heap);
+    printf("Rimosso ingrediente: scadenza = %d, quantita = %d\n", rimosso.scadenza, rimosso.quantita);
     printf("Stato MinHeapIngrediente dopo rimozione:\n");
-    for (int i = 0; i < heap.dimensione; i++) {
-        printf("Ingrediente %d: scadenza = %d, quantita = %d\n", i, heap.lotto[i].scadenza, heap.lotto[i].quantita);
-    }
+    stampaHeap(&heap);
     liberaLotto(&heap);
+}
+
+bool verificaMinHeap(MinHeapIngrediente* heap) {
+    for (int i = 0; i <= (heap->dimensione - 2) / 2; i++) {
+        // Verifica se il nodo genitore è maggiore del figlio sinistro
+        if (heap->lotto[i].scadenza > heap->lotto[2 * i + 1].scadenza) {
+            return false;
+        }
+        // Verifica se il nodo genitore è maggiore del figlio destro (se esiste)
+        if (2 * i + 2 < heap->dimensione && heap->lotto[i].scadenza > heap->lotto[2 * i + 2].scadenza) {
+            return false;
+        }
+    }
+    return true;
 }
 
 void testNodoAVL() {
@@ -29,16 +68,10 @@ void testNodoAVL() {
     avl = inserisciAVL(avl, "Carota", 8, 15, 10);
     avl = inserisciAVL(avl, "Zucchina", 2, 5, 10);
     printf("Stato AVL dopo inserimenti:\n");
-    printf("Root: %s, Altezza: %d\n", avl->nome, avl->altezza);
-    NodoAVL* nodo = avl;
-    while (nodo != NULL) {
-        printf("%s: altezza = %d\n", nodo->nome, nodo->altezza);
-        nodo = nodo->sinistro;  // esplora i nodi a sinistra
-    }
+    stampaAVL(avl);
     avl = eliminaAVL(avl, "Pomodoro");
     printf("Stato AVL dopo eliminazione di Pomodoro:\n");
-    if (avl != NULL)
-        printf("Root: %s, Altezza: %d\n", avl->nome, avl->altezza);
+    stampaAVL(avl);
     liberaAVL(avl);
 }
 

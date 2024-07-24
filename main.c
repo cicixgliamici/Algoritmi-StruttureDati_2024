@@ -1,6 +1,6 @@
 /* 4 Comandi:    aggiungi_ordine:   controllo se è presente, se no aggiungo a BST
 *                rimuovi_ordine:    controllo se è presente sia nel ricettario(BST) che negli ordini(sia Coda che maxHeap e minHeap)
-*                rimuovi:
+*                rifornimento:      nessun tipo di controllo
 *                ordine:
 */
 #include "header.h"
@@ -21,15 +21,9 @@ int max(int a, int b) {
 }
 
 // Funzioni Algoritmo
-
-//Leggo le righe (e le salvo) con fgets e le analizzo con sscanf
 void gestisciComandi(FILE *file) {
-    printf("\nLettura comandi\n");
     int tempoCamion, capienzaCamion;
-    if (fscanf(file, "%d %d", &tempoCamion, &capienzaCamion) != 2) {
-        fprintf(stderr, "Errore nella lettura di tempoCamion e capienzaCamion\n");
-        return;
-    }
+    fscanf(file, "%d %d", &tempoCamion, &capienzaCamion);
     printf("tempoCamion: %d, capienzaCamion: %d\n", tempoCamion, capienzaCamion);
     max_heap_spedizioni = creaMaxHeap(capienzaCamion);
     coda_ordini = creaCoda();
@@ -78,7 +72,8 @@ void gestisciComandi(FILE *file) {
                     rimuovi_ricetta(nome_ricetta);
                 }
             } else if (strcmp(command, "rifornimento") == 0) {
-                // Implementa il codice per rifornimento
+                rifornimento(line + strlen(command) + 1);
+                testHeapOrder(&avl->heap); // Chiama il test dell'ordine dell'heap senza rimuovere elementi
             } else if (strcmp(command, "ordine") == 0) {
                 // Implementa il codice per ordine
             }
@@ -87,13 +82,11 @@ void gestisciComandi(FILE *file) {
 }
 
 void aggiungi_ricetta(Ricetta nuova_ricetta) {
-    printf("DEBUG: Aggiungo ricetta: %s\n", nuova_ricetta.nome);
     bst = inserisciBST(bst, nuova_ricetta);
     printf("aggiunto\n");
 }
 
 void rimuovi_ricetta(const char* nome_ricetta) {
-    printf("DEBUG: Rimuovo ricetta: %s\n", nome_ricetta);
     Ordine* ordine_corrente = coda_ordini->testa;
     while (ordine_corrente != NULL) {                                                   //Controllo nella coda degli ordini da fare
         if (strcmp(ordine_corrente->nome_ricetta, nome_ricetta) == 0) {
@@ -122,13 +115,21 @@ void rimuovi_ricetta(const char* nome_ricetta) {
     }
 }
 
-void rifornimento(const char* nome_ingrediente, int quantita, int scadenza) {
-    NodoAVL* nodo = cercaAVL(avl, nome_ingrediente);
-    if (nodo != NULL) {
-        inserisciIngrediente(&nodo->heap, scadenza, quantita);
-    } else {
-        avl = inserisciAVL(avl, nome_ingrediente, scadenza, quantita, 10);
+void rifornimento(const char* comando) {
+    char nome_ingrediente[256];
+    int quantita, scadenza;
+    const char *ptr = comando;
+    while (sscanf(ptr, "%s %d %d", nome_ingrediente, &quantita, &scadenza) == 3) {
+        NodoAVL* nodo = cercaAVL(avl, nome_ingrediente);
+        if (nodo != NULL) {
+            inserisciIngrediente(&nodo->heap, scadenza, quantita);
+        } else {
+            avl = inserisciAVL(avl, nome_ingrediente, scadenza, quantita, 10);
+        }
+        ptr += strlen(nome_ingrediente) + 1 + snprintf(NULL, 0, "%d", quantita) + 1 + snprintf(NULL, 0, "%d", scadenza) + 1;
     }
+    printf("rifornito\n");
+    stampaAVL(avl);
 }
 
 void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
@@ -137,12 +138,7 @@ void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
 
 // Main - Gestione del giorno
 int main(void) {
-    printf("Inizio main\n");
     FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/input.txt", "r");
-    if (file == NULL) {
-        fprintf(stderr, "Errore nell'apertura del file input.txt\n");
-        return 1;
-    }
     gestisciComandi(file);
     fclose(file);
     return 0;

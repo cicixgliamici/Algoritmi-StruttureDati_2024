@@ -1,6 +1,4 @@
 40 30
-aggiungi_ricetta Pasta Pomodoro 2
-aggiungi_ricetta Pasta Filo 2           # Non va a buon fine
-aggiungi_ricetta PastaA Cazzo 3
-rimuovi_ricetta Pasta                   # Rimozione che va a buon fine
-rimuovi_ricetta PastaB                  # Rimozione che non va a buon fine, ricetta non presente
+rifornimento Pane 10 100
+rifornimento Pane 11 99
+rifornimento Pane 12 4

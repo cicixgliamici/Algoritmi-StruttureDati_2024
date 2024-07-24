@@ -7,12 +7,13 @@
 #ifndef HEADER_H
 #define HEADER_H
 #include <stdio.h>
+#include <stdbool.h>
 
 // Ingredienti - Heap - ordino tutti i prodotti dello stesso tipo per scadenza(asc), così da rispettare la specifica
 typedef struct IngredienteMinHeap {
     int scadenza;
     int quantita;
-}  IngredienteMinHeap;
+} IngredienteMinHeap;
 
 typedef struct {
     IngredienteMinHeap* lotto;
@@ -20,6 +21,7 @@ typedef struct {
     int capacita;
 } MinHeapIngrediente;
 
+void scambia(IngredienteMinHeap* a, IngredienteMinHeap* b);                             //Scambia due elementi
 void heapifyIngredienti(MinHeapIngrediente* heap, int i);                               //Riordina gli elementi
 void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita);        //Inserisce un ingrediente
 void liberaLotto(MinHeapIngrediente* heap);                                             //Libera la memoria
@@ -27,6 +29,9 @@ IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap);                
 MinHeapIngrediente nuovoHeapIngredienti(int capacita);                                  //Inizializza un nuovo heap (e restituisce il suo puntatore)
 
 void testMinHeapIngrediente();
+void stampaHeap(MinHeapIngrediente* heap);
+void testHeapOrder(MinHeapIngrediente* heap);
+bool verificaMinHeap(MinHeapIngrediente* heap);
 
 //Ingredienti - AVL - ordino i lotti di ingredienti lessicograficamente(disc), per velocizzare aggiunta, eliminazione e ricerca
 typedef struct NodoAVL {
@@ -46,9 +51,11 @@ NodoAVL* ruotaSinistra(NodoAVL *x);                                             
 NodoAVL* minValueAVL(NodoAVL *nodo);                                                            //Trova e ritorna il nodo con il valore minimo in un AVL (puntatore)
 NodoAVL* eliminaAVL(NodoAVL* root, char *nome);                                                 //Elimina un nodo
 NodoAVL* cercaAVL(NodoAVL* nodo, const char* nome);                                             //Cerca un nodo
-NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int capacita);     //Inserisce un nodo
+NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int capacita);     //Inserisce un nodo (da bilanciare)
+NodoAVL* bilanciaAVL(NodoAVL *nodo);                                                            //Bilancia il nodo inserito
 
 void testNodoAVL();
+void stampaAVL(NodoAVL* nodo);
 
 //Ricette - Lista
 typedef struct IngredienteRicetta {
@@ -152,7 +159,7 @@ int max(int a, int b);
 void gestisciComandi(FILE *file);                                                                             //Leggi comando con strcmp
 void aggiungi_ricetta(Ricetta nuova_ricetta);                                                                 //
 void rimuovi_ricetta(const char* nome_ricetta);                                                               //
-void rifornimento(const char* nome_ingrediente, int quantita, int scadenza);                                  //
+void rifornimento(const char* comando);                                                                       //
 void ordine(const char* nome_ricetta, int numero_elementi_ordinati);                                          //
 
 void testGestisciComandi();
@@ -165,6 +172,5 @@ extern NodoAVL* avl;
 extern CodaOrdini* coda_ordini;
 extern MinHeap* heap_ordini_fatti;
 extern MaxHeapSpedizioni* max_heap_spedizioni;
-
 
 #endif //HEADER_H
