@@ -24,7 +24,6 @@ int max(int a, int b) {
 void gestisciComandi(FILE *file) {
     int tempoCamion, capienzaCamion;
     fscanf(file, "%d %d", &tempoCamion, &capienzaCamion);
-    printf("tempoCamion: %d, capienzaCamion: %d\n", tempoCamion, capienzaCamion);
     max_heap_spedizioni = creaMaxHeap(capienzaCamion);
     coda_ordini = creaCoda();
     heap_ordini_fatti = creaMinHeap(10);
@@ -32,12 +31,9 @@ void gestisciComandi(FILE *file) {
     while (fgets(line, sizeof(line), file)) {
         char command[256];
         if (sscanf(line, "%s", command) == 1) {
-            printf("Comando: %s\n", command);
             if (strcmp(command, "aggiungi_ricetta") == 0) {
                 char nome_ricetta[256];
                 if (sscanf(line + strlen(command), "%s", nome_ricetta) == 1) {
-                    printf("Nome ricetta: %s\n", nome_ricetta);
-                    // Check if recipe exists in BST
                     if (cercaBST(bst, nome_ricetta) != NULL) {
                         printf("ignorato\n");
                     } else {
@@ -50,7 +46,6 @@ void gestisciComandi(FILE *file) {
                         int quantita;
                         char *ptr = line + strlen(command) + strlen(nome_ricetta) + 1;
                         while (sscanf(ptr, "%s %d", ingrediente, &quantita) == 2) {
-                            printf("Ingrediente: %s, Quantita: %d\n", ingrediente, quantita);
                             IngredienteRicetta *nuovo_ingrediente = (IngredienteRicetta*)malloc(sizeof(IngredienteRicetta));
                             strcpy(nuovo_ingrediente->nome, ingrediente);
                             nuovo_ingrediente->quantita = quantita;
@@ -73,7 +68,6 @@ void gestisciComandi(FILE *file) {
                 }
             } else if (strcmp(command, "rifornimento") == 0) {
                 rifornimento(line + strlen(command) + 1);
-                testHeapOrder(&avl->heap); // Chiama il test dell'ordine dell'heap senza rimuovere elementi
             } else if (strcmp(command, "ordine") == 0) {
                 // Implementa il codice per ordine
             }
@@ -129,7 +123,6 @@ void rifornimento(const char* comando) {
         ptr += strlen(nome_ingrediente) + 1 + snprintf(NULL, 0, "%d", quantita) + 1 + snprintf(NULL, 0, "%d", scadenza) + 1;
     }
     printf("rifornito\n");
-    stampaAVL(avl);
 }
 
 void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
@@ -138,7 +131,7 @@ void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
 
 // Main - Gestione del giorno
 int main(void) {
-    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/input.txt", "r");
+    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open1.txt", "r");
     gestisciComandi(file);
     fclose(file);
     return 0;

@@ -44,19 +44,12 @@ void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita) 
 
 IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
     if (heap->dimensione == 0) {
-        printf("Errore: Il heap è vuoto\n");
         IngredienteMinHeap ingredienteVuoto = { INT_MAX, 0 };
         return ingredienteVuoto;
     }
     IngredienteMinHeap radice = heap->lotto[0];
     heap->lotto[0] = heap->lotto[--heap->dimensione];
-    printf("Rimosso ingrediente con scadenza %d e quantita %d\n", radice.scadenza, radice.quantita);
-    printf("Stato dell'heap prima di heapify dopo rimozione:\n");
-    stampaHeap(heap);
     heapifyIngredienti(heap, 0);
-    printf("Stato dell'heap dopo heapify:\n");
-    stampaHeap(heap);
-
     return radice;
 }
 
@@ -102,7 +95,6 @@ NodoAVL* nuovoAVL(char* nome, int capacita) {
     nodo->sinistro = NULL;
     nodo->destro = NULL;
     nodo->altezza = 1;
-    printf("Nuovo nodo AVL creato con successo: %s con heap di capacita %d.\n", nome, capacita);
     return nodo;
 }
 
@@ -188,7 +180,6 @@ NodoAVL* cercaAVL(NodoAVL* nodo, const char* nome) {
 
 NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int capacita) {
     if (nodo == NULL) {
-        printf("Inserisco nuovo nodo: %s\n", nome);
         NodoAVL* nuovo = nuovoAVL(nome, capacita);
         inserisciIngrediente(&nuovo->heap, scadenza, quantita);
         return nuovo;
