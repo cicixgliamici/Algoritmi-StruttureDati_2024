@@ -20,7 +20,6 @@ void stampaAVL(NodoAVL* nodo) {
     if (nodo != NULL) {
         stampaAVL(nodo->sinistro);
         printf("Ingrediente: %s\n", nodo->nome);
-        stampaHeap(&nodo->heap);
         stampaAVL(nodo->destro);
     }
 }
@@ -32,11 +31,9 @@ void testMinHeapIngrediente() {
     inserisciIngrediente(&heap, 99, 11);
     inserisciIngrediente(&heap, 4, 12);
     printf("Stato MinHeapIngrediente dopo inserimenti:\n");
-    stampaHeap(&heap);
     IngredienteMinHeap rimosso = rimuoviIngrediente(&heap);
     printf("Rimosso ingrediente: scadenza = %d, quantita = %d\n", rimosso.scadenza, rimosso.quantita);
     printf("Stato MinHeapIngrediente dopo rimozione:\n");
-    stampaHeap(&heap);
     liberaLotto(&heap);
 }
 

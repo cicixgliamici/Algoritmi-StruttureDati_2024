@@ -160,6 +160,9 @@ void aggiungi_ricetta(Ricetta nuova_ricetta);                                   
 void rimuovi_ricetta(const char* nome_ricetta);                                                               //Controlla se esiste o se è in ordinazione, se no rimuovi
 void rifornimento(const char* comando);                                                                       //Nessun controllo
 void ordine(const char* nome_ricetta, int numero_elementi_ordinati);                                          //Controlla esistenza in ricettario, se si aggiungi a Coda e poi prova a fare
+bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati);
+void preparazione(const char* nome_ricetta, int numero_elementi_ordinati);
+void caricaCamion();
 
 void testGestisciComandi();          
 void testAggiungiRicetta();

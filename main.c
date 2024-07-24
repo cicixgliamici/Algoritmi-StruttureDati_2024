@@ -1,8 +1,3 @@
-/* 4 Comandi:    aggiungi_ordine:   controllo se è presente, se no aggiungo a BST
-*                rimuovi_ordine:    controllo se è presente sia nel ricettario(BST) che negli ordini(sia Coda che maxHeap e minHeap)
-*                rifornimento:      nessun tipo di controllo
-*                ordine:
-*/
 #include "header.h"
 #include <stdio.h>
 #include <string.h>
@@ -14,6 +9,7 @@ NodoAVL* avl = NULL;
 CodaOrdini* coda_ordini = NULL;
 MinHeap* heap_ordini_fatti = NULL;
 MaxHeapSpedizioni* max_heap_spedizioni = NULL;
+int tempoCorrente = 0;
 
 // Funzioni generiche
 int max(int a, int b) {
@@ -31,6 +27,9 @@ void gestisciComandi(FILE *file) {
     while (fgets(line, sizeof(line), file)) {
         char command[256];
         if (sscanf(line, "%s", command) == 1) {
+            if (tempoCorrente % tempoCamion == 0) {
+                caricaCamion();
+            }
             if (strcmp(command, "aggiungi_ricetta") == 0) {
                 char nome_ricetta[256];
                 if (sscanf(line + strlen(command), "%s", nome_ricetta) == 1) {
@@ -69,9 +68,14 @@ void gestisciComandi(FILE *file) {
             } else if (strcmp(command, "rifornimento") == 0) {
                 rifornimento(line + strlen(command) + 1);
             } else if (strcmp(command, "ordine") == 0) {
-                // Implementa il codice per ordine
+                char nome_ricetta[256];
+                int quantita;
+                if (sscanf(line + strlen(command), "%s %d", nome_ricetta, &quantita) == 2) {
+                    ordine(nome_ricetta, quantita);
+                }
             }
         }
+        tempoCorrente++;
     }
 }
 
@@ -126,7 +130,77 @@ void rifornimento(const char* comando) {
 }
 
 void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
-    // Implementa il codice per processare un ordine
+    NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
+    if (nodo_ricetta == NULL) {
+        printf("rifiutato\n");
+        return;
+    }
+
+    // Aggiungi l'ordine alla coda
+    aggiungiCoda(coda_ordini, (char*)nome_ricetta, numero_elementi_ordinati, 0);
+
+    // Verifica la fattibilità dell'ordine
+    if (fattibilita(nome_ricetta, numero_elementi_ordinati)) {
+        preparazione(nome_ricetta, numero_elementi_ordinati);
+        printf("accettato\n");
+    } else {
+        printf("ordine non fattibile\n");
+    }
+}
+
+bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
+    NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
+    if (nodo_ricetta == NULL) {
+        return false;
+    }
+
+    IngredienteRicetta* ing = nodo_ricetta->ricetta.ingredienti;
+    while (ing != NULL) {
+        NodoAVL* nodo_ingrediente = cercaAVL(avl, ing->nome);
+        if (nodo_ingrediente == NULL) {
+            return false;
+        }
+
+        int quantita_totale = 0;
+        for (int i = 0; i < nodo_ingrediente->heap.dimensione; i++) {
+            quantita_totale += nodo_ingrediente->heap.lotto[i].quantita;
+        }
+
+        if (quantita_totale < ing->quantita * numero_elementi_ordinati) {
+            return false;
+        }
+        ing = ing->next;
+    }
+
+    return true;
+}
+
+void preparazione(const char* nome_ricetta, int numero_elementi_ordinati) {
+    NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
+    if (nodo_ricetta == NULL) {
+        return;
+    }
+
+    IngredienteRicetta* ing = nodo_ricetta->ricetta.ingredienti;
+    while (ing != NULL) {
+        NodoAVL* nodo_ingrediente = cercaAVL(avl, ing->nome);
+        int quantita_richiesta = ing->quantita * numero_elementi_ordinati;
+
+        while (quantita_richiesta > 0) {
+            IngredienteMinHeap min_ingrediente = rimuoviIngrediente(&nodo_ingrediente->heap);
+            if (min_ingrediente.quantita <= quantita_richiesta) {
+                quantita_richiesta -= min_ingrediente.quantita;
+            } else {
+                min_ingrediente.quantita -= quantita_richiesta;
+                quantita_richiesta = 0;
+                inserisciIngrediente(&nodo_ingrediente->heap, min_ingrediente.scadenza, min_ingrediente.quantita);
+            }
+        }
+        ing = ing->next;
+    }
+
+    // Aggiungi l'ordine al min-Heap degli ordini fatti
+    inserisciOrdineHeap(heap_ordini_fatti, 0, (char*)nome_ricetta, numero_elementi_ordinati);
 }
 
 // Main - Gestione del giorno
