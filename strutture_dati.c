@@ -1,3 +1,4 @@
+//Elenco di tutte le funzioni riguardanti le strutture dati
 #include "header.h"
 #include <stdio.h>
 #include <string.h>
@@ -426,11 +427,11 @@ void liberaMaxHeap(MaxHeapSpedizioni* heap) {
     free(heap->spedizioni);
 }
 
-MaxHeapSpedizioni creaMaxHeap(int capacita) {
-    MaxHeapSpedizioni heap;
-    heap.spedizioni=(Spedizione*) malloc(capacita * sizeof(Spedizione));
-    heap.dimensione=0;
-    heap.capacita=capacita;
+MaxHeapSpedizioni* creaMaxHeap(int capacita) {
+    MaxHeapSpedizioni* heap = (MaxHeapSpedizioni*)malloc(sizeof(MaxHeapSpedizioni));
+    heap->spedizioni = (Spedizione*) malloc(capacita * sizeof(Spedizione));
+    heap->dimensione = 0;
+    heap->capacita = capacita;
     return heap;
 }
 

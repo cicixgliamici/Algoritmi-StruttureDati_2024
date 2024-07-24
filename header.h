@@ -7,6 +7,8 @@
 #ifndef HEADER_H
 #define HEADER_H
 
+#include <stdio.h>
+
 // Ingredienti - Heap - ordino tutti i prodotti dello stesso tipo per scadenza(asc), così da rispettare la specifica
 typedef struct IngredienteMinHeap {
     int scadenza;
@@ -138,22 +140,31 @@ typedef struct {
 void heapifySpedizioni(MaxHeapSpedizioni* heap, int i);                                                       //Riordina gli elementi
 void inserisciSpedizione(MaxHeapSpedizioni* heap, char* nome, int istante_arrivo, int quantita, int peso);    //Inserisce una spedizione
 void liberaMaxHeap(MaxHeapSpedizioni* heap);                                                                  //Libera la memoria
-MaxHeapSpedizioni creaMaxHeap(int capacita);                                                                  // Crea un nuovo max-heap (e restituisce il suo puntatore)
+MaxHeapSpedizioni* creaMaxHeap(int capacita);                                                                  // Crea un nuovo max-heap (e restituisce il suo puntatore)
 Spedizione rimuoviMax(MaxHeapSpedizioni* heap);                                                               //Rimuove e ritorna la spedizione (puntatore)
 
 void testMaxHeapSpedizioni();
 
-//Funzioni Generiche
-void testGenerale();                                                                                          //Attivare tutti i test
+//Funzioni Generiche//Attivare tutti i test
 int max(int a, int b);
 
 //Funzioni per l'Algoritmo
-void gestisciComandi(const int tempo_camioncino, const int capienza_camioncino);                              //Leggi comando con strcmp
-void aggiungi_ricetta(const char* nome_ricetta, const char* nome_ingrediente, int quantita);                  //
+void gestisciComandi(FILE *file);                                                                             //Leggi comando con strcmp
+void aggiungi_ricetta(Ricetta nuova_ricetta);                                                                 //
 void rimuovi_ricetta(const char* nome_ricetta);                                                               //
 void rifornimento(const char* nome_ingrediente, int quantita, int scadenza);                                  //
 void ordine(const char* nome_ricetta, int numero_elementi_ordinati);                                          //
 
 void testGestisciComandi();
+void testAggiungiRicetta();
+void testMenu();
+
+// Dichiarazione delle variabili globali (rimuovere quando metti tutto insieme)
+extern NodoBST* bst;
+extern NodoAVL* avl;
+extern CodaOrdini* coda_ordini;
+extern MinHeap* heap_ordini_fatti;
+extern MaxHeapSpedizioni* max_heap_spedizioni;
+
 
 #endif //HEADER_H

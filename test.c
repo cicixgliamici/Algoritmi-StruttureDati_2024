@@ -1,5 +1,7 @@
 #include "header.h"
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 //Funzioni di Test
 void testMinHeapIngrediente() {
@@ -88,39 +90,39 @@ void testCodaOrdini() {
 }
 
 void testMinHeapOrdini() {
-        MinHeap* heap = creaMinHeap(10);
-        inserisciOrdineHeap(heap, 1, "Pizza", 2);
-        inserisciOrdineHeap(heap, 3, "Pasta", 3);
-        inserisciOrdineHeap(heap, 2, "Insalata", 1);
-        printf("Stato MinHeap dopo inserimenti:\n");
-        for (int i = 0; i < heap->dimensione; i++) {
-            printf("Ordine %d: tempo_arrivo = %d, ricetta = %s, quantita = %d\n", i, heap->ordini[i].tempo_arrivo, heap->ordini[i].ricetta, heap->ordini[i].quantita);
-        }
-        OrdineHeap ordine = rimuoviMin(heap);
-        printf("Rimosso ordine: tempo_arrivo = %d, ricetta = %s, quantita = %d\n", ordine.tempo_arrivo, ordine.ricetta, ordine.quantita);
-        printf("Stato MinHeap dopo rimozione:\n");
-        for (int i = 0; i < heap->dimensione; i++) {
-            printf("Ordine %d: tempo_arrivo = %d, ricetta = %s, quantita = %d\n", i, heap->ordini[i].tempo_arrivo, heap->ordini[i].ricetta, heap->ordini[i].quantita);
-        }
-        liberaMinHeapOrdini(heap);
+    MinHeap* heap = creaMinHeap(10);
+    inserisciOrdineHeap(heap, 1, "Pizza", 2);
+    inserisciOrdineHeap(heap, 3, "Pasta", 3);
+    inserisciOrdineHeap(heap, 2, "Insalata", 1);
+    printf("Stato MinHeap dopo inserimenti:\n");
+    for (int i = 0; i < heap->dimensione; i++) {
+        printf("Ordine %d: tempo_arrivo = %d, ricetta = %s, quantita = %d\n", i, heap->ordini[i].tempo_arrivo, heap->ordini[i].ricetta, heap->ordini[i].quantita);
+    }
+    OrdineHeap ordine = rimuoviMin(heap);
+    printf("Rimosso ordine: tempo_arrivo = %d, ricetta = %s, quantita = %d\n", ordine.tempo_arrivo, ordine.ricetta, ordine.quantita);
+    printf("Stato MinHeap dopo rimozione:\n");
+    for (int i = 0; i < heap->dimensione; i++) {
+        printf("Ordine %d: tempo_arrivo = %d, ricetta = %s, quantita = %d\n", i, heap->ordini[i].tempo_arrivo, heap->ordini[i].ricetta, heap->ordini[i].quantita);
+    }
+    liberaMinHeapOrdini(heap);
 }
 
 void testMaxHeapSpedizioni() {
-    MaxHeapSpedizioni heap = creaMaxHeap(10);
-    inserisciSpedizione(&heap, "Pizza", 1, 2, 5);
-    inserisciSpedizione(&heap, "Pasta", 3, 3, 3);
-    inserisciSpedizione(&heap, "Insalata", 2, 1, 7);
+    MaxHeapSpedizioni* heap = creaMaxHeap(10);
+    inserisciSpedizione(heap, "Pizza", 1, 2, 5);
+    inserisciSpedizione(heap, "Pasta", 3, 3, 3);
+    inserisciSpedizione(heap, "Insalata", 2, 1, 7);
     printf("Stato MaxHeapSpedizioni dopo inserimenti:\n");
-    for (int i = 0; i < heap.dimensione; i++) {
-        printf("Spedizione %d: nome = %s, peso = %d\n", i, heap.spedizioni[i].nome, heap.spedizioni[i].peso);
+    for (int i = 0; i < heap->dimensione; i++) {
+        printf("Spedizione %d: nome = %s, peso = %d\n", i, heap->spedizioni[i].nome, heap->spedizioni[i].peso);
     }
-    Spedizione spedizione = rimuoviMax(&heap);
+    Spedizione spedizione = rimuoviMax(heap);
     printf("Rimossa spedizione: nome = %s, peso = %d\n", spedizione.nome, spedizione.peso);
     printf("Stato MaxHeapSpedizioni dopo rimozione:\n");
-    for (int i = 0; i < heap.dimensione; i++) {
-        printf("Spedizione %d: nome = %s, peso = %d\n", i, heap.spedizioni[i].nome, heap.spedizioni[i].peso);
+    for (int i = 0; i < heap->dimensione; i++) {
+        printf("Spedizione %d: nome = %s, peso = %d\n", i, heap->spedizioni[i].nome, heap->spedizioni[i].peso);
     }
-    liberaMaxHeap(&heap);
+    liberaMaxHeap(heap);
 }
 
 void testGestisciComandi() {
@@ -133,25 +135,97 @@ void testGestisciComandi() {
     fclose(inputFile);
     freopen("test_input.txt", "r", stdin);
     printf("Eseguo gestisciComandi:\n");
-    gestisciComandi(10, 50);
-    freopen("/dev/tty", "w", stdout); // Ripristina stdout
-    freopen("/dev/tty", "r", stdin);  // Ripristina stdin
+    gestisciComandi(inputFile);
+    freopen("/dev/tty", "w", stdout);
+    freopen("/dev/tty", "r", stdin);
     remove("test_input.txt");
 }
 
-void testGenerale() {
-    printf("Test MinHeapIngrediente:\n");
-    testMinHeapIngrediente();
-    printf("\nTest NodoAVL:\n");
-    testNodoAVL();
-    printf("\nTest NodoBST:\n");
-    testNodoBST();
-    printf("\nTest CodaOrdini:\n");
-    testCodaOrdini();
-    printf("\nTest MinHeapOrdini:\n");
-    testMinHeapOrdini();
-    printf("\nTest MaxHeapSpedizioni:\n");
-    testMaxHeapSpedizioni();
-    printf("\nTest GestisciComandi:\n");
-    testGestisciComandi();
+void testAggiungiRicetta() {
+    // Creazione di una nuova ricetta
+    Ricetta ricetta1;
+    strcpy(ricetta1.nome, "Pasta");
+    IngredienteRicetta* ingrediente1 = (IngredienteRicetta*)malloc(sizeof(IngredienteRicetta));
+    if (ingrediente1 == NULL) {
+        printf("Errore di allocazione memoria per ingrediente1\n");
+        return;
+    }
+    strcpy(ingrediente1->nome, "Pomodoro");
+    ingrediente1->quantita = 2;
+    ingrediente1->next = NULL;
+    ricetta1.ingredienti = ingrediente1;
+
+    // Aggiunta della ricetta al BST (BST è vuoto)
+    printf("Aggiungo la ricetta 'Pasta'\n");
+    aggiungi_ricetta(ricetta1);
+
+    // Tentativo di aggiungere la stessa ricetta
+    // Poiché 'aggiungi_ricetta' libera la lista ingredienti in caso di duplicato, dobbiamo riallocare la lista
+    IngredienteRicetta* ingrediente2 = (IngredienteRicetta*)malloc(sizeof(IngredienteRicetta));
+    if (ingrediente2 == NULL) {
+        printf("Errore di allocazione memoria per ingrediente2\n");
+        return;
+    }
+    strcpy(ingrediente2->nome, "Pomodoro");
+    ingrediente2->quantita = 2;
+    ingrediente2->next = NULL;
+    ricetta1.ingredienti = ingrediente2;
+
+    printf("Tento di aggiungere nuovamente la ricetta 'Pasta'\n");
+    aggiungi_ricetta(ricetta1);
+
+    // Pulizia della memoria
+    liberaListaIng(ricetta1.ingredienti);
+    liberaBST(bst);
+    bst = NULL;  // Reset della variabile globale bst
+}
+
+
+void testMenu() {
+    int choice;
+    do {
+        printf("\nSeleziona un test da eseguire:\n");
+        printf("1. Test MinHeapIngrediente\n");
+        printf("2. Test NodoAVL\n");
+        printf("3. Test NodoBST\n");
+        printf("4. Test CodaOrdini\n");
+        printf("5. Test MinHeapOrdini\n");
+        printf("6. Test MaxHeapSpedizioni\n");
+        printf("7. Test GestisciComandi\n");
+        printf("8. Test AggiungiRicetta\n");
+        printf("0. Esci\n");
+        printf("Scelta: ");
+        scanf("%d", &choice);
+        switch (choice) {
+            case 1:
+                testMinHeapIngrediente();
+            break;
+            case 2:
+                testNodoAVL();
+            break;
+            case 3:
+                testNodoBST();
+            break;
+            case 4:
+                testCodaOrdini();
+            break;
+            case 5:
+                testMinHeapOrdini();
+            break;
+            case 6:
+                testMaxHeapSpedizioni();
+            break;
+            case 7:
+                testGestisciComandi();
+            break;
+            case 8:
+                testAggiungiRicetta();
+            break;
+            case 0:
+                printf("Uscita...\n");
+            break;
+            default:
+                printf("Scelta non valida. Riprova.\n");
+        }
+    } while (choice != 0);
 }

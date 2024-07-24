@@ -3,43 +3,24 @@
 #include <string.h>
 #include <stdlib.h>
 
+// Dichiarazione globale delle strutture dati
+NodoBST* bst = NULL;
+NodoAVL* avl = NULL;
+CodaOrdini* coda_ordini = NULL;
+MinHeap* heap_ordini_fatti = NULL;
+MaxHeapSpedizioni* max_heap_spedizioni = NULL;
+
 //Funzioni generiche
 int max(int a, int b) {
-    return (a>b) ? a : b;
+    return (a > b) ? a : b;
 }
 
-//Funzioni Algoritmo
-void gestisciComandi(const int tempo_camioncino, const int capienza_camioncino) {
-    char comando[256];
-    while (scanf("%s", comando) != EOF) {
-        if (strcmp(comando, "aggiungi_ricetta") == 0) {
-            char nome_ricetta[256];
-            char nome_ingrediente[256];
-            int quantita;
-            scanf("%s", nome_ricetta);
-            while (scanf("%s %d", nome_ingrediente, &quantita) == 2) {
-                aggiungi_ricetta(nome_ricetta, nome_ingrediente, quantita);
-            }
-        } else if (strcmp(comando, "rimuovi_ricetta") == 0) {
-            char nome_ricetta[256];
-            scanf("%s", nome_ricetta);
-            rimuovi_ricetta(nome_ricetta);
-        } else if (strcmp(comando, "rifornimento") == 0) {
-            char nome_ingrediente[256];
-            int quantita, scadenza;
-            scanf("%s %d %d", nome_ingrediente, &quantita, &scadenza);
-            rifornimento(nome_ingrediente, quantita, scadenza);
-        } else if (strcmp(comando, "ordine") == 0) {
-            char nome_ricetta[256];
-            int numero_elementi_ordinati;
-            scanf("%s %d", nome_ricetta, &numero_elementi_ordinati);
-            ordine(nome_ricetta, numero_elementi_ordinati);
-        }
-    }
+// Funzioni Algoritmo
+void gestisciComandi(FILE *file) {
 }
 
-void aggiungi_ricetta(const char* nome_ricetta, const char* nome_ingrediente, int quantita) {
-    printf("Aggiungi ricetta: %s, Ingrediente: %s, Quantita: %d\n", nome_ricetta, nome_ingrediente, quantita);
+void aggiungi_ricetta(Ricetta nuova_ricetta) {
+    printf("DEBUG: Aggiungo ricetta: %s\n", nuova_ricetta.nome);  // Debug
 }
 
 void rimuovi_ricetta(const char* nome_ricetta) {
@@ -54,13 +35,14 @@ void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
     printf("Ordine: Ricetta: %s, Numero elementi ordinati: %d\n", nome_ricetta, numero_elementi_ordinati);
 }
 
-//Main - Gestione del giorno
-int main(void){
-    int temp1, temp2;
-    int t=0;
-    scanf("%d %d", &temp1, &temp2);
-    const int TEMPO_CAMIONCINO = temp1;
-    const int CAPIENZA_CAMIONCINO = temp2;
-    //testGenerale();
+// Main - Gestione del giorno
+int main(void) {
+    FILE *file = fopen("C:/Users/39392/CLionProjects/API/input.txt", "r");
+    if (file == NULL) {
+        fprintf(stderr, "Errore nell'apertura del file input.txt\n");
+        return 1;
+    }
+    gestisciComandi(file);
+    fclose(file);
     return 0;
 }
