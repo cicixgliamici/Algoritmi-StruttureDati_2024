@@ -37,7 +37,7 @@ void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
 
 // Main - Gestione del giorno
 int main(void) {
-    FILE *file = fopen("C:/Users/39392/CLionProjects/API/input.txt", "r");
+    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/input.txt", "r");
     if (file == NULL) {
         fprintf(stderr, "Errore nell'apertura del file input.txt\n");
         return 1;

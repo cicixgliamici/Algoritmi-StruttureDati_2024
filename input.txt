@@ -1,4 +1,0 @@
-40 30
-aggiungi_ricetta Pasta Pomodoro 2
-aggiungi_ricetta Pasta Filo 2
-aggiungi_ricetta PastaA Cazzo 3

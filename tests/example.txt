@@ -1,0 +1,16 @@
+5 325
+aggiungi_ricetta torta farina 50 uova 10 zucchero 20
+aggiungi_ricetta ciambella farina 20 uova 5 burro 2
+aggiungi_ricetta profiterole farina 10 uova 2 latte 3 zucchero 3 cioccolato 4
+rimuovi_ricetta sfogliatella
+rifornimento farina 100 10 uova 100 10 zucchero 100 10 burro 100 10 latte 100 10 cioccolato 100 10
+ordine ciambella 6
+ordine profiterole 3
+rimuovi_ricetta profiterole
+aggiungi_ricetta pane_dolce farina 1 zucchero 1 uova 1
+ordine ciambella 3
+ordine torta 1
+rifornimento farina 100 15 farina 50 13 uova 45 20 zucchero 20 20 burro 15 20
+rifornimento farina 100 15 uova 7 15 zucchero 25 15 latte 5 15 cioccolato 5 15
+ordine torta 1
+ordine profiterole 1

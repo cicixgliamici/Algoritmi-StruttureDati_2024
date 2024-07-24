@@ -1,0 +1,21 @@
+aggiunta
+aggiunta
+aggiunta
+non presente
+rifornito
+camioncino vuoto
+accettato
+accettato
+ordini in sospeso
+aggiunta
+accettato
+9 ciambella 3
+6 profiterole 3
+accettato
+rifornito
+rifornito
+accettato
+accettato
+5 ciambella 6
+10 torta 1
+13 torta 1
