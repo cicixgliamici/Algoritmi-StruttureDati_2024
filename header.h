@@ -28,10 +28,9 @@ void liberaLotto(MinHeapIngrediente* heap);                                     
 IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap);                        //Rimuove e ritorna l'ingrediente
 MinHeapIngrediente nuovoHeapIngredienti(int capacita);                                  //Inizializza un nuovo heap (e restituisce il suo puntatore)
 
-void testMinHeapIngrediente();
-void stampaHeap(MinHeapIngrediente* heap);
-void testHeapOrder(MinHeapIngrediente* heap);
-bool verificaMinHeap(MinHeapIngrediente* heap);
+void testMinHeapIngrediente();                                                          //Test per verificare funzionamento
+void testHeapOrder(MinHeapIngrediente* heap);                                           //Stampa verificando per ogni iterazione la correttezza
+bool verificaMinHeap(MinHeapIngrediente* heap);                                         //Assicura la correttezza
 
 //Ingredienti - AVL - ordino i lotti di ingredienti lessicograficamente(disc), per velocizzare aggiunta, eliminazione e ricerca
 typedef struct NodoAVL {
@@ -55,7 +54,7 @@ NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int
 NodoAVL* bilanciaAVL(NodoAVL *nodo);                                                            //Bilancia il nodo inserito
 
 void testNodoAVL();
-void stampaAVL(NodoAVL* nodo);
+void stampaAVL(NodoAVL* nodo);                                                                  //Stampa l'AVL per ingredienti
 
 //Ricette - Lista
 typedef struct IngredienteRicetta {
@@ -157,12 +156,12 @@ int max(int a, int b);
 
 //Funzioni per l'Algoritmo
 void gestisciComandi(FILE *file);                                                                             //Leggi comando con strcmp
-void aggiungi_ricetta(Ricetta nuova_ricetta);                                                                 //
-void rimuovi_ricetta(const char* nome_ricetta);                                                               //
-void rifornimento(const char* comando);                                                                       //
-void ordine(const char* nome_ricetta, int numero_elementi_ordinati);                                          //
+void aggiungi_ricetta(Ricetta nuova_ricetta);                                                                 //Controlla se già esiste, se no aggiungi
+void rimuovi_ricetta(const char* nome_ricetta);                                                               //Controlla se esiste o se è in ordinazione, se no rimuovi
+void rifornimento(const char* comando);                                                                       //Nessun controllo
+void ordine(const char* nome_ricetta, int numero_elementi_ordinati);                                          //Controlla esistenza in ricettario, se si aggiungi a Coda e poi prova a fare
 
-void testGestisciComandi();
+void testGestisciComandi();          
 void testAggiungiRicetta();
 void testMenu();
 
