@@ -20,11 +20,11 @@ typedef struct {
     int capacita;
 } MinHeapIngrediente;
 
-void heapifyIngredienti(MinHeapIngrediente* heap, int i);
-void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita);
-void liberaLotto(MinHeapIngrediente* heap);
-IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap);
-MinHeapIngrediente nuovoHeapIngredienti(int capacita);
+void heapifyIngredienti(MinHeapIngrediente* heap, int i);                               //Riordina gli elementi
+void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita);        //Inserisce un ingrediente
+void liberaLotto(MinHeapIngrediente* heap);                                             //Libera la memoria
+IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap);                        //Rimuove e ritorna l'ingrediente
+MinHeapIngrediente nuovoHeapIngredienti(int capacita);                                  //Inizializza un nuovo heap (e restituisce il suo puntatore)
 
 //Ingredienti - AVL - ordino i lotti di ingredienti lessicograficamente(disc), per velocizzare aggiunta, eliminazione e ricerca
 typedef struct NodoAVL {
@@ -35,16 +35,15 @@ typedef struct NodoAVL {
     int altezza;
 } NodoAVL;
 
-void liberaAVL(NodoAVL *root);
-int valBilancia(NodoAVL *nodo);
-int altezza(NodoAVL *nodo);
-int max(int a, int b);
-NodoAVL* nuovoAVL(char* nome, int capacita);
-NodoAVL* ruotaDestra(NodoAVL *y);
-NodoAVL* ruotaSinistra(NodoAVL *x);
-NodoAVL* minValueAVL(NodoAVL *nodo);
-NodoAVL* eliminaAVL(NodoAVL* root, char *nome);
-NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int capacita);
+void liberaAVL(NodoAVL *root);                                                                  //Libera la memoria
+int valBilancia(NodoAVL *nodo);                                                                 //Calcola e ritorna il valore di bilanciamento di un nodo
+int altezza(NodoAVL *nodo);                                                                     //Calcola e ritorna l'altezza di un nodo
+NodoAVL* nuovoAVL(char* nome, int capacita);                                                    //Crea un nuovo nuodo (e restituisce il suo puntatore)
+NodoAVL* ruotaDestra(NodoAVL *y);                                                               //Esegue una rotazione a destra
+NodoAVL* ruotaSinistra(NodoAVL *x);                                                             //Esegue una rotazione a sinistra
+NodoAVL* minValueAVL(NodoAVL *nodo);                                                            //Trova e ritorna il nodo con il valore minimo in un AVL (puntatore)
+NodoAVL* eliminaAVL(NodoAVL* root, char *nome);                                                 //Elimina un nodo
+NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int capacita);     //Inserisce un nodo
 
 //Ricette - Lista
 typedef struct IngredienteRicetta {
@@ -65,13 +64,13 @@ typedef struct NodoBST {
     struct NodoBST *destro;
 } NodoBST;
 
-void liberaBST(NodoBST* root);
-void liberaListaIng(IngredienteRicetta* ingrediente);
-NodoBST* nuovoBST(Ricetta ricetta);
-NodoBST* minValueBST(NodoBST* nodo);
-NodoBST* inserisciBST(NodoBST* nodo, Ricetta ricetta);
-NodoBST* cercaBST(NodoBST* nodo, char* nome);
-NodoBST* eliminaBST(NodoBST* root, char* nome);
+void liberaBST(NodoBST* root);                                 //Libera la memoria del nodo
+void liberaListaIng(IngredienteRicetta* ingrediente);          //Libera la memoria della lista di ingredienti di un nodo
+NodoBST* nuovoBST(Ricetta ricetta);                            //Crea un nuovo nodo (e restituisce il suo puntatore)
+NodoBST* minValueBST(NodoBST* nodo);                           //Trova e ritorna il nodo con il valore minimo in un BST (puntatore)
+NodoBST* inserisciBST(NodoBST* nodo, Ricetta ricetta);         //Inserisce un nodo
+NodoBST* cercaBST(NodoBST* nodo, char* nome);                  //Cerca un nodo
+NodoBST* eliminaBST(NodoBST* root, char* nome);                //Elimina un nodo
 
 //Ordine da Fare - Coda FIFO
 typedef struct Ordine {
@@ -86,11 +85,11 @@ typedef struct {
     Ordine* coda;
 } CodaOrdini;
 
-void liberaCoda(CodaOrdini* coda);
-void aggiungiCoda(CodaOrdini* coda, char* nome_ricetta, int quantita, int tempo_arrivo);
-int codaVuota(CodaOrdini* coda);
-CodaOrdini* creaCoda();
-Ordine* rimuoviCoda(CodaOrdini* coda);
+void liberaCoda(CodaOrdini* coda);                                                          //Libera la memoria
+void aggiungiCoda(CodaOrdini* coda, char* nome_ricetta, int quantita, int tempo_arrivo);    //Aggiunge un ordine
+int codaVuota(CodaOrdini* coda);                                                            //Verifica se la coda è vuota
+CodaOrdini* creaCoda();                                                                     //Crea una nuova coda (e restituisce il suo puntatore)
+Ordine* rimuoviCoda(CodaOrdini* coda);                                                      //Rimuove e ritorna un ordine dalla coda (puntatore)
 
 //Ordini fatti - minHeap
 typedef struct OrdineHeap {
@@ -105,13 +104,13 @@ typedef struct {
     int capacita;
 } MinHeap;
 
-void liberaMinHeapOrdini(MinHeap* heap);
-void scambiaOrdini(OrdineHeap* a, OrdineHeap* b);
-void heapifyOrdini(MinHeap* heap, int i);
-void inserisciOrdineHeap(MinHeap* heap, int tempo_arrivo, char* nome_ricetta, int quantita);
-int heapVuoto(MinHeap* heap);
-MinHeap* creaMinHeap(int capacita);
-OrdineHeap* rimuoviMin(MinHeap* heap);
+void liberaMinHeapOrdini(MinHeap* heap);                                                       //Libera la memoria
+void scambiaOrdini(OrdineHeap* a, OrdineHeap* b);                                              //Scambia due ordini
+void heapifyOrdini(MinHeap* heap, int i);                                                      //Riordina gli elementi
+void inserisciOrdineHeap(MinHeap* heap, int tempo_arrivo, char* nome_ricetta, int quantita);   //Inserisce un ordine
+int heapVuoto(MinHeap* heap);                                                                  //Verifica se il min-heap è vuoto
+MinHeap* creaMinHeap(int capacita);                                                            //Crea un nuovo min-heap (e restituisce il suo puntatore)
+OrdineHeap rimuoviMin(MinHeap* heap);                                                          //Rimuove e ritorna l'ordine (puntatore)
 
 //Spedizione - maxHeap
 typedef struct Spedizione {
@@ -127,11 +126,14 @@ typedef struct {
     int capacita;
 } MaxHeapSpedizioni;
 
-void heapifySpedizioni(MaxHeapSpedizioni* heap, int i);
-void inserisciSpedizione(MaxHeapSpedizioni* heap, char* nome, int istante_arrivo, int quantita, int peso);
-void liberaMaxHeap(MaxHeapSpedizioni* heap);
-MaxHeapSpedizioni creaMaxHeap(int capacita);
-Spedizione rimuoviMax(MaxHeapSpedizioni* heap);
+void heapifySpedizioni(MaxHeapSpedizioni* heap, int i);                                                       //Riordina gli elementi
+void inserisciSpedizione(MaxHeapSpedizioni* heap, char* nome, int istante_arrivo, int quantita, int peso);    //Inserisce una spedizione
+void liberaMaxHeap(MaxHeapSpedizioni* heap);                                                                  //Libera la memoria
+MaxHeapSpedizioni creaMaxHeap(int capacita);                                                                  // Crea un nuovo max-heap (e restituisce il suo puntatore)
+Spedizione rimuoviMax(MaxHeapSpedizioni* heap);                                                               //Rimuove e ritorna la spedizione (puntatore)
+
+//Funzioni Generiche
+int max(int a, int b);                                                                                        //Max fra due numeri
 
 //Funzioni min-Heap - Ingredienti
 void heapifyIngredienti(MinHeapIngrediente* heap, int i) {
@@ -213,10 +215,6 @@ int altezza(NodoAVL *nodo) {
     if(nodo==NULL)
         return 0;
     return nodo->altezza;
-}
-
-int max(int a, int b) {
-    return (a>b) ? a : b;
 }
 
 NodoAVL* nuovoAVL(char* nome, int capacita) {
@@ -442,12 +440,12 @@ CodaOrdini* creaCoda() {
 }
 
 Ordine* rimuoviCoda(CodaOrdini* coda) {
-    if(coda->testa==NULL)
+    if(coda->testa == NULL)
         return NULL;
-    Ordine* ordineRimosso=coda->testa;
-    coda->testa=coda->testa->next;
-    if(coda->testa==NULL)
-        coda->coda=NULL;
+    Ordine* ordineRimosso = coda->testa;
+    coda->testa = coda->testa->next;
+    if(coda->testa == NULL)
+        coda->coda = NULL;
     return ordineRimosso;
 }
 
@@ -505,10 +503,12 @@ MinHeap* creaMinHeap(int capacita) {
     return heap;
 }
 
-OrdineHeap* rimuoviMin(MinHeap* heap) {
-    if (heap->dimensione <= 0)
-        return NULL;
-    OrdineHeap* root = &heap->ordini[0];
+OrdineHeap rimuoviMin(MinHeap* heap) {
+    if (heap->dimensione <= 0) {
+        OrdineHeap ordineVuoto = {0, "", 0};
+        return ordineVuoto;
+    }
+    OrdineHeap root = heap->ordini[0];
     if (heap->dimensione == 1) {
         heap->dimensione--;
         return root;
@@ -517,6 +517,7 @@ OrdineHeap* rimuoviMin(MinHeap* heap) {
     heapifyOrdini(heap, 0);
     return root;
 }
+
 
 //Funzioni maxHeap - Camioncino Spedizioni
 void heapifySpedizioni(MaxHeapSpedizioni* heap, int i) {
@@ -578,6 +579,11 @@ Spedizione rimuoviMax(MaxHeapSpedizioni* heap) {
     heap->spedizioni[0]=heap->spedizioni[--heap->dimensione];
     heapifySpedizioni(heap, 0);
     return root;
+}
+
+//Funzioni generiche
+int max(int a, int b) {
+    return (a>b) ? a : b;
 }
 
 //Main - Gestione del giorno
