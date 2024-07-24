@@ -66,7 +66,6 @@ typedef struct NodoBST {
 } NodoBST;
 
 void liberaBST(NodoBST* root);
-void ordineBST(NodoBST* root);
 void liberaListaIng(IngredienteRicetta* ingrediente);
 NodoBST* nuovoBST(Ricetta ricetta);
 NodoBST* minValueBST(NodoBST* nodo);
@@ -338,13 +337,6 @@ void liberaBST(NodoBST* root) {
    }
 }
 
-void ordineBST(NodoBST* root) {
-    if(root!=NULL) {
-        ordineBST(root->sinistro);
-        ordineBST(root->destro);
-    }
-}
-
 void liberaListaIng(IngredienteRicetta* ingrediente) {
     IngredienteRicetta* temp;
     while(ingrediente!=NULL) {
@@ -443,7 +435,7 @@ int codaVuota(CodaOrdini* coda) {
 }
 
 CodaOrdini* creaCoda() {
-    CodaOrdini* coda=(CodaOrdini*)malloc(sizeof(Ordine));
+    CodaOrdini* coda=(CodaOrdini*)malloc(sizeof(CodaOrdini));
     coda->testa=NULL;
     coda->coda=NULL;
     return coda;
