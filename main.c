@@ -123,7 +123,12 @@ void rimuovi_ricetta(const char* nome_ricetta) {
 }
 
 void rifornimento(const char* nome_ingrediente, int quantita, int scadenza) {
-    // Implementa il codice per rifornire ingredienti
+    NodoAVL* nodo = cercaAVL(avl, nome_ingrediente);
+    if (nodo != NULL) {
+        inserisciIngrediente(&nodo->heap, scadenza, quantita);
+    } else {
+        avl = inserisciAVL(avl, nome_ingrediente, scadenza, quantita, 10);
+    }
 }
 
 void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {

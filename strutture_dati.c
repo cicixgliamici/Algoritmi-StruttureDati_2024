@@ -166,6 +166,14 @@ NodoAVL* eliminaAVL(NodoAVL* root, char *nome) {
     return root;
 }
 
+NodoAVL* cercaAVL(NodoAVL* nodo, const char* nome) {
+    if (nodo == NULL || strcmp(nodo->nome, nome) == 0)
+        return nodo;
+    if (strcmp(nome, nodo->nome) < 0)
+        return cercaAVL(nodo->sinistro, nome);
+    return cercaAVL(nodo->destro, nome);
+}
+
 NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int capacita) {
         if (nodo == NULL)
             return nuovoAVL(nome, capacita);

@@ -45,6 +45,7 @@ NodoAVL* ruotaDestra(NodoAVL *y);                                               
 NodoAVL* ruotaSinistra(NodoAVL *x);                                                             //Esegue una rotazione a sinistra
 NodoAVL* minValueAVL(NodoAVL *nodo);                                                            //Trova e ritorna il nodo con il valore minimo in un AVL (puntatore)
 NodoAVL* eliminaAVL(NodoAVL* root, char *nome);                                                 //Elimina un nodo
+NodoAVL* cercaAVL(NodoAVL* nodo, const char* nome);                                             //Cerca un nodo
 NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int capacita);     //Inserisce un nodo
 
 void testNodoAVL();
