@@ -61,6 +61,12 @@ build CMakeFiles/API.dir/test.c.obj: C_COMPILER__API_unscanned_Debug C$:/Users/3
   OBJECT_DIR = CMakeFiles\API.dir
   OBJECT_FILE_DIR = CMakeFiles\API.dir
 
+build CMakeFiles/API.dir/strutture_dati.c.obj: C_COMPILER__API_unscanned_Debug C$:/Users/39392/CLionProjects/API/strutture_dati.c || cmake_object_order_depends_target_API
+  DEP_FILE = CMakeFiles\API.dir\strutture_dati.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\API.dir
+  OBJECT_FILE_DIR = CMakeFiles\API.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target API
@@ -69,7 +75,7 @@ build CMakeFiles/API.dir/test.c.obj: C_COMPILER__API_unscanned_Debug C$:/Users/3
 #############################################
 # Link the executable API.exe
 
-build API.exe: C_EXECUTABLE_LINKER__API_Debug CMakeFiles/API.dir/main.c.obj CMakeFiles/API.dir/test.c.obj
+build API.exe: C_EXECUTABLE_LINKER__API_Debug CMakeFiles/API.dir/main.c.obj CMakeFiles/API.dir/test.c.obj CMakeFiles/API.dir/strutture_dati.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\API.dir
