@@ -377,7 +377,7 @@ void inserisciOrdineHeap(MinHeap* heap, int tempo_arrivo, char* ricetta, int qua
     }
 }
 
-int heapVuoto(MinHeap* heap) {
+int heapVuotoMinOrdine(MinHeap* heap) {
     return heap->dimensione==0;
 }
 
@@ -465,4 +465,8 @@ Spedizione rimuoviMax(MaxHeapSpedizioni* heap) {
     heap->spedizioni[0]=heap->spedizioni[--heap->dimensione];
     heapifySpedizioni(heap, 0);
     return root;
+}
+
+int heapVuotoMax(MaxHeapSpedizioni* heap) {
+    return heap->dimensione == 0;
 }

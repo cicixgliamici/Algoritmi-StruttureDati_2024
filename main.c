@@ -9,7 +9,7 @@ NodoAVL* avl = NULL;
 CodaOrdini* coda_ordini = NULL;
 MinHeap* heap_ordini_fatti = NULL;
 MaxHeapSpedizioni* max_heap_spedizioni = NULL;
-int tempoCorrente = 0;
+int tempoCorrente = -1;
 
 // Funzioni generiche
 int max(int a, int b) {
@@ -27,7 +27,7 @@ void gestisciComandi(FILE *file) {
     while (fgets(line, sizeof(line), file)) {
         char command[256];
         if (sscanf(line, "%s", command) == 1) {
-            if (tempoCorrente % tempoCamion == 0) {
+            if (tempoCorrente % tempoCamion == 0 && tempoCorrente!=0) {
                 caricaCamion();
             }
             if (strcmp(command, "aggiungi_ricetta") == 0) {
@@ -77,11 +77,14 @@ void gestisciComandi(FILE *file) {
         }
         tempoCorrente++;
     }
+    if (tempoCorrente % tempoCamion == 0) {
+        caricaCamion();
+    }
 }
 
 void aggiungi_ricetta(Ricetta nuova_ricetta) {
     bst = inserisciBST(bst, nuova_ricetta);
-    printf("aggiunto\n");
+    printf("aggiunta\n");
 }
 
 void rimuovi_ricetta(const char* nome_ricetta) {
@@ -127,85 +130,12 @@ void rifornimento(const char* comando) {
         ptr += strlen(nome_ingrediente) + 1 + snprintf(NULL, 0, "%d", quantita) + 1 + snprintf(NULL, 0, "%d", scadenza) + 1;
     }
     printf("rifornito\n");
-}
-
-void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
-    NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
-    if (nodo_ricetta == NULL) {
-        printf("rifiutato\n");
-        return;
-    }
-
-    // Aggiungi l'ordine alla coda
-    aggiungiCoda(coda_ordini, (char*)nome_ricetta, numero_elementi_ordinati, 0);
-
-    // Verifica la fattibilità dell'ordine
-    if (fattibilita(nome_ricetta, numero_elementi_ordinati)) {
-        preparazione(nome_ricetta, numero_elementi_ordinati);
-        printf("accettato\n");
-    } else {
-        printf("ordine non fattibile\n");
-    }
-}
-
-bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
-    NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
-    if (nodo_ricetta == NULL) {
-        return false;
-    }
-
-    IngredienteRicetta* ing = nodo_ricetta->ricetta.ingredienti;
-    while (ing != NULL) {
-        NodoAVL* nodo_ingrediente = cercaAVL(avl, ing->nome);
-        if (nodo_ingrediente == NULL) {
-            return false;
-        }
-
-        int quantita_totale = 0;
-        for (int i = 0; i < nodo_ingrediente->heap.dimensione; i++) {
-            quantita_totale += nodo_ingrediente->heap.lotto[i].quantita;
-        }
-
-        if (quantita_totale < ing->quantita * numero_elementi_ordinati) {
-            return false;
-        }
-        ing = ing->next;
-    }
-
-    return true;
-}
-
-void preparazione(const char* nome_ricetta, int numero_elementi_ordinati) {
-    NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
-    if (nodo_ricetta == NULL) {
-        return;
-    }
-
-    IngredienteRicetta* ing = nodo_ricetta->ricetta.ingredienti;
-    while (ing != NULL) {
-        NodoAVL* nodo_ingrediente = cercaAVL(avl, ing->nome);
-        int quantita_richiesta = ing->quantita * numero_elementi_ordinati;
-
-        while (quantita_richiesta > 0) {
-            IngredienteMinHeap min_ingrediente = rimuoviIngrediente(&nodo_ingrediente->heap);
-            if (min_ingrediente.quantita <= quantita_richiesta) {
-                quantita_richiesta -= min_ingrediente.quantita;
-            } else {
-                min_ingrediente.quantita -= quantita_richiesta;
-                quantita_richiesta = 0;
-                inserisciIngrediente(&nodo_ingrediente->heap, min_ingrediente.scadenza, min_ingrediente.quantita);
-            }
-        }
-        ing = ing->next;
-    }
-
-    // Aggiungi l'ordine al min-Heap degli ordini fatti
-    inserisciOrdineHeap(heap_ordini_fatti, 0, (char*)nome_ricetta, numero_elementi_ordinati);
+    verificaOrdini();
 }
 
 // Main - Gestione del giorno
 int main(void) {
-    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open1.txt", "r");
+    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/example.txt", "r");
     gestisciComandi(file);
     fclose(file);
     return 0;

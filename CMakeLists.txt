@@ -6,4 +6,5 @@ set(CMAKE_C_STANDARD 11)
 add_executable(API main.c
         header.h
         test.c
-        strutture_dati.c)
+        strutture_dati.c
+        ordini.c)

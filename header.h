@@ -123,7 +123,7 @@ void liberaMinHeapOrdini(MinHeap* heap);                                        
 void scambiaOrdini(OrdineHeap* a, OrdineHeap* b);                                              //Scambia due ordini
 void heapifyOrdini(MinHeap* heap, int i);                                                      //Riordina gli elementi
 void inserisciOrdineHeap(MinHeap* heap, int tempo_arrivo, char* nome_ricetta, int quantita);   //Inserisce un ordine
-int heapVuoto(MinHeap* heap);                                                                  //Verifica se il min-heap è vuoto
+int heapVuotoMinOrdine(MinHeap* heap);                                                                  //Verifica se il min-heap è vuoto
 MinHeap* creaMinHeap(int capacita);                                                            //Crea un nuovo min-heap (e restituisce il suo puntatore)
 OrdineHeap rimuoviMin(MinHeap* heap);                                                          //Rimuove e ritorna l'ordine (puntatore)
 
@@ -148,6 +148,7 @@ void inserisciSpedizione(MaxHeapSpedizioni* heap, char* nome, int istante_arrivo
 void liberaMaxHeap(MaxHeapSpedizioni* heap);                                                                  //Libera la memoria
 MaxHeapSpedizioni* creaMaxHeap(int capacita);                                                                  // Crea un nuovo max-heap (e restituisce il suo puntatore)
 Spedizione rimuoviMax(MaxHeapSpedizioni* heap);                                                               //Rimuove e ritorna la spedizione (puntatore)
+int heapVuotoMax(MaxHeapSpedizioni* heap);
 
 void testMaxHeapSpedizioni();
 
@@ -160,9 +161,14 @@ void aggiungi_ricetta(Ricetta nuova_ricetta);                                   
 void rimuovi_ricetta(const char* nome_ricetta);                                                               //Controlla se esiste o se è in ordinazione, se no rimuovi
 void rifornimento(const char* comando);                                                                       //Nessun controllo
 void ordine(const char* nome_ricetta, int numero_elementi_ordinati);                                          //Controlla esistenza in ricettario, se si aggiungi a Coda e poi prova a fare
+
 bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati);
 void preparazione(const char* nome_ricetta, int numero_elementi_ordinati);
+
+void verificaOrdini();
+
 void caricaCamion();
+int calcolaPesoOrdine(Ricetta ricetta, int numero_elementi_ordinati);
 
 void testGestisciComandi();          
 void testAggiungiRicetta();
@@ -174,5 +180,6 @@ extern NodoAVL* avl;
 extern CodaOrdini* coda_ordini;
 extern MinHeap* heap_ordini_fatti;
 extern MaxHeapSpedizioni* max_heap_spedizioni;
+extern int tempoCorrente;
 
 #endif //HEADER_H
