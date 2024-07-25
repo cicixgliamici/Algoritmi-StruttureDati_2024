@@ -1,10 +1,23 @@
 #include "header.h"
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
-//Funzioni di stampa
+// Funzione per verificare la correttezza del MinHeap
+bool verificaMinHeap(MinHeapIngrediente* heap) {
+    for (int i = 0; i <= (heap->dimensione - 2) / 2; i++) {
+        if (heap->lotto[i].scadenza > heap->lotto[2 * i + 1].scadenza) {
+            return false;
+        }
+        if (2 * i + 2 < heap->dimensione && heap->lotto[i].scadenza > heap->lotto[2 * i + 2].scadenza) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// Funzione per stampare lo stato del MinHeap
 void testHeapOrder(MinHeapIngrediente* heap) {
     if (verificaMinHeap(heap)) {
         printf("L'heap e un min-heap valido.\n");
@@ -16,239 +29,213 @@ void testHeapOrder(MinHeapIngrediente* heap) {
     }
 }
 
-void stampaAVL(NodoAVL* nodo) {
-    if (nodo != NULL) {
-        stampaAVL(nodo->sinistro);
-        printf("Ingrediente: %s\n", nodo->nome);
-        stampaAVL(nodo->destro);
-    }
-}
-
-//Funzioni di Test
-void testMinHeapIngrediente() {
+// Funzioni di Test Migliorate
+void testMinHeapInserimento() {
+    printf("\n--- Test Inserimento ---\n");
     MinHeapIngrediente heap = nuovoHeapIngredienti(2);
-    inserisciIngrediente(&heap, 100, 10);
-    inserisciIngrediente(&heap, 99, 11);
-    inserisciIngrediente(&heap, 4, 12);
+    NodoAVL* nodo = NULL;
+    printf("Inserimento elemento con scadenza 100, quantita 10\n");
+    inserisciIngrediente(&heap, 100, 10, nodo);
+    printf("Inserimento elemento con scadenza 99, quantita 11\n");
+    inserisciIngrediente(&heap, 99, 11, nodo);
+    printf("Inserimento elemento con scadenza 4, quantita 12\n");
+    inserisciIngrediente(&heap, 4, 12, nodo);
     printf("Stato MinHeapIngrediente dopo inserimenti:\n");
-    IngredienteMinHeap rimosso = rimuoviIngrediente(&heap);
-    printf("Rimosso ingrediente: scadenza = %d, quantita = %d\n", rimosso.scadenza, rimosso.quantita);
-    printf("Stato MinHeapIngrediente dopo rimozione:\n");
+    testHeapOrder(&heap);
     liberaLotto(&heap);
 }
 
-bool verificaMinHeap(MinHeapIngrediente* heap) {
-    for (int i = 0; i <= (heap->dimensione - 2) / 2; i++) {
-        // Verifica se il nodo genitore è maggiore del figlio sinistro
-        if (heap->lotto[i].scadenza > heap->lotto[2 * i + 1].scadenza) {
-            return false;
-        }
-        // Verifica se il nodo genitore è maggiore del figlio destro (se esiste)
-        if (2 * i + 2 < heap->dimensione && heap->lotto[i].scadenza > heap->lotto[2 * i + 2].scadenza) {
-            return false;
-        }
-    }
-    return true;
+void testMinHeapRimozione() {
+    printf("\n--- Test Rimozione ---\n");
+    MinHeapIngrediente heap = nuovoHeapIngredienti(2);
+    NodoAVL* nodo = NULL;
+    printf("Inserimento elemento con scadenza 100, quantita 10\n");
+    inserisciIngrediente(&heap, 100, 10, nodo);
+    printf("Inserimento elemento con scadenza 99, quantita 11\n");
+    inserisciIngrediente(&heap, 99, 11, nodo);
+    printf("Inserimento elemento con scadenza 4, quantita 12\n");
+    inserisciIngrediente(&heap, 4, 12, nodo);
+    printf("Stato MinHeapIngrediente prima della rimozione:\n");
+    testHeapOrder(&heap);
+    IngredienteMinHeap rimosso = rimuoviIngrediente(&heap);
+    printf("Rimosso ingrediente: scadenza = %d, quantita = %d\n", rimosso.scadenza, rimosso.quantita);
+    printf("Stato MinHeapIngrediente dopo rimozione:\n");
+    testHeapOrder(&heap);
+    liberaLotto(&heap);
 }
 
-void testNodoAVL() {
-    NodoAVL* avl = NULL;
-    avl = inserisciAVL(avl, "Pomodoro", 5, 10, 10);
-    avl = inserisciAVL(avl, "Pomodoro", 3, 20, 10);
-    avl = inserisciAVL(avl, "Carota", 8, 15, 10);
-    avl = inserisciAVL(avl, "Zucchina", 2, 5, 10);
-    printf("Stato AVL dopo inserimenti:\n");
-    stampaAVL(avl);
-    avl = eliminaAVL(avl, "Pomodoro");
-    printf("Stato AVL dopo eliminazione di Pomodoro:\n");
-    stampaAVL(avl);
+void testMinHeapOverflow() {
+    printf("\n--- Test Overflow ---\n");
+    MinHeapIngrediente heap = nuovoHeapIngredienti(2);
+    NodoAVL* nodo = NULL;
+    for (int i = 0; i < 10; i++) {
+        printf("Inserimento elemento con scadenza %d, quantita 10\n", i + 1);
+        inserisciIngrediente(&heap, i + 1, 10, nodo);
+    }
+    printf("Stato MinHeapIngrediente dopo multipli inserimenti (overflow):\n");
+    testHeapOrder(&heap);
+    liberaLotto(&heap);
+}
+
+void testMinHeapInit() {
+    printf("\n--- Test Inizializzazione ---\n");
+    MinHeapIngrediente heap = nuovoHeapIngredienti(10);
+    if (heap.dimensione == 0 && heap.capacita == 10) {
+        printf("Inizializzazione corretta.\n");
+    } else {
+        printf("Errore di inizializzazione.\n");
+    }
+    liberaLotto(&heap);
+}
+
+void testUsoParzialeIngrediente() {
+    printf("\n--- Test Uso Parziale Ingrediente ---\n");
+    MinHeapIngrediente heap = nuovoHeapIngredienti(3);
+    NodoAVL* nodo = NULL;
+    printf("Inserimento elemento con scadenza 100, quantita 10\n");
+    inserisciIngrediente(&heap, 100, 10, nodo);
+    printf("Stato dopo inserimento:\n");
+    testHeapOrder(&heap);
+    printf("Inserimento elemento con scadenza 99, quantita 11\n");
+    inserisciIngrediente(&heap, 99, 11, nodo);
+    printf("Stato dopo inserimento:\n");
+    testHeapOrder(&heap);
+    printf("Inserimento elemento con scadenza 4, quantita 12\n");
+    inserisciIngrediente(&heap, 4, 12, nodo);
+    printf("Stato dopo inserimento:\n");
+    testHeapOrder(&heap);
+    printf("Stato MinHeapIngrediente dopo inserimenti:\n");
+    testHeapOrder(&heap);
+    printf("Uso di parte dell'ingrediente con scadenza 4\n");
+    IngredienteMinHeap rimosso = rimuoviIngrediente(&heap);
+    printf("Rimosso ingrediente: scadenza = %d, quantita = %d\n", rimosso.scadenza, rimosso.quantita);
+    int quantita_usata = 12; // Usare tutto l'ingrediente con scadenza 4
+    printf("Utilizzata quantità %d\n", quantita_usata);
+    printf("Stato MinHeapIngrediente dopo rimozione dell'ingrediente con scadenza 4:\n");
+    testHeapOrder(&heap);
+    quantita_usata = 6;
+    printf("Uso di parte dell'ingrediente con scadenza 99\n");
+    rimosso = rimuoviIngrediente(&heap);
+    printf("Rimosso ingrediente: scadenza = %d, quantita = %d\n", rimosso.scadenza, rimosso.quantita);
+    rimosso.quantita -= quantita_usata;
+    printf("Rimanente ingrediente con scadenza %d: quantita %d\n", rimosso.scadenza, rimosso.quantita);
+    if (rimosso.quantita > 0) {
+        inserisciIngrediente(&heap, rimosso.scadenza, rimosso.quantita, nodo);
+    }
+    printf("Stato MinHeapIngrediente dopo reinserimento dell'ingrediente con scadenza 99:\n");
+    testHeapOrder(&heap);
+    printf("Stato MinHeapIngrediente dopo uso parziale:\n");
+    testHeapOrder(&heap);
+    liberaLotto(&heap);
+}
+
+void testRifornimentoRicetta() {
+    printf("\n--- Test Rifornimento e Preparazione Ricetta ---\n");
+    NodoAVL* nodo = nuovoAVL("IngredienteTest", 10);
+    avl = nodo;
+    printf("Rifornimento con scadenza 100, quantita 10\n");
+    inserisciIngrediente(&nodo->heap, 100, 10, nodo);
+    printf("Stato dopo rifornimento:\n");
+    testHeapOrder(&nodo->heap);
+    printf("Rifornimento con scadenza 99, quantita 10\n");
+    inserisciIngrediente(&nodo->heap, 99, 10, nodo);
+    printf("Stato dopo rifornimento:\n");
+    testHeapOrder(&nodo->heap);
+    printf("Rifornimento con scadenza 4, quantita 10\n");
+    inserisciIngrediente(&nodo->heap, 4, 10, nodo);
+    printf("Stato dopo rifornimento:\n");
+    testHeapOrder(&nodo->heap);
+    printf("Aggiunta ricetta 'RicettaTest' con 15 di 'IngredienteTest'\n");
+    Ricetta nuova_ricetta;
+    strcpy(nuova_ricetta.nome, "RicettaTest");
+    IngredienteRicetta* ingrediente_ricetta = (IngredienteRicetta*)malloc(sizeof(IngredienteRicetta));
+    strcpy(ingrediente_ricetta->nome, "IngredienteTest");
+    ingrediente_ricetta->quantita = 15;
+    ingrediente_ricetta->next = NULL;
+    nuova_ricetta.ingredienti = ingrediente_ricetta;
+    bst = inserisciBST(bst, nuova_ricetta);
+    printf("Ricetta aggiunta\n");
+    printf("Preparazione della ricetta 'RicettaTest'\n");
+    printf("Stato MinHeapIngrediente prima della preparazione:\n");
+    testHeapOrder(&nodo->heap);
+    preparazione("RicettaTest", 1);
+    printf("Stato MinHeapIngrediente dopo la preparazione:\n");
+    testHeapOrder(&nodo->heap);
     liberaAVL(avl);
-}
-
-void testNodoBST() {
-    NodoBST* bst = NULL;
-    Ricetta ricetta1 = {"Pasta", NULL};
-    Ricetta ricetta2 = {"Pizza", NULL};
-    Ricetta ricetta3 = {"Insalata", NULL};
-    bst = inserisciBST(bst, ricetta1);
-    bst = inserisciBST(bst, ricetta2);
-    bst = inserisciBST(bst, ricetta3);
-    printf("Stato BST dopo inserimenti:\n");
-    NodoBST* nodo = bst;
-    while (nodo != NULL) {
-        printf("Ricetta: %s\n", nodo->ricetta.nome);
-        nodo = nodo->sinistro;  // esplora i nodi a sinistra
-    }
-    nodo = cercaBST(bst, "Pasta");
-    if (nodo != NULL)
-        printf("Trovata ricetta: %s\n", nodo->ricetta.nome);
-    bst = eliminaBST(bst, "Pasta");
-    printf("Stato BST dopo eliminazione di Pasta:\n");
-    if (bst != NULL)
-        printf("Root: %s\n", bst->ricetta.nome);
-
     liberaBST(bst);
+    free(ingrediente_ricetta);
 }
 
-void testCodaOrdini() {
-    CodaOrdini* coda = creaCoda();
-    aggiungiCoda(coda, "Pizza", 2, 1);
-    aggiungiCoda(coda, "Pasta", 3, 2);
-    aggiungiCoda(coda, "Insalata", 1, 3);
-    printf("Stato CodaOrdini dopo inserimenti:\n");
-    Ordine* temp = coda->testa;
-    while (temp != NULL) {
-        printf("Ordine: ricetta = %s, quantita = %d, tempo_arrivo = %d\n", temp->nome_ricetta, temp->quantita, temp->tempo_arrivo);
-        temp = temp->next;
-    }
-    Ordine* ordine = rimuoviCoda(coda);
-    printf("Rimosso ordine: ricetta = %s, quantita = %d\n", ordine->nome_ricetta, ordine->quantita);
-    printf("Stato CodaOrdini dopo rimozione:\n");
-    temp = coda->testa;
-    while (temp != NULL) {
-        printf("Ordine: ricetta = %s, quantita = %d, tempo_arrivo = %d\n", temp->nome_ricetta, temp->quantita, temp->tempo_arrivo);
-        temp = temp->next;
-    }
-    liberaCoda(coda);
+void testMinHeapIngrediente() {
+    testMinHeapInserimento();
+    testMinHeapRimozione();
+    testMinHeapOverflow();
+    testMinHeapInit();
 }
 
-void testMinHeapOrdini() {
-    MinHeap* heap = creaMinHeap(10);
-    inserisciOrdineHeap(heap, 1, "Pizza", 2);
-    inserisciOrdineHeap(heap, 3, "Pasta", 3);
-    inserisciOrdineHeap(heap, 2, "Insalata", 1);
-    printf("Stato MinHeap dopo inserimenti:\n");
+// Funzione di Stampa
+void stampaHeapIngredienti(MinHeapIngrediente* heap) {
+    printf("Heap degli ingredienti:\n");
     for (int i = 0; i < heap->dimensione; i++) {
-        printf("Ordine %d: tempo_arrivo = %d, ricetta = %s, quantita = %d\n", i, heap->ordini[i].tempo_arrivo, heap->ordini[i].ricetta, heap->ordini[i].quantita);
+        printf("  Ingrediente scadenza: %d, Quantita: %d\n", heap->lotto[i].scadenza, heap->lotto[i].quantita);
     }
-    OrdineHeap ordine = rimuoviMin(heap);
-    printf("Rimosso ordine: tempo_arrivo = %d, ricetta = %s, quantita = %d\n", ordine.tempo_arrivo, ordine.ricetta, ordine.quantita);
-    printf("Stato MinHeap dopo rimozione:\n");
+}
+
+// Funzione di supporto per stampare l'AVL
+void stampaAVL(NodoAVL* nodo) {
+    if (nodo == NULL) return;
+    stampaAVL(nodo->sinistro);
+    printf("Ingrediente: %s, Peso totale: %d\n", nodo->nome, nodo->peso_totale);
+    stampaAVL(nodo->destro);
+}
+
+// Funzione di supporto per stampare il BST delle ricette
+void stampaBST(NodoBST* nodo) {
+    if (nodo == NULL) return;
+    stampaBST(nodo->sinistro);
+    printf("Ricetta: %s\n", nodo->ricetta.nome);
+    IngredienteRicetta* ing = nodo->ricetta.ingredienti;
+    while (ing) {
+        printf("  Ingrediente: %s, Quantita: %d\n", ing->nome, ing->quantita);
+        ing = ing->next;
+    }
+    stampaBST(nodo->destro);
+}
+
+// Funzione di supporto per stampare la coda FIFO degli ordini
+void stampaCodaFIFO(CodaOrdini* coda) {
+    printf("Coda FIFO degli ordini:\n");
+    Ordine* corrente = coda->testa;
+    while (corrente) {
+        printf("  Ordine ricetta: %s, Quantita: %d, Tempo arrivo: %d\n", corrente->nome_ricetta, corrente->quantita, corrente->tempo_arrivo);
+        corrente = corrente->next;
+    }
+}
+
+// Funzione di supporto per stampare il min-heap degli ordini fatti
+void stampaMinHeapOrdini(MinHeap* heap) {
+    printf("Min-heap degli ordini fatti:\n");
     for (int i = 0; i < heap->dimensione; i++) {
-        printf("Ordine %d: tempo_arrivo = %d, ricetta = %s, quantita = %d\n", i, heap->ordini[i].tempo_arrivo, heap->ordini[i].ricetta, heap->ordini[i].quantita);
+        printf("  Ordine ricetta: %s, Quantita: %d, Tempo arrivo: %d\n", heap->ordini[i].ricetta, heap->ordini[i].quantita, heap->ordini[i].tempo_arrivo);
     }
-    liberaMinHeapOrdini(heap);
 }
 
-void testMaxHeapSpedizioni() {
-    MaxHeapSpedizioni* heap = creaMaxHeap(10);
-    inserisciSpedizione(heap, "Pizza", 1, 2, 5);
-    inserisciSpedizione(heap, "Pasta", 3, 3, 3);
-    inserisciSpedizione(heap, "Insalata", 2, 1, 7);
-    printf("Stato MaxHeapSpedizioni dopo inserimenti:\n");
+// Funzione di supporto per stampare il max-heap delle spedizioni
+void stampaMaxHeapSpedizioni(MaxHeapSpedizioni* heap) {
+    printf("Max-heap delle spedizioni:\n");
     for (int i = 0; i < heap->dimensione; i++) {
-        printf("Spedizione %d: nome = %s, peso = %d\n", i, heap->spedizioni[i].nome, heap->spedizioni[i].peso);
+        printf("  Spedizione: %s, Quantita: %d, Peso: %d, Istante arrivo: %d\n", heap->spedizioni[i].nome, heap->spedizioni[i].quantita, heap->spedizioni[i].peso, heap->spedizioni[i].istante_arrivo);
     }
-    Spedizione spedizione = rimuoviMax(heap);
-    printf("Rimossa spedizione: nome = %s, peso = %d\n", spedizione.nome, spedizione.peso);
-    printf("Stato MaxHeapSpedizioni dopo rimozione:\n");
-    for (int i = 0; i < heap->dimensione; i++) {
-        printf("Spedizione %d: nome = %s, peso = %d\n", i, heap->spedizioni[i].nome, heap->spedizioni[i].peso);
-    }
-    liberaMaxHeap(heap);
 }
 
-void testGestisciComandi() {
-    const char *input = "aggiungi_ricetta Pasta Pomodoro 2\n"
-                        "rimuovi_ricetta Pasta\n"
-                        "rifornimento Pomodoro 100 10\n"
-                        "ordine Pizza 5\n";
-    FILE *inputFile = fopen("test_input.txt", "w");
-    fprintf(inputFile, "%s", input);
-    fclose(inputFile);
-    freopen("test_input.txt", "r", stdin);
-    printf("Eseguo gestisciComandi:\n");
-    gestisciComandi(inputFile);
-    freopen("/dev/tty", "w", stdout);
-    freopen("/dev/tty", "r", stdin);
-    remove("test_input.txt");
-}
-
-void testAggiungiRicetta() {
-    // Creazione di una nuova ricetta
-    Ricetta ricetta1;
-    strcpy(ricetta1.nome, "Pasta");
-    IngredienteRicetta* ingrediente1 = (IngredienteRicetta*)malloc(sizeof(IngredienteRicetta));
-    if (ingrediente1 == NULL) {
-        printf("Errore di allocazione memoria per ingrediente1\n");
-        return;
-    }
-    strcpy(ingrediente1->nome, "Pomodoro");
-    ingrediente1->quantita = 2;
-    ingrediente1->next = NULL;
-    ricetta1.ingredienti = ingrediente1;
-
-    // Aggiunta della ricetta al BST (BST è vuoto)
-    printf("Aggiungo la ricetta 'Pasta'\n");
-    aggiungi_ricetta(ricetta1);
-
-    // Tentativo di aggiungere la stessa ricetta
-    // Poiché 'aggiungi_ricetta' libera la lista ingredienti in caso di duplicato, dobbiamo riallocare la lista
-    IngredienteRicetta* ingrediente2 = (IngredienteRicetta*)malloc(sizeof(IngredienteRicetta));
-    if (ingrediente2 == NULL) {
-        printf("Errore di allocazione memoria per ingrediente2\n");
-        return;
-    }
-    strcpy(ingrediente2->nome, "Pomodoro");
-    ingrediente2->quantita = 2;
-    ingrediente2->next = NULL;
-    ricetta1.ingredienti = ingrediente2;
-
-    printf("Tento di aggiungere nuovamente la ricetta 'Pasta'\n");
-    aggiungi_ricetta(ricetta1);
-
-    // Pulizia della memoria
-    liberaListaIng(ricetta1.ingredienti);
-    liberaBST(bst);
-    bst = NULL;  // Reset della variabile globale bst
-}
-
-
-void testMenu() {
-    int choice;
-    do {
-        printf("\nSeleziona un test da eseguire:\n");
-        printf("1. Test MinHeapIngrediente\n");
-        printf("2. Test NodoAVL\n");
-        printf("3. Test NodoBST\n");
-        printf("4. Test CodaOrdini\n");
-        printf("5. Test MinHeapOrdini\n");
-        printf("6. Test MaxHeapSpedizioni\n");
-        printf("7. Test GestisciComandi\n");
-        printf("8. Test AggiungiRicetta\n");
-        printf("0. Esci\n");
-        printf("Scelta: ");
-        scanf("%d", &choice);
-        switch (choice) {
-            case 1:
-                testMinHeapIngrediente();
-            break;
-            case 2:
-                testNodoAVL();
-            break;
-            case 3:
-                testNodoBST();
-            break;
-            case 4:
-                testCodaOrdini();
-            break;
-            case 5:
-                testMinHeapOrdini();
-            break;
-            case 6:
-                testMaxHeapSpedizioni();
-            break;
-            case 7:
-                testGestisciComandi();
-            break;
-            case 8:
-                testAggiungiRicetta();
-            break;
-            case 0:
-                printf("Uscita...\n");
-            break;
-            default:
-                printf("Scelta non valida. Riprova.\n");
-        }
-    } while (choice != 0);
+// Funzione principale per stampare tutte le strutture
+void stampaTutto() {
+    printf("Stato corrente delle strutture dati:\n");
+    stampaAVL(avl);  // Stampa l'AVL
+    stampaHeapIngredienti(&avl->heap);  // Assumendo che avl non sia NULL per la demo
+    stampaBST(bst);  // Stampa il BST delle ricette
+    stampaCodaFIFO(coda_ordini);  // Stampa la coda FIFO degli ordini
+    stampaMinHeapOrdini(heap_ordini_fatti);  // Stampa il min-heap degli ordini fatti
+    stampaMaxHeapSpedizioni(max_heap_spedizioni);  // Stampa il max-heap delle spedizioni
+    printf("Istante di tempo corrente: %d\n", tempoCorrente);
 }

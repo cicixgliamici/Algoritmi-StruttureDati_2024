@@ -1,4 +1,5 @@
-40 30
+7 100
 rifornimento Pane 10 100
-rifornimento Pane 11 99
-rifornimento Pane 12 4
+aggiungi_ricetta Ceccio Pane 1
+aggiungi_ricetta Ceccioo Pane 2
+aggiungi_ricetta Cecciooo Pane 3

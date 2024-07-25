@@ -1,3 +1,16 @@
+/*  4 Azioni da svolgere   aggiungi_ricetta: devo controllare nel BST se è già presente
+*                          rimuovi_ricetta:  devo controllare sia se è presente nel BST sia nelle 3 strutture di ordini
+*                          rifornimento:     non devo fare controlli anteriori, ma devo controllare dopo se posso fare ordini sulla coda
+*                          ordine:           devo prima controllare se esiste nel BST, se no rifiutare
+*                                            poi lo inserisco nella Coda, e se fattibile lo tolgo e metto sul minHeap
+*                                            sennò lo tengo in coda ed aspetto ogni rifornimento
+*
+*   Il Tempo               Ogni azione costituisce un istante di tempo, escluso il setting del camioncino
+*                          Il riempimento del camion va fatto prima dell'azione, e fatto ad ogni multiplo (anche a riga vuota, vedi esempio)
+*
+*   Gestione comandi       Leggo la riga da input con fgets, la salvo e poi la analizzo con sscanf
+*                          Aggiorno il tempo ad ogni lettura di riga e per i multipi del tempo camioncino, prima lo carico e poi faccio l'azione
+*/
 #include "header.h"
 #include <stdio.h>
 #include <string.h>
@@ -10,6 +23,7 @@ CodaOrdini* coda_ordini = NULL;
 MinHeap* heap_ordini_fatti = NULL;
 MaxHeapSpedizioni* max_heap_spedizioni = NULL;
 int tempoCorrente = -1;
+int ultimoAggiornamento = -1;
 
 // Funzioni generiche
 int max(int a, int b) {
@@ -20,17 +34,22 @@ int max(int a, int b) {
 void gestisciComandi(FILE *file) {
     int tempoCamion, capienzaCamion;
     fscanf(file, "%d %d", &tempoCamion, &capienzaCamion);
+    printf("%d %d\n", tempoCamion, capienzaCamion);
     max_heap_spedizioni = creaMaxHeap(capienzaCamion);
     coda_ordini = creaCoda();
     heap_ordini_fatti = creaMinHeap(10);
+    ultimoAggiornamento = 0;
     char line[256];
     while (fgets(line, sizeof(line), file)) {
+        tempoCorrente++;
+        printf("Istante di tempo %d\n", tempoCorrente);
         char command[256];
         if (sscanf(line, "%s", command) == 1) {
-            if (tempoCorrente % tempoCamion == 0 && tempoCorrente!=0) {
+            if (tempoCorrente % tempoCamion == 0 && tempoCorrente != 0) {
                 caricaCamion();
             }
             if (strcmp(command, "aggiungi_ricetta") == 0) {
+                aggiornaScadenza();
                 char nome_ricetta[256];
                 if (sscanf(line + strlen(command), "%s", nome_ricetta) == 1) {
                     if (cercaBST(bst, nome_ricetta) != NULL) {
@@ -38,7 +57,6 @@ void gestisciComandi(FILE *file) {
                     } else {
                         Ricetta nuova_ricetta;
                         strcpy(nuova_ricetta.nome, nome_ricetta);
-                        // Read ingredients and their quantities
                         nuova_ricetta.ingredienti = NULL;
                         IngredienteRicetta *tail = NULL;
                         char ingrediente[256];
@@ -61,13 +79,16 @@ void gestisciComandi(FILE *file) {
                     }
                 }
             } else if (strcmp(command, "rimuovi_ricetta") == 0) {
+                aggiornaScadenza();
                 char nome_ricetta[256];
                 if (sscanf(line + strlen(command), "%s", nome_ricetta) == 1) {
                     rimuovi_ricetta(nome_ricetta);
                 }
             } else if (strcmp(command, "rifornimento") == 0) {
+                aggiornaScadenza();
                 rifornimento(line + strlen(command) + 1);
             } else if (strcmp(command, "ordine") == 0) {
+                aggiornaScadenza();
                 char nome_ricetta[256];
                 int quantita;
                 if (sscanf(line + strlen(command), "%s %d", nome_ricetta, &quantita) == 2) {
@@ -75,7 +96,6 @@ void gestisciComandi(FILE *file) {
                 }
             }
         }
-        tempoCorrente++;
     }
     if (tempoCorrente % tempoCamion == 0) {
         caricaCamion();
@@ -123,7 +143,7 @@ void rifornimento(const char* comando) {
     while (sscanf(ptr, "%s %d %d", nome_ingrediente, &quantita, &scadenza) == 3) {
         NodoAVL* nodo = cercaAVL(avl, nome_ingrediente);
         if (nodo != NULL) {
-            inserisciIngrediente(&nodo->heap, scadenza, quantita);
+            inserisciIngrediente(&nodo->heap, scadenza, quantita, nodo);
         } else {
             avl = inserisciAVL(avl, nome_ingrediente, scadenza, quantita, 10);
         }
@@ -135,8 +155,9 @@ void rifornimento(const char* comando) {
 
 // Main - Gestione del giorno
 int main(void) {
-    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/example.txt", "r");
+    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/input.txt", "r");
     gestisciComandi(file);
     fclose(file);
+    stampaTutto();
     return 0;
 }

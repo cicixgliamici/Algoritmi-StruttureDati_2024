@@ -28,7 +28,7 @@ void heapifyIngredienti(MinHeapIngrediente* heap, int i) {
     }
 }
 
-void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita) {
+void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita, struct NodoAVL* nodo) {
     if (heap->dimensione == heap->capacita) {
         heap->capacita *= 2;
         heap->lotto = (IngredienteMinHeap*) realloc(heap->lotto, heap->capacita * sizeof(IngredienteMinHeap));
@@ -36,26 +36,36 @@ void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita) 
     int i = heap->dimensione++;
     heap->lotto[i].scadenza = scadenza;
     heap->lotto[i].quantita = quantita;
+    heap->lotto[i].nodoAVL = nodo;  // Imposta il puntatore al nodo AVL
     while (i != 0 && heap->lotto[(i - 1) / 2].scadenza > heap->lotto[i].scadenza) {
         scambia(&heap->lotto[i], &heap->lotto[(i - 1) / 2]);
         i = (i - 1) / 2;
     }
+    if (nodo!=NULL)
+        nodo->peso_totale += quantita;  // Aggiorna il peso totale del nodo AVL
 }
+
 
 IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
     if (heap->dimensione == 0) {
-        IngredienteMinHeap ingredienteVuoto = { INT_MAX, 0 };
+        IngredienteMinHeap ingredienteVuoto = { INT_MAX, 0, NULL };
         return ingredienteVuoto;
     }
     IngredienteMinHeap radice = heap->lotto[0];
     heap->lotto[0] = heap->lotto[--heap->dimensione];
     heapifyIngredienti(heap, 0);
+    if (radice.nodoAVL != NULL) {
+        radice.nodoAVL->peso_totale -= radice.quantita;
+    }
     return radice;
 }
 
+
 void liberaLotto(MinHeapIngrediente* heap) {
-    free(heap->lotto);
-    free(heap);
+    if (heap != NULL) {
+        free(heap->lotto);
+        heap->lotto = NULL;
+    }
 }
 
 MinHeapIngrediente nuovoHeapIngredienti(int capacita) {
@@ -92,12 +102,12 @@ NodoAVL* nuovoAVL(char* nome, int capacita) {
     NodoAVL* nodo = (NodoAVL*)malloc(sizeof(NodoAVL));
     strcpy(nodo->nome, nome);
     nodo->heap = nuovoHeapIngredienti(capacita);
+    nodo->peso_totale = 0;
     nodo->sinistro = NULL;
     nodo->destro = NULL;
     nodo->altezza = 1;
     return nodo;
 }
-
 
 NodoAVL* ruotaDestra(NodoAVL *y) {
     NodoAVL *x= y->sinistro;
@@ -181,7 +191,7 @@ NodoAVL* cercaAVL(NodoAVL* nodo, const char* nome) {
 NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int capacita) {
     if (nodo == NULL) {
         NodoAVL* nuovo = nuovoAVL(nome, capacita);
-        inserisciIngrediente(&nuovo->heap, scadenza, quantita);
+        inserisciIngrediente(&nuovo->heap, scadenza, quantita, nuovo);
         return nuovo;
     }
     if (strcmp(nome, nodo->nome) < 0) {
@@ -189,7 +199,7 @@ NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int
     } else if (strcmp(nome, nodo->nome) > 0) {
         nodo->destro = inserisciAVL(nodo->destro, nome, scadenza, quantita, capacita);
     } else {
-        inserisciIngrediente(&nodo->heap, scadenza, quantita);
+        inserisciIngrediente(&nodo->heap, scadenza, quantita, nodo);
     }
     nodo->altezza = 1 + max(altezza(nodo->sinistro), altezza(nodo->destro));
     return bilanciaAVL(nodo);
