@@ -5,6 +5,7 @@
 *                                                  nell'AVL, senza togliere nulla
 *
 *                              preparazione:       prepara effetivamente l'ordine togliendo sempre gli ingredienti con scadenza minore
+*                                                  svuota anche l'heap degli ingredienti scaduti
 *
 *                              verificaOrdini:     sostanzialmente è la funzione ordine ma chiamata su tutta la coda, usata quando si fa
 *                                                  rifornimento
@@ -12,9 +13,6 @@
 *                              caricaCamion:       passa gli ordini dal minHeap (istante arrivo) al maxHeap (peso), e ne passa tanti quanti
 *                                                  qta ordini*peso ordine = capacita camion (o lascia il minimo spazio)
 *                              calcolaPeso:        calcola il peso dell'ordine
-*
-*                              aggiornaScadenza:   aggiorna la scadenza degli ingredienti ogni volta che viene fatto un rifornimento o ordine (performance)
-*                                                  ciclo su tutto l'AVL e su ogni minHeap
 */
 #include "header.h"
 #include <stdio.h>
@@ -41,6 +39,12 @@ bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
         if (nodo_ingrediente == NULL) {
             return false;
         }
+        // Rimuove ingredienti scaduti
+        while (nodo_ingrediente->heap.dimensione > 0 && nodo_ingrediente->heap.lotto[0].scadenza <= tempoCorrente) {
+            IngredienteMinHeap scaduto = rimuoviIngrediente(&nodo_ingrediente->heap);
+            // Va tolto anche il nodo dell'AVL ma non capisco come
+            //printf("Rimosso ingrediente scaduto: %s, Quantita: %d, Scadenza: %d\n", nodo_ingrediente->nome, scaduto.quantita, scaduto.scadenza);
+        }
         int peso_totale_richiesto = ing->quantita * numero_elementi_ordinati;
         if (nodo_ingrediente->peso_totale < peso_totale_richiesto) {
             return false;
@@ -49,6 +53,7 @@ bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
     }
     return true;
 }
+
 
 void preparazione(const char* nome_ricetta, int numero_elementi_ordinati) {
     NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
@@ -98,12 +103,12 @@ void verificaOrdini() {
 }
 
 void caricaCamion() {
-    if (heapVuotoMax(heap_ordini_fatti)) {
+    if (heapVuotoMinOrdine(heap_ordini_fatti)) {
         printf("camioncino vuoto\n");
         return;
     }
     int capienzaRestante = max_heap_spedizioni->capacita;
-    while (!heapVuotoMax(heap_ordini_fatti) && capienzaRestante > 0) {
+    while (!heapVuotoMinOrdine(heap_ordini_fatti) && capienzaRestante > 0) {
         OrdineHeap ordine = rimuoviMin(heap_ordini_fatti);
         NodoBST* nodo_ricetta = cercaBST(bst, ordine.ricetta);
         if (nodo_ricetta == NULL) {
@@ -132,32 +137,4 @@ int calcolaPeso(Ricetta ricetta, int numero_elementi_ordinati) {
         ingrediente = ingrediente->next;
     }
     return peso;
-}
-
-void decrementaScadenzaHeap(MinHeapIngrediente* heap, int decremento) {
-    int original_size = heap->dimensione;
-    for (int i = 0; i < original_size; i++) {
-        heap->lotto[i].scadenza -= decremento;
-        if (heap->lotto[i].scadenza <= 0) {
-            IngredienteMinHeap removed_ingrediente = rimuoviIngrediente(heap);
-            i--;
-        }
-    }
-}
-
-void decrementaScadenzaAVL(NodoAVL* nodo, int decremento) {
-    if (nodo == NULL) {
-        return;
-    }
-    decrementaScadenzaHeap(&nodo->heap, decremento);
-    decrementaScadenzaAVL(nodo->sinistro, decremento);
-    decrementaScadenzaAVL(nodo->destro, decremento);
-}
-
-void aggiornaScadenza() {
-    if (ultimoAggiornamento < tempoCorrente) {
-        int decremento = tempoCorrente - ultimoAggiornamento;
-        decrementaScadenzaAVL(avl, decremento);
-        ultimoAggiornamento = tempoCorrente;
-    }
 }

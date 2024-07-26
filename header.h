@@ -2,7 +2,7 @@
 *                     Ricette:          BST di liste     -> Ordinamento lessicografico
 *                     Ordini da Fare:   Coda FIFO        -> Mantiene l'ordine di arrivo degli ordini
 *                     Ordini fatti:     min-Heap         -> Istante di arrivo dell'ordine
-*                     Camioncino:       max-Heap         -> Peso totale dell'ordine
+*                     Camioncino:       max-Heap         -> Peso totale dell'ordine (a parità di peso, istante di arrivo)
 */
 #ifndef HEADER_H
 #define HEADER_H
@@ -177,10 +177,6 @@ void preparazione(const char* nome_ricetta, int numero_elementi_ordinati);      
 void verificaOrdini();                                                                           //Verifica la fattibilità di tutti gli ordini in Coda
 void caricaCamion();                                                                             //Passaggio da minHeap ordini fatti a maxHeap spedizione
 int calcolaPeso(Ricetta ricetta, int numero_elementi_ordinati);                                  //Calcola il peso di un ordine
-
-void aggiornaScadenza();                                                                         //Aggiorna le scadenze degli ingredienti, chiamata a rifornimento e ordine
-void decrementaScadenzaAVL(NodoAVL* nodo, int decremento);                                       //Cicla tutto l'AVL
-void decrementaScadenzaHeap(MinHeapIngrediente* heap, int decremento);                           //Cicla tutto il minHeap
 
 void stampaTutto();
 

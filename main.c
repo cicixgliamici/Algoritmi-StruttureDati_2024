@@ -35,20 +35,21 @@ void gestisciComandi(FILE *file) {
     int tempoCamion, capienzaCamion;
     fscanf(file, "%d %d", &tempoCamion, &capienzaCamion);
     printf("%d %d\n", tempoCamion, capienzaCamion);
-    max_heap_spedizioni = creaMaxHeap(capienzaCamion);
+    max_heap_spedizioni = creaMaxHeap(capienzaCamion);                                          //Nel caso peggiore ho capienzaCamion ordini di peso 1
     coda_ordini = creaCoda();
     heap_ordini_fatti = creaMinHeap(10);
     ultimoAggiornamento = 0;
     char line[256];
     while (fgets(line, sizeof(line), file)) {
-        tempoCorrente++;
-        printf("Istante di tempo %d\n", tempoCorrente);
+        if (((tempoCorrente + 1) % tempoCamion == 0) && (tempoCorrente != -1)) {
+            //printf("t=%d --->       ", tempoCorrente+1);
+            caricaCamion();
+        }
         char command[256];
         if (sscanf(line, "%s", command) == 1) {
-            if (tempoCorrente % tempoCamion == 0 && tempoCorrente != 0) {
-                caricaCamion();
-            }
-            if (strcmp(command, "aggiungi_ricetta") == 0) {
+            tempoCorrente++;
+            //printf("t=%d --->       ", tempoCorrente);
+            if (strcmp(command, "aggiungi_ricetta") == 0) {                                     //Per non portarmi appresso tutta la lista ingredienti faccio il controllo qui
                 char nome_ricetta[256];
                 if (sscanf(line + strlen(command), "%s", nome_ricetta) == 1) {
                     if (cercaBST(bst, nome_ricetta) != NULL) {
@@ -83,10 +84,8 @@ void gestisciComandi(FILE *file) {
                     rimuovi_ricetta(nome_ricetta);
                 }
             } else if (strcmp(command, "rifornimento") == 0) {
-                aggiornaScadenza();
                 rifornimento(line + strlen(command) + 1);
             } else if (strcmp(command, "ordine") == 0) {
-                aggiornaScadenza();
                 char nome_ricetta[256];
                 int quantita;
                 if (sscanf(line + strlen(command), "%s %d", nome_ricetta, &quantita) == 2) {
@@ -94,9 +93,6 @@ void gestisciComandi(FILE *file) {
                 }
             }
         }
-    }
-    if (tempoCorrente % tempoCamion == 0) {
-        caricaCamion();
     }
 }
 
@@ -120,16 +116,10 @@ void rimuovi_ricetta(const char* nome_ricetta) {
             return;
         }
     }
-    for (int i = 0; i < max_heap_spedizioni->dimensione; i++) {                         //Controllo nel maxHeap del camioncino
-        if (strcmp(max_heap_spedizioni->spedizioni[i].nome, nome_ricetta) == 0) {
-            printf("ordini in sospeso\n");
-            return;
-        }
-    }
-    if (cercaBST(bst, nome_ricetta) == NULL) {                                          //Controllo nel BST
+    if (cercaBST(bst, (char*)nome_ricetta) == NULL) {                                          //Controllo nel BST
         printf("non presente\n");
     } else {
-        bst = eliminaBST(bst, nome_ricetta);
+        bst = eliminaBST(bst, (char*)nome_ricetta);
         printf("rimossa\n");
     }
 }
@@ -153,9 +143,9 @@ void rifornimento(const char* comando) {
 
 // Main - Gestione del giorno
 int main(void) {
-    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/input.txt", "r");
+    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open2.txt", "r");
     gestisciComandi(file);
     fclose(file);
-    stampaTutto();
+    //stampaTutto();
     return 0;
 }

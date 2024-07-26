@@ -45,7 +45,6 @@ void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita, 
         nodo->peso_totale += quantita;  // Aggiorna il peso totale del nodo AVL
 }
 
-
 IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
     if (heap->dimensione == 0) {
         IngredienteMinHeap ingredienteVuoto = { INT_MAX, 0, NULL };
@@ -59,7 +58,6 @@ IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
     }
     return radice;
 }
-
 
 void liberaLotto(MinHeapIngrediente* heap) {
     if (heap != NULL) {

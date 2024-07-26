@@ -183,7 +183,8 @@ void stampaHeapIngredienti(MinHeapIngrediente* heap) {
 
 // Funzione di supporto per stampare l'AVL
 void stampaAVL(NodoAVL* nodo) {
-    if (nodo == NULL) return;
+    if (nodo == NULL)
+        return;
     stampaAVL(nodo->sinistro);
     printf("Ingrediente: %s, Peso totale: %d\n", nodo->nome, nodo->peso_totale);
     stampaAVL(nodo->destro);
@@ -191,7 +192,8 @@ void stampaAVL(NodoAVL* nodo) {
 
 // Funzione di supporto per stampare il BST delle ricette
 void stampaBST(NodoBST* nodo) {
-    if (nodo == NULL) return;
+    if (nodo == NULL)
+        return;
     stampaBST(nodo->sinistro);
     printf("Ricetta: %s\n", nodo->ricetta.nome);
     IngredienteRicetta* ing = nodo->ricetta.ingredienti;
