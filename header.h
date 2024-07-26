@@ -173,7 +173,7 @@ void rifornimento(const char* comando);                                         
 void ordine(const char* nome_ricetta, int numero_elementi_ordinati);                             //Controlla esistenza in ricettario, se si aggiungi a Coda e poi prova a fare
 
 bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati);                        //Verifica la fattiblità di un ordine guardando peso_totale e peso ordine
-void preparazione(const char* nome_ricetta, int numero_elementi_ordinati);                       //Effettua la preparazione rispettando la specifica di rimozione ingredienti scadenza minore
+void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int tempo_arrivo);                       //Effettua la preparazione rispettando la specifica di rimozione ingredienti scadenza minore
 void verificaOrdini();                                                                           //Verifica la fattibilità di tutti gli ordini in Coda
 void caricaCamion();                                                                             //Passaggio da minHeap ordini fatti a maxHeap spedizione
 int calcolaPeso(Ricetta ricetta, int numero_elementi_ordinati);                                  //Calcola il peso di un ordine

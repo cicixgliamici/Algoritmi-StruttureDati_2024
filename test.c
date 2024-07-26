@@ -158,7 +158,7 @@ void testRifornimentoRicetta() {
     printf("Preparazione della ricetta 'RicettaTest'\n");
     printf("Stato MinHeapIngrediente prima della preparazione:\n");
     testHeapOrder(&nodo->heap);
-    preparazione("RicettaTest", 1);
+    //preparazione("RicettaTest", 1);
     printf("Stato MinHeapIngrediente dopo la preparazione:\n");
     testHeapOrder(&nodo->heap);
     liberaAVL(avl);

@@ -34,21 +34,21 @@ int max(int a, int b) {
 void gestisciComandi(FILE *file) {
     int tempoCamion, capienzaCamion;
     fscanf(file, "%d %d", &tempoCamion, &capienzaCamion);
-    printf("%d %d\n", tempoCamion, capienzaCamion);
+    //printf("%d %d\n", tempoCamion, capienzaCamion);
     max_heap_spedizioni = creaMaxHeap(capienzaCamion);                                          //Nel caso peggiore ho capienzaCamion ordini di peso 1
     coda_ordini = creaCoda();
     heap_ordini_fatti = creaMinHeap(10);
     ultimoAggiornamento = 0;
     char line[256];
     while (fgets(line, sizeof(line), file)) {
-        if (((tempoCorrente + 1) % tempoCamion == 0) && (tempoCorrente != -1)) {
-            //printf("t=%d --->       ", tempoCorrente+1);
-            caricaCamion();
-        }
         char command[256];
         if (sscanf(line, "%s", command) == 1) {
             tempoCorrente++;
             //printf("t=%d --->       ", tempoCorrente);
+            if(tempoCorrente%tempoCamion==0 && tempoCorrente!=0){
+                //stampaTutto();
+                caricaCamion();
+            }
             if (strcmp(command, "aggiungi_ricetta") == 0) {                                     //Per non portarmi appresso tutta la lista ingredienti faccio il controllo qui
                 char nome_ricetta[256];
                 if (sscanf(line + strlen(command), "%s", nome_ricetta) == 1) {
@@ -94,6 +94,9 @@ void gestisciComandi(FILE *file) {
             }
         }
     }
+    if((tempoCorrente+1)%tempoCamion==0 && tempoCorrente!=0)
+        caricaCamion();
+    //stampaTutto();
 }
 
 void aggiungi_ricetta(Ricetta nuova_ricetta) {
@@ -143,9 +146,8 @@ void rifornimento(const char* comando) {
 
 // Main - Gestione del giorno
 int main(void) {
-    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open2.txt", "r");
+    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open3.txt", "r"); //stdin
     gestisciComandi(file);
     fclose(file);
-    //stampaTutto();
     return 0;
 }

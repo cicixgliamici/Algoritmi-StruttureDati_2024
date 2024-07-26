@@ -26,7 +26,9 @@ void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
     }
     aggiungiCoda(coda_ordini, (char*)nome_ricetta, numero_elementi_ordinati, tempoCorrente);
     if (fattibilita(nome_ricetta, numero_elementi_ordinati)) {
-        preparazione(nome_ricetta, numero_elementi_ordinati);
+        preparazione(nome_ricetta, numero_elementi_ordinati, tempoCorrente);
+        rimuoviCoda(coda_ordini); // Rimuovi dalla coda solo dopo la preparazione
+        //printf("fatto\n");
     }
     printf("accettato\n");
 }
@@ -37,6 +39,7 @@ bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
     while (ing != NULL) {
         NodoAVL* nodo_ingrediente = cercaAVL(avl, ing->nome);
         if (nodo_ingrediente == NULL) {
+            //printf("postposto\n");
             return false;
         }
         // Rimuove ingredienti scaduti
@@ -47,6 +50,7 @@ bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
         }
         int peso_totale_richiesto = ing->quantita * numero_elementi_ordinati;
         if (nodo_ingrediente->peso_totale < peso_totale_richiesto) {
+            //printf("postposto\n");
             return false;
         }
         ing = ing->next;
@@ -55,7 +59,7 @@ bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
 }
 
 
-void preparazione(const char* nome_ricetta, int numero_elementi_ordinati) {
+void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int tempo_arrivo) {
     NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
     IngredienteRicetta* ing = nodo_ricetta->ricetta.ingredienti;
     while (ing != NULL) {
@@ -73,7 +77,7 @@ void preparazione(const char* nome_ricetta, int numero_elementi_ordinati) {
         }
         ing = ing->next;
     }
-    inserisciOrdineHeap(heap_ordini_fatti, tempoCorrente, (char*)nome_ricetta, numero_elementi_ordinati);
+    inserisciOrdineHeap(heap_ordini_fatti, tempo_arrivo, (char*)nome_ricetta, numero_elementi_ordinati);
 }
 
 void verificaOrdini() {
@@ -81,7 +85,7 @@ void verificaOrdini() {
     Ordine* precedente = NULL;
     while (ordineCorrente != NULL) {
         if (fattibilita(ordineCorrente->nome_ricetta, ordineCorrente->quantita)) {
-            preparazione(ordineCorrente->nome_ricetta, ordineCorrente->quantita);
+            preparazione(ordineCorrente->nome_ricetta, ordineCorrente->quantita, ordineCorrente->tempo_arrivo);
             if (precedente == NULL) {
                 coda_ordini->testa = ordineCorrente->next;
                 if (coda_ordini->testa == NULL) {
@@ -93,8 +97,9 @@ void verificaOrdini() {
                     coda_ordini->coda = precedente;
                 }
             }
-            free(ordineCorrente);
-            ordineCorrente = precedente ? precedente->next : coda_ordini->testa;
+            Ordine* temp = ordineCorrente;
+            ordineCorrente = ordineCorrente->next;
+            free(temp);
         } else {
             precedente = ordineCorrente;
             ordineCorrente = ordineCorrente->next;
@@ -118,9 +123,6 @@ void caricaCamion() {
         if (peso_ordine <= capienzaRestante) {
             inserisciSpedizione(max_heap_spedizioni, ordine.ricetta, ordine.tempo_arrivo, ordine.quantita, peso_ordine);
             capienzaRestante -= peso_ordine;
-        } else {
-            inserisciOrdineHeap(heap_ordini_fatti, ordine.tempo_arrivo, ordine.ricetta, ordine.quantita);
-            break;
         }
     }
     while (!heapVuotoMax(max_heap_spedizioni)) {

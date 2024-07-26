@@ -418,10 +418,23 @@ void heapifySpedizioni(MaxHeapSpedizioni* heap, int i) {
     int maggiore = i;
     int sinistro = 2 * i + 1;
     int destro = 2 * i + 2;
+
+    // Condizione per peso maggiore
     if (sinistro < heap->dimensione && heap->spedizioni[sinistro].peso > heap->spedizioni[maggiore].peso)
         maggiore = sinistro;
+    // Condizione per peso uguale ma istante di arrivo minore
+    else if (sinistro < heap->dimensione && heap->spedizioni[sinistro].peso == heap->spedizioni[maggiore].peso &&
+             heap->spedizioni[sinistro].istante_arrivo < heap->spedizioni[maggiore].istante_arrivo)
+        maggiore = sinistro;
+
+    // Condizione per peso maggiore
     if (destro < heap->dimensione && heap->spedizioni[destro].peso > heap->spedizioni[maggiore].peso)
         maggiore = destro;
+    // Condizione per peso uguale ma istante di arrivo minore
+    else if (destro < heap->dimensione && heap->spedizioni[destro].peso == heap->spedizioni[maggiore].peso &&
+             heap->spedizioni[destro].istante_arrivo < heap->spedizioni[maggiore].istante_arrivo)
+        maggiore = destro;
+
     if (maggiore != i) {
         Spedizione temp = heap->spedizioni[i];
         heap->spedizioni[i] = heap->spedizioni[maggiore];
@@ -437,14 +450,26 @@ void inserisciSpedizione(MaxHeapSpedizioni* heap, char* nome, int istante_arrivo
     }
     int i = heap->dimensione++;
     strcpy(heap->spedizioni[i].nome, nome);
-    heap->spedizioni[i].istante_arrivo= istante_arrivo;
-    heap->spedizioni[i].quantita= quantita;
-    heap->spedizioni[i].peso= peso;
-    while (i!=0 && heap->spedizioni[(i-1)/2].peso < heap->spedizioni[i].peso) {
-        Spedizione temp=heap->spedizioni[i];
-        heap->spedizioni[i]=heap->spedizioni[(i - 1) / 2];
-        heap->spedizioni[(i-1)/2] = temp;
-        i=(i-1)/2;
+    heap->spedizioni[i].istante_arrivo = istante_arrivo;
+    heap->spedizioni[i].quantita = quantita;
+    heap->spedizioni[i].peso = peso;
+
+    while (i != 0) {
+        int parent = (i - 1) / 2;
+        if (heap->spedizioni[parent].peso < heap->spedizioni[i].peso) {
+            Spedizione temp = heap->spedizioni[i];
+            heap->spedizioni[i] = heap->spedizioni[parent];
+            heap->spedizioni[parent] = temp;
+            i = parent;
+        } else if (heap->spedizioni[parent].peso == heap->spedizioni[i].peso &&
+                   heap->spedizioni[parent].istante_arrivo > heap->spedizioni[i].istante_arrivo) {
+            Spedizione temp = heap->spedizioni[i];
+            heap->spedizioni[i] = heap->spedizioni[parent];
+            heap->spedizioni[parent] = temp;
+            i = parent;
+                   } else {
+                       break;
+                   }
     }
 }
 
