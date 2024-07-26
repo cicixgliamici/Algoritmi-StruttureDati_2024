@@ -49,7 +49,6 @@ void gestisciComandi(FILE *file) {
                 caricaCamion();
             }
             if (strcmp(command, "aggiungi_ricetta") == 0) {
-                aggiornaScadenza();
                 char nome_ricetta[256];
                 if (sscanf(line + strlen(command), "%s", nome_ricetta) == 1) {
                     if (cercaBST(bst, nome_ricetta) != NULL) {
@@ -79,7 +78,6 @@ void gestisciComandi(FILE *file) {
                     }
                 }
             } else if (strcmp(command, "rimuovi_ricetta") == 0) {
-                aggiornaScadenza();
                 char nome_ricetta[256];
                 if (sscanf(line + strlen(command), "%s", nome_ricetta) == 1) {
                     rimuovi_ricetta(nome_ricetta);
