@@ -110,7 +110,7 @@ void testUsoParzialeIngrediente() {
     IngredienteMinHeap rimosso = rimuoviIngrediente(&heap);
     printf("Rimosso ingrediente: scadenza = %d, quantita = %d\n", rimosso.scadenza, rimosso.quantita);
     int quantita_usata = 12; // Usare tutto l'ingrediente con scadenza 4
-    printf("Utilizzata quantità %d\n", quantita_usata);
+    printf("Utilizzata quantita %d\n", quantita_usata);
     printf("Stato MinHeapIngrediente dopo rimozione dell'ingrediente con scadenza 4:\n");
     testHeapOrder(&heap);
     quantita_usata = 6;
@@ -166,6 +166,55 @@ void testRifornimentoRicetta() {
     free(ingrediente_ricetta);
 }
 
+void testAggiungiRimuoviIngredienti_AVL() {
+    NodoAVL *avl = NULL;
+    avl = inserisciAVL(avl, "Farina", 10, 5, 10);
+    printf("Aggiunto Farina con scadenza 10 e quantita 5\n");
+    avl = inserisciAVL(avl, "Farina", 5, 10, 10);
+    printf("Aggiunto Farina con scadenza 5 e quantita 10\n");
+    stampaAVL1(avl);
+    IngredienteMinHeap rimosso = rimuoviIngrediente(&avl->heap);
+    printf("Rimosso Farina con scadenza %d e quantita %d\n", rimosso.scadenza, rimosso.quantita);
+    stampaAVL1(avl);
+    rimosso = rimuoviIngrediente(&avl->heap);
+    printf("Rimosso Farina con scadenza %d e quantita %d\n", rimosso.scadenza, rimosso.quantita);
+    stampaAVL1(avl);
+    avl = eliminaAVL(avl, "Farina");
+    printf("Nodo Farina rimosso\n");
+    if (avl == NULL) {
+        printf("AVL e vuoto\n");
+    } else {
+        stampaAVL1(avl);
+    }
+}
+
+void testDeallocazioneAVL() {
+    avl = NULL;
+    tempoCorrente = 0;
+    avl = inserisciAVL(avl, "Ingrediente1", 3, 10, 10);
+    avl = inserisciAVL(avl, "Ingrediente1", 6, 15, 10);
+    printf("Stato iniziale AVL:\n");
+    stampaAVL1(avl);
+    tempoCorrente = 3;
+    NodoAVL* nodo_ingrediente = cercaAVL(avl, "Ingrediente1");
+    if (nodo_ingrediente != NULL) {
+        controllaScadenza(nodo_ingrediente);
+    }
+    printf("\nStato AVL dopo aver impostato il tempo a 3:\n");
+    stampaAVL1(avl);
+    tempoCorrente = 6;
+    nodo_ingrediente = cercaAVL(avl, "Ingrediente1");
+    if (nodo_ingrediente != NULL) {
+        controllaScadenza(nodo_ingrediente);
+    }
+    printf("\nStato AVL dopo aver impostato il tempo a 6:\n");
+    if (avl != NULL) {
+        stampaAVL1(avl);
+    } else {
+        printf("AVL e vuoto\n");
+    }
+}
+
 void testMinHeapIngrediente() {
     testMinHeapInserimento();
     testMinHeapRimozione();
@@ -173,71 +222,140 @@ void testMinHeapIngrediente() {
     testMinHeapInit();
 }
 
-// Funzione di Stampa
-void stampaHeapIngredienti(MinHeapIngrediente* heap) {
-    printf("Heap degli ingredienti:\n");
+void testCodaOrdini() {
+    CodaOrdini* coda = creaCoda();
+    printf("Test Coda Ordini\n");
+    aggiungiCoda(coda, "Ciambella", 6, 5);
+    stampaCodaFIFO(coda);
+    aggiungiCoda(coda, "Profiterole", 3, 6);
+    stampaCodaFIFO(coda);
+    aggiungiCoda(coda, "Ciambella", 3, 9);
+    stampaCodaFIFO(coda);
+    Ordine* corrente = coda->testa;
+    liberaCoda(coda);
+}
+
+//Funzioni di stampa
+void stampaHeapIngredienti1(MinHeapIngrediente* heap) {
     for (int i = 0; i < heap->dimensione; i++) {
         printf("  Ingrediente scadenza: %d, Quantita: %d\n", heap->lotto[i].scadenza, heap->lotto[i].quantita);
     }
 }
 
-// Funzione di supporto per stampare l'AVL
-void stampaAVL(NodoAVL* nodo) {
-    if (nodo == NULL)
-        return;
-    stampaAVL(nodo->sinistro);
-    printf("Ingrediente: %s, Peso totale: %d\n", nodo->nome, nodo->peso_totale);
-    stampaAVL(nodo->destro);
+void stampaHeapIngredienti2(MinHeapIngrediente* heap, int* count) {
+    for (int i = 0; i < heap->dimensione; i++) {
+        printf("  Ingrediente scadenza: %d, Quantita: %d\n", heap->lotto[i].scadenza, heap->lotto[i].quantita);
+        (*count)++;
+    }
 }
 
-// Funzione di supporto per stampare il BST delle ricette
-void stampaBST(NodoBST* nodo) {
-    if (nodo == NULL)
+void stampaAVL1(NodoAVL* nodo) {
+    if (nodo == NULL) {
         return;
-    stampaBST(nodo->sinistro);
+    }
+    stampaAVL1(nodo->sinistro);
+    printf("Ingrediente: %s, Peso Totale: %d\n", nodo->nome, nodo->peso_totale);
+    if (nodo->heap.lotto != NULL) {
+        stampaHeapIngredienti1(&nodo->heap);
+    } else {
+        printf("Heap degli ingredienti e vuoto o non allocato.\n");
+    }
+    stampaAVL1(nodo->destro);
+}
+
+
+// Funzione di supporto per stampare l'AVL e contare gli elementi
+void stampaAVL2(NodoAVL* nodo, int* count) {
+    if (nodo == NULL) {
+        return;
+    }
+    stampaAVL2(nodo->sinistro, count);
+    printf("Ingrediente: %s, Peso Totale: %d\n", nodo->nome, nodo->peso_totale);
+    if (nodo->heap.lotto != NULL) {
+        stampaHeapIngredienti2(&nodo->heap, count);
+    } else {
+        printf("Heap degli ingredienti e vuoto o non allocato.\n");
+    }
+    stampaAVL2(nodo->destro, count);
+}
+
+// Funzione di supporto per stampare il BST delle ricette e contare gli elementi
+void stampaBST(NodoBST* nodo, int* count) {
+    if (nodo == NULL) {
+        return;
+    }
+    stampaBST(nodo->sinistro, count);
     printf("Ricetta: %s\n", nodo->ricetta.nome);
     IngredienteRicetta* ing = nodo->ricetta.ingredienti;
     while (ing) {
         printf("  Ingrediente: %s, Quantita: %d\n", ing->nome, ing->quantita);
         ing = ing->next;
     }
-    stampaBST(nodo->destro);
+    (*count)++;
+    stampaBST(nodo->destro, count);
 }
 
-// Funzione di supporto per stampare la coda FIFO degli ordini
-void stampaCodaFIFO(CodaOrdini* coda) {
+// Funzione di supporto per stampare la coda FIFO degli ordini e contare gli elementi
+int stampaCodaFIFO(CodaOrdini* coda) {
+    int count = 0;
     printf("Coda FIFO degli ordini:\n");
     Ordine* corrente = coda->testa;
     while (corrente) {
-        printf("  Ordine ricetta: %s, Quantita: %d, Tempo arrivo: %d\n", corrente->nome_ricetta, corrente->quantita, corrente->tempo_arrivo);
+        printf("  Ordine: Tempo arrivo: %d, Ricetta: %s, Quantita: %d\n", corrente->tempo_arrivo, corrente->nome_ricetta, corrente->quantita);
         corrente = corrente->next;
+        count++;
     }
+    return count;
 }
 
-// Funzione di supporto per stampare il min-heap degli ordini fatti
+// Funzione di supporto per stampare il min-heap degli ordini fatti e contare gli elementi
 void stampaMinHeapOrdini(MinHeap* heap) {
-    printf("Min-heap degli ordini fatti:\n");
+    printf("Min-heap degli ordini fatti (Dimensione: %d):\n", heap->dimensione);
     for (int i = 0; i < heap->dimensione; i++) {
         printf("  Ordine ricetta: %s, Quantita: %d, Tempo arrivo: %d\n", heap->ordini[i].ricetta, heap->ordini[i].quantita, heap->ordini[i].tempo_arrivo);
     }
 }
 
-// Funzione di supporto per stampare il max-heap delle spedizioni
+// Funzione di supporto per stampare il max-heap delle spedizioni e contare gli elementi
 void stampaMaxHeapSpedizioni(MaxHeapSpedizioni* heap) {
-    printf("Max-heap delle spedizioni:\n");
+    printf("Max-heap delle spedizioni (Dimensione: %d):\n", heap->dimensione);
     for (int i = 0; i < heap->dimensione; i++) {
         printf("  Spedizione: %s, Quantita: %d, Peso: %d, Istante arrivo: %d\n", heap->spedizioni[i].nome, heap->spedizioni[i].quantita, heap->spedizioni[i].peso, heap->spedizioni[i].istante_arrivo);
     }
 }
 
-// Funzione principale per stampare tutte le strutture
+// Funzione principale per stampare tutte le strutture e contare gli elementi
 void stampaTutto() {
     printf("Stato corrente delle strutture dati:\n");
-    stampaAVL(avl);  // Stampa l'AVL
-    stampaHeapIngredienti(&avl->heap);  // Assumendo che avl non sia NULL per la demo
-    stampaBST(bst);  // Stampa il BST delle ricette
-    stampaCodaFIFO(coda_ordini);  // Stampa la coda FIFO degli ordini
-    stampaMinHeapOrdini(heap_ordini_fatti);  // Stampa il min-heap degli ordini fatti
-    stampaMaxHeapSpedizioni(max_heap_spedizioni);  // Stampa il max-heap delle spedizioni
+    int count = 0;
+    if (avl != NULL) {
+        stampaAVL2(avl, &count);
+        printf("Numero di ingredienti AVL: %d\n", count);
+    } else {
+        printf("AVL e vuoto.\n");
+    }
+    count = 0;
+    if (bst != NULL) {
+        stampaBST(bst, &count);
+        printf("Numero di ricette BST: %d\n", count);
+    } else {
+        printf("BST e vuoto.\n");
+    }
+    if (coda_ordini != NULL) {
+        count = stampaCodaFIFO(coda_ordini);
+        printf("Numero di ordini nella coda FIFO: %d\n", count);
+    } else {
+        printf("Coda degli ordini e vuota.\n");
+    }
+    if (heap_ordini_fatti != NULL) {
+        stampaMinHeapOrdini(heap_ordini_fatti);
+    } else {
+        printf("Min-heap degli ordini fatti e vuoto.\n");
+    }
+    if (max_heap_spedizioni != NULL) {
+        stampaMaxHeapSpedizioni(max_heap_spedizioni);
+    } else {
+        printf("Max-heap delle spedizioni e vuoto.\n");
+    }
     printf("Istante di tempo corrente: %d\n", tempoCorrente);
 }

@@ -29,6 +29,7 @@ void heapifyIngredienti(MinHeapIngrediente* heap, int i) {
 }
 
 void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita, struct NodoAVL* nodo) {
+    //printf("Inserendo Ingrediente: Scadenza = %d, Quantita = %d\n", scadenza, quantita); // Debugging
     if (heap->dimensione == heap->capacita) {
         heap->capacita *= 2;
         heap->lotto = (IngredienteMinHeap*) realloc(heap->lotto, heap->capacita * sizeof(IngredienteMinHeap));
@@ -41,8 +42,11 @@ void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita, 
         scambia(&heap->lotto[i], &heap->lotto[(i - 1) / 2]);
         i = (i - 1) / 2;
     }
-    if (nodo!=NULL)
+    if (nodo != NULL) {
         nodo->peso_totale += quantita;  // Aggiorna il peso totale del nodo AVL
+    }
+    //printf("Ingrediente inserito: %s, Scadenza = %d, Quantita = %d\n", nodo->nome, scadenza, quantita); // Debugging
+    //stampaHeapIngredienti1(heap);
 }
 
 IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
@@ -56,13 +60,17 @@ IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
     if (radice.nodoAVL != NULL) {
         radice.nodoAVL->peso_totale -= radice.quantita;
     }
+    //printf("RimuoviIngrediente: Scadenza = %d, Quantita = %d\n", radice.scadenza, radice.quantita);
     return radice;
 }
 
 void liberaLotto(MinHeapIngrediente* heap) {
-    if (heap != NULL) {
+    if (heap != NULL && heap->lotto != NULL) {
         free(heap->lotto);
         heap->lotto = NULL;
+        heap->dimensione = 0;
+        heap->capacita = 0;
+        //printf("Heap ingredienti liberato\n");
     }
 }
 
@@ -135,47 +143,49 @@ NodoAVL* minValueAVL(NodoAVL *nodo) {
 }
 
 NodoAVL* eliminaAVL(NodoAVL* root, char *nome) {
-    if(root==NULL)
-        return root;
-    if(strcmp(nome, root->nome)<0)
-        root->sinistro=eliminaAVL(root->sinistro, nome);
-    else if(strcmp(nome, root->nome)>0)
-        root->destro=eliminaAVL(root->destro, nome);
-    else {
-        if((root->sinistro==NULL) || (root->destro==NULL)) {
-            NodoAVL *temp=root->sinistro ? root->sinistro : root->destro;
-            if(temp==NULL) {
-                temp=root;
-                root=NULL;
+        if(root == NULL)
+            return root;
+        if(strcmp(nome, root->nome) < 0) {
+            root->sinistro = eliminaAVL(root->sinistro, nome);
+        } else if(strcmp(nome, root->nome) > 0) {
+            root->destro = eliminaAVL(root->destro, nome);
+        } else {
+            if((root->sinistro == NULL) || (root->destro == NULL)) {
+                NodoAVL *temp = root->sinistro ? root->sinistro : root->destro;
+                if(temp == NULL) {
+                    temp = root;
+                    root = NULL;
+                } else {
+                    *root = *temp; // Copia il contenuto del nodo non vuoto
+                }
+                liberaLotto(&temp->heap);
+                //printf("Nodo AVL %s eliminato\n", nome);
+                free(temp);
+            } else {
+                NodoAVL* temp = minValueAVL(root->destro);
+                strcpy(root->nome, temp->nome);
+                root->heap = temp->heap;
+                root->destro = eliminaAVL(root->destro, temp->nome);
             }
-            else
-                *root=*temp;
-            free(temp);
         }
-        else {
-            NodoAVL* temp = minValueAVL(root->destro);
-            strcpy(root->nome, temp->nome);
-            root->heap=temp->heap;
-            root->destro=eliminaAVL(root->destro, temp->nome);
+
+        if (root == NULL)
+            return root;
+        root->altezza = 1 + max(altezza(root->sinistro), altezza(root->destro));
+        int bilancio = valBilancia(root);
+        if (bilancio > 1 && valBilancia(root->sinistro) >= 0)
+            return ruotaDestra(root);
+        if (bilancio > 1 && valBilancia(root->sinistro) < 0) {
+            root->sinistro = ruotaSinistra(root->sinistro);
+            return ruotaDestra(root);
         }
-    }
-    if (root==NULL)
+        if (bilancio < -1 && valBilancia(root->destro) <= 0)
+            return ruotaSinistra(root);
+        if (bilancio < -1 && valBilancia(root->destro) > 0) {
+            root->destro = ruotaDestra(root->destro);
+            return ruotaSinistra(root);
+        }
         return root;
-    root->altezza= 1 + max(altezza(root->sinistro), altezza(root->destro));
-    int bilancio = valBilancia(root);
-    if (bilancio> 1 && valBilancia(root->sinistro)>= 0)
-        return ruotaDestra(root);
-    if (bilancio> 1 && valBilancia(root->sinistro)< 0) {
-        root->sinistro = ruotaSinistra(root->sinistro);
-        return ruotaDestra(root);
-    }
-    if (bilancio< -1 && valBilancia(root->destro)<= 0)
-        return ruotaSinistra(root);
-    if (bilancio< -1 && valBilancia(root->destro)> 0) {
-        root->destro = ruotaDestra(root->destro);
-        return ruotaSinistra(root);
-    }
-    return root;
 }
 
 NodoAVL* cercaAVL(NodoAVL* nodo, const char* nome) {
@@ -307,18 +317,17 @@ void liberaCoda(CodaOrdini* coda) {
 }
 
 void aggiungiCoda(CodaOrdini* coda, char* nome_ricetta, int quantita, int tempo_arrivo) {
-    Ordine* nuovoOrdine=(Ordine*)malloc(sizeof(Ordine));
+    Ordine* nuovoOrdine = (Ordine*)malloc(sizeof(Ordine));
+    nuovoOrdine->tempo_arrivo = tempo_arrivo;
     strcpy(nuovoOrdine->nome_ricetta, nome_ricetta);
-    nuovoOrdine->quantita=quantita;
-    nuovoOrdine->tempo_arrivo=tempo_arrivo;
-    nuovoOrdine->next=NULL;
-    if(coda->coda==NULL) {
-        coda->testa=nuovoOrdine;
-        coda->coda=nuovoOrdine;
-    }
-    else {
-        coda->coda->next=nuovoOrdine;
-        coda->coda=nuovoOrdine;
+    nuovoOrdine->quantita = quantita;
+    nuovoOrdine->next = NULL;
+    if (coda->coda == NULL) {
+        coda->testa = nuovoOrdine;
+        coda->coda = nuovoOrdine;
+    } else {
+        coda->coda->next = nuovoOrdine;
+        coda->coda = nuovoOrdine;
     }
 }
 
@@ -334,13 +343,16 @@ CodaOrdini* creaCoda() {
 }
 
 Ordine* rimuoviCoda(CodaOrdini* coda) {
-    if(coda->testa == NULL)
+    if (coda->testa == NULL) {
         return NULL;
+    }
     Ordine* ordineRimosso = coda->testa;
     coda->testa = coda->testa->next;
-    if(coda->testa == NULL)
+    if (coda->testa == NULL) {
         coda->coda = NULL;
-    return ordineRimosso;
+    }
+    free(ordineRimosso);
+    return coda->testa;
 }
 
 //Funzioni minHeap - Ordini Fatti
@@ -356,18 +368,17 @@ void scambiaOrdini(OrdineHeap* a, OrdineHeap* b) {
 }
 
 void heapifyOrdini(MinHeap* heap, int i) {
-        int minore=i;
-        int sx= 2*i+1;
-        int dx= 2*i+2;
-        if(sx<heap->dimensione && heap->ordini[sx].tempo_arrivo< heap->ordini[minore].tempo_arrivo)
-            minore=sx;
-        if(dx<heap->dimensione && heap->ordini[dx].tempo_arrivo< heap->ordini[minore].tempo_arrivo)
-            minore=dx;
-        if(minore!=i) {
-            OrdineHeap temp = heap->ordini[i];
-            scambiaOrdini(&heap->ordini[i], &heap->ordini[minore]);
-            heapifyOrdini(heap, minore);
-        }
+    int minore = i;
+    int sx = 2 * i + 1;
+    int dx = 2 * i + 2;
+    if (sx < heap->dimensione && heap->ordini[sx].tempo_arrivo < heap->ordini[minore].tempo_arrivo)
+        minore = sx;
+    if (dx < heap->dimensione && heap->ordini[dx].tempo_arrivo < heap->ordini[minore].tempo_arrivo)
+        minore = dx;
+    if (minore != i) {
+        scambiaOrdini(&heap->ordini[i], &heap->ordini[minore]);
+        heapifyOrdini(heap, minore);
+    }
 }
 
 void inserisciOrdineHeap(MinHeap* heap, int tempo_arrivo, char* ricetta, int quantita) {
@@ -398,27 +409,26 @@ MinHeap* creaMinHeap(int capacita) {
 }
 
 OrdineHeap rimuoviMin(MinHeap* heap) {
-    if (heap->dimensione <= 0) {
-        OrdineHeap ordineVuoto = {0, "", 0};
+    if (heap->dimensione == 0) {
+        // Gestisci errore se il min-heap è vuoto
+        OrdineHeap ordineVuoto;
+        strcpy(ordineVuoto.ricetta, "");
+        ordineVuoto.quantita = 0;
+        ordineVuoto.tempo_arrivo = 0;
         return ordineVuoto;
     }
-    OrdineHeap root = heap->ordini[0];
-    if (heap->dimensione == 1) {
-        heap->dimensione--;
-        return root;
-    }
-    heap->ordini[0] = heap->ordini[--heap->dimensione];
-    heapifyOrdini(heap, 0);
-    return root;
+    OrdineHeap min = heap->ordini[0];
+    heap->ordini[0] = heap->ordini[heap->dimensione - 1];
+    heap->dimensione--;
+    heapifyOrdini(heap, 0); // Funzione che mantiene la proprietà del min-heap
+    return min;
 }
-
 
 //Funzioni maxHeap - Camioncino Spedizioni
 void heapifySpedizioni(MaxHeapSpedizioni* heap, int i) {
     int maggiore = i;
     int sinistro = 2 * i + 1;
     int destro = 2 * i + 2;
-
     // Condizione per peso maggiore
     if (sinistro < heap->dimensione && heap->spedizioni[sinistro].peso > heap->spedizioni[maggiore].peso)
         maggiore = sinistro;
@@ -426,7 +436,6 @@ void heapifySpedizioni(MaxHeapSpedizioni* heap, int i) {
     else if (sinistro < heap->dimensione && heap->spedizioni[sinistro].peso == heap->spedizioni[maggiore].peso &&
              heap->spedizioni[sinistro].istante_arrivo < heap->spedizioni[maggiore].istante_arrivo)
         maggiore = sinistro;
-
     // Condizione per peso maggiore
     if (destro < heap->dimensione && heap->spedizioni[destro].peso > heap->spedizioni[maggiore].peso)
         maggiore = destro;
@@ -434,7 +443,6 @@ void heapifySpedizioni(MaxHeapSpedizioni* heap, int i) {
     else if (destro < heap->dimensione && heap->spedizioni[destro].peso == heap->spedizioni[maggiore].peso &&
              heap->spedizioni[destro].istante_arrivo < heap->spedizioni[maggiore].istante_arrivo)
         maggiore = destro;
-
     if (maggiore != i) {
         Spedizione temp = heap->spedizioni[i];
         heap->spedizioni[i] = heap->spedizioni[maggiore];

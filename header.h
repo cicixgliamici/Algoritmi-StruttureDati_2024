@@ -30,18 +30,6 @@ void liberaLotto(MinHeapIngrediente* heap);                                     
 IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap);                                               //Rimuove e ritorna l'ingrediente
 MinHeapIngrediente nuovoHeapIngredienti(int capacita);                                                         //Inizializza un nuovo heap (e restituisce il suo puntatore)
 
-bool verificaMinHeap(MinHeapIngrediente* heap);                                          //Verifica la correttezza del min-heap
-void testHeapOrder(MinHeapIngrediente* heap);                                            //Stampa verificando la correttezza dell'ordine
-void testMinHeapInserimento();                                                           //Test di inserimento
-void testMinHeapRimozione();                                                             //Test di rimozione
-void testMinHeapOverflow();                                                              //Test di overflow
-void testMinHeapInit();                                                                  //Test di inizializzazione
-void testMinHeapIngrediente();                                                           //Raccoglie i test
-void testUsoParzialeIngrediente();                                                       //Test per verificare la correttezza dell'inserimento
-void testRifornimentoRicetta();                                                          //Test per verificare la correttezza dell'inserimento(migliore)
-
-void stampaHeapIngredienti(MinHeapIngrediente* heap);
-
 //Ingredienti - AVL - ordino i lotti di ingredienti lessicograficamente(disc), per velocizzare aggiunta, eliminazione e ricerca
 typedef struct NodoAVL {
     char nome[256];
@@ -63,8 +51,6 @@ NodoAVL* eliminaAVL(NodoAVL* root, char *nome);                                 
 NodoAVL* cercaAVL(NodoAVL* nodo, const char* nome);                                             //Cerca un nodo
 NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int capacita);     //Inserisce un nodo (da bilanciare)
 NodoAVL* bilanciaAVL(NodoAVL *nodo);                                                            //Bilancia il nodo inserito
-
-void stampaAVL(NodoAVL* nodo);                                                                  //Stampa l'AVL per ingredienti
 
 //Ricette - Lista
 typedef struct IngredienteRicetta {
@@ -93,13 +79,11 @@ NodoBST* inserisciBST(NodoBST* nodo, Ricetta ricetta);         //Inserisce un no
 NodoBST* cercaBST(NodoBST* nodo, char* nome);                  //Cerca un nodo
 NodoBST* eliminaBST(NodoBST* root, char* nome);                //Elimina un nodo
 
-void stampaBST(NodoBST* nodo);
-
 //Ordine da Fare - Coda FIFO
 typedef struct Ordine {
+    int tempo_arrivo; // Identificatore unico dell'ordine
     char nome_ricetta[256];
     int quantita;
-    int tempo_arrivo;
     struct Ordine* next;
 } Ordine;
 
@@ -113,8 +97,6 @@ void aggiungiCoda(CodaOrdini* coda, char* nome_ricetta, int quantita, int tempo_
 int codaVuota(CodaOrdini* coda);                                                            //Verifica se la coda è vuota
 CodaOrdini* creaCoda();                                                                     //Crea una nuova coda (e restituisce il suo puntatore)
 Ordine* rimuoviCoda(CodaOrdini* coda);                                                      //Rimuove e ritorna un ordine dalla coda (puntatore)
-
-void stampaCodaFIFO(CodaOrdini* coda);
 
 //Ordini fatti - minHeap
 typedef struct OrdineHeap {
@@ -137,8 +119,6 @@ int heapVuotoMinOrdine(MinHeap* heap);                                          
 MinHeap* creaMinHeap(int capacita);                                                            //Crea un nuovo min-heap (e restituisce il suo puntatore)
 OrdineHeap rimuoviMin(MinHeap* heap);                                                          //Rimuove e ritorna l'ordine (puntatore)
 
-void stampaMinHeapOrdini(MinHeap* heap);
-
 //Spedizione - maxHeap
 typedef struct Spedizione {
     char nome[256];
@@ -160,8 +140,6 @@ MaxHeapSpedizioni* creaMaxHeap(int capacita);                                   
 Spedizione rimuoviMax(MaxHeapSpedizioni* heap);                                                               //Rimuove e ritorna la spedizione (puntatore)
 int heapVuotoMax(MaxHeapSpedizioni* heap);
 
-void stampaMaxHeapSpedizioni(MaxHeapSpedizioni* heap);
-
 //Funzioni Generiche//Attivare tutti i test
 int max(int a, int b);
 
@@ -173,11 +151,37 @@ void rifornimento(const char* comando);                                         
 void ordine(const char* nome_ricetta, int numero_elementi_ordinati);                             //Controlla esistenza in ricettario, se si aggiungi a Coda e poi prova a fare
 
 bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati);                        //Verifica la fattiblità di un ordine guardando peso_totale e peso ordine
-void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int tempo_arrivo);                       //Effettua la preparazione rispettando la specifica di rimozione ingredienti scadenza minore
+void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int tempo_arrivo);     //Effettua la preparazione rispettando la specifica di rimozione ingredienti scadenza minore
 void verificaOrdini();                                                                           //Verifica la fattibilità di tutti gli ordini in Coda
 void caricaCamion();                                                                             //Passaggio da minHeap ordini fatti a maxHeap spedizione
 int calcolaPeso(Ricetta ricetta, int numero_elementi_ordinati);                                  //Calcola il peso di un ordine
+void controllaScadenza(NodoAVL* nodo_ingrediente);
 
+/* Zona T&S     test:
+*
+*               stampa:
+*/
+bool verificaMinHeap(MinHeapIngrediente* heap);                                          //Verifica la correttezza del min-heap
+void testHeapOrder(MinHeapIngrediente* heap);                                            //Stampa verificando la correttezza dell'ordine
+void testMinHeapInserimento();                                                           //Test di inserimento
+void testMinHeapRimozione();                                                             //Test di rimozione
+void testMinHeapOverflow();                                                              //Test di overflow
+void testMinHeapInit();                                                                  //Test di inizializzazione
+void testMinHeapIngrediente();                                                           //Raccoglie i test
+void testUsoParzialeIngrediente();                                                       //Test per verificare la correttezza dell'inserimento
+void testRifornimentoRicetta();                                                          //Test per verificare la correttezza dell'inserimento(migliore)
+void testAggiungiRimuoviIngredienti_AVL();
+void testDeallocazioneAVL();
+void testCodaOrdini();
+
+void stampaHeapIngredienti1(MinHeapIngrediente* heap);
+void stampaHeapIngredienti2(MinHeapIngrediente* heap, int *count);
+void stampaAVL1(NodoAVL* nodo);
+void stampaAVL2(NodoAVL* nodo, int *count);
+void stampaBST(NodoBST* nodo, int *count);
+int stampaCodaFIFO(CodaOrdini* coda);
+void stampaMinHeapOrdini(MinHeap* heap);
+void stampaMaxHeapSpedizioni(MaxHeapSpedizioni* heap);
 void stampaTutto();
 
 // Dichiarazione delle variabili globali (rimuovere quando metti tutto insieme)

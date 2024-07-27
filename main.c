@@ -139,6 +139,7 @@ void rifornimento(const char* comando) {
         } else {
             avl = inserisciAVL(avl, nome_ingrediente, scadenza, quantita, 10);
         }
+        //printf("Rifornito %s con %d unità, scadenza %d\n", nome_ingrediente, quantita, scadenza); // Debugging
         ptr += strlen(nome_ingrediente) + 1 + snprintf(NULL, 0, "%d", quantita) + 1 + snprintf(NULL, 0, "%d", scadenza) + 1;
     }
     printf("rifornito\n");
@@ -147,8 +148,9 @@ void rifornimento(const char* comando) {
 
 // Main - Gestione del giorno
 int main(void) {
-    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open3.txt", "r"); //stdin
+    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/example.txt", "r"); //stdin
     gestisciComandi(file);
     fclose(file);
+    stampaTutto();
     return 0;
 }
