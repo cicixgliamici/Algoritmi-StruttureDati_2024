@@ -12,7 +12,8 @@
 *
 *                              caricaCamion:       passa gli ordini dal minHeap (istante arrivo) al maxHeap (peso), e ne passa tanti quanti
 *                                                  qta ordini*peso ordine = capacita camion (o lascia il minimo spazio)
-*                              calcolaPeso:        calcola il peso dell'ordine
+*
+*                              calcolaPeso:        calcola il peso dell'ordine in toto
 */
 #include "header.h"
 #include <stdio.h>
