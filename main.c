@@ -5,8 +5,9 @@
 *                                            poi lo inserisco nella Coda, e se fattibile lo tolgo e metto sul minHeap
 *                                            sennò lo tengo in coda ed aspetto ogni rifornimento
 *
-*   Il Tempo               Ogni azione costituisce un istante di tempo, escluso il setting del camioncino
-*                          Il riempimento del camion va fatto prima dell'azione, e fatto ad ogni multiplo (anche a riga vuota, vedi esempio)
+*   Il Tempo               Ogni azione costituisce un istante di tempo, escluso il setting del camioncino, si parte da t=0
+*                          Il riempimento del camion va fatto prima dell'azione, e fatto ad ogni multiplo (anche a riga vuota, vedi esempio specifica), ogni n*tempoCamion multipli
+*                          Condiziona anche gli ingredienti con scadenza, che non viene aggiornata ogni istante ma nella funzione "fattibilita"  
 *
 *   Gestione comandi       Leggo la riga da input con fgets, la salvo e poi la analizzo con sscanf
 *                          Aggiorno il tempo ad ogni lettura di riga e per i multipi del tempo camioncino, prima lo carico e poi faccio l'azione
