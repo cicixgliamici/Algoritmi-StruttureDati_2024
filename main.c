@@ -45,7 +45,7 @@ void gestisciComandi(FILE *file) {
         char command[256];
         if (sscanf(line, "%s", command) == 1) {
             tempoCorrente++;
-            //printf("t=%d --->       ", tempoCorrente);
+            printf("t=%d --->       ", tempoCorrente);
             if(tempoCorrente%tempoCamion==0 && tempoCorrente!=0){
                 //stampaTutto();
                 caricaCamion();
@@ -148,7 +148,7 @@ void rifornimento(const char* comando) {
 
 // Main - Gestione del giorno
 int main(void) {
-    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/example.txt", "r"); //stdin
+    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open4.txt", "r"); //stdin
     gestisciComandi(file);
     fclose(file);
     stampaTutto();

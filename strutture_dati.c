@@ -1,3 +1,10 @@
+/*  Problemi riscontrati e edge cases:  1) A parità di peso, gli ordini del camioncino vanno per istante di arrivo
+*                                       2) Il camioncino passa anche se l'ultima riga è al comando n*(tempoCamion-1) quindi devo fare un ultimo controllo
+*                                       3) Nell'example.txt la ciambella 9-3 sostituiva la 5-6, tolto l'inseirmento a priori in Coda FIFO
+*                                       4) La liberazione di un nodo nell'AVL e la stampa del minHeap generava problemi nell'example.txt sulla torta 10 1
+*                                       5) Rifornimento al tempo 8/9 non va a buon fine in open4
+*
+*/
 //Elenco di tutte le funzioni riguardanti le strutture dati
 #include "header.h"
 #include <stdio.h>
