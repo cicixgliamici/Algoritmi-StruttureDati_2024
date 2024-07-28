@@ -2,7 +2,9 @@
 *                                       2) Il camioncino passa anche se l'ultima riga è al comando n*(tempoCamion-1) quindi devo fare un ultimo controllo
 *                                       3) Nell'example.txt la ciambella 9-3 sostituiva la 5-6, tolto l'inseirmento a priori in Coda FIFO
 *                                       4) La liberazione di un nodo nell'AVL e la stampa del minHeap generava problemi nell'example.txt sulla torta 10 1
-*                                       5) Rifornimento al tempo 8/9 non va a buon fine in open4
+*                                       5) Rifornimento al tempo 8/9 non va a buon fine in open4 -> facevo lettura fino a 256
+*                                       6) Secondo giro di open4 il camion svuotava scorrettamente il minHeapOrdini
+*                                       7) Secondo giro di open4 il camion carica due ordini di troppo, ha la capacità per farlo, quindi non andavano prodotti
 *
 */
 //Elenco di tutte le funzioni riguardanti le strutture dati
@@ -52,7 +54,7 @@ void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita, 
     if (nodo != NULL) {
         nodo->peso_totale += quantita;  // Aggiorna il peso totale del nodo AVL
     }
-    //printf("Ingrediente inserito: %s, Scadenza = %d, Quantita = %d\n", nodo->nome, scadenza, quantita); // Debugging
+   // printf("Ingrediente inserito: %s, Scadenza = %d, Quantita = %d\n", nodo->nome, scadenza, quantita); // Debugging
     //stampaHeapIngredienti1(heap);
 }
 
@@ -175,7 +177,6 @@ NodoAVL* eliminaAVL(NodoAVL* root, char *nome) {
                 root->destro = eliminaAVL(root->destro, temp->nome);
             }
         }
-
         if (root == NULL)
             return root;
         root->altezza = 1 + max(altezza(root->sinistro), altezza(root->destro));
@@ -196,26 +197,37 @@ NodoAVL* eliminaAVL(NodoAVL* root, char *nome) {
 }
 
 NodoAVL* cercaAVL(NodoAVL* nodo, const char* nome) {
-    if (nodo == NULL || strcmp(nodo->nome, nome) == 0)
+    //print_string_info(nome);
+    if (nodo == NULL || strcmp(nodo->nome, nome) == 0) {
+        //printf("Nodo trovato per ingrediente: %s\n", nome);
         return nodo;
-    if (strcmp(nome, nodo->nome) < 0)
+    }
+    //printf("Confronto nome ingrediente: %s con nodo corrente: %s\n", nome, nodo->nome);
+    if (strcmp(nome, nodo->nome) < 0) {
         return cercaAVL(nodo->sinistro, nome);
+    }
     return cercaAVL(nodo->destro, nome);
 }
 
+
 NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int capacita) {
+    //print_string_info(nome);
     if (nodo == NULL) {
+        //printf("Creazione nuovo nodo per ingrediente: %s\n", nome);
         NodoAVL* nuovo = nuovoAVL(nome, capacita);
         inserisciIngrediente(&nuovo->heap, scadenza, quantita, nuovo);
         return nuovo;
     }
+    //printf("Confronto nome ingrediente: %s con nodo corrente: %s\n", nome, nodo->nome);
     if (strcmp(nome, nodo->nome) < 0) {
         nodo->sinistro = inserisciAVL(nodo->sinistro, nome, scadenza, quantita, capacita);
     } else if (strcmp(nome, nodo->nome) > 0) {
         nodo->destro = inserisciAVL(nodo->destro, nome, scadenza, quantita, capacita);
     } else {
+        //printf("Aggiunta ingrediente esistente al nodo AVL: %s\n", nome);
         inserisciIngrediente(&nodo->heap, scadenza, quantita, nodo);
     }
+    //verificaInserimento(nodo, nome);
     nodo->altezza = 1 + max(altezza(nodo->sinistro), altezza(nodo->destro));
     return bilanciaAVL(nodo);
 }
@@ -468,7 +480,6 @@ void inserisciSpedizione(MaxHeapSpedizioni* heap, char* nome, int istante_arrivo
     heap->spedizioni[i].istante_arrivo = istante_arrivo;
     heap->spedizioni[i].quantita = quantita;
     heap->spedizioni[i].peso = peso;
-
     while (i != 0) {
         int parent = (i - 1) / 2;
         if (heap->spedizioni[parent].peso < heap->spedizioni[i].peso) {

@@ -173,15 +173,18 @@ void testRifornimentoRicetta();                                                 
 void testAggiungiRimuoviIngredienti_AVL();
 void testDeallocazioneAVL();
 void testCodaOrdini();
+void verificaInserimento(NodoAVL* nodo, const char* nome);
 
 void stampaHeapIngredienti1(MinHeapIngrediente* heap);
 void stampaHeapIngredienti2(MinHeapIngrediente* heap, int *count);
 void stampaAVL1(NodoAVL* nodo);
 void stampaAVL2(NodoAVL* nodo, int *count);
-void stampaBST(NodoBST* nodo, int *count);
+void stampaBST1(NodoBST* nodo);
+void stampaBST2(NodoBST* nodo, int *count);
 int stampaCodaFIFO(CodaOrdini* coda);
 void stampaMinHeapOrdini(MinHeap* heap);
 void stampaMaxHeapSpedizioni(MaxHeapSpedizioni* heap);
+void print_string_info(const char* str);
 void stampaTutto();
 
 // Dichiarazione delle variabili globali (rimuovere quando metti tutto insieme)

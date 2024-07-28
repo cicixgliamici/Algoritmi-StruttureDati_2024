@@ -235,6 +235,15 @@ void testCodaOrdini() {
     liberaCoda(coda);
 }
 
+void verificaInserimento(NodoAVL* nodo, const char* nome) {
+    NodoAVL* risultato = cercaAVL(nodo, nome);
+    if (risultato != NULL) {
+        printf("Verifica riuscita: Ingrediente '%s' è stato inserito correttamente.\n", nome);
+    } else {
+        printf("Verifica fallita: Ingrediente '%s' non è stato trovato.\n", nome);
+    }
+}
+
 //Funzioni di stampa
 void stampaHeapIngredienti1(MinHeapIngrediente* heap) {
     for (int i = 0; i < heap->dimensione; i++) {
@@ -279,12 +288,26 @@ void stampaAVL2(NodoAVL* nodo, int* count) {
     stampaAVL2(nodo->destro, count);
 }
 
-// Funzione di supporto per stampare il BST delle ricette e contare gli elementi
-void stampaBST(NodoBST* nodo, int* count) {
+void stampaBST1(NodoBST* nodo) {
     if (nodo == NULL) {
         return;
     }
-    stampaBST(nodo->sinistro, count);
+    stampaBST1(nodo->sinistro);
+    printf("Ricetta: %s\n", nodo->ricetta.nome);
+    IngredienteRicetta* ing = nodo->ricetta.ingredienti;
+    while (ing) {
+        printf("  Ingrediente: %s, Quantita: %d\n", ing->nome, ing->quantita);
+        ing = ing->next;
+    }
+    stampaBST1(nodo->destro);
+}
+
+// Funzione di supporto per stampare il BST delle ricette e contare gli elementi
+void stampaBST2(NodoBST* nodo, int* count) {
+    if (nodo == NULL) {
+        return;
+    }
+    stampaBST2(nodo->sinistro, count);
     printf("Ricetta: %s\n", nodo->ricetta.nome);
     IngredienteRicetta* ing = nodo->ricetta.ingredienti;
     while (ing) {
@@ -292,7 +315,7 @@ void stampaBST(NodoBST* nodo, int* count) {
         ing = ing->next;
     }
     (*count)++;
-    stampaBST(nodo->destro, count);
+    stampaBST2(nodo->destro, count);
 }
 
 // Funzione di supporto per stampare la coda FIFO degli ordini e contare gli elementi
@@ -324,9 +347,13 @@ void stampaMaxHeapSpedizioni(MaxHeapSpedizioni* heap) {
     }
 }
 
+void print_string_info(const char* str) {
+    printf("Stringa: '%s', Lunghezza: %zu\n", str, strlen(str));
+}
+
 // Funzione principale per stampare tutte le strutture e contare gli elementi
 void stampaTutto() {
-    printf("Stato corrente delle strutture dati:\n");
+    printf("\nStato corrente delle strutture dati:\n");
     int count = 0;
     if (avl != NULL) {
         stampaAVL2(avl, &count);
@@ -336,7 +363,7 @@ void stampaTutto() {
     }
     count = 0;
     if (bst != NULL) {
-        stampaBST(bst, &count);
+        stampaBST2(bst, &count);
         printf("Numero di ricette BST: %d\n", count);
     } else {
         printf("BST e vuoto.\n");

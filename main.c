@@ -40,12 +40,12 @@ void gestisciComandi(FILE *file) {
     coda_ordini = creaCoda();
     heap_ordini_fatti = creaMinHeap(10);
     ultimoAggiornamento = 0;
-    char line[256];
+    char line[1000];  //IMPORTANTE
     while (fgets(line, sizeof(line), file)) {
         char command[256];
         if (sscanf(line, "%s", command) == 1) {
             tempoCorrente++;
-            printf("t=%d --->       ", tempoCorrente);
+            //printf("t=%d --->       ", tempoCorrente);
             if(tempoCorrente%tempoCamion==0 && tempoCorrente!=0){
                 //stampaTutto();
                 caricaCamion();
@@ -85,8 +85,13 @@ void gestisciComandi(FILE *file) {
                     rimuovi_ricetta(nome_ricetta);
                 }
             } else if (strcmp(command, "rifornimento") == 0) {
+                //printf("%s\n", line);
                 rifornimento(line + strlen(command) + 1);
             } else if (strcmp(command, "ordine") == 0) {
+                if(tempoCorrente==23) {
+                    //stampaAVL1(avl);
+                    //stampaBST1(bst);
+                }
                 char nome_ricetta[256];
                 int quantita;
                 if (sscanf(line + strlen(command), "%s %d", nome_ricetta, &quantita) == 2) {
@@ -132,6 +137,7 @@ void rifornimento(const char* comando) {
     char nome_ingrediente[256];
     int quantita, scadenza;
     const char *ptr = comando;
+    //printf("%s\n", comando);
     while (sscanf(ptr, "%s %d %d", nome_ingrediente, &quantita, &scadenza) == 3) {
         NodoAVL* nodo = cercaAVL(avl, nome_ingrediente);
         if (nodo != NULL) {
