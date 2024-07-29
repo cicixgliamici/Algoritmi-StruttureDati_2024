@@ -10,8 +10,8 @@
 *                              verificaOrdini:     sostanzialmente è la funzione ordine ma chiamata su tutta la coda, usata quando si fa
 *                                                  rifornimento
 *
-*                              caricaCamion:       passa gli ordini dal minHeap (istante arrivo) al maxHeap (peso), e ne passa tanti quanti
-*                                                  qta ordini*peso ordine = capacita camion (o lascia il minimo spazio)
+*                              caricaCamion:       passa gli ordini dal minHeap (istante arrivo) al maxHeap (peso), si ferma al primo che supera la
+*                                                  capacità restante
 *
 *                              calcolaPeso:        calcola il peso dell'ordine in toto
 */
