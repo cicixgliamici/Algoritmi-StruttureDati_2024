@@ -33,7 +33,7 @@ int max(int a, int b) {
 
 // Funzioni Algoritmo
 void gestisciComandi(FILE *file) {
-    int tempoCamion, capienzaCamion;
+    unsigned int tempoCamion, capienzaCamion;
     fscanf(file, "%d %d", &tempoCamion, &capienzaCamion);
     //printf("%d %d\n", tempoCamion, capienzaCamion);
     max_heap_spedizioni = creaMaxHeap(capienzaCamion);                                          //Nel caso peggiore ho capienzaCamion ordini di peso 1
@@ -156,7 +156,7 @@ void rifornimento(const char* comando) {
 
 // Main - Gestione del giorno
 int main(void) {
-    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open4.txt", "r"); //stdin
+    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open5.txt", "r"); //stdin
     gestisciComandi(file);
     fclose(file);
     //stampaTutto();
