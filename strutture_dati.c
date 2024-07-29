@@ -6,7 +6,7 @@
 *                                       6) Secondo giro di open4 il camion svuotava scorrettamente il minHeapOrdini
 *                                       7) Secondo giro di open4 il camion carica due ordini di troppo, ha la capacità per farlo,
 *                                          quindi non andavano prodotti -> Camion si ferma al primo che incontra troppo pesante
-*                                       8)
+*                                       8) open5 access violation al primo caricamento del camion, sembra essere un problema nel minHeap ordini
 *
 */
 //Elenco di tutte le funzioni riguardanti le strutture dati
@@ -68,6 +68,18 @@ IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
     return radice;
 }
 
+MinHeapIngrediente nuovoHeapIngredienti(int capacita) {
+    MinHeapIngrediente heap;
+    heap.lotto = (IngredienteMinHeap*) malloc(capacita * sizeof(IngredienteMinHeap));
+    if (heap.lotto == NULL) {
+        fprintf(stderr, "Errore di allocazione della memoria per lotto\n");
+        exit(EXIT_FAILURE);
+    }
+    heap.dimensione = 0;
+    heap.capacita = capacita;
+    return heap;
+}
+
 void liberaLotto(MinHeapIngrediente* heap) {
     if (heap != NULL && heap->lotto != NULL) {
         free(heap->lotto);
@@ -76,14 +88,6 @@ void liberaLotto(MinHeapIngrediente* heap) {
         heap->capacita = 0;
         //printf("Heap ingredienti liberato\n");
     }
-}
-
-MinHeapIngrediente nuovoHeapIngredienti(int capacita) {
-    MinHeapIngrediente heap;
-    heap.lotto = (IngredienteMinHeap*) malloc(capacita * sizeof(IngredienteMinHeap));
-    heap.dimensione = 0;
-    heap.capacita = capacita;
-    return heap;
 }
 
 //Funzioni AVL di min-Heap - Ingredienti
@@ -326,8 +330,12 @@ void liberaCoda(CodaOrdini* coda) {
     free(coda);
 }
 
-void aggiungiCoda(CodaOrdini* coda, char* nome_ricetta, int quantita, int tempo_arrivo) {
+void aggiungiCoda(CodaOrdini* coda, const char* nome_ricetta, int quantita, int tempo_arrivo) {
     Ordine* nuovoOrdine = (Ordine*)malloc(sizeof(Ordine));
+    if (nuovoOrdine == NULL) {
+        fprintf(stderr, "Errore di allocazione della memoria per nuovoOrdine\n");
+        exit(EXIT_FAILURE);
+    }
     nuovoOrdine->tempo_arrivo = tempo_arrivo;
     strcpy(nuovoOrdine->nome_ricetta, nome_ricetta);
     nuovoOrdine->quantita = quantita;
@@ -339,6 +347,7 @@ void aggiungiCoda(CodaOrdini* coda, char* nome_ricetta, int quantita, int tempo_
         coda->coda->next = nuovoOrdine;
         coda->coda = nuovoOrdine;
     }
+    //printf("Ordine aggiunto con successo\n"); // Debugging
 }
 
 int codaVuota(CodaOrdini* coda) {
@@ -411,16 +420,25 @@ int heapVuotoMinOrdine(MinHeap* heap) {
 }
 
 MinHeap* creaMinHeap(int capacita) {
-    MinHeap* heap=(MinHeap*)malloc(sizeof(MinHeap));
-    heap->ordini=(OrdineHeap*)malloc(capacita*sizeof(OrdineHeap));
-    heap->dimensione=0;
-    heap->capacita=capacita;
+    MinHeap* heap = (MinHeap*)malloc(sizeof(MinHeap));
+    if (heap == NULL) {
+        fprintf(stderr, "Errore di allocazione della memoria per MinHeap\n");
+        exit(EXIT_FAILURE);
+    }
+    heap->ordini = (OrdineHeap*)malloc(capacita * sizeof(OrdineHeap));
+    if (heap->ordini == NULL) {
+        fprintf(stderr, "Errore di allocazione della memoria per gli ordini del MinHeap\n");
+        exit(EXIT_FAILURE);
+    }
+    heap->dimensione = 0;
+    heap->capacita = capacita;
     return heap;
 }
 
 OrdineHeap rimuoviMin(MinHeap* heap) {
     if (heap->dimensione == 0) {
         // Gestisci errore se il min-heap è vuoto
+        fprintf(stderr, "Errore: tentativo di rimuovere da un min-heap vuoto\n");
         OrdineHeap ordineVuoto;
         strcpy(ordineVuoto.ricetta, "");
         ordineVuoto.quantita = 0;

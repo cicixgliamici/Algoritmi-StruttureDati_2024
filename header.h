@@ -92,7 +92,7 @@ typedef struct {
 } CodaOrdini;
 
 void liberaCoda(CodaOrdini* coda);                                                          //Libera la memoria
-void aggiungiCoda(CodaOrdini* coda, char* nome_ricetta, int quantita, int tempo_arrivo);    //Aggiunge un ordine
+void aggiungiCoda(CodaOrdini* coda, const char* nome_ricetta, int quantita, int tempo_arrivo);    //Aggiunge un ordine
 int codaVuota(CodaOrdini* coda);                                                            //Verifica se la coda è vuota
 CodaOrdini* creaCoda();                                                                     //Crea una nuova coda (e restituisce il suo puntatore)
 Ordine* rimuoviCoda(CodaOrdini* coda);                                                      //Rimuove e ritorna un ordine dalla coda (puntatore)
