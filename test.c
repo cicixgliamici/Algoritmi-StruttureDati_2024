@@ -327,7 +327,7 @@ int stampaCodaFIFO(CodaOrdini* coda) {
     printf("Coda FIFO degli ordini:\n");
     Ordine* corrente = coda->testa;
     while (corrente) {
-        printf("  Ordine: Tempo arrivo: %d, Ricetta: %s, Quantita: %d, Peso%d\n", corrente->tempo_arrivo, corrente->nome_ricetta, corrente->quantita);
+        printf("  Ordine: Tempo arrivo: %d, Ricetta: %s, Quantita: %d\n", corrente->tempo_arrivo, corrente->nome_ricetta, corrente->quantita);
         corrente = corrente->next;
         count++;
     }

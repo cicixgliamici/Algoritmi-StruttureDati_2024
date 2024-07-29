@@ -53,7 +53,7 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 1, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1183457744
+  Ordine: Tempo arrivo: 1, Ricetta: k91ztT0f80YkrVS, Quantita: 6
 Numero di ordini nella coda FIFO: 1
 Min-heap degli ordini fatti (Dimensione: 0):
 Max-heap delle spedizioni (Dimensione: 0):
@@ -89,7 +89,7 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 1, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1183457744
+  Ordine: Tempo arrivo: 1, Ricetta: k91ztT0f80YkrVS, Quantita: 6
 Numero di ordini nella coda FIFO: 1
 Min-heap degli ordini fatti (Dimensione: 0):
 Max-heap delle spedizioni (Dimensione: 0):
@@ -125,8 +125,8 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 1, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1183457744
-  Ordine: Tempo arrivo: 3, Ricetta: k91ztT0f80YkrVS, Quantita: 5, Peso1184657680
+  Ordine: Tempo arrivo: 1, Ricetta: k91ztT0f80YkrVS, Quantita: 6
+  Ordine: Tempo arrivo: 3, Ricetta: k91ztT0f80YkrVS, Quantita: 5
 Numero di ordini nella coda FIFO: 2
 Min-heap degli ordini fatti (Dimensione: 0):
 Max-heap delle spedizioni (Dimensione: 0):
@@ -162,9 +162,9 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 1, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1183457744
-  Ordine: Tempo arrivo: 3, Ricetta: k91ztT0f80YkrVS, Quantita: 5, Peso1184657680
-  Ordine: Tempo arrivo: 4, Ricetta: k91ztT0f80YkrVS, Quantita: 4, Peso1184657968
+  Ordine: Tempo arrivo: 1, Ricetta: k91ztT0f80YkrVS, Quantita: 6
+  Ordine: Tempo arrivo: 3, Ricetta: k91ztT0f80YkrVS, Quantita: 5
+  Ordine: Tempo arrivo: 4, Ricetta: k91ztT0f80YkrVS, Quantita: 4
 Numero di ordini nella coda FIFO: 3
 Min-heap degli ordini fatti (Dimensione: 0):
 Max-heap delle spedizioni (Dimensione: 0):
@@ -200,10 +200,10 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 1, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1183457744
-  Ordine: Tempo arrivo: 3, Ricetta: k91ztT0f80YkrVS, Quantita: 5, Peso1184657680
-  Ordine: Tempo arrivo: 4, Ricetta: k91ztT0f80YkrVS, Quantita: 4, Peso1184657968
-  Ordine: Tempo arrivo: 5, Ricetta: k91ztT0f80YkrVS, Quantita: 4, Peso1184658256
+  Ordine: Tempo arrivo: 1, Ricetta: k91ztT0f80YkrVS, Quantita: 6
+  Ordine: Tempo arrivo: 3, Ricetta: k91ztT0f80YkrVS, Quantita: 5
+  Ordine: Tempo arrivo: 4, Ricetta: k91ztT0f80YkrVS, Quantita: 4
+  Ordine: Tempo arrivo: 5, Ricetta: k91ztT0f80YkrVS, Quantita: 4
 Numero di ordini nella coda FIFO: 4
 Min-heap degli ordini fatti (Dimensione: 0):
 Max-heap delle spedizioni (Dimensione: 0):
@@ -239,11 +239,11 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 1, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1183457744
-  Ordine: Tempo arrivo: 3, Ricetta: k91ztT0f80YkrVS, Quantita: 5, Peso1184657680
-  Ordine: Tempo arrivo: 4, Ricetta: k91ztT0f80YkrVS, Quantita: 4, Peso1184657968
-  Ordine: Tempo arrivo: 5, Ricetta: k91ztT0f80YkrVS, Quantita: 4, Peso1184658256
-  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
+  Ordine: Tempo arrivo: 1, Ricetta: k91ztT0f80YkrVS, Quantita: 6
+  Ordine: Tempo arrivo: 3, Ricetta: k91ztT0f80YkrVS, Quantita: 5
+  Ordine: Tempo arrivo: 4, Ricetta: k91ztT0f80YkrVS, Quantita: 4
+  Ordine: Tempo arrivo: 5, Ricetta: k91ztT0f80YkrVS, Quantita: 4
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6
 Numero di ordini nella coda FIFO: 5
 Min-heap degli ordini fatti (Dimensione: 0):
 Max-heap delle spedizioni (Dimensione: 0):
@@ -288,8 +288,8 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 5, Ricetta: k91ztT0f80YkrVS, Quantita: 4, Peso1184658256
-  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
+  Ordine: Tempo arrivo: 5, Ricetta: k91ztT0f80YkrVS, Quantita: 4
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6
 Numero di ordini nella coda FIFO: 2
 Min-heap degli ordini fatti (Dimensione: 3):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
@@ -337,9 +337,9 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 5, Ricetta: k91ztT0f80YkrVS, Quantita: 4, Peso1184658256
-  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 5, Ricetta: k91ztT0f80YkrVS, Quantita: 4
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
 Numero di ordini nella coda FIFO: 3
 Min-heap degli ordini fatti (Dimensione: 3):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
@@ -395,8 +395,8 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
 Numero di ordini nella coda FIFO: 2
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
@@ -453,9 +453,9 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
 Numero di ordini nella coda FIFO: 3
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
@@ -512,10 +512,10 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
 Numero di ordini nella coda FIFO: 4
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
@@ -572,11 +572,11 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
 Numero di ordini nella coda FIFO: 5
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
@@ -633,12 +633,12 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
 Numero di ordini nella coda FIFO: 6
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
@@ -695,12 +695,12 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
 Numero di ordini nella coda FIFO: 6
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
@@ -757,12 +757,12 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
 Numero di ordini nella coda FIFO: 6
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
@@ -819,13 +819,13 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
 Numero di ordini nella coda FIFO: 7
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
@@ -882,14 +882,14 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
 Numero di ordini nella coda FIFO: 8
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
@@ -946,15 +946,15 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
 Numero di ordini nella coda FIFO: 9
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
@@ -1018,14 +1018,14 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
 Numero di ordini nella coda FIFO: 8
 Min-heap degli ordini fatti (Dimensione: 5):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
@@ -1093,15 +1093,15 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
 Numero di ordini nella coda FIFO: 9
 Min-heap degli ordini fatti (Dimensione: 2):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -1163,16 +1163,16 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 1
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
 Numero di ordini nella coda FIFO: 10
 Min-heap degli ordini fatti (Dimensione: 2):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -1242,16 +1242,16 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 2
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
 Numero di ordini nella coda FIFO: 10
 Min-heap degli ordini fatti (Dimensione: 2):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -1321,16 +1321,16 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 2
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
 Numero di ordini nella coda FIFO: 10
 Min-heap degli ordini fatti (Dimensione: 3):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -1401,17 +1401,17 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 2
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
-  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13
 Numero di ordini nella coda FIFO: 11
 Min-heap degli ordini fatti (Dimensione: 3):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -1482,18 +1482,18 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 2
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
-  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
-  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9
 Numero di ordini nella coda FIFO: 12
 Min-heap degli ordini fatti (Dimensione: 3):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -1563,18 +1563,18 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 2
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
-  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
-  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9
 Numero di ordini nella coda FIFO: 12
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -1645,19 +1645,19 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 2
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
-  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
-  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
-  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11
 Numero di ordini nella coda FIFO: 13
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -1728,19 +1728,19 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 2
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
-  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
-  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
-  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11
 Numero di ordini nella coda FIFO: 13
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -1811,19 +1811,19 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 2
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
-  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
-  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
-  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11
 Numero di ordini nella coda FIFO: 13
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -1894,20 +1894,20 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 2
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
-  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
-  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
-  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
-  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7
 Numero di ordini nella coda FIFO: 14
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -1978,21 +1978,21 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 2
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
-  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
-  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
-  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
-  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
-  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7
 Numero di ordini nella coda FIFO: 15
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -2063,22 +2063,22 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 2
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
-  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
-  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
-  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
-  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
-  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
-  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11, Peso1184662864
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11
 Numero di ordini nella coda FIFO: 16
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -2148,23 +2148,23 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 2
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
-  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
-  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
-  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
-  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
-  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
-  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11, Peso1184662864
-  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7, Peso1184663152
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11
+  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7
 Numero di ordini nella coda FIFO: 17
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -2234,24 +2234,24 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 2
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
-  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
-  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
-  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
-  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
-  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
-  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11, Peso1184662864
-  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7, Peso1184663152
-  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184674336
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11
+  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7
+  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13
 Numero di ordini nella coda FIFO: 18
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -2321,25 +2321,25 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 2
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
-  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
-  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
-  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
-  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
-  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
-  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11, Peso1184662864
-  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7, Peso1184663152
-  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184674336
-  Ordine: Tempo arrivo: 35, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 16, Peso1184667712
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11
+  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7
+  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 35, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 16
 Numero di ordini nella coda FIFO: 19
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -2409,26 +2409,26 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 2
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
-  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
-  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
-  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
-  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
-  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
-  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11, Peso1184662864
-  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7, Peso1184663152
-  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184674336
-  Ordine: Tempo arrivo: 35, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 16, Peso1184667712
-  Ordine: Tempo arrivo: 36, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184672608
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11
+  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7
+  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 35, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 16
+  Ordine: Tempo arrivo: 36, Ricetta: k91ztT0f80YkrVS, Quantita: 7
 Numero di ordini nella coda FIFO: 20
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -2498,27 +2498,27 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 2
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
-  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
-  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
-  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
-  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
-  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
-  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11, Peso1184662864
-  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7, Peso1184663152
-  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184674336
-  Ordine: Tempo arrivo: 35, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 16, Peso1184667712
-  Ordine: Tempo arrivo: 36, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184672608
-  Ordine: Tempo arrivo: 37, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 15, Peso1184670880
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11
+  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7
+  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 35, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 16
+  Ordine: Tempo arrivo: 36, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 37, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 15
 Numero di ordini nella coda FIFO: 21
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -2595,27 +2595,27 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 3
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
-  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
-  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
-  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
-  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
-  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
-  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11, Peso1184662864
-  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7, Peso1184663152
-  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184674336
-  Ordine: Tempo arrivo: 35, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 16, Peso1184667712
-  Ordine: Tempo arrivo: 36, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184672608
-  Ordine: Tempo arrivo: 37, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 15, Peso1184670880
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11
+  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7
+  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 35, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 16
+  Ordine: Tempo arrivo: 36, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 37, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 15
 Numero di ordini nella coda FIFO: 21
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -2692,28 +2692,28 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 3
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
-  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
-  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
-  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
-  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
-  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
-  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11, Peso1184662864
-  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7, Peso1184663152
-  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184674336
-  Ordine: Tempo arrivo: 35, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 16, Peso1184667712
-  Ordine: Tempo arrivo: 36, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184672608
-  Ordine: Tempo arrivo: 37, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 15, Peso1184670880
-  Ordine: Tempo arrivo: 39, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 15, Peso1184668864
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11
+  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7
+  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 35, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 16
+  Ordine: Tempo arrivo: 36, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 37, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 15
+  Ordine: Tempo arrivo: 39, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 15
 Numero di ordini nella coda FIFO: 22
 Min-heap degli ordini fatti (Dimensione: 4):
   Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
@@ -2793,29 +2793,29 @@ Ricetta: k91ztT0f80YkrVS
 Peso k91ztT0f80YkrVS di 66
 Numero di ricette BST: 3
 Coda FIFO degli ordini:
-  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
-  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
-  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
-  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
-  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
-  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
-  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
-  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
-  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
-  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
-  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
-  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
-  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
-  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
-  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
-  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11, Peso1184662864
-  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7, Peso1184663152
-  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184674336
-  Ordine: Tempo arrivo: 35, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 16, Peso1184667712
-  Ordine: Tempo arrivo: 36, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184672608
-  Ordine: Tempo arrivo: 37, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 15, Peso1184670880
-  Ordine: Tempo arrivo: 39, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 15, Peso1184668864
-  Ordine: Tempo arrivo: 40, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 12, Peso1184670592
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11
+  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7
+  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13
+  Ordine: Tempo arrivo: 35, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 16
+  Ordine: Tempo arrivo: 36, Ricetta: k91ztT0f80YkrVS, Quantita: 7
+  Ordine: Tempo arrivo: 37, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 15
+  Ordine: Tempo arrivo: 39, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 15
+  Ordine: Tempo arrivo: 40, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 12
 Numero di ordini nella coda FIFO: 23
 Min-heap degli ordini fatti (Dimensione: 1):
   Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 5, Tempo arrivo: 26
