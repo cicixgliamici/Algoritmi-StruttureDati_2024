@@ -37,23 +37,16 @@ void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
 }
 
 bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
-    /*
-    if(tempoCorrente==23) {
-        printf("Provando %s\n", nome_ricetta);
-    }
-    */
     NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
     IngredienteRicetta* ing = nodo_ricetta->ricetta.ingredienti;
     while (ing != NULL) {
         NodoAVL* nodo_ingrediente = cercaAVL(avl, ing->nome);
         if (nodo_ingrediente == NULL) {
-            //printf("postposto %s di elementi %d al tempo %d\n", nome_ricetta, numero_elementi_ordinati, tempoCorrente);
             return false;
         }
         controllaScadenza(nodo_ingrediente);
         int peso_totale_richiesto = ing->quantita * numero_elementi_ordinati;
         if (nodo_ingrediente->peso_totale < peso_totale_richiesto) {
-            //printf("postposto %s di elementi %d al tempo %d\n", nome_ricetta, numero_elementi_ordinati, tempoCorrente);
             return false;
         }
         ing = ing->next;
@@ -62,11 +55,6 @@ bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
 }
 
 void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int tempo_arrivo) {
-    /*
-    if(tempoCorrente==23) {
-        printf("Facendo %s\n", nome_ricetta);
-    }
-    */
     NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
     IngredienteRicetta* ing = nodo_ricetta->ricetta.ingredienti;
     while (ing != NULL) {
@@ -74,7 +62,6 @@ void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int te
         int quantita_richiesta = ing->quantita * numero_elementi_ordinati;
         while (quantita_richiesta > 0) {
             if (nodo_ingrediente->heap.dimensione == 0) {
-                //printf("Errore: ingrediente %s non sufficiente per la ricetta %s\n", ing->nome, nome_ricetta);
                 return;
             }
             IngredienteMinHeap min_ingrediente = rimuoviIngrediente(&nodo_ingrediente->heap);
@@ -91,7 +78,6 @@ void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int te
         ing = ing->next;
     }
     inserisciOrdineHeap(heap_ordini_fatti, tempo_arrivo, (char*)nome_ricetta, numero_elementi_ordinati);
-    //printf("fatto %s di elementi %d al tempo %d\n", nome_ricetta, numero_elementi_ordinati, tempoCorrente);
 }
 
 void verificaOrdini() {
@@ -181,9 +167,8 @@ void controllaScadenza(NodoAVL* nodo_ingrediente) {
     if (nodo_ingrediente == NULL) {
         return;
     }
-    while (nodo_ingrediente->heap.dimensione > 0 && nodo_ingrediente->heap.lotto[0].scadenza == tempoCorrente) {
+    while (nodo_ingrediente->heap.dimensione > 0 && nodo_ingrediente->heap.lotto[0].scadenza <= tempoCorrente) {
         IngredienteMinHeap scaduto = rimuoviIngrediente(&nodo_ingrediente->heap);
         nodo_ingrediente->peso_totale -= scaduto.quantita;
-        //printf("Rimosso ingrediente scaduto: %s, Quantita: %d, Scadenza: %d\n", nodo_ingrediente->nome, scaduto.quantita, scaduto.scadenza);
     }
 }
