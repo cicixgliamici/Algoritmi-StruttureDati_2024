@@ -145,48 +145,45 @@ NodoAVL* minValueAVL(NodoAVL *nodo) {
 }
 
 NodoAVL* eliminaAVL(NodoAVL* root, char *nome) {
-        if(root == NULL)
-            return root;
-        if(strcmp(nome, root->nome) < 0) {
-            root->sinistro = eliminaAVL(root->sinistro, nome);
-        } else if(strcmp(nome, root->nome) > 0) {
-            root->destro = eliminaAVL(root->destro, nome);
-        } else {
-            if((root->sinistro == NULL) || (root->destro == NULL)) {
-                NodoAVL *temp = root->sinistro ? root->sinistro : root->destro;
-                if(temp == NULL) {
-                    temp = root;
-                    root = NULL;
-                } else {
-                    *root = *temp; // Copia il contenuto del nodo non vuoto
-                }
-                liberaLotto(&temp->heap);
-                //printf("Nodo AVL %s eliminato\n", nome);
-                free(temp);
-            } else {
-                NodoAVL* temp = minValueAVL(root->destro);
-                strcpy(root->nome, temp->nome);
-                root->heap = temp->heap;
-                root->destro = eliminaAVL(root->destro, temp->nome);
-            }
-        }
-        if (root == NULL)
-            return root;
-        root->altezza = 1 + max(altezza(root->sinistro), altezza(root->destro));
-        int bilancio = valBilancia(root);
-        if (bilancio > 1 && valBilancia(root->sinistro) >= 0)
-            return ruotaDestra(root);
-        if (bilancio > 1 && valBilancia(root->sinistro) < 0) {
-            root->sinistro = ruotaSinistra(root->sinistro);
-            return ruotaDestra(root);
-        }
-        if (bilancio < -1 && valBilancia(root->destro) <= 0)
-            return ruotaSinistra(root);
-        if (bilancio < -1 && valBilancia(root->destro) > 0) {
-            root->destro = ruotaDestra(root->destro);
-            return ruotaSinistra(root);
-        }
+    if (root == NULL)
         return root;
+    if (strcmp(nome, root->nome) < 0) {
+        root->sinistro = eliminaAVL(root->sinistro, nome);
+    } else if (strcmp(nome, root->nome) > 0) {
+        root->destro = eliminaAVL(root->destro, nome);
+    } else {
+        if (root->sinistro == NULL || root->destro == NULL) {
+            NodoAVL *temp = root->sinistro ? root->sinistro : root->destro;
+            liberaLotto(&root->heap);  // Libera la memoria del lotto
+            if (temp == NULL) {
+                free(root);
+                return NULL;
+            } else {
+                *root = *temp; // Copia il contenuto del nodo non vuoto
+                free(temp);
+            }
+        } else {
+            NodoAVL* temp = minValueAVL(root->destro);
+            strcpy(root->nome, temp->nome);
+            root->heap = temp->heap;
+            root->destro = eliminaAVL(root->destro, temp->nome);
+        }
+    }
+    root->altezza = 1 + max(altezza(root->sinistro), altezza(root->destro));
+    int bilancio = valBilancia(root);
+    if (bilancio > 1 && valBilancia(root->sinistro) >= 0)
+        return ruotaDestra(root);
+    if (bilancio > 1 && valBilancia(root->sinistro) < 0) {
+        root->sinistro = ruotaSinistra(root->sinistro);
+        return ruotaDestra(root);
+    }
+    if (bilancio < -1 && valBilancia(root->destro) <= 0)
+        return ruotaSinistra(root);
+    if (bilancio < -1 && valBilancia(root->destro) > 0) {
+        root->destro = ruotaDestra(root->destro);
+        return ruotaSinistra(root);
+    }
+    return root;
 }
 
 NodoAVL* cercaAVL(NodoAVL* nodo, const char* nome) {

@@ -158,6 +158,6 @@ int main(void) {
     FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open4.txt", "r"); //stdin
     gestisciComandi(file);
     fclose(file);
-    stampaTutto();
+    //stampaTutto();
     return 0;
 }

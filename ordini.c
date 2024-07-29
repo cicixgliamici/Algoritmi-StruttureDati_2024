@@ -18,7 +18,6 @@
 #include "header.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
     NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
@@ -45,12 +44,11 @@ bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
             return false;
         }
         controllaScadenza(nodo_ingrediente);
-
+        MinHeapIngrediente* heap=&nodo_ingrediente->heap;
         int quantita_totale = 0;
         for (int i = 0; i < nodo_ingrediente->heap.dimensione; i++) {
-            quantita_totale += nodo_ingrediente->heap.lotto[i].quantita;
+            quantita_totale += heap->lotto[i].quantita;
         }
-
         int peso_totale_richiesto = ing->quantita * numero_elementi_ordinati;
         if (quantita_totale < peso_totale_richiesto) {
             return false;
@@ -119,23 +117,16 @@ void caricaCamion() {
         return;
     }
     int capienzaRestante = max_heap_spedizioni->capacita;
-    //printf("Capienza iniziale del camion: %d\n", capienzaRestante);
     MinHeap* tempHeap = creaMinHeap(heap_ordini_fatti->capacita); // Temp heap to hold orders that can't be loaded
     while (!heapVuotoMinOrdine(heap_ordini_fatti) && capienzaRestante > 0) {
         OrdineHeap ordine = rimuoviMin(heap_ordini_fatti);
-        //printf("Ordine rimosso dal min-heap: Ricetta: %s, Quantita: %d, Tempo arrivo: %d\n", ordine.ricetta, ordine.quantita, ordine.tempo_arrivo);
         NodoBST* nodo_ricetta = cercaBST(bst, ordine.ricetta);
         int peso_ordine = calcolaPeso(nodo_ricetta->ricetta, ordine.quantita);
-        //printf("Peso dell'ordine calcolato: %d\n", peso_ordine);
         if (peso_ordine <= capienzaRestante) {
-            //printf("Ordine inserito nel max-heap delle spedizioni: %s\n", ordine.ricetta);
             inserisciSpedizione(max_heap_spedizioni, ordine.ricetta, ordine.tempo_arrivo, ordine.quantita, peso_ordine);
             capienzaRestante -= peso_ordine;
-            //printf("Capienza restante del camion: %d\n", capienzaRestante);
         } else {
-            // Reinsert the order back into the temporary heap if it cannot be loaded
             inserisciOrdineHeap(tempHeap, ordine.tempo_arrivo, ordine.ricetta, ordine.quantita);
-            //printf("Ordine troppo grande per il camion: %s, Peso: %d, Capienza restante: %d\n", ordine.ricetta, peso_ordine, capienzaRestante);
         }
     }
     while (!heapVuotoMinOrdine(tempHeap)) {
@@ -143,12 +134,7 @@ void caricaCamion() {
         inserisciOrdineHeap(heap_ordini_fatti, ordine.tempo_arrivo, ordine.ricetta, ordine.quantita);
     }
     liberaMinHeapOrdini(tempHeap);
-    //printf("Stato min-heap degli ordini fatti dopo caricaCamion:\n");
-    //stampaMinHeapOrdini(heap_ordini_fatti);
-    if (heapVuotoMax(max_heap_spedizioni)) {
-        //printf("Nessuna spedizione caricata nel camion.\n");
-    } else {
-        //printf("Spedizioni nel camion:\n");
+    if (!heapVuotoMax(max_heap_spedizioni)) {
         while (!heapVuotoMax(max_heap_spedizioni)) {
             Spedizione spedizione = rimuoviMax(max_heap_spedizioni);
             printf("%d %s %d\n", spedizione.istante_arrivo, spedizione.nome, spedizione.quantita);
@@ -172,6 +158,6 @@ void controllaScadenza(NodoAVL* nodo_ingrediente) {
         return;
     }
     while (nodo_ingrediente->heap.dimensione > 0 && nodo_ingrediente->heap.lotto[0].scadenza <= tempoCorrente) {
-        IngredienteMinHeap scaduto = rimuoviIngrediente(&nodo_ingrediente->heap);
+        rimuoviIngrediente(&nodo_ingrediente->heap);
     }
 }
