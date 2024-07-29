@@ -263,7 +263,7 @@ void stampaAVL1(NodoAVL* nodo) {
         return;
     }
     stampaAVL1(nodo->sinistro);
-    printf("Ingrediente: %s, Peso Totale: %d\n", nodo->nome, nodo->peso_totale);
+    printf("Ingrediente: %s\n", nodo->nome);
     if (nodo->heap.lotto != NULL) {
         stampaHeapIngredienti1(&nodo->heap);
     } else {
@@ -279,7 +279,7 @@ void stampaAVL2(NodoAVL* nodo, int* count) {
         return;
     }
     stampaAVL2(nodo->sinistro, count);
-    printf("Ingrediente: %s, Peso Totale: %d\n", nodo->nome, nodo->peso_totale);
+    printf("Ingrediente: %s\n", nodo->nome);
     if (nodo->heap.lotto != NULL) {
         stampaHeapIngredienti2(&nodo->heap, count);
     } else {

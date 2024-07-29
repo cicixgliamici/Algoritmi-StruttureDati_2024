@@ -51,9 +51,6 @@ void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita, 
         scambia(&heap->lotto[i], &heap->lotto[(i - 1) / 2]);
         i = (i - 1) / 2;
     }
-    if (nodo != NULL) {
-        nodo->peso_totale += quantita;  // Aggiorna il peso totale del nodo AVL
-    }
    // printf("Ingrediente inserito: %s, Scadenza = %d, Quantita = %d\n", nodo->nome, scadenza, quantita); // Debugging
     //stampaHeapIngredienti1(heap);
 }
@@ -66,9 +63,6 @@ IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
     IngredienteMinHeap radice = heap->lotto[0];
     heap->lotto[0] = heap->lotto[--heap->dimensione];
     heapifyIngredienti(heap, 0);
-    if (radice.nodoAVL != NULL) {
-        radice.nodoAVL->peso_totale -= radice.quantita;
-    }
     //printf("RimuoviIngrediente: Scadenza = %d, Quantita = %d\n", radice.scadenza, radice.quantita);
     return radice;
 }
@@ -117,7 +111,6 @@ NodoAVL* nuovoAVL(char* nome, int capacita) {
     NodoAVL* nodo = (NodoAVL*)malloc(sizeof(NodoAVL));
     strcpy(nodo->nome, nome);
     nodo->heap = nuovoHeapIngredienti(capacita);
-    nodo->peso_totale = 0;
     nodo->sinistro = NULL;
     nodo->destro = NULL;
     nodo->altezza = 1;

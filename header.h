@@ -34,7 +34,6 @@ MinHeapIngrediente nuovoHeapIngredienti(int capacita);                          
 typedef struct NodoAVL {
     char nome[256];
     MinHeapIngrediente heap;
-    int peso_totale;
     struct NodoAVL *sinistro;
     struct NodoAVL *destro;
     int altezza;

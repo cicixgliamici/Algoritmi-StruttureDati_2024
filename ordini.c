@@ -45,8 +45,14 @@ bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
             return false;
         }
         controllaScadenza(nodo_ingrediente);
+
+        int quantita_totale = 0;
+        for (int i = 0; i < nodo_ingrediente->heap.dimensione; i++) {
+            quantita_totale += nodo_ingrediente->heap.lotto[i].quantita;
+        }
+
         int peso_totale_richiesto = ing->quantita * numero_elementi_ordinati;
-        if (nodo_ingrediente->peso_totale < peso_totale_richiesto) {
+        if (quantita_totale < peso_totale_richiesto) {
             return false;
         }
         ing = ing->next;
@@ -67,10 +73,8 @@ void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int te
             IngredienteMinHeap min_ingrediente = rimuoviIngrediente(&nodo_ingrediente->heap);
             if (min_ingrediente.quantita <= quantita_richiesta) {
                 quantita_richiesta -= min_ingrediente.quantita;
-                nodo_ingrediente->peso_totale -= min_ingrediente.quantita;
             } else {
                 min_ingrediente.quantita -= quantita_richiesta;
-                nodo_ingrediente->peso_totale -= quantita_richiesta;
                 quantita_richiesta = 0;
                 inserisciIngrediente(&nodo_ingrediente->heap, min_ingrediente.scadenza, min_ingrediente.quantita, nodo_ingrediente);
             }
@@ -169,6 +173,5 @@ void controllaScadenza(NodoAVL* nodo_ingrediente) {
     }
     while (nodo_ingrediente->heap.dimensione > 0 && nodo_ingrediente->heap.lotto[0].scadenza <= tempoCorrente) {
         IngredienteMinHeap scaduto = rimuoviIngrediente(&nodo_ingrediente->heap);
-        nodo_ingrediente->peso_totale -= scaduto.quantita;
     }
 }

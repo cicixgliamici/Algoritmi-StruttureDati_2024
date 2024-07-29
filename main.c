@@ -42,8 +42,7 @@ void gestisciComandi(FILE *file) {
     ultimoAggiornamento = 0;
     char line[1000];  //IMPORTANTE
     while (fgets(line, sizeof(line), file)) {
-        printf(" \n");
-        stampaTutto();
+        controllaScadenza(avl);
         char command[256];
         if (sscanf(line, "%s", command) == 1) {
             tempoCorrente++;
@@ -159,6 +158,6 @@ int main(void) {
     FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open4.txt", "r"); //stdin
     gestisciComandi(file);
     fclose(file);
-    //stampaTutto();
+    stampaTutto();
     return 0;
 }
