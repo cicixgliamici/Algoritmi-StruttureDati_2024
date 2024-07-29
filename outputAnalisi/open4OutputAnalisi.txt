@@ -1,0 +1,2826 @@
+C:\Users\39392\CLionProjects\API\cmake-build-debug\API.exe
+
+
+Stato corrente delle strutture dati:
+AVL e vuoto.
+BST e vuoto.
+Coda FIFO degli ordini:
+Numero di ordini nella coda FIFO: 0
+Min-heap degli ordini fatti (Dimensione: 0):
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: -1
+
+
+Stato corrente delle strutture dati:
+AVL e vuoto.
+BST e vuoto.
+Coda FIFO degli ordini:
+Numero di ordini nella coda FIFO: 0
+Min-heap degli ordini fatti (Dimensione: 0):
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: -1
+aggiunta
+
+
+Stato corrente delle strutture dati:
+AVL e vuoto.
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+Numero di ordini nella coda FIFO: 0
+Min-heap degli ordini fatti (Dimensione: 0):
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 0
+accettato
+
+
+Stato corrente delle strutture dati:
+AVL e vuoto.
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 1, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1183457744
+Numero di ordini nella coda FIFO: 1
+Min-heap degli ordini fatti (Dimensione: 0):
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 1
+rifornito
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 130
+  Ingrediente scadenza: 160, Quantita: 130
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 1011
+  Ingrediente scadenza: 124, Quantita: 1011
+Ingrediente: dk8BmNQdSRq, Peso Totale: 643
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 170
+  Ingrediente scadenza: 266, Quantita: 170
+Ingrediente: dk8BmNQdU, Peso Totale: 880
+  Ingrediente scadenza: 42, Quantita: 880
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 22
+  Ingrediente scadenza: 256, Quantita: 22
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 105
+  Ingrediente scadenza: 319, Quantita: 105
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 210
+  Ingrediente scadenza: 307, Quantita: 210
+Numero di ingredienti AVL: 8
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 1, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1183457744
+Numero di ordini nella coda FIFO: 1
+Min-heap degli ordini fatti (Dimensione: 0):
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 2
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 130
+  Ingrediente scadenza: 160, Quantita: 130
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 1011
+  Ingrediente scadenza: 124, Quantita: 1011
+Ingrediente: dk8BmNQdSRq, Peso Totale: 643
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 170
+  Ingrediente scadenza: 266, Quantita: 170
+Ingrediente: dk8BmNQdU, Peso Totale: 880
+  Ingrediente scadenza: 42, Quantita: 880
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 22
+  Ingrediente scadenza: 256, Quantita: 22
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 105
+  Ingrediente scadenza: 319, Quantita: 105
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 210
+  Ingrediente scadenza: 307, Quantita: 210
+Numero di ingredienti AVL: 8
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 1, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1183457744
+  Ordine: Tempo arrivo: 3, Ricetta: k91ztT0f80YkrVS, Quantita: 5, Peso1184657680
+Numero di ordini nella coda FIFO: 2
+Min-heap degli ordini fatti (Dimensione: 0):
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 3
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 130
+  Ingrediente scadenza: 160, Quantita: 130
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 1011
+  Ingrediente scadenza: 124, Quantita: 1011
+Ingrediente: dk8BmNQdSRq, Peso Totale: 643
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 170
+  Ingrediente scadenza: 266, Quantita: 170
+Ingrediente: dk8BmNQdU, Peso Totale: 880
+  Ingrediente scadenza: 42, Quantita: 880
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 22
+  Ingrediente scadenza: 256, Quantita: 22
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 105
+  Ingrediente scadenza: 319, Quantita: 105
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 210
+  Ingrediente scadenza: 307, Quantita: 210
+Numero di ingredienti AVL: 8
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 1, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1183457744
+  Ordine: Tempo arrivo: 3, Ricetta: k91ztT0f80YkrVS, Quantita: 5, Peso1184657680
+  Ordine: Tempo arrivo: 4, Ricetta: k91ztT0f80YkrVS, Quantita: 4, Peso1184657968
+Numero di ordini nella coda FIFO: 3
+Min-heap degli ordini fatti (Dimensione: 0):
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 4
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 130
+  Ingrediente scadenza: 160, Quantita: 130
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 1011
+  Ingrediente scadenza: 124, Quantita: 1011
+Ingrediente: dk8BmNQdSRq, Peso Totale: 643
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 170
+  Ingrediente scadenza: 266, Quantita: 170
+Ingrediente: dk8BmNQdU, Peso Totale: 880
+  Ingrediente scadenza: 42, Quantita: 880
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 22
+  Ingrediente scadenza: 256, Quantita: 22
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 105
+  Ingrediente scadenza: 319, Quantita: 105
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 210
+  Ingrediente scadenza: 307, Quantita: 210
+Numero di ingredienti AVL: 8
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 1, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1183457744
+  Ordine: Tempo arrivo: 3, Ricetta: k91ztT0f80YkrVS, Quantita: 5, Peso1184657680
+  Ordine: Tempo arrivo: 4, Ricetta: k91ztT0f80YkrVS, Quantita: 4, Peso1184657968
+  Ordine: Tempo arrivo: 5, Ricetta: k91ztT0f80YkrVS, Quantita: 4, Peso1184658256
+Numero di ordini nella coda FIFO: 4
+Min-heap degli ordini fatti (Dimensione: 0):
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 5
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 130
+  Ingrediente scadenza: 160, Quantita: 130
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 1011
+  Ingrediente scadenza: 124, Quantita: 1011
+Ingrediente: dk8BmNQdSRq, Peso Totale: 643
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 170
+  Ingrediente scadenza: 266, Quantita: 170
+Ingrediente: dk8BmNQdU, Peso Totale: 880
+  Ingrediente scadenza: 42, Quantita: 880
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 22
+  Ingrediente scadenza: 256, Quantita: 22
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 105
+  Ingrediente scadenza: 319, Quantita: 105
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 210
+  Ingrediente scadenza: 307, Quantita: 210
+Numero di ingredienti AVL: 8
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 1, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1183457744
+  Ordine: Tempo arrivo: 3, Ricetta: k91ztT0f80YkrVS, Quantita: 5, Peso1184657680
+  Ordine: Tempo arrivo: 4, Ricetta: k91ztT0f80YkrVS, Quantita: 4, Peso1184657968
+  Ordine: Tempo arrivo: 5, Ricetta: k91ztT0f80YkrVS, Quantita: 4, Peso1184658256
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
+Numero di ordini nella coda FIFO: 5
+Min-heap degli ordini fatti (Dimensione: 0):
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 6
+rifornito
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 275
+  Ingrediente scadenza: 156, Quantita: 145
+  Ingrediente scadenza: 160, Quantita: 130
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 1737
+  Ingrediente scadenza: 124, Quantita: 831
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 1048
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 1143
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 64
+  Ingrediente scadenza: 266, Quantita: 20
+  Ingrediente scadenza: 278, Quantita: 194
+Ingrediente: dk8BmNQdU, Peso Totale: 1542
+  Ingrediente scadenza: 33, Quantita: 872
+  Ingrediente scadenza: 42, Quantita: 880
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 50
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 25
+  Ingrediente scadenza: 320, Quantita: 130
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 388
+  Ingrediente scadenza: 307, Quantita: 210
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 16
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 5, Ricetta: k91ztT0f80YkrVS, Quantita: 4, Peso1184658256
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
+Numero di ordini nella coda FIFO: 2
+Min-heap degli ordini fatti (Dimensione: 3):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 5, Tempo arrivo: 3
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 4
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 7
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 275
+  Ingrediente scadenza: 156, Quantita: 145
+  Ingrediente scadenza: 160, Quantita: 130
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 1737
+  Ingrediente scadenza: 124, Quantita: 831
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 1048
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 1143
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 64
+  Ingrediente scadenza: 266, Quantita: 20
+  Ingrediente scadenza: 278, Quantita: 194
+Ingrediente: dk8BmNQdU, Peso Totale: 1542
+  Ingrediente scadenza: 33, Quantita: 872
+  Ingrediente scadenza: 42, Quantita: 880
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 50
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 25
+  Ingrediente scadenza: 320, Quantita: 130
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 388
+  Ingrediente scadenza: 307, Quantita: 210
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 16
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 5, Ricetta: k91ztT0f80YkrVS, Quantita: 4, Peso1184658256
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+Numero di ordini nella coda FIFO: 3
+Min-heap degli ordini fatti (Dimensione: 3):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 5, Tempo arrivo: 3
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 4
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 8
+rifornito
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 502
+  Ingrediente scadenza: 156, Quantita: 145
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2474
+  Ingrediente scadenza: 124, Quantita: 783
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2430
+  Ingrediente scadenza: 135, Quantita: 1434
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 1598
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 198, Quantita: 643
+  Ingrediente scadenza: 154, Quantita: 650
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: -16
+  Ingrediente scadenza: 278, Quantita: 174
+Ingrediente: dk8BmNQdU, Peso Totale: 2358
+  Ingrediente scadenza: 33, Quantita: 816
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 42, Quantita: 880
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 665
+  Ingrediente scadenza: 123, Quantita: 665
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 65
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 396, Quantita: 28
+  Ingrediente scadenza: 287, Quantita: 15
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 109
+  Ingrediente scadenza: 320, Quantita: 102
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 388
+  Ingrediente scadenza: 307, Quantita: 210
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 23
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+Numero di ordini nella coda FIFO: 2
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 5, Tempo arrivo: 3
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 4
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 9
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 502
+  Ingrediente scadenza: 156, Quantita: 145
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2474
+  Ingrediente scadenza: 124, Quantita: 783
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2430
+  Ingrediente scadenza: 135, Quantita: 1434
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 1598
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 198, Quantita: 643
+  Ingrediente scadenza: 154, Quantita: 650
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: -16
+  Ingrediente scadenza: 278, Quantita: 174
+Ingrediente: dk8BmNQdU, Peso Totale: 2358
+  Ingrediente scadenza: 33, Quantita: 816
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 42, Quantita: 880
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 665
+  Ingrediente scadenza: 123, Quantita: 665
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 65
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 396, Quantita: 28
+  Ingrediente scadenza: 287, Quantita: 15
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 109
+  Ingrediente scadenza: 320, Quantita: 102
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 388
+  Ingrediente scadenza: 307, Quantita: 210
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 23
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+Numero di ordini nella coda FIFO: 3
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 5, Tempo arrivo: 3
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 4
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 10
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 502
+  Ingrediente scadenza: 156, Quantita: 145
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2474
+  Ingrediente scadenza: 124, Quantita: 783
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2430
+  Ingrediente scadenza: 135, Quantita: 1434
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 1598
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 198, Quantita: 643
+  Ingrediente scadenza: 154, Quantita: 650
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: -16
+  Ingrediente scadenza: 278, Quantita: 174
+Ingrediente: dk8BmNQdU, Peso Totale: 2358
+  Ingrediente scadenza: 33, Quantita: 816
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 42, Quantita: 880
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 665
+  Ingrediente scadenza: 123, Quantita: 665
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 65
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 396, Quantita: 28
+  Ingrediente scadenza: 287, Quantita: 15
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 109
+  Ingrediente scadenza: 320, Quantita: 102
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 388
+  Ingrediente scadenza: 307, Quantita: 210
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 23
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+Numero di ordini nella coda FIFO: 4
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 5, Tempo arrivo: 3
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 4
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 11
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 502
+  Ingrediente scadenza: 156, Quantita: 145
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2474
+  Ingrediente scadenza: 124, Quantita: 783
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2430
+  Ingrediente scadenza: 135, Quantita: 1434
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 1598
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 198, Quantita: 643
+  Ingrediente scadenza: 154, Quantita: 650
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: -16
+  Ingrediente scadenza: 278, Quantita: 174
+Ingrediente: dk8BmNQdU, Peso Totale: 2358
+  Ingrediente scadenza: 33, Quantita: 816
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 42, Quantita: 880
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 665
+  Ingrediente scadenza: 123, Quantita: 665
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 65
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 396, Quantita: 28
+  Ingrediente scadenza: 287, Quantita: 15
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 109
+  Ingrediente scadenza: 320, Quantita: 102
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 388
+  Ingrediente scadenza: 307, Quantita: 210
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 23
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+Numero di ordini nella coda FIFO: 5
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 5, Tempo arrivo: 3
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 4
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 12
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 502
+  Ingrediente scadenza: 156, Quantita: 145
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2474
+  Ingrediente scadenza: 124, Quantita: 783
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2430
+  Ingrediente scadenza: 135, Quantita: 1434
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 1598
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 198, Quantita: 643
+  Ingrediente scadenza: 154, Quantita: 650
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: -16
+  Ingrediente scadenza: 278, Quantita: 174
+Ingrediente: dk8BmNQdU, Peso Totale: 2358
+  Ingrediente scadenza: 33, Quantita: 816
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 42, Quantita: 880
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 665
+  Ingrediente scadenza: 123, Quantita: 665
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 65
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 396, Quantita: 28
+  Ingrediente scadenza: 287, Quantita: 15
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 109
+  Ingrediente scadenza: 320, Quantita: 102
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 388
+  Ingrediente scadenza: 307, Quantita: 210
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 23
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+Numero di ordini nella coda FIFO: 6
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 5, Tempo arrivo: 3
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 4
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 13
+ordini in sospeso
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 502
+  Ingrediente scadenza: 156, Quantita: 145
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2474
+  Ingrediente scadenza: 124, Quantita: 783
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2430
+  Ingrediente scadenza: 135, Quantita: 1434
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 1598
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 198, Quantita: 643
+  Ingrediente scadenza: 154, Quantita: 650
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: -16
+  Ingrediente scadenza: 278, Quantita: 174
+Ingrediente: dk8BmNQdU, Peso Totale: 2358
+  Ingrediente scadenza: 33, Quantita: 816
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 42, Quantita: 880
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 665
+  Ingrediente scadenza: 123, Quantita: 665
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 65
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 396, Quantita: 28
+  Ingrediente scadenza: 287, Quantita: 15
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 109
+  Ingrediente scadenza: 320, Quantita: 102
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 388
+  Ingrediente scadenza: 307, Quantita: 210
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 23
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+Numero di ordini nella coda FIFO: 6
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 5, Tempo arrivo: 3
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 4
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 14
+rifiutato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 502
+  Ingrediente scadenza: 156, Quantita: 145
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2474
+  Ingrediente scadenza: 124, Quantita: 783
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2430
+  Ingrediente scadenza: 135, Quantita: 1434
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 1598
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 198, Quantita: 643
+  Ingrediente scadenza: 154, Quantita: 650
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: -16
+  Ingrediente scadenza: 278, Quantita: 174
+Ingrediente: dk8BmNQdU, Peso Totale: 2358
+  Ingrediente scadenza: 33, Quantita: 816
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 42, Quantita: 880
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 665
+  Ingrediente scadenza: 123, Quantita: 665
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 65
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 396, Quantita: 28
+  Ingrediente scadenza: 287, Quantita: 15
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 109
+  Ingrediente scadenza: 320, Quantita: 102
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 388
+  Ingrediente scadenza: 307, Quantita: 210
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 23
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+Numero di ordini nella coda FIFO: 6
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 5, Tempo arrivo: 3
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 4
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 15
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 502
+  Ingrediente scadenza: 156, Quantita: 145
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2474
+  Ingrediente scadenza: 124, Quantita: 783
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2430
+  Ingrediente scadenza: 135, Quantita: 1434
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 1598
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 198, Quantita: 643
+  Ingrediente scadenza: 154, Quantita: 650
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: -16
+  Ingrediente scadenza: 278, Quantita: 174
+Ingrediente: dk8BmNQdU, Peso Totale: 2358
+  Ingrediente scadenza: 33, Quantita: 816
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 42, Quantita: 880
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 665
+  Ingrediente scadenza: 123, Quantita: 665
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 65
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 396, Quantita: 28
+  Ingrediente scadenza: 287, Quantita: 15
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 109
+  Ingrediente scadenza: 320, Quantita: 102
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 388
+  Ingrediente scadenza: 307, Quantita: 210
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 23
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+Numero di ordini nella coda FIFO: 7
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 5, Tempo arrivo: 3
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 4
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 16
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 502
+  Ingrediente scadenza: 156, Quantita: 145
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2474
+  Ingrediente scadenza: 124, Quantita: 783
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2430
+  Ingrediente scadenza: 135, Quantita: 1434
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 1598
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 198, Quantita: 643
+  Ingrediente scadenza: 154, Quantita: 650
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: -16
+  Ingrediente scadenza: 278, Quantita: 174
+Ingrediente: dk8BmNQdU, Peso Totale: 2358
+  Ingrediente scadenza: 33, Quantita: 816
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 42, Quantita: 880
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 665
+  Ingrediente scadenza: 123, Quantita: 665
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 65
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 396, Quantita: 28
+  Ingrediente scadenza: 287, Quantita: 15
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 109
+  Ingrediente scadenza: 320, Quantita: 102
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 388
+  Ingrediente scadenza: 307, Quantita: 210
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 23
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+Numero di ordini nella coda FIFO: 8
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 5, Tempo arrivo: 3
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 4
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 17
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 502
+  Ingrediente scadenza: 156, Quantita: 145
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2474
+  Ingrediente scadenza: 124, Quantita: 783
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2430
+  Ingrediente scadenza: 135, Quantita: 1434
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 1598
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 198, Quantita: 643
+  Ingrediente scadenza: 154, Quantita: 650
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: -16
+  Ingrediente scadenza: 278, Quantita: 174
+Ingrediente: dk8BmNQdU, Peso Totale: 2358
+  Ingrediente scadenza: 33, Quantita: 816
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 42, Quantita: 880
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 665
+  Ingrediente scadenza: 123, Quantita: 665
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 65
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 396, Quantita: 28
+  Ingrediente scadenza: 287, Quantita: 15
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 109
+  Ingrediente scadenza: 320, Quantita: 102
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 388
+  Ingrediente scadenza: 307, Quantita: 210
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 23
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 6, Ricetta: k91ztT0f80YkrVS, Quantita: 6, Peso1184658544
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+Numero di ordini nella coda FIFO: 9
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 5, Tempo arrivo: 3
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 4
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 18
+rifornito
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 715
+  Ingrediente scadenza: 156, Quantita: 145
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2330
+  Ingrediente scadenza: 124, Quantita: 711
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 3319
+  Ingrediente scadenza: 33, Quantita: 732
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 141, Quantita: 1129
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1758
+  Ingrediente scadenza: 123, Quantita: 665
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 128
+  Ingrediente scadenza: 260, Quantita: 61
+  Ingrediente scadenza: 326, Quantita: 140
+  Ingrediente scadenza: 320, Quantita: 102
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 388
+  Ingrediente scadenza: 307, Quantita: 210
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 30
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+Numero di ordini nella coda FIFO: 8
+Min-heap degli ordini fatti (Dimensione: 5):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 1
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 5, Tempo arrivo: 3
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 4
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 19
+1 k91ztT0f80YkrVS 6
+3 k91ztT0f80YkrVS 5
+4 k91ztT0f80YkrVS 4
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 715
+  Ingrediente scadenza: 156, Quantita: 145
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2330
+  Ingrediente scadenza: 124, Quantita: 711
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 3319
+  Ingrediente scadenza: 33, Quantita: 732
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 141, Quantita: 1129
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1758
+  Ingrediente scadenza: 123, Quantita: 665
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 128
+  Ingrediente scadenza: 260, Quantita: 61
+  Ingrediente scadenza: 326, Quantita: 140
+  Ingrediente scadenza: 320, Quantita: 102
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 388
+  Ingrediente scadenza: 307, Quantita: 210
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 30
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+Numero di ordini nella coda FIFO: 9
+Min-heap degli ordini fatti (Dimensione: 2):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 20
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 715
+  Ingrediente scadenza: 156, Quantita: 145
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2330
+  Ingrediente scadenza: 124, Quantita: 711
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 3319
+  Ingrediente scadenza: 33, Quantita: 732
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 141, Quantita: 1129
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1758
+  Ingrediente scadenza: 123, Quantita: 665
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 128
+  Ingrediente scadenza: 260, Quantita: 61
+  Ingrediente scadenza: 326, Quantita: 140
+  Ingrediente scadenza: 320, Quantita: 102
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 388
+  Ingrediente scadenza: 307, Quantita: 210
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 30
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 1
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+Numero di ordini nella coda FIFO: 10
+Min-heap degli ordini fatti (Dimensione: 2):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 21
+aggiunta
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 715
+  Ingrediente scadenza: 156, Quantita: 145
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2330
+  Ingrediente scadenza: 124, Quantita: 711
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 3319
+  Ingrediente scadenza: 33, Quantita: 732
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 141, Quantita: 1129
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1758
+  Ingrediente scadenza: 123, Quantita: 665
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 128
+  Ingrediente scadenza: 260, Quantita: 61
+  Ingrediente scadenza: 326, Quantita: 140
+  Ingrediente scadenza: 320, Quantita: 102
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 388
+  Ingrediente scadenza: 307, Quantita: 210
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 30
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 2
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+Numero di ordini nella coda FIFO: 10
+Min-heap degli ordini fatti (Dimensione: 2):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 22
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 643
+  Ingrediente scadenza: 156, Quantita: 109
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2306
+  Ingrediente scadenza: 124, Quantita: 699
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 3255
+  Ingrediente scadenza: 33, Quantita: 700
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 141, Quantita: 1129
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1710
+  Ingrediente scadenza: 123, Quantita: 641
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 64
+  Ingrediente scadenza: 260, Quantita: 29
+  Ingrediente scadenza: 326, Quantita: 140
+  Ingrediente scadenza: 320, Quantita: 102
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 356
+  Ingrediente scadenza: 307, Quantita: 194
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 30
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 2
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+Numero di ordini nella coda FIFO: 10
+Min-heap degli ordini fatti (Dimensione: 3):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 4, Tempo arrivo: 23
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 23
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 643
+  Ingrediente scadenza: 156, Quantita: 109
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2306
+  Ingrediente scadenza: 124, Quantita: 699
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 3255
+  Ingrediente scadenza: 33, Quantita: 700
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 141, Quantita: 1129
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1710
+  Ingrediente scadenza: 123, Quantita: 641
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 64
+  Ingrediente scadenza: 260, Quantita: 29
+  Ingrediente scadenza: 326, Quantita: 140
+  Ingrediente scadenza: 320, Quantita: 102
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 356
+  Ingrediente scadenza: 307, Quantita: 194
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 30
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 2
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
+Numero di ordini nella coda FIFO: 11
+Min-heap degli ordini fatti (Dimensione: 3):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 4, Tempo arrivo: 23
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 24
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 643
+  Ingrediente scadenza: 156, Quantita: 109
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2306
+  Ingrediente scadenza: 124, Quantita: 699
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 3255
+  Ingrediente scadenza: 33, Quantita: 700
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 141, Quantita: 1129
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1710
+  Ingrediente scadenza: 123, Quantita: 641
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: 64
+  Ingrediente scadenza: 260, Quantita: 29
+  Ingrediente scadenza: 326, Quantita: 140
+  Ingrediente scadenza: 320, Quantita: 102
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 356
+  Ingrediente scadenza: 307, Quantita: 194
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 30
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 2
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
+Numero di ordini nella coda FIFO: 12
+Min-heap degli ordini fatti (Dimensione: 3):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 4, Tempo arrivo: 23
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 25
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 553
+  Ingrediente scadenza: 156, Quantita: 64
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2276
+  Ingrediente scadenza: 124, Quantita: 684
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 3175
+  Ingrediente scadenza: 33, Quantita: 660
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 141, Quantita: 1129
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1650
+  Ingrediente scadenza: 123, Quantita: 611
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: -16
+  Ingrediente scadenza: 320, Quantita: 91
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 316
+  Ingrediente scadenza: 307, Quantita: 174
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 29
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 2
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
+Numero di ordini nella coda FIFO: 12
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 4, Tempo arrivo: 23
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 5, Tempo arrivo: 26
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 26
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 553
+  Ingrediente scadenza: 156, Quantita: 64
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2276
+  Ingrediente scadenza: 124, Quantita: 684
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 3175
+  Ingrediente scadenza: 33, Quantita: 660
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 141, Quantita: 1129
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1650
+  Ingrediente scadenza: 123, Quantita: 611
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: -16
+  Ingrediente scadenza: 320, Quantita: 91
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 316
+  Ingrediente scadenza: 307, Quantita: 174
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 29
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 2
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
+Numero di ordini nella coda FIFO: 13
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 4, Tempo arrivo: 23
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 5, Tempo arrivo: 26
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 27
+ignorato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 553
+  Ingrediente scadenza: 156, Quantita: 64
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2276
+  Ingrediente scadenza: 124, Quantita: 684
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 3175
+  Ingrediente scadenza: 33, Quantita: 660
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 141, Quantita: 1129
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1650
+  Ingrediente scadenza: 123, Quantita: 611
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: -16
+  Ingrediente scadenza: 320, Quantita: 91
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 316
+  Ingrediente scadenza: 307, Quantita: 174
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 29
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 2
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
+Numero di ordini nella coda FIFO: 13
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 4, Tempo arrivo: 23
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 5, Tempo arrivo: 26
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 28
+ordini in sospeso
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 553
+  Ingrediente scadenza: 156, Quantita: 64
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2276
+  Ingrediente scadenza: 124, Quantita: 684
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 3175
+  Ingrediente scadenza: 33, Quantita: 660
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 141, Quantita: 1129
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1650
+  Ingrediente scadenza: 123, Quantita: 611
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: -16
+  Ingrediente scadenza: 320, Quantita: 91
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 316
+  Ingrediente scadenza: 307, Quantita: 174
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 29
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 2
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
+Numero di ordini nella coda FIFO: 13
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 4, Tempo arrivo: 23
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 5, Tempo arrivo: 26
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 29
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 553
+  Ingrediente scadenza: 156, Quantita: 64
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2276
+  Ingrediente scadenza: 124, Quantita: 684
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 3175
+  Ingrediente scadenza: 33, Quantita: 660
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 141, Quantita: 1129
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1650
+  Ingrediente scadenza: 123, Quantita: 611
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: -16
+  Ingrediente scadenza: 320, Quantita: 91
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 316
+  Ingrediente scadenza: 307, Quantita: 174
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 29
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 2
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
+Numero di ordini nella coda FIFO: 14
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 4, Tempo arrivo: 23
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 5, Tempo arrivo: 26
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 30
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 553
+  Ingrediente scadenza: 156, Quantita: 64
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2276
+  Ingrediente scadenza: 124, Quantita: 684
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 3175
+  Ingrediente scadenza: 33, Quantita: 660
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 141, Quantita: 1129
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1650
+  Ingrediente scadenza: 123, Quantita: 611
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: -16
+  Ingrediente scadenza: 320, Quantita: 91
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 316
+  Ingrediente scadenza: 307, Quantita: 174
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 29
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 2
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
+Numero di ordini nella coda FIFO: 15
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 4, Tempo arrivo: 23
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 5, Tempo arrivo: 26
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 31
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 553
+  Ingrediente scadenza: 156, Quantita: 64
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2276
+  Ingrediente scadenza: 124, Quantita: 684
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 3175
+  Ingrediente scadenza: 33, Quantita: 660
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 154, Quantita: 928
+  Ingrediente scadenza: 141, Quantita: 1129
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1650
+  Ingrediente scadenza: 123, Quantita: 611
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: -16
+  Ingrediente scadenza: 320, Quantita: 91
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 316
+  Ingrediente scadenza: 307, Quantita: 174
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 29
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 2
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
+  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11, Peso1184662864
+Numero di ordini nella coda FIFO: 16
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 4, Tempo arrivo: 23
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 5, Tempo arrivo: 26
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 32
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 553
+  Ingrediente scadenza: 156, Quantita: 64
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2276
+  Ingrediente scadenza: 124, Quantita: 684
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 1855
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 141, Quantita: 1129
+  Ingrediente scadenza: 154, Quantita: 928
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1650
+  Ingrediente scadenza: 123, Quantita: 611
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: -16
+  Ingrediente scadenza: 320, Quantita: 91
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 316
+  Ingrediente scadenza: 307, Quantita: 174
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 28
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 2
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
+  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11, Peso1184662864
+  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7, Peso1184663152
+Numero di ordini nella coda FIFO: 17
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 4, Tempo arrivo: 23
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 5, Tempo arrivo: 26
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 33
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 553
+  Ingrediente scadenza: 156, Quantita: 64
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2276
+  Ingrediente scadenza: 124, Quantita: 684
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 1855
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 141, Quantita: 1129
+  Ingrediente scadenza: 154, Quantita: 928
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1650
+  Ingrediente scadenza: 123, Quantita: 611
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: -16
+  Ingrediente scadenza: 320, Quantita: 91
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 316
+  Ingrediente scadenza: 307, Quantita: 174
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 28
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 2
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
+  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11, Peso1184662864
+  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7, Peso1184663152
+  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184674336
+Numero di ordini nella coda FIFO: 18
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 4, Tempo arrivo: 23
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 5, Tempo arrivo: 26
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 34
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 553
+  Ingrediente scadenza: 156, Quantita: 64
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2276
+  Ingrediente scadenza: 124, Quantita: 684
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 1855
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 141, Quantita: 1129
+  Ingrediente scadenza: 154, Quantita: 928
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1650
+  Ingrediente scadenza: 123, Quantita: 611
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: -16
+  Ingrediente scadenza: 320, Quantita: 91
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 316
+  Ingrediente scadenza: 307, Quantita: 174
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 28
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 2
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
+  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11, Peso1184662864
+  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7, Peso1184663152
+  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184674336
+  Ordine: Tempo arrivo: 35, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 16, Peso1184667712
+Numero di ordini nella coda FIFO: 19
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 4, Tempo arrivo: 23
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 5, Tempo arrivo: 26
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 35
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 553
+  Ingrediente scadenza: 156, Quantita: 64
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2276
+  Ingrediente scadenza: 124, Quantita: 684
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 1855
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 141, Quantita: 1129
+  Ingrediente scadenza: 154, Quantita: 928
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1650
+  Ingrediente scadenza: 123, Quantita: 611
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: -16
+  Ingrediente scadenza: 320, Quantita: 91
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 316
+  Ingrediente scadenza: 307, Quantita: 174
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 28
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 2
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
+  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11, Peso1184662864
+  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7, Peso1184663152
+  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184674336
+  Ordine: Tempo arrivo: 35, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 16, Peso1184667712
+  Ordine: Tempo arrivo: 36, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184672608
+Numero di ordini nella coda FIFO: 20
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 4, Tempo arrivo: 23
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 5, Tempo arrivo: 26
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 36
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 553
+  Ingrediente scadenza: 156, Quantita: 64
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2276
+  Ingrediente scadenza: 124, Quantita: 684
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 1855
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 141, Quantita: 1129
+  Ingrediente scadenza: 154, Quantita: 928
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1650
+  Ingrediente scadenza: 123, Quantita: 611
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: -16
+  Ingrediente scadenza: 320, Quantita: 91
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 316
+  Ingrediente scadenza: 307, Quantita: 174
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 28
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 2
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
+  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11, Peso1184662864
+  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7, Peso1184663152
+  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184674336
+  Ordine: Tempo arrivo: 35, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 16, Peso1184667712
+  Ordine: Tempo arrivo: 36, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184672608
+  Ordine: Tempo arrivo: 37, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 15, Peso1184670880
+Numero di ordini nella coda FIFO: 21
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 4, Tempo arrivo: 23
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 5, Tempo arrivo: 26
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 37
+aggiunta
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 553
+  Ingrediente scadenza: 156, Quantita: 64
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2276
+  Ingrediente scadenza: 124, Quantita: 684
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 1855
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 141, Quantita: 1129
+  Ingrediente scadenza: 154, Quantita: 928
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1650
+  Ingrediente scadenza: 123, Quantita: 611
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: -16
+  Ingrediente scadenza: 320, Quantita: 91
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 316
+  Ingrediente scadenza: 307, Quantita: 174
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 28
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: Kj8cfb01WuJYWnhdFI
+  Ingrediente: dk8BmNQdU, Quantita: 28
+  Ingrediente: nO5aUROrGby67AuVt1YW66_, Quantita: 27
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 25
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 34
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 37
+Peso Kj8cfb01WuJYWnhdFI di 151
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 3
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
+  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11, Peso1184662864
+  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7, Peso1184663152
+  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184674336
+  Ordine: Tempo arrivo: 35, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 16, Peso1184667712
+  Ordine: Tempo arrivo: 36, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184672608
+  Ordine: Tempo arrivo: 37, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 15, Peso1184670880
+Numero di ordini nella coda FIFO: 21
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 4, Tempo arrivo: 23
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 5, Tempo arrivo: 26
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 38
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 553
+  Ingrediente scadenza: 156, Quantita: 64
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2276
+  Ingrediente scadenza: 124, Quantita: 684
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 1855
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 141, Quantita: 1129
+  Ingrediente scadenza: 154, Quantita: 928
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1650
+  Ingrediente scadenza: 123, Quantita: 611
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: -16
+  Ingrediente scadenza: 320, Quantita: 91
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 316
+  Ingrediente scadenza: 307, Quantita: 174
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 28
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: Kj8cfb01WuJYWnhdFI
+  Ingrediente: dk8BmNQdU, Quantita: 28
+  Ingrediente: nO5aUROrGby67AuVt1YW66_, Quantita: 27
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 25
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 34
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 37
+Peso Kj8cfb01WuJYWnhdFI di 151
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 3
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
+  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11, Peso1184662864
+  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7, Peso1184663152
+  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184674336
+  Ordine: Tempo arrivo: 35, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 16, Peso1184667712
+  Ordine: Tempo arrivo: 36, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184672608
+  Ordine: Tempo arrivo: 37, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 15, Peso1184670880
+  Ordine: Tempo arrivo: 39, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 15, Peso1184668864
+Numero di ordini nella coda FIFO: 22
+Min-heap degli ordini fatti (Dimensione: 4):
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 4, Tempo arrivo: 5
+  Ordine ricetta: k91ztT0f80YkrVS, Quantita: 6, Tempo arrivo: 6
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 4, Tempo arrivo: 23
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 5, Tempo arrivo: 26
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 39
+6 k91ztT0f80YkrVS 6
+5 k91ztT0f80YkrVS 4
+23 Kj8cfb01WZAyPsH9Adt8_RLR 4
+accettato
+
+
+Stato corrente delle strutture dati:
+Ingrediente: Kj8cfb01WCzaNmN, Peso Totale: 553
+  Ingrediente scadenza: 156, Quantita: 64
+  Ingrediente scadenza: 160, Quantita: 130
+  Ingrediente scadenza: 230, Quantita: 227
+  Ingrediente scadenza: 212, Quantita: 213
+Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Peso Totale: 2276
+  Ingrediente scadenza: 124, Quantita: 684
+  Ingrediente scadenza: 219, Quantita: 833
+  Ingrediente scadenza: 198, Quantita: 1086
+Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Peso Totale: 2274
+  Ingrediente scadenza: 135, Quantita: 1356
+  Ingrediente scadenza: 181, Quantita: 1243
+Ingrediente: dk8BmNQdSRq, Peso Totale: 2073
+  Ingrediente scadenza: 140, Quantita: 535
+  Ingrediente scadenza: 149, Quantita: 495
+  Ingrediente scadenza: 154, Quantita: 650
+  Ingrediente scadenza: 198, Quantita: 643
+Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Peso Totale: 17
+  Ingrediente scadenza: 278, Quantita: 114
+  Ingrediente scadenza: 310, Quantita: 153
+Ingrediente: dk8BmNQdU, Peso Totale: 1855
+  Ingrediente scadenza: 42, Quantita: 880
+  Ingrediente scadenza: 141, Quantita: 1129
+  Ingrediente scadenza: 154, Quantita: 928
+Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Peso Totale: 1650
+  Ingrediente scadenza: 123, Quantita: 611
+  Ingrediente scadenza: 142, Quantita: 1093
+Ingrediente: nO5aUROrGby67AuVt1YW66_, Peso Totale: 80
+  Ingrediente scadenza: 256, Quantita: 22
+  Ingrediente scadenza: 306, Quantita: 15
+  Ingrediente scadenza: 287, Quantita: 15
+  Ingrediente scadenza: 396, Quantita: 28
+Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Peso Totale: -16
+  Ingrediente scadenza: 320, Quantita: 91
+  Ingrediente scadenza: 326, Quantita: 140
+Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Peso Totale: 316
+  Ingrediente scadenza: 307, Quantita: 174
+  Ingrediente scadenza: 369, Quantita: 178
+Numero di ingredienti AVL: 28
+Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR
+  Ingrediente: Kj8cfb01WCzaNmN, Quantita: 9
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 4
+  Ingrediente: dk8BmNQdU, Quantita: 8
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 3
+  Ingrediente: nO5aUROrGJ9v0J3wvt2GpP, Quantita: 6
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 8
+Peso Kj8cfb01WZAyPsH9Adt8_RLR di 38
+Ricetta: Kj8cfb01WuJYWnhdFI
+  Ingrediente: dk8BmNQdU, Quantita: 28
+  Ingrediente: nO5aUROrGby67AuVt1YW66_, Quantita: 27
+  Ingrediente: oEnCQkpjTTuYXgr8wkfJ, Quantita: 25
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 34
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 37
+Peso Kj8cfb01WuJYWnhdFI di 151
+Ricetta: k91ztT0f80YkrVS
+  Ingrediente: oEnCQez0hoNCzNLlCW2Oc9wol, Quantita: 7
+  Ingrediente: dk8BmNQdU, Quantita: 14
+  Ingrediente: Kj8cfb01WtqXcMEJdRVIptyTa_oI, Quantita: 12
+  Ingrediente: dk8BmNQd2ktntRxdmrWZH3E, Quantita: 13
+  Ingrediente: dk8BmNQdSbnWhd4_Ai07QTfxGWJ, Quantita: 10
+  Ingrediente: dk8BmNQdSRq, Quantita: 10
+Peso k91ztT0f80YkrVS di 66
+Numero di ricette BST: 3
+Coda FIFO degli ordini:
+  Ordine: Tempo arrivo: 8, Ricetta: k91ztT0f80YkrVS, Quantita: 10, Peso1183457744
+  Ordine: Tempo arrivo: 10, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184658176
+  Ordine: Tempo arrivo: 11, Ricetta: k91ztT0f80YkrVS, Quantita: 3, Peso1184659328
+  Ordine: Tempo arrivo: 12, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184659616
+  Ordine: Tempo arrivo: 13, Ricetta: k91ztT0f80YkrVS, Quantita: 15, Peso1184659904
+  Ordine: Tempo arrivo: 16, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660192
+  Ordine: Tempo arrivo: 17, Ricetta: k91ztT0f80YkrVS, Quantita: 2, Peso1184660480
+  Ordine: Tempo arrivo: 18, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184660768
+  Ordine: Tempo arrivo: 20, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184658464
+  Ordine: Tempo arrivo: 21, Ricetta: k91ztT0f80YkrVS, Quantita: 12, Peso1184661056
+  Ordine: Tempo arrivo: 24, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 13, Peso1184664592
+  Ordine: Tempo arrivo: 25, Ricetta: k91ztT0f80YkrVS, Quantita: 9, Peso1184663728
+  Ordine: Tempo arrivo: 27, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 11, Peso1184662576
+  Ordine: Tempo arrivo: 30, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184663440
+  Ordine: Tempo arrivo: 31, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184664016
+  Ordine: Tempo arrivo: 32, Ricetta: k91ztT0f80YkrVS, Quantita: 11, Peso1184662864
+  Ordine: Tempo arrivo: 33, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 7, Peso1184663152
+  Ordine: Tempo arrivo: 34, Ricetta: k91ztT0f80YkrVS, Quantita: 13, Peso1184674336
+  Ordine: Tempo arrivo: 35, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 16, Peso1184667712
+  Ordine: Tempo arrivo: 36, Ricetta: k91ztT0f80YkrVS, Quantita: 7, Peso1184672608
+  Ordine: Tempo arrivo: 37, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 15, Peso1184670880
+  Ordine: Tempo arrivo: 39, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 15, Peso1184668864
+  Ordine: Tempo arrivo: 40, Ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 12, Peso1184670592
+Numero di ordini nella coda FIFO: 23
+Min-heap degli ordini fatti (Dimensione: 1):
+  Ordine ricetta: Kj8cfb01WZAyPsH9Adt8_RLR, Quantita: 5, Tempo arrivo: 26
+Max-heap delle spedizioni (Dimensione: 0):
+Istante di tempo corrente: 40
+accettato
+
+Process finished with exit code 0

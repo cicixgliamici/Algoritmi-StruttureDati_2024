@@ -1,46 +1,46 @@
 20 1000
-aggiungi_ricetta k91ztT0f80YkrVS oEnCQez0hoNCzNLlCW2Oc9wol 7 dk8BmNQdU 14 Kj8cfb01WtqXcMEJdRVIptyTa_oI 12 dk8BmNQd2ktntRxdmrWZH3E 13 dk8BmNQdSbnWhd4_Ai07QTfxGWJ 10 dk8BmNQdSRq 10
-ordine k91ztT0f80YkrVS 6
-rifornimento dk8BmNQdSbnWhd4_Ai07QTfxGWJ 170 266 Kj8cfb01WtqXcMEJdRVIptyTa_oI 1011 124 dk8BmNQdU 880 42 nO5aUROrGby67AuVt1YW66_ 22 256 oEnCQez0hoNCzNLlCW2Oc9wol 105 319 dk8BmNQdSRq 643 198 oEnCQkpjTTuYXgr8wkfJ 210 307 Kj8cfb01WCzaNmN 130 160
-ordine k91ztT0f80YkrVS 5
-ordine k91ztT0f80YkrVS 4
-ordine k91ztT0f80YkrVS 4
-ordine k91ztT0f80YkrVS 6
-rifornimento dk8BmNQdSbnWhd4_Ai07QTfxGWJ 194 278 Kj8cfb01WtqXcMEJdRVIptyTa_oI 1086 198 dk8BmNQdU 1082 33 nO5aUROrGby67AuVt1YW66_ 28 396 oEnCQez0hoNCzNLlCW2Oc9wol 130 320 dk8BmNQdSRq 800 154 oEnCQkpjTTuYXgr8wkfJ 178 369 Kj8cfb01WCzaNmN 145 156 dk8BmNQd2ktntRxdmrWZH3E 1438 181
-ordine k91ztT0f80YkrVS 10
-rifornimento Kj8cfb01WtqXcMEJdRVIptyTa_oI 833 219 nO5aUROrGJ9v0J3wvt2GpP 665 123 dk8BmNQdU 928 154 nO5aUROrGby67AuVt1YW66_ 15 287 oEnCQez0hoNCzNLlCW2Oc9wol 140 326 dk8BmNQdSRq 535 149 Kj8cfb01WCzaNmN 227 230 dk8BmNQd2ktntRxdmrWZH3E 1486 135
-ordine k91ztT0f80YkrVS 9
-ordine k91ztT0f80YkrVS 3
-ordine k91ztT0f80YkrVS 9
-ordine k91ztT0f80YkrVS 15
-rimuovi_ricetta k91ztT0f80YkrVS
+aggiungi_ricetta Ricetta1 Ingrediente1 7 Ingrediente2 14 Ingrediente3 12 Ingrediente4 13 Ingrediente5 10 Ingrediente6 10
+ordine Ricetta1 6
+rifornimento Ingrediente5 170 266 Ingrediente3 1011 124 Ingrediente2 880 42 Ingrediente7 22 256 Ingrediente1 105 319 Ingrediente6 643 198 Ingrediente8 210 307 Ingrediente9 130 160
+ordine Ricetta1 5
+ordine Ricetta1 4
+ordine Ricetta1 4
+ordine Ricetta1 6
+rifornimento Ingrediente5 194 278 Ingrediente3 1086 198 Ingrediente2 1082 33 Ingrediente7 28 396 Ingrediente1 130 320 Ingrediente6 800 154 Ingrediente8 178 369 Ingrediente9 145 156 Ingrediente4 1438 181
+ordine Ricetta1 10
+rifornimento Ingrediente3 833 219 Ingrediente10 665 123 Ingrediente2 928 154 Ingrediente7 15 287 Ingrediente1 140 326 Ingrediente6 535 149 Ingrediente9 227 230 Ingrediente4 1486 135
+ordine Ricetta1 9
+ordine Ricetta1 3
+ordine Ricetta1 9
+ordine Ricetta1 15
+rimuovi_ricetta Ricetta1
 ordine k91ztT0f6kO3L 3
-ordine k91ztT0f80YkrVS 13
-ordine k91ztT0f80YkrVS 2
-ordine k91ztT0f80YkrVS 13
-rifornimento dk8BmNQdSbnWhd4_Ai07QTfxGWJ 153 310 nO5aUROrGJ9v0J3wvt2GpP 1093 142 dk8BmNQdU 1129 141 nO5aUROrGby67AuVt1YW66_ 15 306 oEnCQez0hoNCzNLlCW2Oc9wol 103 260 dk8BmNQdSRq 595 140 Kj8cfb01WCzaNmN 213 212
-ordine k91ztT0f80YkrVS 13
-ordine k91ztT0f80YkrVS 12
-aggiungi_ricetta Kj8cfb01WZAyPsH9Adt8_RLR Kj8cfb01WCzaNmN 9 oEnCQkpjTTuYXgr8wkfJ 4 dk8BmNQdU 8 Kj8cfb01WtqXcMEJdRVIptyTa_oI 3 nO5aUROrGJ9v0J3wvt2GpP 6 oEnCQez0hoNCzNLlCW2Oc9wol 8
-ordine Kj8cfb01WZAyPsH9Adt8_RLR 4
-ordine Kj8cfb01WZAyPsH9Adt8_RLR 13
-ordine k91ztT0f80YkrVS 9
-ordine Kj8cfb01WZAyPsH9Adt8_RLR 5
-ordine Kj8cfb01WZAyPsH9Adt8_RLR 11
-aggiungi_ricetta Kj8cfb01WZAyPsH9Adt8_RLR nO5aUROrGJ9v0J3wvt2GpP 39 Kj8cfb01WtqXcMEJdRVIptyTa_oI 56 nO5aUROrGby67AuVt1YW66_ 41 dk8BmNQdSbnWhd4_Ai07QTfxGWJ 50
-rimuovi_ricetta Kj8cfb01WZAyPsH9Adt8_RLR
-ordine k91ztT0f80YkrVS 7
-ordine k91ztT0f80YkrVS 7
-ordine k91ztT0f80YkrVS 11
-ordine Kj8cfb01WZAyPsH9Adt8_RLR 7
-ordine k91ztT0f80YkrVS 13
-ordine Kj8cfb01WZAyPsH9Adt8_RLR 16
-ordine k91ztT0f80YkrVS 7
-ordine Kj8cfb01WZAyPsH9Adt8_RLR 15
-aggiungi_ricetta Kj8cfb01WuJYWnhdFI dk8BmNQdU 28 nO5aUROrGby67AuVt1YW66_ 27 oEnCQkpjTTuYXgr8wkfJ 25 dk8BmNQdSbnWhd4_Ai07QTfxGWJ 34 Kj8cfb01WtqXcMEJdRVIptyTa_oI 37
-ordine Kj8cfb01WZAyPsH9Adt8_RLR 15
-ordine Kj8cfb01WZAyPsH9Adt8_RLR 12
-ordine Kj8cfb01WZAyPsH9Adt8_RLR 5
+ordine Ricetta1 13
+ordine Ricetta1 2
+ordine Ricetta1 13
+rifornimento Ingrediente5 153 310 Ingrediente10 1093 142 Ingrediente2 1129 141 Ingrediente7 15 306 Ingrediente1 103 260 Ingrediente6 595 140 Ingrediente9 213 212
+ordine Ricetta1 13
+ordine Ricetta1 12
+aggiungi_ricetta Ricetta2 Ingrediente9 9 Ingrediente8 4 Ingrediente2 8 Ingrediente3 3 Ingrediente10 6 Ingrediente1 8
+ordine Ricetta2 4
+ordine Ricetta2 13
+ordine Ricetta1 9
+ordine Ricetta2 5
+ordine Ricetta2 11
+aggiungi_ricetta Ricetta2 Ingrediente10 39 Ingrediente3 56 Ingrediente7 41 Ingrediente5 50
+rimuovi_ricetta Ricetta2
+ordine Ricetta1 7
+ordine Ricetta1 7
+ordine Ricetta1 11
+ordine Ricetta2 7
+ordine Ricetta1 13
+ordine Ricetta2 16
+ordine Ricetta1 7
+ordine Ricetta2 15
+aggiungi_ricetta Ricetta3 Ingrediente2 28 Ingrediente7 27 Ingrediente8 25 Ingrediente5 34 Ingrediente3 37
+ordine Ricetta2 15
+ordine Ricetta2 12
+ordine Ricetta2 5
 
 
 
@@ -64,9 +64,9 @@ accettato
 accettato
 accettato
 rifornito
-1 k91ztT0f80YkrVS 6
-3 k91ztT0f80YkrVS 5
-4 k91ztT0f80YkrVS 4
+1 Ricetta1 6
+3 Ricetta1 5
+4 Ricetta1 4
 accettato
 accettato
 aggiunta
@@ -87,5 +87,5 @@ accettato
 accettato
 aggiunta
 accettato
-6 k91ztT0f80YkrVS 6
-5 k91ztT0f80YkrVS 4
+6 Ricetta1 6
+5 Ricetta1 4

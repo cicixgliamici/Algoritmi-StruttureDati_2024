@@ -131,7 +131,6 @@ void caricaCamion() {
     int capienzaRestante = max_heap_spedizioni->capacita;
     //printf("Capienza iniziale del camion: %d\n", capienzaRestante);
     MinHeap* tempHeap = creaMinHeap(heap_ordini_fatti->capacita); // Temp heap to hold orders that can't be loaded
-
     while (!heapVuotoMinOrdine(heap_ordini_fatti) && capienzaRestante > 0) {
         OrdineHeap ordine = rimuoviMin(heap_ordini_fatti);
         //printf("Ordine rimosso dal min-heap: Ricetta: %s, Quantita: %d, Tempo arrivo: %d\n", ordine.ricetta, ordine.quantita, ordine.tempo_arrivo);
@@ -149,8 +148,6 @@ void caricaCamion() {
             //printf("Ordine troppo grande per il camion: %s, Peso: %d, Capienza restante: %d\n", ordine.ricetta, peso_ordine, capienzaRestante);
         }
     }
-
-    // Move the remaining orders back to the original heap
     while (!heapVuotoMinOrdine(tempHeap)) {
         OrdineHeap ordine = rimuoviMin(tempHeap);
         inserisciOrdineHeap(heap_ordini_fatti, ordine.tempo_arrivo, ordine.ricetta, ordine.quantita);

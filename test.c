@@ -309,11 +309,14 @@ void stampaBST2(NodoBST* nodo, int* count) {
     }
     stampaBST2(nodo->sinistro, count);
     printf("Ricetta: %s\n", nodo->ricetta.nome);
+    int peso = 0;
     IngredienteRicetta* ing = nodo->ricetta.ingredienti;
     while (ing) {
         printf("  Ingrediente: %s, Quantita: %d\n", ing->nome, ing->quantita);
+        peso += ing->quantita;
         ing = ing->next;
     }
+    printf("Peso %s di %d\n", nodo->ricetta.nome, peso);
     (*count)++;
     stampaBST2(nodo->destro, count);
 }
@@ -324,7 +327,7 @@ int stampaCodaFIFO(CodaOrdini* coda) {
     printf("Coda FIFO degli ordini:\n");
     Ordine* corrente = coda->testa;
     while (corrente) {
-        printf("  Ordine: Tempo arrivo: %d, Ricetta: %s, Quantita: %d\n", corrente->tempo_arrivo, corrente->nome_ricetta, corrente->quantita);
+        printf("  Ordine: Tempo arrivo: %d, Ricetta: %s, Quantita: %d, Peso%d\n", corrente->tempo_arrivo, corrente->nome_ricetta, corrente->quantita);
         corrente = corrente->next;
         count++;
     }
