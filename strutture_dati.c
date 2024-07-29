@@ -4,7 +4,7 @@
 *                                       4) La liberazione di un nodo nell'AVL e la stampa del minHeap generava problemi nell'example.txt sulla torta 10 1
 *                                       5) Rifornimento al tempo 8/9 non va a buon fine in open4 -> facevo lettura fino a 256
 *                                       6) Secondo giro di open4 il camion svuotava scorrettamente il minHeapOrdini
-*                                       7) Secondo giro di open4 il camion carica due ordini di troppo, ha la capacità per farlo, quindi non andavano prodotti
+*                                       7) Secondo giro di open4 il camion carica due ordini di troppo, ha la capacità per farlo, quindi non andavano prodotti -> Camion si ferma al primo che incontra troppo pesante!
 *
 */
 //Elenco di tutte le funzioni riguardanti le strutture dati

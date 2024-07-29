@@ -45,7 +45,7 @@ bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
         if (nodo_ingrediente == NULL) {
             return false;
         }
-        MinHeapIngrediente* heap=&nodo_ingrediente->heap;
+        MinHeapIngrediente* heap = &nodo_ingrediente->heap;
         int quantita_totale = 0;
         for (int i = 0; i < nodo_ingrediente->heap.dimensione; i++) {
             quantita_totale += heap->lotto[i].quantita;
@@ -67,7 +67,7 @@ void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int te
         int quantita_richiesta = ing->quantita * numero_elementi_ordinati;
         while (quantita_richiesta > 0) {
             if (nodo_ingrediente->heap.dimensione == 0) {
-                return;
+                return; // Non ci sono abbastanza ingredienti
             }
             IngredienteMinHeap min_ingrediente = rimuoviIngrediente(&nodo_ingrediente->heap);
             if (min_ingrediente.quantita <= quantita_richiesta) {
@@ -84,10 +84,10 @@ void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int te
 }
 
 void verificaOrdini() {
+    controllaScadenzaAVL(avl);
     Ordine* ordineCorrente = coda_ordini->testa;
     Ordine* precedente = NULL;
     while (ordineCorrente != NULL) {
-        //printf("Verifico fattibilita %s\n", ordineCorrente->nome_ricetta);
         if (fattibilita(ordineCorrente->nome_ricetta, ordineCorrente->quantita)) {
             preparazione(ordineCorrente->nome_ricetta, ordineCorrente->quantita, ordineCorrente->tempo_arrivo);
             if (precedente == NULL) {
@@ -109,7 +109,6 @@ void verificaOrdini() {
             ordineCorrente = ordineCorrente->next;
         }
     }
-    //printf("Finita verifica ordini\n");
 }
 
 void caricaCamion() {
@@ -118,8 +117,8 @@ void caricaCamion() {
         return;
     }
     int capienzaRestante = max_heap_spedizioni->capacita;
-    MinHeap* tempHeap = creaMinHeap(heap_ordini_fatti->capacita); // Temp heap to hold orders that can't be loaded
-    while (!heapVuotoMinOrdine(heap_ordini_fatti) && capienzaRestante > 0) {
+    MinHeap* tempHeap = creaMinHeap(heap_ordini_fatti->capacita);
+    while (!heapVuotoMinOrdine(heap_ordini_fatti)) {
         OrdineHeap ordine = rimuoviMin(heap_ordini_fatti);
         NodoBST* nodo_ricetta = cercaBST(bst, ordine.ricetta);
         int peso_ordine = calcolaPeso(nodo_ricetta->ricetta, ordine.quantita);
@@ -128,7 +127,12 @@ void caricaCamion() {
             capienzaRestante -= peso_ordine;
         } else {
             inserisciOrdineHeap(tempHeap, ordine.tempo_arrivo, ordine.ricetta, ordine.quantita);
+            break;
         }
+    }
+    while (!heapVuotoMinOrdine(heap_ordini_fatti)) {
+        OrdineHeap ordine = rimuoviMin(heap_ordini_fatti);
+        inserisciOrdineHeap(tempHeap, ordine.tempo_arrivo, ordine.ricetta, ordine.quantita);
     }
     while (!heapVuotoMinOrdine(tempHeap)) {
         OrdineHeap ordine = rimuoviMin(tempHeap);
