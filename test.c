@@ -1,4 +1,3 @@
-/**
 #include "header.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -390,4 +389,3 @@ void stampaTutto() {
     }
     printf("Istante di tempo corrente: %d\n", tempoCorrente);
 }
-*/

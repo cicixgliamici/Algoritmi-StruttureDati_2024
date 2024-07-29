@@ -7,10 +7,11 @@ rifornimento farina 100 10 uova 100 10 zucchero 100 10 burro 100 10 latte 100 10
 ordine ciambella 6
 ordine profiterole 3
 rimuovi_ricetta profiterole
-aggiungi_ricetta pane_dolce farina 1 zucchero 1 uova 1
+aggiungi_ricetta pane_dolce farina 1 latte 1 cioccolato 1
 ordine ciambella 3
 ordine torta 1
 rifornimento farina 100 15 farina 50 13 uova 45 20 zucchero 20 20 burro 15 20
 rifornimento farina 100 15 uova 7 15 zucchero 25 15 latte 5 15 cioccolato 5 15
 ordine torta 1
 ordine profiterole 1
+ordine pane_dolce 1

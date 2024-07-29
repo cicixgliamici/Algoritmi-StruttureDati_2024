@@ -18,6 +18,7 @@
 #include "header.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
     NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
@@ -25,6 +26,7 @@ void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
         printf("rifiutato\n");
         return;
     }
+    controllaScadenzaAVL(avl);
     if (fattibilita(nome_ricetta, numero_elementi_ordinati)) {
         preparazione(nome_ricetta, numero_elementi_ordinati, tempoCorrente);
         printf("accettato\n");
@@ -43,7 +45,6 @@ bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
         if (nodo_ingrediente == NULL) {
             return false;
         }
-        controllaScadenza(nodo_ingrediente);
         MinHeapIngrediente* heap=&nodo_ingrediente->heap;
         int quantita_totale = 0;
         for (int i = 0; i < nodo_ingrediente->heap.dimensione; i++) {
@@ -157,7 +158,24 @@ void controllaScadenza(NodoAVL* nodo_ingrediente) {
     if (nodo_ingrediente == NULL) {
         return;
     }
-    while (nodo_ingrediente->heap.dimensione > 0 && nodo_ingrediente->heap.lotto[0].scadenza <= tempoCorrente) {
-        rimuoviIngrediente(&nodo_ingrediente->heap);
+    MinHeapIngrediente* heap = &nodo_ingrediente->heap;
+    int i = 0;
+    while (i < heap->dimensione) {
+        if (heap->lotto[i].scadenza <= tempoCorrente) {
+            IngredienteMinHeap scaduto = heap->lotto[i];
+            heap->lotto[i] = heap->lotto[--heap->dimensione];
+            heapifyIngredienti(heap, i);
+        } else {
+            i++;
+        }
     }
+}
+
+void controllaScadenzaAVL(NodoAVL* nodo) {
+    if (nodo == NULL) {
+        return;
+    }
+    controllaScadenzaAVL(nodo->sinistro);
+    controllaScadenza(nodo);
+    controllaScadenzaAVL(nodo->destro);
 }

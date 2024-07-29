@@ -155,6 +155,7 @@ void verificaOrdini();                                                          
 void caricaCamion();                                                                             //Passaggio da minHeap ordini fatti a maxHeap spedizione
 int calcolaPeso(Ricetta ricetta, int numero_elementi_ordinati);                                  //Calcola il peso di un ordine
 void controllaScadenza(NodoAVL* nodo_ingrediente);
+void controllaScadenzaAVL(NodoAVL* nodo);
 
 /* Zona T&S     test:
 *

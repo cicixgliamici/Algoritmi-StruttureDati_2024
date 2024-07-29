@@ -63,7 +63,6 @@ IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
     IngredienteMinHeap radice = heap->lotto[0];
     heap->lotto[0] = heap->lotto[--heap->dimensione];
     heapifyIngredienti(heap, 0);
-    //printf("RimuoviIngrediente: Scadenza = %d, Quantita = %d\n", radice.scadenza, radice.quantita);
     return radice;
 }
 
