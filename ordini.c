@@ -115,7 +115,7 @@ void caricaCamion() {
         printf("camioncino vuoto\n");
         return;
     }
-    int capienzaRestante = max_heap_spedizioni->capacita;
+    int capienzaRestante = capienzaCamion;  // Usa capienzaCamion invece di max_heap_spedizioni->capacita
     MinHeap* tempHeap = creaMinHeap(heap_ordini_fatti->capacita);
     while (!heapVuotoMinOrdine(heap_ordini_fatti)) {
         OrdineHeap ordine = rimuoviMin(heap_ordini_fatti);
@@ -145,6 +145,7 @@ void caricaCamion() {
         }
     }
 }
+
 
 int calcolaPeso(Ricetta ricetta, int numero_elementi_ordinati) {
     int peso = 0;

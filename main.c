@@ -24,31 +24,55 @@ CodaOrdini* coda_ordini = NULL;
 MinHeap* heap_ordini_fatti = NULL;
 MaxHeapSpedizioni* max_heap_spedizioni = NULL;
 int tempoCorrente = -1;
+int capienzaCamion;
 
 // Funzioni generiche
 int max(int a, int b) {
     return (a > b) ? a : b;
 }
 
+char* leggiRiga(FILE* file) {
+    size_t capacita = 256;
+    char *riga = (char *)malloc(capacita);
+    if (fgets(riga, capacita, file) != NULL) {
+        size_t lunghezza = strlen(riga);
+        while (lunghezza > 0 && riga[lunghezza - 1] != '\n') {
+            capacita *= 2;
+            riga = (char *)realloc(riga, capacita);
+            if (fgets(riga + lunghezza, capacita - lunghezza, file) == NULL) {
+                break;
+            }
+            lunghezza = strlen(riga);
+        }
+        riga[strcspn(riga, "\n")] = 0;  // Rimuove il carattere di nuova linea
+    } else {
+        free(riga);
+        riga = NULL;
+    }
+    return riga;
+}
+
 // Funzioni Algoritmo
 void gestisciComandi(FILE *file) {
-    int tempoCamion, capienzaCamion;
+    int tempoCamion, capacitaMaxHeap;
     if(fscanf(file, "%d %d", &tempoCamion, &capienzaCamion)==2);
     if(capienzaCamion>=100000)
-        max_heap_spedizioni = creaMaxHeap(capienzaCamion/1000);
+        capacitaMaxHeap = capienzaCamion / 1000;
     else
-        max_heap_spedizioni = creaMaxHeap(capienzaCamion);                                          //Nel caso peggiore ho capienzaCamion ordini di peso 1
+        capacitaMaxHeap = capienzaCamion;  // Nel caso peggiore ho capienzaCamion ordini di peso 1
+
+    max_heap_spedizioni = creaMaxHeap(capacitaMaxHeap);
     coda_ordini = creaCoda();
     heap_ordini_fatti = creaMinHeap(10);
-    char line[2000];  //IMPORTANTE
-    while (fgets(line, sizeof(line), file)) {
+    char *line;
+    while ((line = leggiRiga(file)) != NULL) {
         char command[256];
         if (sscanf(line, "%s", command) == 1) {
             tempoCorrente++;
-            if(tempoCorrente%tempoCamion==0 && tempoCorrente!=0){
+            if(tempoCorrente % tempoCamion == 0 && tempoCorrente != 0){
                 caricaCamion();
             }
-            if (strcmp(command, "aggiungi_ricetta") == 0) {                                     //Per non portarmi appresso tutta la lista ingredienti faccio il controllo qui
+            if (strcmp(command, "aggiungi_ricetta") == 0) {
                 char nome_ricetta[256];
                 if (sscanf(line + strlen(command), "%s", nome_ricetta) == 1) {
                     if (cercaBST(bst, nome_ricetta) != NULL) {
@@ -92,8 +116,9 @@ void gestisciComandi(FILE *file) {
                 }
             }
         }
+        free(line);
     }
-    if((tempoCorrente+1)%tempoCamion==0 && tempoCorrente!=0)
+    if((tempoCorrente + 1) % tempoCamion == 0 && tempoCorrente != 0)
         caricaCamion();
     printf("\b \b");
 }
@@ -145,7 +170,7 @@ void rifornimento(const char* comando) {
 
 // Main - Gestione del giorno
 int main(void) {
-    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open1.txt", "r"); //stdin
+    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open5.txt", "r"); //stdin
     gestisciComandi(file);
     fclose(file);
     return 0;
