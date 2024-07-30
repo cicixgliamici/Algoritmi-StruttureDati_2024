@@ -36,7 +36,10 @@ void gestisciComandi(FILE *file) {
     unsigned int tempoCamion, capienzaCamion;
     fscanf(file, "%d %d", &tempoCamion, &capienzaCamion);
     //printf("%d %d\n", tempoCamion, capienzaCamion);
-    max_heap_spedizioni = creaMaxHeap(capienzaCamion);                                          //Nel caso peggiore ho capienzaCamion ordini di peso 1
+    if(capienzaCamion>=100000)
+        max_heap_spedizioni = creaMaxHeap(capienzaCamion/1000);
+    else
+        max_heap_spedizioni = creaMaxHeap(capienzaCamion);                                          //Nel caso peggiore ho capienzaCamion ordini di peso 1
     coda_ordini = creaCoda();
     heap_ordini_fatti = creaMinHeap(10);
     ultimoAggiornamento = 0;
@@ -156,7 +159,7 @@ void rifornimento(const char* comando) {
 
 // Main - Gestione del giorno
 int main(void) {
-    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open5.txt", "r"); //stdin
+    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open10.txt", "r"); //stdin
     gestisciComandi(file);
     fclose(file);
     //stampaTutto();

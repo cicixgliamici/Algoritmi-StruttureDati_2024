@@ -7,4 +7,5 @@ add_executable(API main.c
         header.h
         test.c
         strutture_dati.c
-        ordini.c)
+        ordini.c
+)
