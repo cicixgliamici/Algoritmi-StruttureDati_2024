@@ -18,7 +18,6 @@
 #include "header.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
     NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
@@ -166,7 +165,6 @@ void controllaScadenza(NodoAVL* nodo_ingrediente) {
     int i = 0;
     while (i < heap->dimensione) {
         if (heap->lotto[i].scadenza <= tempoCorrente) {
-            IngredienteMinHeap scaduto = heap->lotto[i];
             heap->lotto[i] = heap->lotto[--heap->dimensione];
             heapifyIngredienti(heap, i);
         } else {

@@ -457,17 +457,13 @@ void heapifySpedizioni(MaxHeapSpedizioni* heap, int i) {
     int maggiore = i;
     int sinistro = 2 * i + 1;
     int destro = 2 * i + 2;
-    // Condizione per peso maggiore
     if (sinistro < heap->dimensione && heap->spedizioni[sinistro].peso > heap->spedizioni[maggiore].peso)
         maggiore = sinistro;
-    // Condizione per peso uguale ma istante di arrivo minore
     else if (sinistro < heap->dimensione && heap->spedizioni[sinistro].peso == heap->spedizioni[maggiore].peso &&
              heap->spedizioni[sinistro].istante_arrivo < heap->spedizioni[maggiore].istante_arrivo)
         maggiore = sinistro;
-    // Condizione per peso maggiore
     if (destro < heap->dimensione && heap->spedizioni[destro].peso > heap->spedizioni[maggiore].peso)
         maggiore = destro;
-    // Condizione per peso uguale ma istante di arrivo minore
     else if (destro < heap->dimensione && heap->spedizioni[destro].peso == heap->spedizioni[maggiore].peso &&
              heap->spedizioni[destro].istante_arrivo < heap->spedizioni[maggiore].istante_arrivo)
         maggiore = destro;

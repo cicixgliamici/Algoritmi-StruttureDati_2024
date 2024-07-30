@@ -194,6 +194,5 @@ extern CodaOrdini* coda_ordini;
 extern MinHeap* heap_ordini_fatti;
 extern MaxHeapSpedizioni* max_heap_spedizioni;
 extern int tempoCorrente;
-extern int ultimoAggiornamento;
 
 #endif //HEADER_H

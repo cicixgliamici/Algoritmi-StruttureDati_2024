@@ -24,7 +24,6 @@ CodaOrdini* coda_ordini = NULL;
 MinHeap* heap_ordini_fatti = NULL;
 MaxHeapSpedizioni* max_heap_spedizioni = NULL;
 int tempoCorrente = -1;
-int ultimoAggiornamento = -1;
 
 // Funzioni generiche
 int max(int a, int b) {
@@ -33,26 +32,20 @@ int max(int a, int b) {
 
 // Funzioni Algoritmo
 void gestisciComandi(FILE *file) {
-    unsigned int tempoCamion, capienzaCamion;
-    fscanf(file, "%d %d", &tempoCamion, &capienzaCamion);
-    //printf("%d %d\n", tempoCamion, capienzaCamion);
+    int tempoCamion, capienzaCamion;
+    if(fscanf(file, "%d %d", &tempoCamion, &capienzaCamion)==2);
     if(capienzaCamion>=100000)
         max_heap_spedizioni = creaMaxHeap(capienzaCamion/1000);
     else
         max_heap_spedizioni = creaMaxHeap(capienzaCamion);                                          //Nel caso peggiore ho capienzaCamion ordini di peso 1
     coda_ordini = creaCoda();
     heap_ordini_fatti = creaMinHeap(10);
-    ultimoAggiornamento = 0;
-    char line[1000];  //IMPORTANTE
+    char line[2000];  //IMPORTANTE
     while (fgets(line, sizeof(line), file)) {
         char command[256];
         if (sscanf(line, "%s", command) == 1) {
-            //printf("%s     ", command);
             tempoCorrente++;
-            controllaScadenzaAVL(avl);
-            //printf("t=%d --->       ", tempoCorrente);
             if(tempoCorrente%tempoCamion==0 && tempoCorrente!=0){
-                //stampaTutto();
                 caricaCamion();
             }
             if (strcmp(command, "aggiungi_ricetta") == 0) {                                     //Per non portarmi appresso tutta la lista ingredienti faccio il controllo qui
@@ -90,13 +83,8 @@ void gestisciComandi(FILE *file) {
                     rimuovi_ricetta(nome_ricetta);
                 }
             } else if (strcmp(command, "rifornimento") == 0) {
-                //printf("%s\n", line);
                 rifornimento(line + strlen(command) + 1);
             } else if (strcmp(command, "ordine") == 0) {
-                if(tempoCorrente==23) {
-                    //stampaAVL1(avl);
-                    //stampaBST1(bst);
-                }
                 char nome_ricetta[256];
                 int quantita;
                 if (sscanf(line + strlen(command), "%s %d", nome_ricetta, &quantita) == 2) {
@@ -107,7 +95,7 @@ void gestisciComandi(FILE *file) {
     }
     if((tempoCorrente+1)%tempoCamion==0 && tempoCorrente!=0)
         caricaCamion();
-    //stampaTutto();
+    printf("\b \b");
 }
 
 void aggiungi_ricetta(Ricetta nuova_ricetta) {
@@ -142,7 +130,6 @@ void rifornimento(const char* comando) {
     char nome_ingrediente[256];
     int quantita, scadenza;
     const char *ptr = comando;
-    //printf("%s\n", comando);
     while (sscanf(ptr, "%s %d %d", nome_ingrediente, &quantita, &scadenza) == 3) {
         NodoAVL* nodo = cercaAVL(avl, nome_ingrediente);
         if (nodo != NULL) {
@@ -150,7 +137,6 @@ void rifornimento(const char* comando) {
         } else {
             avl = inserisciAVL(avl, nome_ingrediente, scadenza, quantita, 10);
         }
-        //printf("Rifornito %s con %d unità, scadenza %d\n", nome_ingrediente, quantita, scadenza); // Debugging
         ptr += strlen(nome_ingrediente) + 1 + snprintf(NULL, 0, "%d", quantita) + 1 + snprintf(NULL, 0, "%d", scadenza) + 1;
     }
     printf("rifornito\n");
@@ -159,9 +145,8 @@ void rifornimento(const char* comando) {
 
 // Main - Gestione del giorno
 int main(void) {
-    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open10.txt", "r"); //stdin
+    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open1.txt", "r"); //stdin
     gestisciComandi(file);
     fclose(file);
-    //stampaTutto();
     return 0;
 }
