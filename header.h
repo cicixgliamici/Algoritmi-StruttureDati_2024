@@ -1,4 +1,4 @@
-/* 5 Strutture dati   Ingredienti:      AVL di min-Heap  -> Ingredienti ordinati per scadenza nel min-Heap
+/* 5 Strutture dati   Ingredienti:      AVL di min-Heap  -> Ingredienti ordinati per scadenza nel min-Heap, lessicograficamente per lotti
 *                     Ricette:          BST di liste     -> Ordinamento lessicografico
 *                     Ordini da Fare:   Coda FIFO        -> Mantiene l'ordine di arrivo degli ordini
 *                     Ordini fatti:     min-Heap         -> Istante di arrivo dell'ordine
@@ -9,12 +9,10 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-// Ingredienti - Heap - ordino tutti i prodotti dello stesso tipo per scadenza(asc), così da rispettare la specifica
-//                      è presente un puntatore al suo nodo per aggiornare il peso_totale del nodo
+// Ingredienti - Heap - ordino tutti i prodotti dello stesso tipo per scadenza(asc), così da rispettare la specifica               
 typedef struct IngredienteMinHeap {
     int scadenza;
     int quantita;
-    struct NodoAVL* nodoAVL;
 } IngredienteMinHeap;
 
 typedef struct {
@@ -25,7 +23,7 @@ typedef struct {
 
 void scambia(IngredienteMinHeap* a, IngredienteMinHeap* b);                                                    //Scambia due elementi
 void heapifyIngredienti(MinHeapIngrediente* heap, int i);                                                      //Riordina gli elementi
-void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita, struct NodoAVL* nodo);         //Inserisce un ingrediente
+void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita);                               //Inserisce un ingrediente
 void liberaLotto(MinHeapIngrediente* heap);                                                                    //Libera la memoria
 IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap);                                               //Rimuove e ritorna l'ingrediente
 MinHeapIngrediente nuovoHeapIngredienti(int capacita);                                                         //Inizializza un nuovo heap (e restituisce il suo puntatore)
@@ -51,7 +49,7 @@ NodoAVL* cercaAVL(NodoAVL* nodo, const char* nome);                             
 NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int capacita);     //Inserisce un nodo (da bilanciare)
 NodoAVL* bilanciaAVL(NodoAVL *nodo);                                                            //Bilancia il nodo inserito
 
-//Ricette - Lista
+//Ricette - Lista - Non esistono criteri specifici di inserimento o ricerca
 typedef struct IngredienteRicetta {
     char nome[256];
     int quantita;
@@ -63,7 +61,7 @@ typedef struct Ricetta {
     IngredienteRicetta *ingredienti;
 } Ricetta;
 
-//Ricette - BST
+//Ricette - BST - ogni nodo contiene la lista di ingredienti richiesti
 typedef struct NodoBST {
     Ricetta ricetta;
     struct NodoBST *sinistro;
@@ -78,9 +76,9 @@ NodoBST* inserisciBST(NodoBST* nodo, Ricetta ricetta);         //Inserisce un no
 NodoBST* cercaBST(NodoBST* nodo, char* nome);                  //Cerca un nodo
 NodoBST* eliminaBST(NodoBST* root, char* nome);                //Elimina un nodo
 
-//Ordine da Fare - Coda FIFO
+//Ordine da Fare - Coda FIFO basata sul tempo d'arrivo
 typedef struct Ordine {
-    int tempo_arrivo; // Identificatore unico dell'ordine
+    int tempo_arrivo; 
     char nome_ricetta[256];
     int quantita;
     struct Ordine* next;
@@ -97,7 +95,7 @@ int codaVuota(CodaOrdini* coda);                                                
 CodaOrdini* creaCoda();                                                                     //Crea una nuova coda (e restituisce il suo puntatore)
 Ordine* rimuoviCoda(CodaOrdini* coda);                                                      //Rimuove e ritorna un ordine dalla coda (puntatore)
 
-//Ordini fatti - minHeap
+//Ordini fatti - minHeap basato sempre sul tempo d'arrivo
 typedef struct OrdineHeap {
     int tempo_arrivo;
     char ricetta[256];
@@ -118,7 +116,7 @@ int heapVuotoMinOrdine(MinHeap* heap);                                          
 MinHeap* creaMinHeap(int capacita);                                                            //Crea un nuovo min-heap (e restituisce il suo puntatore)
 OrdineHeap rimuoviMin(MinHeap* heap);                                                          //Rimuove e ritorna l'ordine (puntatore)
 
-//Spedizione - maxHeap
+//Spedizione - maxHeap basato sul peso, a parità di peso conta l'ordine di arrivo
 typedef struct Spedizione {
     char nome[256];
     int istante_arrivo;
@@ -139,7 +137,7 @@ MaxHeapSpedizioni* creaMaxHeap(int capacita);                                   
 Spedizione rimuoviMax(MaxHeapSpedizioni* heap);                                                               //Rimuove e ritorna la spedizione (puntatore)
 int heapVuotoMax(MaxHeapSpedizioni* heap);
 
-//Funzioni Generiche//Attivare tutti i test
+//Funzioni Generiche
 int max(int a, int b);
 
 //Funzioni per l'Algoritmo
@@ -155,8 +153,8 @@ void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int te
 void verificaOrdini();                                                                           //Verifica la fattibilità di tutti gli ordini in Coda
 void caricaCamion();                                                                             //Passaggio da minHeap ordini fatti a maxHeap spedizione
 int calcolaPeso(Ricetta ricetta, int numero_elementi_ordinati);                                  //Calcola il peso di un ordine
-void controllaScadenza(NodoAVL* nodo_ingrediente);
-void controllaScadenzaAVL(NodoAVL* nodo);
+void controllaScadenza(NodoAVL* nodo_ingrediente);                                               //Controlla la scadenza di un singolo lotto-minHeap
+void controllaScadenzaAVL(NodoAVL* nodo);                                                        //Cicla tutto l'AVL chiamando il controllaScadenza
 
 /* Zona T&S     test:
 *
