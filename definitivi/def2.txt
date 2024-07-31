@@ -315,7 +315,7 @@ void rifornimento(const char* comando) {
 
 // Main - Gestione del giorno
 int main(void) {
-    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open11.txt", "r"); //stdin
+    FILE *file = stdin;
     gestioneComandi(file);
     fclose(file);
     return 0;
