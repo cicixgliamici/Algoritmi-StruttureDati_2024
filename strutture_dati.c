@@ -45,7 +45,6 @@ void heapifyIngredienti(MinHeapIngrediente* heap, int i) {
 }
 
 void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita) {
-    //printf("Inserendo Ingrediente: Scadenza = %d, Quantita = %d\n", scadenza, quantita); // Debugging
     if (heap->dimensione == heap->capacita) {
         heap->capacita *= 2;
         heap->lotto = (IngredienteMinHeap*) realloc(heap->lotto, heap->capacita * sizeof(IngredienteMinHeap));
@@ -73,10 +72,6 @@ IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
 MinHeapIngrediente nuovoHeapIngredienti(int capacita) {
     MinHeapIngrediente heap;
     heap.lotto = (IngredienteMinHeap*) malloc(capacita * sizeof(IngredienteMinHeap));
-    if (heap.lotto == NULL) {
-        fprintf(stderr, "Errore di allocazione della memoria per lotto\n");
-        exit(EXIT_FAILURE);
-    }
     heap.dimensione = 0;
     heap.capacita = capacita;
     return heap;
@@ -88,7 +83,6 @@ void liberaLotto(MinHeapIngrediente* heap) {
         heap->lotto = NULL;
         heap->dimensione = 0;
         heap->capacita = 0;
-        //printf("Heap ingredienti liberato\n");
     }
 }
 
@@ -161,12 +155,12 @@ NodoAVL* eliminaAVL(NodoAVL* root, char *nome) {
     } else {
         if (root->sinistro == NULL || root->destro == NULL) {
             NodoAVL *temp = root->sinistro ? root->sinistro : root->destro;
-            liberaLotto(&root->heap);  // Libera la memoria del lotto
+            liberaLotto(&root->heap); 
             if (temp == NULL) {
                 free(root);
                 return NULL;
             } else {
-                *root = *temp; // Copia il contenuto del nodo non vuoto
+                *root = *temp;
                 free(temp);
             }
         } else {
@@ -194,12 +188,9 @@ NodoAVL* eliminaAVL(NodoAVL* root, char *nome) {
 }
 
 NodoAVL* cercaAVL(NodoAVL* nodo, const char* nome) {
-    //print_string_info(nome);
     if (nodo == NULL || strcmp(nodo->nome, nome) == 0) {
-        //printf("Nodo trovato per ingrediente: %s\n", nome);
         return nodo;
     }
-    //printf("Confronto nome ingrediente: %s con nodo corrente: %s\n", nome, nodo->nome);
     if (strcmp(nome, nodo->nome) < 0) {
         return cercaAVL(nodo->sinistro, nome);
     }
@@ -208,23 +199,18 @@ NodoAVL* cercaAVL(NodoAVL* nodo, const char* nome) {
 
 
 NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int capacita) {
-    //print_string_info(nome);
     if (nodo == NULL) {
-        //printf("Creazione nuovo nodo per ingrediente: %s\n", nome);
         NodoAVL* nuovo = nuovoAVL(nome, capacita);
         inserisciIngrediente(&nuovo->heap, scadenza, quantita);
         return nuovo;
     }
-    //printf("Confronto nome ingrediente: %s con nodo corrente: %s\n", nome, nodo->nome);
     if (strcmp(nome, nodo->nome) < 0) {
         nodo->sinistro = inserisciAVL(nodo->sinistro, nome, scadenza, quantita, capacita);
     } else if (strcmp(nome, nodo->nome) > 0) {
         nodo->destro = inserisciAVL(nodo->destro, nome, scadenza, quantita, capacita);
     } else {
-        //printf("Aggiunta ingrediente esistente al nodo AVL: %s\n", nome);
         inserisciIngrediente(&nodo->heap, scadenza, quantita);
     }
-    //verificaInserimento(nodo, nome);
     nodo->altezza = 1 + max(altezza(nodo->sinistro), altezza(nodo->destro));
     return bilanciaAVL(nodo);
 }
@@ -334,10 +320,6 @@ void liberaCoda(CodaOrdini* coda) {
 
 void aggiungiCoda(CodaOrdini* coda, const char* nome_ricetta, int quantita, int tempo_arrivo) {
     Ordine* nuovoOrdine = (Ordine*)malloc(sizeof(Ordine));
-    if (nuovoOrdine == NULL) {
-        fprintf(stderr, "Errore di allocazione della memoria per nuovoOrdine\n");
-        exit(EXIT_FAILURE);
-    }
     nuovoOrdine->tempo_arrivo = tempo_arrivo;
     strcpy(nuovoOrdine->nome_ricetta, nome_ricetta);
     nuovoOrdine->quantita = quantita;
@@ -349,7 +331,6 @@ void aggiungiCoda(CodaOrdini* coda, const char* nome_ricetta, int quantita, int 
         coda->coda->next = nuovoOrdine;
         coda->coda = nuovoOrdine;
     }
-    //printf("Ordine aggiunto con successo\n"); // Debugging
 }
 
 int codaVuota(CodaOrdini* coda) {
@@ -423,15 +404,6 @@ int heapVuotoMinOrdine(MinHeap* heap) {
 
 MinHeap* creaMinHeap(int capacita) {
     MinHeap* heap = (MinHeap*)malloc(sizeof(MinHeap));
-    if (heap == NULL) {
-        fprintf(stderr, "Errore di allocazione della memoria per MinHeap\n");
-        exit(EXIT_FAILURE);
-    }
-    heap->ordini = (OrdineHeap*)malloc(capacita * sizeof(OrdineHeap));
-    if (heap->ordini == NULL) {
-        fprintf(stderr, "Errore di allocazione della memoria per gli ordini del MinHeap\n");
-        exit(EXIT_FAILURE);
-    }
     heap->dimensione = 0;
     heap->capacita = capacita;
     return heap;
@@ -439,8 +411,6 @@ MinHeap* creaMinHeap(int capacita) {
 
 OrdineHeap rimuoviMin(MinHeap* heap) {
     if (heap->dimensione == 0) {
-        // Gestisci errore se il min-heap è vuoto
-        fprintf(stderr, "Errore: tentativo di rimuovere da un min-heap vuoto\n");
         OrdineHeap ordineVuoto;
         strcpy(ordineVuoto.ricetta, "");
         ordineVuoto.quantita = 0;
@@ -450,7 +420,7 @@ OrdineHeap rimuoviMin(MinHeap* heap) {
     OrdineHeap min = heap->ordini[0];
     heap->ordini[0] = heap->ordini[heap->dimensione - 1];
     heap->dimensione--;
-    heapifyOrdini(heap, 0); // Funzione che mantiene la proprietà del min-heap
+    heapifyOrdini(heap, 0);
     return min;
 }
 
