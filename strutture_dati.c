@@ -9,7 +9,9 @@
 *                                       8)  open5 access violation al primo caricamento del camion, sembra essere un problema nel minHeap ordini -> era un 
 *                                           problema di dimensione del maxHeap basato sulla capienzaCamion -> credo ci sia un "limite" al malloc
 *                                       9)  open7 sfaciola totalmente ordini -> problema legato alla lunghezza delle righe di input e come venivano lette
-*                                       10) 
+*                                       10) passati tutti gli open tranne 8 (rimarrà un mistero), passato a Open -> usava troppo spazio -> cambiati i char
+*                                           da 256 a 25
+*                                       11) Per passare 18 bisogna grattare 15.857 secondi -> 
 *
 */
 //Elenco di tutte le funzioni riguardanti le strutture dati
