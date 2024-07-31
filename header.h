@@ -30,7 +30,7 @@ MinHeapIngrediente nuovoHeapIngredienti(int capacita);                          
 
 //Ingredienti - AVL - ordino i lotti di ingredienti lessicograficamente(disc), per velocizzare aggiunta, eliminazione e ricerca
 typedef struct NodoAVL {
-    char nome[256];
+    char nome[25];
     MinHeapIngrediente heap;
     struct NodoAVL *sinistro;
     struct NodoAVL *destro;
@@ -51,13 +51,13 @@ NodoAVL* bilanciaAVL(NodoAVL *nodo);                                            
 
 //Ricette - Lista - Non esistono criteri specifici di inserimento o ricerca
 typedef struct IngredienteRicetta {
-    char nome[256];
+    char nome[25];
     int quantita;
     struct IngredienteRicetta *next;
 } IngredienteRicetta;
 
 typedef struct Ricetta {
-    char nome[256];
+    char nome[25];
     IngredienteRicetta *ingredienti;
 } Ricetta;
 
@@ -79,7 +79,7 @@ NodoBST* eliminaBST(NodoBST* root, char* nome);                //Elimina un nodo
 //Ordine da Fare - Coda FIFO basata sul tempo d'arrivo
 typedef struct Ordine {
     int tempo_arrivo; 
-    char nome_ricetta[256];
+    char nome_ricetta[25];
     int quantita;
     struct Ordine* next;
 } Ordine;
@@ -98,7 +98,7 @@ Ordine* rimuoviCoda(CodaOrdini* coda);                                          
 //Ordini fatti - minHeap basato sempre sul tempo d'arrivo
 typedef struct OrdineHeap {
     int tempo_arrivo;
-    char ricetta[256];
+    char ricetta[25];
     int quantita;
 } OrdineHeap;
 
@@ -118,7 +118,7 @@ OrdineHeap rimuoviMin(MinHeap* heap);                                           
 
 //Spedizione - maxHeap basato sul peso, a parità di peso conta l'ordine di arrivo
 typedef struct Spedizione {
-    char nome[256];
+    char nome[25];
     int istante_arrivo;
     int quantita;
     int peso;
