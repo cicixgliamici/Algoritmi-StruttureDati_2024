@@ -14,6 +14,9 @@
 *                                                  capacità restante
 *
 *                              calcolaPeso:        calcola il peso dell'ordine in toto
+*
+*                              controllaScadenza:  controlla se la scadenza del primo elemento del minHeap è minore del tempoCorrente, se si rimuove
+*                                                  e continua a controllare
 */
 #include "header.h"
 #include <stdio.h>
