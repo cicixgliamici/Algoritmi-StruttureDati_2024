@@ -98,7 +98,8 @@ void gestioneComandi(FILE *file) {
                             tail = nuovo_ingrediente;
                             ptr += strlen(ingrediente) + 1 + snprintf(NULL, 0, "%d", quantita) + 1;
                         }
-                        aggiungi_ricetta(nuova_ricetta);
+                         bst = inserisciBST(bst, nuova_ricetta);
+                         printf("aggiunta\n");
                     }
                 }
             } else if (strcmp(command, "rimuovi_ricetta") == 0) {
@@ -120,11 +121,6 @@ void gestioneComandi(FILE *file) {
     }
     if((tempoCorrente + 1) % tempoCamion == 0 && tempoCorrente != 0)                                  //Le righe finiscono a n*(tempoCamion-1) ma io devo "leggere" comunque la prossima perché
         caricaCamion();                                                                               //il caricaCamion va fatto prima delle 4 azioni canoniche
-}
-
-void aggiungi_ricetta(Ricetta nuova_ricetta) {
-    bst = inserisciBST(bst, nuova_ricetta);
-    printf("aggiunta\n");
 }
 
 void rimuovi_ricetta(const char* nome_ricetta) {                                          //Posso provare a cambiare ordine ai cicli per vedere se guadagno tempo
