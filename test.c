@@ -35,11 +35,11 @@ void testMinHeapInserimento() {
     MinHeapIngrediente heap = nuovoHeapIngredienti(2);
     NodoAVL* nodo = NULL;
     printf("Inserimento elemento con scadenza 100, quantita 10\n");
-    inserisciIngrediente(&heap, 100, 10, nodo);
+    inserisciIngrediente(&heap, 100, 10);
     printf("Inserimento elemento con scadenza 99, quantita 11\n");
-    inserisciIngrediente(&heap, 99, 11, nodo);
+    inserisciIngrediente(&heap, 99, 11);
     printf("Inserimento elemento con scadenza 4, quantita 12\n");
-    inserisciIngrediente(&heap, 4, 12, nodo);
+    inserisciIngrediente(&heap, 4, 12);
     printf("Stato MinHeapIngrediente dopo inserimenti:\n");
     testHeapOrder(&heap);
     liberaLotto(&heap);
@@ -50,11 +50,11 @@ void testMinHeapRimozione() {
     MinHeapIngrediente heap = nuovoHeapIngredienti(2);
     NodoAVL* nodo = NULL;
     printf("Inserimento elemento con scadenza 100, quantita 10\n");
-    inserisciIngrediente(&heap, 100, 10, nodo);
+    inserisciIngrediente(&heap, 100, 10);
     printf("Inserimento elemento con scadenza 99, quantita 11\n");
-    inserisciIngrediente(&heap, 99, 11, nodo);
+    inserisciIngrediente(&heap, 99, 11);
     printf("Inserimento elemento con scadenza 4, quantita 12\n");
-    inserisciIngrediente(&heap, 4, 12, nodo);
+    inserisciIngrediente(&heap, 4, 12);
     printf("Stato MinHeapIngrediente prima della rimozione:\n");
     testHeapOrder(&heap);
     IngredienteMinHeap rimosso = rimuoviIngrediente(&heap);
@@ -70,7 +70,7 @@ void testMinHeapOverflow() {
     NodoAVL* nodo = NULL;
     for (int i = 0; i < 10; i++) {
         printf("Inserimento elemento con scadenza %d, quantita 10\n", i + 1);
-        inserisciIngrediente(&heap, i + 1, 10, nodo);
+        inserisciIngrediente(&heap, i + 1, 10);
     }
     printf("Stato MinHeapIngrediente dopo multipli inserimenti (overflow):\n");
     testHeapOrder(&heap);
@@ -93,15 +93,15 @@ void testUsoParzialeIngrediente() {
     MinHeapIngrediente heap = nuovoHeapIngredienti(3);
     NodoAVL* nodo = NULL;
     printf("Inserimento elemento con scadenza 100, quantita 10\n");
-    inserisciIngrediente(&heap, 100, 10, nodo);
+    inserisciIngrediente(&heap, 100, 10);
     printf("Stato dopo inserimento:\n");
     testHeapOrder(&heap);
     printf("Inserimento elemento con scadenza 99, quantita 11\n");
-    inserisciIngrediente(&heap, 99, 11, nodo);
+    inserisciIngrediente(&heap, 99, 11);
     printf("Stato dopo inserimento:\n");
     testHeapOrder(&heap);
     printf("Inserimento elemento con scadenza 4, quantita 12\n");
-    inserisciIngrediente(&heap, 4, 12, nodo);
+    inserisciIngrediente(&heap, 4, 12);
     printf("Stato dopo inserimento:\n");
     testHeapOrder(&heap);
     printf("Stato MinHeapIngrediente dopo inserimenti:\n");
@@ -120,7 +120,7 @@ void testUsoParzialeIngrediente() {
     rimosso.quantita -= quantita_usata;
     printf("Rimanente ingrediente con scadenza %d: quantita %d\n", rimosso.scadenza, rimosso.quantita);
     if (rimosso.quantita > 0) {
-        inserisciIngrediente(&heap, rimosso.scadenza, rimosso.quantita, nodo);
+        inserisciIngrediente(&heap, rimosso.scadenza, rimosso.quantita);
     }
     printf("Stato MinHeapIngrediente dopo reinserimento dell'ingrediente con scadenza 99:\n");
     testHeapOrder(&heap);
@@ -134,15 +134,15 @@ void testRifornimentoRicetta() {
     NodoAVL* nodo = nuovoAVL("IngredienteTest", 10);
     avl = nodo;
     printf("Rifornimento con scadenza 100, quantita 10\n");
-    inserisciIngrediente(&nodo->heap, 100, 10, nodo);
+    inserisciIngrediente(&nodo->heap, 100, 10);
     printf("Stato dopo rifornimento:\n");
     testHeapOrder(&nodo->heap);
     printf("Rifornimento con scadenza 99, quantita 10\n");
-    inserisciIngrediente(&nodo->heap, 99, 10, nodo);
+    inserisciIngrediente(&nodo->heap, 99, 10);
     printf("Stato dopo rifornimento:\n");
     testHeapOrder(&nodo->heap);
     printf("Rifornimento con scadenza 4, quantita 10\n");
-    inserisciIngrediente(&nodo->heap, 4, 10, nodo);
+    inserisciIngrediente(&nodo->heap, 4, 10);
     printf("Stato dopo rifornimento:\n");
     testHeapOrder(&nodo->heap);
     printf("Aggiunta ricetta 'RicettaTest' con 15 di 'IngredienteTest'\n");

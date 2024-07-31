@@ -59,7 +59,7 @@ void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita) 
 
 IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
     if (heap->dimensione == 0) {
-        IngredienteMinHeap ingredienteVuoto = { INT_MAX, 0, NULL };
+        IngredienteMinHeap ingredienteVuoto = { INT_MAX, 0 };
         return ingredienteVuoto;
     }
     IngredienteMinHeap radice = heap->lotto[0];
@@ -210,7 +210,7 @@ NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int
     if (nodo == NULL) {
         //printf("Creazione nuovo nodo per ingrediente: %s\n", nome);
         NodoAVL* nuovo = nuovoAVL(nome, capacita);
-        inserisciIngrediente(&nuovo->heap, scadenza, quantita, nuovo);
+        inserisciIngrediente(&nuovo->heap, scadenza, quantita);
         return nuovo;
     }
     //printf("Confronto nome ingrediente: %s con nodo corrente: %s\n", nome, nodo->nome);
@@ -220,7 +220,7 @@ NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int
         nodo->destro = inserisciAVL(nodo->destro, nome, scadenza, quantita, capacita);
     } else {
         //printf("Aggiunta ingrediente esistente al nodo AVL: %s\n", nome);
-        inserisciIngrediente(&nodo->heap, scadenza, quantita, nodo);
+        inserisciIngrediente(&nodo->heap, scadenza, quantita);
     }
     //verificaInserimento(nodo, nome);
     nodo->altezza = 1 + max(altezza(nodo->sinistro), altezza(nodo->destro));

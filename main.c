@@ -65,7 +65,7 @@ void gestioneComandi(FILE *file) {
     coda_ordini = creaCoda();
     heap_ordini_fatti = creaMinHeap(10);
     char *line;
-    while ((line = leggiRiga(file)) != NULL) {
+    while ((line = letturaRiga(file)) != NULL) {
         char command[256];
         if (sscanf(line, "%s", command) == 1) { 
             tempoCorrente++;                                                                          //Ad ogni nuova lettura (tempoCamion e capacita esclusi) aggiorno il tempo
@@ -169,8 +169,8 @@ void rifornimento(const char* comando) {
 
 // Main - Gestione del giorno
 int main(void) {
-    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open5.txt", "r"); //stdin
-    gestisciComandi(file);
+    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open11.txt", "r"); //stdin
+    gestioneComandi(file);
     fclose(file);
     return 0;
 }

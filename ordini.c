@@ -77,7 +77,7 @@ void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int te
             } else {
                 min_ingrediente.quantita -= quantita_richiesta;
                 quantita_richiesta = 0;
-                inserisciIngrediente(&nodo_ingrediente->heap, min_ingrediente.scadenza, min_ingrediente.quantita, nodo_ingrediente);
+                inserisciIngrediente(&nodo_ingrediente->heap, min_ingrediente.scadenza, min_ingrediente.quantita);
             }
         }
         ing = ing->next;
