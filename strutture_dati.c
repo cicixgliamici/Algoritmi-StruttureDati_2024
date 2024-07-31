@@ -1,12 +1,15 @@
-/*  Problemi riscontrati e edge cases:  1) A parità di peso, gli ordini del camioncino vanno per istante di arrivo
-*                                       2) Il camioncino passa anche se l'ultima riga è al comando n*(tempoCamion-1) quindi devo fare un ultimo controllo
-*                                       3) Nell'example.txt la ciambella 9-3 sostituiva la 5-6, tolto l'inseirmento a priori in Coda FIFO
-*                                       4) La liberazione di un nodo nell'AVL e la stampa del minHeap generava problemi nell'example.txt sulla torta 10 1
-*                                       5) Rifornimento al tempo 8/9 non va a buon fine in open4 -> facevo lettura fino a 256
-*                                       6) Secondo giro di open4 il camion svuotava scorrettamente il minHeapOrdini
-*                                       7) Secondo giro di open4 il camion carica due ordini di troppo, ha la capacità per farlo,
-*                                          quindi non andavano prodotti -> Camion si ferma al primo che incontra troppo pesante
-*                                       8) open5 access violation al primo caricamento del camion, sembra essere un problema nel minHeap ordini
+/*  Problemi riscontrati e edge cases:  1)  A parità di peso, gli ordini del camioncino vanno per istante di arrivo
+*                                       2)  Il camioncino passa anche se l'ultima riga è al comando n*(tempoCamion-1) quindi devo fare un ultimo controllo
+*                                       3)  Nell'example.txt la ciambella 9-3 sostituiva la 5-6, tolto l'inseirmento a priori in Coda FIFO
+*                                       4)  La liberazione di un nodo nell'AVL e la stampa del minHeap generava problemi nell'example.txt sulla torta 10 1
+*                                       5)  Rifornimento al tempo 8/9 non va a buon fine in open4 -> facevo lettura fino a 256
+*                                       6)  Secondo giro di open4 il camion svuotava scorrettamente il minHeapOrdini
+*                                       7)  Secondo giro di open4 il camion carica due ordini di troppo, ha la capacità per farlo,
+*                                           quindi non andavano prodotti -> Camion si ferma al primo che incontra troppo pesante
+*                                       8)  open5 access violation al primo caricamento del camion, sembra essere un problema nel minHeap ordini -> era un 
+*                                           problema di dimensione del maxHeap basato sulla capienzaCamion -> credo ci sia un "limite" al malloc
+*                                       9)  open7 sfaciola totalmente ordini -> problema legato alla lunghezza delle righe di input e come venivano lette
+*                                       10) 
 *
 */
 //Elenco di tutte le funzioni riguardanti le strutture dati
@@ -39,7 +42,7 @@ void heapifyIngredienti(MinHeapIngrediente* heap, int i) {
     }
 }
 
-void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita, struct NodoAVL* nodo) {
+void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita) {
     //printf("Inserendo Ingrediente: Scadenza = %d, Quantita = %d\n", scadenza, quantita); // Debugging
     if (heap->dimensione == heap->capacita) {
         heap->capacita *= 2;
@@ -48,13 +51,10 @@ void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita, 
     int i = heap->dimensione++;
     heap->lotto[i].scadenza = scadenza;
     heap->lotto[i].quantita = quantita;
-    heap->lotto[i].nodoAVL = nodo;  // Imposta il puntatore al nodo AVL
     while (i != 0 && heap->lotto[(i - 1) / 2].scadenza > heap->lotto[i].scadenza) {
         scambia(&heap->lotto[i], &heap->lotto[(i - 1) / 2]);
         i = (i - 1) / 2;
     }
-   // printf("Ingrediente inserito: %s, Scadenza = %d, Quantita = %d\n", nodo->nome, scadenza, quantita); // Debugging
-    //stampaHeapIngredienti1(heap);
 }
 
 IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
