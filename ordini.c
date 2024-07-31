@@ -28,13 +28,11 @@ void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
         printf("rifiutato\n");
         return;
     }
-    controllaScadenzaAVL(avl);
     if (fattibilita(nome_ricetta, numero_elementi_ordinati)) {
         preparazione(nome_ricetta, numero_elementi_ordinati, tempoCorrente);
         printf("accettato\n");
     } else {
         aggiungiCoda(coda_ordini, (char*)nome_ricetta, numero_elementi_ordinati, tempoCorrente);
-        //stampaCodaFIFO(coda_ordini);
         printf("accettato\n");
     }
 }
@@ -47,6 +45,10 @@ bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
         if (nodo_ingrediente == NULL) {
             return false;
         }
+        
+        // Controlla la scadenza solo per l'ingrediente richiesto
+        controllaScadenza(nodo_ingrediente);
+        
         MinHeapIngrediente* heap = &nodo_ingrediente->heap;
         int quantita_totale = 0;
         for (int i = 0; i < nodo_ingrediente->heap.dimensione; i++) {
@@ -69,7 +71,7 @@ void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int te
         int quantita_richiesta = ing->quantita * numero_elementi_ordinati;
         while (quantita_richiesta > 0) {
             if (nodo_ingrediente->heap.dimensione == 0) {
-                return; // Non ci sono abbastanza ingredienti
+                return;
             }
             IngredienteMinHeap min_ingrediente = rimuoviIngrediente(&nodo_ingrediente->heap);
             if (min_ingrediente.quantita <= quantita_richiesta) {
@@ -86,7 +88,6 @@ void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int te
 }
 
 void verificaOrdini() {
-    controllaScadenzaAVL(avl);
     Ordine* ordineCorrente = coda_ordini->testa;
     Ordine* precedente = NULL;
     while (ordineCorrente != NULL) {
@@ -118,7 +119,7 @@ void caricaCamion() {
         printf("camioncino vuoto\n");
         return;
     }
-    int capienzaRestante = capienzaCamion;  // Usa capienzaCamion invece di max_heap_spedizioni->capacita
+    int capienzaRestante = capienzaCamion;
     MinHeap* tempHeap = creaMinHeap(heap_ordini_fatti->capacita);
     while (!heapVuotoMinOrdine(heap_ordini_fatti)) {
         OrdineHeap ordine = rimuoviMin(heap_ordini_fatti);
@@ -149,7 +150,6 @@ void caricaCamion() {
     }
 }
 
-
 int calcolaPeso(Ricetta ricetta, int numero_elementi_ordinati) {
     int peso = 0;
     IngredienteRicetta* ingrediente = ricetta.ingredienti;
@@ -175,13 +175,4 @@ void controllaScadenza(NodoAVL* nodo_ingrediente) {
             i++;
         }
     }
-}
-
-void controllaScadenzaAVL(NodoAVL* nodo) {
-    if (nodo == NULL) {
-        return;
-    }
-    controllaScadenzaAVL(nodo->sinistro);
-    controllaScadenza(nodo);
-    controllaScadenzaAVL(nodo->destro);
 }
