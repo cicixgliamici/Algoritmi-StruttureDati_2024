@@ -141,8 +141,8 @@ int heapVuotoMax(MaxHeapSpedizioni* heap);
 int max(int a, int b);
 
 //Funzioni per l'Algoritmo
-char* leggiRiga(FILE* file);
-void gestisciComandi(FILE *file);                                                                //Leggi comando con strcmp
+char* letturaRiga(FILE* file);
+void gestioneComandi(FILE *file);                                                                //Leggi comando con strcmp
 void aggiungi_ricetta(Ricetta nuova_ricetta);                                                    //Controlla se già esiste, se no aggiungi
 void rimuovi_ricetta(const char* nome_ricetta);                                                  //Controlla se esiste o se è in ordinazione, se no rimuovi
 void rifornimento(const char* comando);                                                          //Nessun controllo
