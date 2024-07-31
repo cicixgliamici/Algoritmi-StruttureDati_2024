@@ -5,10 +5,10 @@
 *                     Camioncino:       max-Heap         -> Peso totale dell'ordine (a parità di peso, istante di arrivo)
 */
 #include <stdio.h>
+#include <stdbool.h>
 #include <string.h>
 #include <stdlib.h>
 #include <limits.h>
-#include <stdbool.h>
 // Ingredienti - Heap - ordino tutti i prodotti dello stesso tipo per scadenza(asc), così da rispettare la specifica
 typedef struct IngredienteMinHeap {
     int scadenza;
@@ -143,6 +143,7 @@ int max(int a, int b);
 //Funzioni per l'Algoritmo
 char* letturaRiga(FILE* file);
 void gestioneComandi(FILE *file);                                                                //Leggi comando con strcmp
+void aggiungi_ricetta(Ricetta nuova_ricetta);                                                    //Controlla se già esiste, se no aggiungi
 void rimuovi_ricetta(const char* nome_ricetta);                                                  //Controlla se esiste o se è in ordinazione, se no rimuovi
 void rifornimento(const char* comando);                                                          //Nessun controllo
 void ordine(const char* nome_ricetta, int numero_elementi_ordinati);                             //Controlla esistenza in ricettario, se si aggiungi a Coda e poi prova a fare
@@ -153,6 +154,7 @@ void verificaOrdini();                                                          
 void caricaCamion();                                                                             //Passaggio da minHeap ordini fatti a maxHeap spedizione
 int calcolaPeso(Ricetta ricetta, int numero_elementi_ordinati);                                  //Calcola il peso di un ordine
 void controllaScadenza(NodoAVL* nodo_ingrediente);                                               //Controlla la scadenza di un singolo lotto-minHeap
+
 /*  4 Azioni da svolgere   aggiungi_ricetta: devo controllare nel BST se è già presente
 *                          rimuovi_ricetta:  devo controllare sia se è presente nel BST sia nelle 3 strutture di ordini
 *                          rifornimento:     non devo fare controlli anteriori, ma devo controllare dopo se posso fare ordini sulla coda
@@ -248,8 +250,7 @@ void gestioneComandi(FILE *file) {
                             tail = nuovo_ingrediente;
                             ptr += strlen(ingrediente) + 1 + snprintf(NULL, 0, "%d", quantita) + 1;
                         }
-                         bst = inserisciBST(bst, nuova_ricetta);
-                         printf("aggiunta\n");
+                        aggiungi_ricetta(nuova_ricetta);
                     }
                 }
             } else if (strcmp(command, "rimuovi_ricetta") == 0) {
@@ -271,6 +272,11 @@ void gestioneComandi(FILE *file) {
     }
     if((tempoCorrente + 1) % tempoCamion == 0 && tempoCorrente != 0)                                  //Le righe finiscono a n*(tempoCamion-1) ma io devo "leggere" comunque la prossima perché
         caricaCamion();                                                                               //il caricaCamion va fatto prima delle 4 azioni canoniche
+}
+
+void aggiungi_ricetta(Ricetta nuova_ricetta) {
+    bst = inserisciBST(bst, nuova_ricetta);
+    printf("aggiunta\n");
 }
 
 void rimuovi_ricetta(const char* nome_ricetta) {                                          //Posso provare a cambiare ordine ai cicli per vedere se guadagno tempo
@@ -351,6 +357,7 @@ void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
         printf("accettato\n");
     } else {
         aggiungiCoda(coda_ordini, (char*)nome_ricetta, numero_elementi_ordinati, tempoCorrente);
+        //stampaCodaFIFO(coda_ordini);
         printf("accettato\n");
     }
 }
@@ -363,10 +370,7 @@ bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
         if (nodo_ingrediente == NULL) {
             return false;
         }
-
-        // Controlla la scadenza solo per l'ingrediente richiesto
         controllaScadenza(nodo_ingrediente);
-
         MinHeapIngrediente* heap = &nodo_ingrediente->heap;
         int quantita_totale = 0;
         for (int i = 0; i < nodo_ingrediente->heap.dimensione; i++) {
@@ -389,7 +393,7 @@ void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int te
         int quantita_richiesta = ing->quantita * numero_elementi_ordinati;
         while (quantita_richiesta > 0) {
             if (nodo_ingrediente->heap.dimensione == 0) {
-                return;
+                return; // Non ci sono abbastanza ingredienti
             }
             IngredienteMinHeap min_ingrediente = rimuoviIngrediente(&nodo_ingrediente->heap);
             if (min_ingrediente.quantita <= quantita_richiesta) {
@@ -437,7 +441,7 @@ void caricaCamion() {
         printf("camioncino vuoto\n");
         return;
     }
-    int capienzaRestante = capienzaCamion;
+    int capienzaRestante = capienzaCamion;  // Usa capienzaCamion invece di max_heap_spedizioni->capacita
     MinHeap* tempHeap = creaMinHeap(heap_ordini_fatti->capacita);
     while (!heapVuotoMinOrdine(heap_ordini_fatti)) {
         OrdineHeap ordine = rimuoviMin(heap_ordini_fatti);
@@ -467,6 +471,7 @@ void caricaCamion() {
         }
     }
 }
+
 
 int calcolaPeso(Ricetta ricetta, int numero_elementi_ordinati) {
     int peso = 0;
@@ -505,9 +510,7 @@ void controllaScadenza(NodoAVL* nodo_ingrediente) {
 *                                       8)  open5 access violation al primo caricamento del camion, sembra essere un problema nel minHeap ordini -> era un
 *                                           problema di dimensione del maxHeap basato sulla capienzaCamion -> credo ci sia un "limite" al malloc
 *                                       9)  open7 sfaciola totalmente ordini -> problema legato alla lunghezza delle righe di input e come venivano lette
-*                                       10) passati tutti gli open tranne 8 (rimarrà un mistero), passato a Open -> usava troppo spazio -> cambiati i char
-*                                           da 256 a 25
-*                                       11) Per passare 18 bisogna grattare 15.857 secondi ->
+*                                       10)
 *
 */
 //Elenco di tutte le funzioni riguardanti le strutture dati
@@ -535,6 +538,7 @@ void heapifyIngredienti(MinHeapIngrediente* heap, int i) {
 }
 
 void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita) {
+    //printf("Inserendo Ingrediente: Scadenza = %d, Quantita = %d\n", scadenza, quantita); // Debugging
     if (heap->dimensione == heap->capacita) {
         heap->capacita *= 2;
         heap->lotto = (IngredienteMinHeap*) realloc(heap->lotto, heap->capacita * sizeof(IngredienteMinHeap));
@@ -562,6 +566,10 @@ IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
 MinHeapIngrediente nuovoHeapIngredienti(int capacita) {
     MinHeapIngrediente heap;
     heap.lotto = (IngredienteMinHeap*) malloc(capacita * sizeof(IngredienteMinHeap));
+    if (heap.lotto == NULL) {
+        fprintf(stderr, "Errore di allocazione della memoria per lotto\n");
+        exit(EXIT_FAILURE);
+    }
     heap.dimensione = 0;
     heap.capacita = capacita;
     return heap;
@@ -573,6 +581,7 @@ void liberaLotto(MinHeapIngrediente* heap) {
         heap->lotto = NULL;
         heap->dimensione = 0;
         heap->capacita = 0;
+        //printf("Heap ingredienti liberato\n");
     }
 }
 
@@ -645,12 +654,12 @@ NodoAVL* eliminaAVL(NodoAVL* root, char *nome) {
     } else {
         if (root->sinistro == NULL || root->destro == NULL) {
             NodoAVL *temp = root->sinistro ? root->sinistro : root->destro;
-            liberaLotto(&root->heap);
+            liberaLotto(&root->heap);  // Libera la memoria del lotto
             if (temp == NULL) {
                 free(root);
                 return NULL;
             } else {
-                *root = *temp;
+                *root = *temp; // Copia il contenuto del nodo non vuoto
                 free(temp);
             }
         } else {
@@ -678,9 +687,12 @@ NodoAVL* eliminaAVL(NodoAVL* root, char *nome) {
 }
 
 NodoAVL* cercaAVL(NodoAVL* nodo, const char* nome) {
+    //print_string_info(nome);
     if (nodo == NULL || strcmp(nodo->nome, nome) == 0) {
+        //printf("Nodo trovato per ingrediente: %s\n", nome);
         return nodo;
     }
+    //printf("Confronto nome ingrediente: %s con nodo corrente: %s\n", nome, nodo->nome);
     if (strcmp(nome, nodo->nome) < 0) {
         return cercaAVL(nodo->sinistro, nome);
     }
@@ -689,18 +701,23 @@ NodoAVL* cercaAVL(NodoAVL* nodo, const char* nome) {
 
 
 NodoAVL* inserisciAVL(NodoAVL* nodo, char* nome, int scadenza, int quantita, int capacita) {
+    //print_string_info(nome);
     if (nodo == NULL) {
+        //printf("Creazione nuovo nodo per ingrediente: %s\n", nome);
         NodoAVL* nuovo = nuovoAVL(nome, capacita);
         inserisciIngrediente(&nuovo->heap, scadenza, quantita);
         return nuovo;
     }
+    //printf("Confronto nome ingrediente: %s con nodo corrente: %s\n", nome, nodo->nome);
     if (strcmp(nome, nodo->nome) < 0) {
         nodo->sinistro = inserisciAVL(nodo->sinistro, nome, scadenza, quantita, capacita);
     } else if (strcmp(nome, nodo->nome) > 0) {
         nodo->destro = inserisciAVL(nodo->destro, nome, scadenza, quantita, capacita);
     } else {
+        //printf("Aggiunta ingrediente esistente al nodo AVL: %s\n", nome);
         inserisciIngrediente(&nodo->heap, scadenza, quantita);
     }
+    //verificaInserimento(nodo, nome);
     nodo->altezza = 1 + max(altezza(nodo->sinistro), altezza(nodo->destro));
     return bilanciaAVL(nodo);
 }
@@ -810,6 +827,10 @@ void liberaCoda(CodaOrdini* coda) {
 
 void aggiungiCoda(CodaOrdini* coda, const char* nome_ricetta, int quantita, int tempo_arrivo) {
     Ordine* nuovoOrdine = (Ordine*)malloc(sizeof(Ordine));
+    if (nuovoOrdine == NULL) {
+        fprintf(stderr, "Errore di allocazione della memoria per nuovoOrdine\n");
+        exit(EXIT_FAILURE);
+    }
     nuovoOrdine->tempo_arrivo = tempo_arrivo;
     strcpy(nuovoOrdine->nome_ricetta, nome_ricetta);
     nuovoOrdine->quantita = quantita;
@@ -821,6 +842,7 @@ void aggiungiCoda(CodaOrdini* coda, const char* nome_ricetta, int quantita, int 
         coda->coda->next = nuovoOrdine;
         coda->coda = nuovoOrdine;
     }
+    //printf("Ordine aggiunto con successo\n"); // Debugging
 }
 
 int codaVuota(CodaOrdini* coda) {
@@ -894,6 +916,15 @@ int heapVuotoMinOrdine(MinHeap* heap) {
 
 MinHeap* creaMinHeap(int capacita) {
     MinHeap* heap = (MinHeap*)malloc(sizeof(MinHeap));
+    if (heap == NULL) {
+        fprintf(stderr, "Errore di allocazione della memoria per MinHeap\n");
+        exit(EXIT_FAILURE);
+    }
+    heap->ordini = (OrdineHeap*)malloc(capacita * sizeof(OrdineHeap));
+    if (heap->ordini == NULL) {
+        fprintf(stderr, "Errore di allocazione della memoria per gli ordini del MinHeap\n");
+        exit(EXIT_FAILURE);
+    }
     heap->dimensione = 0;
     heap->capacita = capacita;
     return heap;
@@ -901,6 +932,8 @@ MinHeap* creaMinHeap(int capacita) {
 
 OrdineHeap rimuoviMin(MinHeap* heap) {
     if (heap->dimensione == 0) {
+        // Gestisci errore se il min-heap è vuoto
+        fprintf(stderr, "Errore: tentativo di rimuovere da un min-heap vuoto\n");
         OrdineHeap ordineVuoto;
         strcpy(ordineVuoto.ricetta, "");
         ordineVuoto.quantita = 0;
@@ -910,7 +943,7 @@ OrdineHeap rimuoviMin(MinHeap* heap) {
     OrdineHeap min = heap->ordini[0];
     heap->ordini[0] = heap->ordini[heap->dimensione - 1];
     heap->dimensione--;
-    heapifyOrdini(heap, 0);
+    heapifyOrdini(heap, 0); // Funzione che mantiene la proprietà del min-heap
     return min;
 }
 
