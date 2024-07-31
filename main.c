@@ -60,7 +60,6 @@ void gestisciComandi(FILE *file) {
         capacitaMaxHeap = capienzaCamion / 1000;
     else
         capacitaMaxHeap = capienzaCamion;  // Nel caso peggiore ho capienzaCamion ordini di peso 1
-
     max_heap_spedizioni = creaMaxHeap(capacitaMaxHeap);
     coda_ordini = creaCoda();
     heap_ordini_fatti = creaMinHeap(10);
@@ -158,7 +157,7 @@ void rifornimento(const char* comando) {
     while (sscanf(ptr, "%s %d %d", nome_ingrediente, &quantita, &scadenza) == 3) {
         NodoAVL* nodo = cercaAVL(avl, nome_ingrediente);
         if (nodo != NULL) {
-            inserisciIngrediente(&nodo->heap, scadenza, quantita, nodo);
+            inserisciIngrediente(&nodo->heap, scadenza, quantita);
         } else {
             avl = inserisciAVL(avl, nome_ingrediente, scadenza, quantita, 10);
         }
