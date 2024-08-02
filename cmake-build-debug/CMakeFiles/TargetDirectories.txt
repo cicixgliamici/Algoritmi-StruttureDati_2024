@@ -1,3 +1,3 @@
-C:/Users/39392/CLionProjects/API/cmake-build-debug/CMakeFiles/API.dir
-C:/Users/39392/CLionProjects/API/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/39392/CLionProjects/API/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/39392/CLionProjects/API/cmake-build-debug/CMakeFiles/API.dir
+/mnt/c/Users/39392/CLionProjects/API/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/c/Users/39392/CLionProjects/API/cmake-build-debug/CMakeFiles/rebuild_cache.dir
