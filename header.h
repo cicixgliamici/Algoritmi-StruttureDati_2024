@@ -1,3 +1,15 @@
+/* 02/08/2024 -> 30,593s e 14,6MiB, comandi Valgrind
+*  wsl
+*  cd /mnt/c/Users/39392/CLionProjects/def1/cmake-build-debug
+*  rm -rf *
+*  cmake ..
+*  make
+*  valgrind --tool=callgrind ./def1
+*  callgrind_annotate callgrind.out.*
+*  kcachegrind callgrind.out.*
+*
+*  Ricordati di mettere da 25 a 256
+*/
 /* 5 Strutture dati   Ingredienti:      AVL di min-Heap  -> Ingredienti ordinati per scadenza nel min-Heap, lessicograficamente per lotti
 *                     Ricette:          BST di liste     -> Ordinamento lessicografico
 *                     Ordini da Fare:   Coda FIFO        -> Mantiene l'ordine di arrivo degli ordini
