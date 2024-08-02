@@ -333,7 +333,7 @@ void rifornimento(const char* comando) {
 // FILE *file = fopen("/mnt/c/Users/39392/CLionProjects/def1/input.txt", "r");
 // Main - Gestione del giorno
 int main(void) {
-    FILE *file = stdin;
+    FILE *file =  stdin;
     gestioneComandi(file);
     fclose(file);
     return 0;
@@ -382,6 +382,8 @@ bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
         if (nodo_ingrediente == NULL) return false;
         int quantita_totale = 0;
         for (int i = 0; i < nodo_ingrediente->heap.dimensione; i++) {
+            if(nodo_ingrediente->heap.dimensione==0)
+                liberaLotto(&nodo_ingrediente->heap);
             if (nodo_ingrediente->heap.lotto[i].scadenza <= tempoCorrente) {
                 rimuoviIngrediente(&nodo_ingrediente->heap);
                 i--;
@@ -404,9 +406,6 @@ void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int te
         NodoAVL* nodo_ingrediente = cercaAVL(avl, ing->nome);
         int quantita_richiesta = ing->quantita * numero_elementi_ordinati;
         while (quantita_richiesta > 0) {
-            if (nodo_ingrediente->heap.dimensione == 0) {
-                return; // Non ci sono abbastanza ingredienti
-            }
             IngredienteMinHeap min_ingrediente = rimuoviIngrediente(&nodo_ingrediente->heap);
             if (min_ingrediente.quantita <= quantita_richiesta) {
                 quantita_richiesta -= min_ingrediente.quantita;
