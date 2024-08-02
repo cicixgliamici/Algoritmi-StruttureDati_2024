@@ -10,8 +10,16 @@
 *                                           problema di dimensione del maxHeap basato sulla capienzaCamion -> credo ci sia un "limite" al malloc
 *                                       9)  open7 sfaciola totalmente ordini -> problema legato alla lunghezza delle righe di input e come venivano lette
 *                                       10) passati tutti gli open tranne 8 (rimarrà un mistero), passato a Open -> usava troppo spazio -> cambiati i char
-*                                           da 256 a 25
+*                                           da 256 a 25 (il minimo è 20)
+*                                       11) installato con non poca difficolta valgrind, dava controlloScadenza come funzione più chiamata, insieme alla 
+*                                           lettura stringhe, qualche sospetto sulla struttura degli ingredienti
 *                                       11) Per passare 18 bisogna grattare 15.857 secondi -> 
+*                                                                                             le puts non sembrano aver funzionato
+*                                                                                             accorpato il controlloScadenza alla fattibilita
+*                                                                                             provare a cambiare il caricamento del camion
+*                                                                                             def4.1 passa da AVL di minHeap a Treap
+*                                                                                             def4.2 passa da AVL di minHeap a minHeap
+*                                                        
 *
 */
 //Elenco di tutte le funzioni riguardanti le strutture dati
