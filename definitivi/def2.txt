@@ -357,6 +357,7 @@ void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
         printf("accettato\n");
     } else {
         aggiungiCoda(coda_ordini, (char*)nome_ricetta, numero_elementi_ordinati, tempoCorrente);
+        //stampaCodaFIFO(coda_ordini);
         printf("accettato\n");
     }
 }
@@ -488,8 +489,14 @@ void controllaScadenza(NodoAVL* nodo_ingrediente) {
         return;
     }
     MinHeapIngrediente* heap = &nodo_ingrediente->heap;
-    while (heap->dimensione > 0 && heap->lotto[0].scadenza <= tempoCorrente) {
-        rimuoviIngrediente(heap);
+    int i = 0;
+    while (i < heap->dimensione) {
+        if (heap->lotto[i].scadenza <= tempoCorrente) {
+            heap->lotto[i] = heap->lotto[--heap->dimensione];
+            heapifyIngredienti(heap, i);
+        } else {
+            i++;
+        }
     }
 }
 /*  Problemi riscontrati e edge cases:  1)  A parità di peso, gli ordini del camioncino vanno per istante di arrivo
@@ -531,8 +538,9 @@ void heapifyIngredienti(MinHeapIngrediente* heap, int i) {
 }
 
 void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita) {
+    //printf("Inserendo Ingrediente: Scadenza = %d, Quantita = %d\n", scadenza, quantita); // Debugging
     if (heap->dimensione == heap->capacita) {
-        heap->capacita = (heap->capacita == 0) ? 1 : heap->capacita * 2;
+        heap->capacita *= 2;
         heap->lotto = (IngredienteMinHeap*) realloc(heap->lotto, heap->capacita * sizeof(IngredienteMinHeap));
     }
     int i = heap->dimensione++;
