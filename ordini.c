@@ -45,10 +45,10 @@ bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
         if (nodo_ingrediente == NULL) {
             return false;
         }
-        
+
         // Controlla la scadenza solo per l'ingrediente richiesto
         controllaScadenza(nodo_ingrediente);
-        
+
         MinHeapIngrediente* heap = &nodo_ingrediente->heap;
         int quantita_totale = 0;
         for (int i = 0; i < nodo_ingrediente->heap.dimensione; i++) {

@@ -75,7 +75,7 @@ void gestioneComandi(FILE *file) {
             if (strcmp(command, "aggiungi_ricetta") == 0) {
                 char nome_ricetta[256];
                 if (sscanf(line + strlen(command), "%s", nome_ricetta) == 1) {                        //Se già c'è mi evito di leggere tutta la ricetta
-                    if (cercaBST(bst, nome_ricetta) != NULL) {                                       
+                    if (cercaBST(bst, nome_ricetta) != NULL) {
                         printf("ignorato\n");
                     } else {
                         Ricetta nuova_ricetta;
@@ -163,6 +163,8 @@ void rifornimento(const char* comando) {
     verificaOrdini();                                                               //Ad ogni rifornimento verifico se posso liberare la coda di ordini da fare
 }
 
+// FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open11.txt", "r"); //stdin
+// FILE *file = fopen("/mnt/c/Users/39392/CLionProjects/def1/input.txt", "r");
 // Main - Gestione del giorno
 int main(void) {
     FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open11.txt", "r"); //stdin

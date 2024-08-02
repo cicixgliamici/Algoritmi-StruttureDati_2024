@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-// Ingredienti - Heap - ordino tutti i prodotti dello stesso tipo per scadenza(asc), così da rispettare la specifica               
+// Ingredienti - Heap - ordino tutti i prodotti dello stesso tipo per scadenza(asc), così da rispettare la specifica
 typedef struct IngredienteMinHeap {
     int scadenza;
     int quantita;
