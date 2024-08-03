@@ -1,0 +1,965 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+#include <stdlib.h>
+#include <limits.h>
+
+#define TABLE_SIZE 101
+#define INITIAL_HEAP_CAPACITY 256
+#define MAX_HEAP_CAPACITY 1000
+
+typedef struct IngredienteMinHeap {
+    int scadenza;
+    int quantita;
+} IngredienteMinHeap;
+
+typedef struct {
+    IngredienteMinHeap* lotto;
+    int dimensione;
+    int capacita;
+    int quantita_totale;
+} MinHeapIngrediente;
+
+void scambia(IngredienteMinHeap* a, IngredienteMinHeap* b);
+void heapifyIngredienti(MinHeapIngrediente* heap, int i);
+void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita);
+void liberaLotto(MinHeapIngrediente* heap);
+IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap);
+MinHeapIngrediente nuovoHeapIngredienti(int capacita);
+
+typedef struct NodoHash {
+    char nome[20];
+    MinHeapIngrediente heap;
+    struct NodoHash* next;
+} NodoHash;
+
+typedef struct {
+    NodoHash** buckets;
+    int size;
+    int count;
+} HashTable;
+
+unsigned int hash(const char* str);
+HashTable* creaTabellaHash();
+void liberaTabellaHash(HashTable* table);
+NodoHash* creaNodoHash(const char* nome, int capacita);
+void inserisciIngredienteHash(HashTable* table, const char* nome, int scadenza, int quantita);
+NodoHash* cercaIngredienteHash(HashTable* table, const char* nome);
+void rimuoviIngredienteHash(HashTable* table, const char* nome);
+
+typedef struct IngredienteRicetta {
+    char nome[20];
+    int quantita;
+    struct IngredienteRicetta *next;
+} IngredienteRicetta;
+
+typedef struct Ricetta {
+    char nome[20];
+    IngredienteRicetta *ingredienti;
+} Ricetta;
+
+typedef struct NodoAVL {
+    Ricetta ricetta;
+    struct NodoAVL *sinistro;
+    struct NodoAVL *destro;
+    int altezza;
+} NodoAVL;
+
+int altezza(NodoAVL* nodo);
+int max(int a, int b);
+NodoAVL* nuovoNodoAVL(Ricetta ricetta);
+NodoAVL* ruotaDestra(NodoAVL* y);
+NodoAVL* ruotaSinistra(NodoAVL* x);
+int getBilanciamento(NodoAVL* nodo);
+NodoAVL* inserisciAVL(NodoAVL* nodo, Ricetta ricetta);
+NodoAVL* minValueNodo(NodoAVL* nodo);
+NodoAVL* eliminaNodo(NodoAVL* root, char* nome);
+NodoAVL* cercaNodoAVL(NodoAVL* nodo, char* nome);
+void liberaAVL(NodoAVL* root);
+void liberaListaIng(IngredienteRicetta* ingrediente);
+
+typedef struct Ordine {
+    int tempo_arrivo;
+    char nome_ricetta[20];
+    int quantita;
+    struct Ordine* next;
+} Ordine;
+
+typedef struct {
+    Ordine* testa;
+    Ordine* coda;
+} CodaOrdini;
+
+void liberaCoda(CodaOrdini* coda);
+void aggiungiCoda(CodaOrdini* coda, const char* nome_ricetta, int quantita, int tempo_arrivo);
+int codaVuota(CodaOrdini* coda);
+CodaOrdini* creaCoda();
+Ordine* rimuoviCoda(CodaOrdini* coda);
+
+typedef struct OrdineHeap {
+    int tempo_arrivo;
+    char ricetta[20];
+    int quantita;
+} OrdineHeap;
+
+typedef struct {
+    OrdineHeap* ordini;
+    int dimensione;
+    int capacita;
+} MinHeap;
+
+void liberaMinHeapOrdini(MinHeap* heap);
+void scambiaOrdini(OrdineHeap* a, OrdineHeap* b);
+void heapifyOrdini(MinHeap* heap, int i);
+void inserisciOrdineHeap(MinHeap* heap, int tempo_arrivo, char* nome_ricetta, int quantita);
+int heapVuotoMinOrdine(MinHeap* heap);
+MinHeap* creaMinHeap(int capacita);
+OrdineHeap rimuoviMin(MinHeap* heap);
+
+typedef struct Spedizione {
+    char nome[20];
+    int istante_arrivo;
+    int quantita;
+    int peso;
+} Spedizione;
+
+typedef struct {
+    Spedizione* spedizioni;
+    int dimensione;
+    int capacita;
+} MaxHeapSpedizioni;
+
+void heapifySpedizioni(MaxHeapSpedizioni* heap, int i);
+void inserisciSpedizione(MaxHeapSpedizioni* heap, char* nome, int istante_arrivo, int quantita, int peso);
+void liberaMaxHeap(MaxHeapSpedizioni* heap);
+MaxHeapSpedizioni* creaMaxHeap(int capacita);
+Spedizione rimuoviMax(MaxHeapSpedizioni* heap);
+int heapVuotoMax(MaxHeapSpedizioni* heap);
+
+char* letturaRiga(FILE* file);
+void gestioneComandi(FILE *file);
+void aggiungi_ricetta(Ricetta nuova_ricetta);
+void rimuovi_ricetta(const char* nome_ricetta);
+void rifornimento(const char* comando);
+void ordine(const char* nome_ricetta, int numero_elementi_ordinati);
+
+bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati);
+void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int tempo_arrivo);
+void verificaOrdini();
+void caricaCamion();
+int calcolaPeso(Ricetta ricetta, int numero_elementi_ordinati);
+
+NodoAVL* avl = NULL;
+HashTable* hashTable = NULL;
+CodaOrdini* coda_ordini = NULL;
+MinHeap* heap_ordini_fatti = NULL;
+MaxHeapSpedizioni* max_heap_spedizioni = NULL;
+int tempoCorrente = -1;
+int capienzaCamion;
+
+int max(int a, int b) {
+    return (a > b) ? a : b;
+}
+
+char* letturaRiga(FILE* file) {
+    size_t capacita = 256;
+    char *riga = (char *)malloc(capacita);
+    if (fgets(riga, capacita, file) != NULL) {
+        size_t lunghezza = strlen(riga);
+        while (lunghezza > 0 && riga[lunghezza - 1] != '\n') {
+            capacita *= 2;
+            riga = (char *)realloc(riga, capacita);
+            if (fgets(riga + lunghezza, capacita - lunghezza, file) == NULL) {
+                break;
+            }
+            lunghezza = strlen(riga);
+        }
+        riga[strcspn(riga, "\n")] = 0;
+    } else {
+        free(riga);
+        riga = NULL;
+    }
+    return riga;
+}
+
+void gestioneComandi(FILE *file) {
+    int tempoCamion, capacitaMaxHeap;
+    if(fscanf(file, "%d %d", &tempoCamion, &capienzaCamion)==2);
+    if(capienzaCamion >= 100000) {
+        capacitaMaxHeap = capienzaCamion / 1000;
+    } else {
+        capacitaMaxHeap = capienzaCamion;
+    }
+    max_heap_spedizioni = creaMaxHeap(capacitaMaxHeap);
+    coda_ordini = creaCoda();
+    heap_ordini_fatti = creaMinHeap(INITIAL_HEAP_CAPACITY);
+    char *line;
+    while ((line = letturaRiga(file)) != NULL) {
+        char command[20];
+        if (sscanf(line, "%s", command) == 1) {
+            tempoCorrente++;
+            if(tempoCorrente % tempoCamion == 0 && tempoCorrente != 0) {
+                caricaCamion();
+            }
+            if (strcmp(command, "aggiungi_ricetta") == 0) {
+                char nome_ricetta[25];
+                if (sscanf(line + strlen(command), "%s", nome_ricetta) == 1) {
+                    if (cercaNodoAVL(avl, nome_ricetta) != NULL) {
+                        printf("ignorato\n");
+                    } else {
+                        Ricetta nuova_ricetta;
+                        strcpy(nuova_ricetta.nome, nome_ricetta);
+                        nuova_ricetta.ingredienti = NULL;
+                        IngredienteRicetta *tail = NULL;
+                        char ingrediente[25];
+                        int quantita;
+                        char *ptr = line + strlen(command) + strlen(nome_ricetta) + 1;
+                        while (sscanf(ptr, "%s %d", ingrediente, &quantita) == 2) {
+                            IngredienteRicetta *nuovo_ingrediente = (IngredienteRicetta*)malloc(sizeof(IngredienteRicetta));
+                            strcpy(nuovo_ingrediente->nome, ingrediente);
+                            nuovo_ingrediente->quantita = quantita;
+                            nuovo_ingrediente->next = NULL;
+                            if (tail == NULL) {
+                                nuova_ricetta.ingredienti = nuovo_ingrediente;
+                            } else {
+                                tail->next = nuovo_ingrediente;
+                            }
+                            tail = nuovo_ingrediente;
+                            ptr += strlen(ingrediente) + 1 + snprintf(NULL, 0, "%d", quantita) + 1;
+                        }
+                        aggiungi_ricetta(nuova_ricetta);
+                    }
+                }
+            } else if (strcmp(command, "rimuovi_ricetta") == 0) {
+                char nome_ricetta[25];
+                if (sscanf(line + strlen(command), "%s", nome_ricetta) == 1) {
+                    rimuovi_ricetta(nome_ricetta);
+                }
+            } else if (strcmp(command, "rifornimento") == 0) {
+                rifornimento(line + strlen(command) + 1);
+            } else if (strcmp(command, "ordine") == 0) {
+                char nome_ricetta[25];
+                int quantita;
+                if (sscanf(line + strlen(command), "%s %d", nome_ricetta, &quantita) == 2) {
+                    ordine(nome_ricetta, quantita);
+                }
+            }
+        }
+        free(line);
+    }
+    if((tempoCorrente + 1) % tempoCamion == 0 && tempoCorrente != 0) {
+        caricaCamion();
+    }
+}
+
+void aggiungi_ricetta(Ricetta nuova_ricetta) {
+    avl = inserisciAVL(avl, nuova_ricetta);
+    printf("aggiunta\n");
+}
+
+void rimuovi_ricetta(const char* nome_ricetta) {
+    Ordine* ordine_corrente = coda_ordini->testa;
+    for (int i = 0; i < heap_ordini_fatti->dimensione; i++) {
+        if (strcmp(heap_ordini_fatti->ordini[i].ricetta, nome_ricetta) == 0) {
+            printf("ordini in sospeso\n");
+            return;
+        }
+    }
+    while (ordine_corrente != NULL) {
+        if (strcmp(ordine_corrente->nome_ricetta, nome_ricetta) == 0) {
+            printf("ordini in sospeso\n");
+            return;
+        }
+        ordine_corrente = ordine_corrente->next;
+    }
+    if (cercaNodoAVL(avl, (char*)nome_ricetta) == NULL) {
+        printf("non presente\n");
+    } else {
+        avl = eliminaNodo(avl, (char*)nome_ricetta);
+        printf("rimossa\n");
+    }
+}
+
+void rifornimento(const char* comando) {
+    char nome_ingrediente[25];
+    int quantita, scadenza;
+    const char *ptr = comando;
+    while (sscanf(ptr, "%s %d %d", nome_ingrediente, &quantita, &scadenza) == 3) {
+        inserisciIngredienteHash(hashTable, nome_ingrediente, scadenza, quantita);
+        ptr += strlen(nome_ingrediente) + 1 + snprintf(NULL, 0, "%d", quantita) + 1 + snprintf(NULL, 0, "%d", scadenza) + 1;
+    }
+    printf("rifornito\n");
+    verificaOrdini();
+}
+
+int main(void) {
+    hashTable = creaTabellaHash();
+    FILE *file = stdin;
+    gestioneComandi(file);
+    fclose(file);
+    liberaTabellaHash(hashTable);
+    return 0;
+}
+
+void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
+    NodoAVL* nodo_ricetta = cercaNodoAVL(avl, (char*)nome_ricetta);
+    if (nodo_ricetta == NULL) {
+        printf("rifiutato\n");
+        return;
+    }
+    if (fattibilita(nome_ricetta, numero_elementi_ordinati)) {
+        preparazione(nome_ricetta, numero_elementi_ordinati, tempoCorrente);
+        printf("accettato\n");
+    } else {
+        aggiungiCoda(coda_ordini, (char*)nome_ricetta, numero_elementi_ordinati, tempoCorrente);
+        printf("accettato\n");
+    }
+}
+
+bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
+    NodoAVL* nodo_ricetta = cercaNodoAVL(avl, (char*)nome_ricetta);
+    if (nodo_ricetta == NULL) return false;
+
+    IngredienteRicetta* ing = nodo_ricetta->ricetta.ingredienti;
+    while (ing != NULL) {
+        NodoHash* nodo_ingrediente = cercaIngredienteHash(hashTable, ing->nome);
+        if (nodo_ingrediente == NULL) return false;
+
+        // Rimuovi gli ingredienti scaduti
+        while (nodo_ingrediente->heap.dimensione > 0 && nodo_ingrediente->heap.lotto[0].scadenza <= tempoCorrente) {
+            rimuoviIngrediente(&nodo_ingrediente->heap);
+        }
+
+        // Controlla se la quantità totale disponibile è sufficiente
+        if (nodo_ingrediente->heap.quantita_totale < ing->quantita * numero_elementi_ordinati) {
+            return false;
+        }
+
+        ing = ing->next;
+    }
+    return true;
+}
+
+void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int tempo_arrivo) {
+    NodoAVL* nodo_ricetta = cercaNodoAVL(avl, (char*)nome_ricetta);
+    IngredienteRicetta* ing = nodo_ricetta->ricetta.ingredienti;
+    while (ing != NULL) {
+        NodoHash* nodo_ingrediente = cercaIngredienteHash(hashTable, ing->nome);
+        int quantita_richiesta = ing->quantita * numero_elementi_ordinati;
+        while (quantita_richiesta > 0) {
+            IngredienteMinHeap min_ingrediente = rimuoviIngrediente(&nodo_ingrediente->heap);
+            if (min_ingrediente.quantita <= quantita_richiesta) {
+                quantita_richiesta -= min_ingrediente.quantita;
+            } else {
+                min_ingrediente.quantita -= quantita_richiesta;
+                quantita_richiesta = 0;
+                inserisciIngrediente(&nodo_ingrediente->heap, min_ingrediente.scadenza, min_ingrediente.quantita);
+            }
+        }
+        ing = ing->next;
+    }
+    inserisciOrdineHeap(heap_ordini_fatti, tempo_arrivo, (char*)nome_ricetta, numero_elementi_ordinati);
+}
+
+void verificaOrdini() {
+    Ordine* ordineCorrente = coda_ordini->testa;
+    Ordine* precedente = NULL;
+    while (ordineCorrente != NULL) {
+        if (fattibilita(ordineCorrente->nome_ricetta, ordineCorrente->quantita)) {
+            preparazione(ordineCorrente->nome_ricetta, ordineCorrente->quantita, ordineCorrente->tempo_arrivo);
+            if (precedente == NULL) {
+                coda_ordini->testa = ordineCorrente->next;
+                if (coda_ordini->testa == NULL) {
+                    coda_ordini->coda = NULL;
+                }
+            } else {
+                precedente->next = ordineCorrente->next;
+                if (precedente->next == NULL) {
+                    coda_ordini->coda = precedente;
+                }
+            }
+            Ordine* temp = ordineCorrente;
+            ordineCorrente = ordineCorrente->next;
+            free(temp);
+        } else {
+            precedente = ordineCorrente;
+            ordineCorrente = ordineCorrente->next;
+        }
+    }
+}
+
+void caricaCamion() {
+    if (heapVuotoMinOrdine(heap_ordini_fatti)) {
+        printf("camioncino vuoto\n");
+        return;
+    }
+    int capienzaRestante = capienzaCamion;
+    MinHeap* tempHeap = creaMinHeap(heap_ordini_fatti->capacita);
+    while (!heapVuotoMinOrdine(heap_ordini_fatti)) {
+        OrdineHeap ordine = rimuoviMin(heap_ordini_fatti);
+        NodoAVL* nodo_ricetta = cercaNodoAVL(avl, ordine.ricetta);
+        int peso_ordine = calcolaPeso(nodo_ricetta->ricetta, ordine.quantita);
+        if (peso_ordine <= capienzaRestante) {
+            inserisciSpedizione(max_heap_spedizioni, ordine.ricetta, ordine.tempo_arrivo, ordine.quantita, peso_ordine);
+            capienzaRestante -= peso_ordine;
+        } else {
+            inserisciOrdineHeap(tempHeap, ordine.tempo_arrivo, ordine.ricetta, ordine.quantita);
+            break;
+        }
+    }
+    while (!heapVuotoMinOrdine(heap_ordini_fatti)) {
+        OrdineHeap ordine = rimuoviMin(heap_ordini_fatti);
+        inserisciOrdineHeap(tempHeap, ordine.tempo_arrivo, ordine.ricetta, ordine.quantita);
+    }
+    while (!heapVuotoMinOrdine(tempHeap)) {
+        OrdineHeap ordine = rimuoviMin(tempHeap);
+        inserisciOrdineHeap(heap_ordini_fatti, ordine.tempo_arrivo, ordine.ricetta, ordine.quantita);
+    }
+    liberaMinHeapOrdini(tempHeap);
+    if (!heapVuotoMax(max_heap_spedizioni)) {
+        while (!heapVuotoMax(max_heap_spedizioni)) {
+            Spedizione spedizione = rimuoviMax(max_heap_spedizioni);
+            printf("%d %s %d\n", spedizione.istante_arrivo, spedizione.nome, spedizione.quantita);
+        }
+    }
+}
+
+int calcolaPeso(Ricetta ricetta, int numero_elementi_ordinati) {
+    int peso = 0;
+    IngredienteRicetta* ingrediente = ricetta.ingredienti;
+    while (ingrediente != NULL) {
+        peso += ingrediente->quantita;
+        ingrediente = ingrediente->next;
+    }
+    peso *= numero_elementi_ordinati;
+    return peso;
+}
+
+void scambia(IngredienteMinHeap* a, IngredienteMinHeap* b) {
+    IngredienteMinHeap temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void heapifyIngredienti(MinHeapIngrediente* heap, int i) {
+    while (true) {
+        int piuPiccolo = i;
+        int sinistra = 2 * i + 1;
+        int destra = 2 * i + 2;
+        if (sinistra < heap->dimensione && heap->lotto[sinistra].scadenza < heap->lotto[piuPiccolo].scadenza) {
+            piuPiccolo = sinistra;
+        }
+        if (destra < heap->dimensione && heap->lotto[destra].scadenza < heap->lotto[piuPiccolo].scadenza) {
+            piuPiccolo = destra;
+        }
+        if (piuPiccolo != i) {
+            scambia(&heap->lotto[i], &heap->lotto[piuPiccolo]);
+            i = piuPiccolo;
+        } else {
+            break;
+        }
+    }
+}
+
+void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita) {
+    if (heap->dimensione == heap->capacita) {
+        heap->capacita *= 2;
+        heap->lotto = (IngredienteMinHeap*) realloc(heap->lotto, heap->capacita * sizeof(IngredienteMinHeap));
+    }
+    int i = heap->dimensione++;
+    heap->lotto[i].scadenza = scadenza;
+    heap->lotto[i].quantita = quantita;
+    while (i != 0 && heap->lotto[(i - 1) / 2].scadenza > heap->lotto[i].scadenza) {
+        scambia(&heap->lotto[i], &heap->lotto[(i - 1) / 2]);
+        i = (i - 1) / 2;
+    }
+    heap->quantita_totale += quantita; // Aggiorna la quantità totale
+}
+
+IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
+    if (heap->dimensione == 0) {
+        IngredienteMinHeap ingredienteVuoto = { INT_MAX, 0 };
+        return ingredienteVuoto;
+    }
+    IngredienteMinHeap radice = heap->lotto[0];
+    heap->lotto[0] = heap->lotto[--heap->dimensione];
+    heap->quantita_totale -= radice.quantita; // Aggiorna la quantità totale
+    heapifyIngredienti(heap, 0);
+    return radice;
+}
+
+MinHeapIngrediente nuovoHeapIngredienti(int capacita) {
+    MinHeapIngrediente heap;
+    heap.lotto = (IngredienteMinHeap*) malloc(capacita * sizeof(IngredienteMinHeap));
+    heap.dimensione = 0;
+    heap.capacita = capacita;
+    heap.quantita_totale = 0;
+    return heap;
+}
+
+void liberaLotto(MinHeapIngrediente* heap) {
+    if (heap != NULL && heap->lotto != NULL) {
+        free(heap->lotto);
+        heap->lotto = NULL;
+        heap->dimensione = 0;
+        heap->capacita = 0;
+        heap->quantita_totale = 0;
+    }
+}
+
+unsigned int hash(const char* str) {
+    unsigned int hash = 0;
+    while (*str) {
+        hash = (hash << 5) + *str++;
+    }
+    return hash % TABLE_SIZE;
+}
+
+HashTable* creaTabellaHash() {
+    HashTable* table = (HashTable*)malloc(sizeof(HashTable));
+    table->buckets = (NodoHash**)calloc(TABLE_SIZE, sizeof(NodoHash*));
+    table->size = TABLE_SIZE;
+    table->count = 0;
+    return table;
+}
+
+void liberaTabellaHash(HashTable* table) {
+    for (int i = 0; i < table->size; i++) {
+        NodoHash* nodo = table->buckets[i];
+        while (nodo) {
+            NodoHash* temp = nodo;
+            nodo = nodo->next;
+            liberaLotto(&temp->heap);
+            free(temp);
+        }
+    }
+    free(table->buckets);
+    free(table);
+}
+
+NodoHash* creaNodoHash(const char* nome, int capacita) {
+    NodoHash* nodo = (NodoHash*)malloc(sizeof(NodoHash));
+    strcpy(nodo->nome, nome);
+    nodo->heap = nuovoHeapIngredienti(capacita);
+    nodo->next = NULL;
+    return nodo;
+}
+
+void inserisciIngredienteHash(HashTable* table, const char* nome, int scadenza, int quantita) {
+    unsigned int bucket = hash(nome);
+    NodoHash* nodo = table->buckets[bucket];
+    while (nodo) {
+        if (strcmp(nodo->nome, nome) == 0) {
+            inserisciIngrediente(&nodo->heap, scadenza, quantita);
+            return;
+        }
+        nodo = nodo->next;
+    }
+    NodoHash* nuovoNodo = creaNodoHash(nome, INITIAL_HEAP_CAPACITY);
+    inserisciIngrediente(&nuovoNodo->heap, scadenza, quantita);
+    nuovoNodo->next = table->buckets[bucket];
+    table->buckets[bucket] = nuovoNodo;
+    table->count++;
+}
+
+NodoHash* cercaIngredienteHash(HashTable* table, const char* nome) {
+    unsigned int bucket = hash(nome);
+    NodoHash* nodo = table->buckets[bucket];
+    while (nodo) {
+        if (strcmp(nodo->nome, nome) == 0) {
+            return nodo;
+        }
+        nodo = nodo->next;
+    }
+    return NULL;
+}
+
+void rimuoviIngredienteHash(HashTable* table, const char* nome) {
+    unsigned int bucket = hash(nome);
+    NodoHash* nodo = table->buckets[bucket];
+    NodoHash* prev = NULL;
+    while (nodo) {
+        if (strcmp(nodo->nome, nome) == 0) {
+            if (prev) {
+                prev->next = nodo->next;
+            } else {
+                table->buckets[bucket] = nodo->next;
+            }
+            liberaLotto(&nodo->heap);
+            free(nodo);
+            table->count--;
+            return;
+        }
+        prev = nodo;
+        nodo = nodo->next;
+    }
+}
+
+void liberaAVL(NodoAVL* root) {
+    if(root!=NULL) {
+        liberaAVL(root->sinistro);
+        liberaAVL(root->destro);
+        liberaListaIng(root->ricetta.ingredienti);
+        free(root);
+    }
+}
+
+void liberaListaIng(IngredienteRicetta* ingrediente) {
+    IngredienteRicetta* temp;
+    while(ingrediente!=NULL) {
+        temp=ingrediente;
+        ingrediente=ingrediente->next;
+        free(temp);
+    }
+}
+
+int altezza(NodoAVL* nodo) {
+    if (nodo == NULL)
+        return 0;
+    return nodo->altezza;
+}
+
+NodoAVL* nuovoNodoAVL(Ricetta ricetta) {
+    NodoAVL* nodo = (NodoAVL*)malloc(sizeof(NodoAVL));
+    nodo->ricetta = ricetta;
+    nodo->sinistro = nodo->destro = NULL;
+    nodo->altezza = 1;  // Nuovo nodo inserito come foglia
+    return nodo;
+}
+
+NodoAVL* ruotaDestra(NodoAVL* y) {
+    NodoAVL* x = y->sinistro;
+    NodoAVL* T2 = x->destro;
+
+    x->destro = y;
+    y->sinistro = T2;
+
+    y->altezza = max(altezza(y->sinistro), altezza(y->destro)) + 1;
+    x->altezza = max(altezza(x->sinistro), altezza(x->destro)) + 1;
+
+    return x;
+}
+
+NodoAVL* ruotaSinistra(NodoAVL* x) {
+    NodoAVL* y = x->destro;
+    NodoAVL* T2 = y->sinistro;
+
+    y->sinistro = x;
+    x->destro = T2;
+
+    x->altezza = max(altezza(x->sinistro), altezza(x->destro)) + 1;
+    y->altezza = max(altezza(y->sinistro), altezza(y->destro)) + 1;
+
+    return y;
+}
+
+int getBilanciamento(NodoAVL* nodo) {
+    if (nodo == NULL)
+        return 0;
+    return altezza(nodo->sinistro) - altezza(nodo->destro);
+}
+
+NodoAVL* inserisciAVL(NodoAVL* nodo, Ricetta ricetta) {
+    if (nodo == NULL)
+        return nuovoNodoAVL(ricetta);
+
+    if (strcmp(ricetta.nome, nodo->ricetta.nome) < 0)
+        nodo->sinistro = inserisciAVL(nodo->sinistro, ricetta);
+    else if (strcmp(ricetta.nome, nodo->ricetta.nome) > 0)
+        nodo->destro = inserisciAVL(nodo->destro, ricetta);
+    else
+        return nodo;
+
+    nodo->altezza = 1 + max(altezza(nodo->sinistro), altezza(nodo->destro));
+
+    int bilanciamento = getBilanciamento(nodo);
+
+    if (bilanciamento > 1 && strcmp(ricetta.nome, nodo->sinistro->ricetta.nome) < 0)
+        return ruotaDestra(nodo);
+
+    if (bilanciamento < -1 && strcmp(ricetta.nome, nodo->destro->ricetta.nome) > 0)
+        return ruotaSinistra(nodo);
+
+    if (bilanciamento > 1 && strcmp(ricetta.nome, nodo->sinistro->ricetta.nome) > 0) {
+        nodo->sinistro = ruotaSinistra(nodo->sinistro);
+        return ruotaDestra(nodo);
+    }
+
+    if (bilanciamento < -1 && strcmp(ricetta.nome, nodo->destro->ricetta.nome) < 0) {
+        nodo->destro = ruotaDestra(nodo->destro);
+        return ruotaSinistra(nodo);
+    }
+
+    return nodo;
+}
+
+NodoAVL* minValueNodo(NodoAVL* nodo) {
+    NodoAVL* corrente = nodo;
+    while (corrente->sinistro != NULL)
+        corrente = corrente->sinistro;
+    return corrente;
+}
+
+NodoAVL* eliminaNodo(NodoAVL* root, char* nome) {
+    if (root == NULL)
+        return root;
+
+    if (strcmp(nome, root->ricetta.nome) < 0)
+        root->sinistro = eliminaNodo(root->sinistro, nome);
+    else if (strcmp(nome, root->ricetta.nome) > 0)
+        root->destro = eliminaNodo(root->destro, nome);
+    else {
+        if ((root->sinistro == NULL) || (root->destro == NULL)) {
+            NodoAVL* temp = root->sinistro ? root->sinistro : root->destro;
+
+            if (temp == NULL) {
+                temp = root;
+                root = NULL;
+            } else
+                *root = *temp;
+            free(temp);
+        } else {
+            NodoAVL* temp = minValueNodo(root->destro);
+            root->ricetta = temp->ricetta;
+            root->destro = eliminaNodo(root->destro, temp->ricetta.nome);
+        }
+    }
+
+    if (root == NULL)
+        return root;
+
+    root->altezza = 1 + max(altezza(root->sinistro), altezza(root->destro));
+
+    int bilanciamento = getBilanciamento(root);
+
+    if (bilanciamento > 1 && getBilanciamento(root->sinistro) >= 0)
+        return ruotaDestra(root);
+
+    if (bilanciamento > 1 && getBilanciamento(root->sinistro) < 0) {
+        root->sinistro = ruotaSinistra(root->sinistro);
+        return ruotaDestra(root);
+    }
+
+    if (bilanciamento < -1 && getBilanciamento(root->destro) <= 0)
+        return ruotaSinistra(root);
+
+    if (bilanciamento < -1 && getBilanciamento(root->destro) > 0) {
+        root->destro = ruotaDestra(root->destro);
+        return ruotaSinistra(root);
+    }
+
+    return root;
+}
+
+NodoAVL* cercaNodoAVL(NodoAVL* nodo, char* nome) {
+    if (nodo == NULL || strcmp(nodo->ricetta.nome, nome) == 0)
+        return nodo;
+    if (strcmp(nome, nodo->ricetta.nome) < 0)
+        return cercaNodoAVL(nodo->sinistro, nome);
+    return cercaNodoAVL(nodo->destro, nome);
+}
+
+void liberaCoda(CodaOrdini* coda) {
+    Ordine* temp;
+    while(coda->testa!=NULL) {
+        temp=coda->testa;
+        coda->testa=coda->testa->next;
+        free(temp);
+    }
+    free(coda);
+}
+
+void aggiungiCoda(CodaOrdini* coda, const char* nome_ricetta, int quantita, int tempo_arrivo) {
+    Ordine* nuovoOrdine = (Ordine*)malloc(sizeof(Ordine));
+    nuovoOrdine->tempo_arrivo = tempo_arrivo;
+    strcpy(nuovoOrdine->nome_ricetta, nome_ricetta);
+    nuovoOrdine->quantita = quantita;
+    nuovoOrdine->next = NULL;
+    if (coda->coda == NULL) {
+        coda->testa = nuovoOrdine;
+        coda->coda = nuovoOrdine;
+    } else {
+        coda->coda->next = nuovoOrdine;
+        coda->coda = nuovoOrdine;
+    }
+}
+
+int codaVuota(CodaOrdini* coda) {
+    return coda->testa==NULL;
+}
+
+CodaOrdini* creaCoda() {
+    CodaOrdini* coda=(CodaOrdini*)malloc(sizeof(CodaOrdini));
+    coda->testa=NULL;
+    coda->coda=NULL;
+    return coda;
+}
+
+Ordine* rimuoviCoda(CodaOrdini* coda) {
+    if (coda->testa == NULL) {
+        return NULL;
+    }
+    Ordine* ordineRimosso = coda->testa;
+    coda->testa = coda->testa->next;
+    if (coda->testa == NULL) {
+        coda->coda = NULL;
+    }
+    free(ordineRimosso);
+    return coda->testa;
+}
+
+void liberaMinHeapOrdini(MinHeap* heap) {
+    free(heap->ordini);
+    free(heap);
+}
+
+void scambiaOrdini(OrdineHeap* a, OrdineHeap* b) {
+    OrdineHeap temp= *a;
+    *a=*b;
+    *b=temp;
+}
+
+void heapifyOrdini(MinHeap* heap, int i) {
+    while (true) {
+        int minIndex = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+        if (left < heap->dimensione && heap->ordini[left].tempo_arrivo < heap->ordini[minIndex].tempo_arrivo) {
+            minIndex = left;
+        }
+        if (right < heap->dimensione && heap->ordini[right].tempo_arrivo < heap->ordini[minIndex].tempo_arrivo) {
+            minIndex = right;
+        }
+        if (minIndex != i) {
+            scambiaOrdini(&heap->ordini[i], &heap->ordini[minIndex]);
+            i = minIndex;
+        } else {
+            break;
+        }
+    }
+}
+
+void inserisciOrdineHeap(MinHeap* heap, int tempo_arrivo, char* ricetta, int quantita) {
+    if(heap->dimensione==heap->capacita) {
+        heap->capacita*=2;
+        heap->ordini=(OrdineHeap*)realloc(heap->ordini, heap->capacita*sizeof(OrdineHeap));
+    }
+    int i=heap->dimensione++;
+    heap->ordini[i].tempo_arrivo=tempo_arrivo;
+    strcpy(heap->ordini[i].ricetta, ricetta);
+    heap->ordini[i].quantita=quantita;
+    while(i!=0 && heap->ordini[(i-1)/2].tempo_arrivo > heap->ordini[i].tempo_arrivo) {
+        scambiaOrdini(&heap->ordini[i], &heap->ordini[(i-1)/2]);
+        i=(i-1)/2;
+    }
+}
+
+int heapVuotoMinOrdine(MinHeap* heap) {
+    return heap->dimensione==0;
+}
+
+MinHeap* creaMinHeap(int capacita) {
+    MinHeap* heap = (MinHeap*)malloc(sizeof(MinHeap));
+    heap->ordini = (OrdineHeap*)malloc(capacita * sizeof(OrdineHeap));
+    heap->dimensione = 0;
+    heap->capacita = capacita;
+    return heap;
+}
+
+OrdineHeap rimuoviMin(MinHeap* heap) {
+    if (heap->dimensione == 0) {
+        OrdineHeap ordineVuoto;
+        strcpy(ordineVuoto.ricetta, "");
+        ordineVuoto.quantita = 0;
+        ordineVuoto.tempo_arrivo = 0;
+        return ordineVuoto;
+    }
+    OrdineHeap min = heap->ordini[0];
+    heap->ordini[0] = heap->ordini[heap->dimensione - 1];
+    heap->dimensione--;
+    heapifyOrdini(heap, 0);
+    return min;
+}
+
+void heapifySpedizioni(MaxHeapSpedizioni* heap, int i) {
+    int maggiore = i;
+    int sinistro = 2 * i + 1;
+    int destro = 2 * i + 2;
+    if (sinistro < heap->dimensione && heap->spedizioni[sinistro].peso > heap->spedizioni[maggiore].peso)
+        maggiore = sinistro;
+    else if (sinistro < heap->dimensione && heap->spedizioni[sinistro].peso == heap->spedizioni[maggiore].peso &&
+             heap->spedizioni[sinistro].istante_arrivo < heap->spedizioni[maggiore].istante_arrivo)
+        maggiore = sinistro;
+    if (destro < heap->dimensione && heap->spedizioni[destro].peso > heap->spedizioni[maggiore].peso)
+        maggiore = destro;
+    else if (destro < heap->dimensione && heap->spedizioni[destro].peso == heap->spedizioni[maggiore].peso &&
+             heap->spedizioni[destro].istante_arrivo < heap->spedizioni[maggiore].istante_arrivo)
+        maggiore = destro;
+    if (maggiore != i) {
+        Spedizione temp = heap->spedizioni[i];
+        heap->spedizioni[i] = heap->spedizioni[maggiore];
+        heap->spedizioni[maggiore] = temp;
+        heapifySpedizioni(heap, maggiore);
+    }
+}
+
+void inserisciSpedizione(MaxHeapSpedizioni* heap, char* nome, int istante_arrivo, int quantita, int peso) {
+    if (heap->dimensione == heap->capacita) {
+        heap->capacita *= 2;
+        heap->spedizioni = (Spedizione*) realloc(heap->spedizioni, heap->capacita * sizeof(Spedizione));
+    }
+    int i = heap->dimensione++;
+    strcpy(heap->spedizioni[i].nome, nome);
+    heap->spedizioni[i].istante_arrivo = istante_arrivo;
+    heap->spedizioni[i].quantita = quantita;
+    heap->spedizioni[i].peso = peso;
+    while (i != 0) {
+        int parent = (i - 1) / 2;
+        if (heap->spedizioni[parent].peso < heap->spedizioni[i].peso) {
+            Spedizione temp = heap->spedizioni[i];
+            heap->spedizioni[i] = heap->spedizioni[parent];
+            heap->spedizioni[parent] = temp;
+            i = parent;
+        } else if (heap->spedizioni[parent].peso == heap->spedizioni[i].peso &&
+                   heap->spedizioni[parent].istante_arrivo > heap->spedizioni[i].istante_arrivo) {
+            Spedizione temp = heap->spedizioni[i];
+            heap->spedizioni[i] = heap->spedizioni[parent];
+            heap->spedizioni[parent] = temp;
+            i = parent;
+        } else {
+            break;
+        }
+    }
+}
+
+void liberaMaxHeap(MaxHeapSpedizioni* heap) {
+    free(heap->spedizioni);
+    free(heap);
+}
+
+MaxHeapSpedizioni* creaMaxHeap(int capacita) {
+    MaxHeapSpedizioni* heap = (MaxHeapSpedizioni*)malloc(sizeof(MaxHeapSpedizioni));
+    heap->spedizioni = (Spedizione*) malloc(capacita * sizeof(Spedizione));
+    heap->dimensione = 0;
+    heap->capacita = capacita;
+    return heap;
+}
+
+Spedizione rimuoviMax(MaxHeapSpedizioni* heap) {
+    if (heap->dimensione<=0) {
+        Spedizione nullSpedizione = {"", 0, 0, 0};
+        return nullSpedizione;
+    }
+    Spedizione root=heap->spedizioni[0];
+    if (heap->dimensione==1) {
+        heap->dimensione--;
+        return root;
+    }
+    heap->spedizioni[0]=heap->spedizioni[--heap->dimensione];
+    heapifySpedizioni(heap, 0);
+    return root;
+}
+
+int heapVuotoMax(MaxHeapSpedizioni* heap) {
+    return heap->dimensione == 0;
+}
