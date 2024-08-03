@@ -21,6 +21,7 @@
 #include "header.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
     NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
@@ -39,23 +40,18 @@ void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
 
 bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
     NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
+    if (nodo_ricetta == NULL) return false;
     IngredienteRicetta* ing = nodo_ricetta->ricetta.ingredienti;
     while (ing != NULL) {
-        NodoAVL* nodo_ingrediente = cercaAVL(avl, ing->nome);
-        if (nodo_ingrediente == NULL) {
-            return false;
-        }
-
-        // Controlla la scadenza solo per l'ingrediente richiesto
-        controllaScadenza(nodo_ingrediente);
-
-        MinHeapIngrediente* heap = &nodo_ingrediente->heap;
+        NodoTreap* nodo_ingrediente = cercaTreap(trap, ing->nome);
         int quantita_totale = 0;
-        for (int i = 0; i < nodo_ingrediente->heap.dimensione; i++) {
-            quantita_totale += heap->lotto[i].quantita;
+        while (nodo_ingrediente != NULL) {
+            if (nodo_ingrediente->scadenza > tempoCorrente) {
+                quantita_totale += nodo_ingrediente->quantita;
+            }
+            nodo_ingrediente = (strcmp(ing->nome, nodo_ingrediente->nome) < 0) ? nodo_ingrediente->sinistro : nodo_ingrediente->destro;
         }
-        int peso_totale_richiesto = ing->quantita * numero_elementi_ordinati;
-        if (quantita_totale < peso_totale_richiesto) {
+        if (quantita_totale < ing->quantita * numero_elementi_ordinati) {
             return false;
         }
         ing = ing->next;
@@ -67,19 +63,23 @@ void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int te
     NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
     IngredienteRicetta* ing = nodo_ricetta->ricetta.ingredienti;
     while (ing != NULL) {
-        NodoAVL* nodo_ingrediente = cercaAVL(avl, ing->nome);
         int quantita_richiesta = ing->quantita * numero_elementi_ordinati;
         while (quantita_richiesta > 0) {
-            if (nodo_ingrediente->heap.dimensione == 0) {
-                return;
+            NodoTreap* nodo_ingrediente = cercaTreap(trap, ing->nome);
+            if (nodo_ingrediente == NULL || nodo_ingrediente->quantita == 0) {
+                return; // Non ci sono abbastanza ingredienti
             }
-            IngredienteMinHeap min_ingrediente = rimuoviIngrediente(&nodo_ingrediente->heap);
-            if (min_ingrediente.quantita <= quantita_richiesta) {
-                quantita_richiesta -= min_ingrediente.quantita;
+            if (nodo_ingrediente->scadenza <= tempoCorrente) {
+                trap = eliminaTreap(trap, nodo_ingrediente->nome);
+                nodo_ingrediente = cercaTreap(trap, ing->nome);
+                continue;
+            }
+            if (nodo_ingrediente->quantita <= quantita_richiesta) {
+                quantita_richiesta -= nodo_ingrediente->quantita;
+                trap = eliminaTreap(trap, nodo_ingrediente->nome);
             } else {
-                min_ingrediente.quantita -= quantita_richiesta;
+                nodo_ingrediente->quantita -= quantita_richiesta;
                 quantita_richiesta = 0;
-                inserisciIngrediente(&nodo_ingrediente->heap, min_ingrediente.scadenza, min_ingrediente.quantita);
             }
         }
         ing = ing->next;
@@ -161,6 +161,7 @@ int calcolaPeso(Ricetta ricetta, int numero_elementi_ordinati) {
     return peso;
 }
 
+/**
 void controllaScadenza(NodoAVL* nodo_ingrediente) {
     if (nodo_ingrediente == NULL) {
         return;
@@ -176,3 +177,4 @@ void controllaScadenza(NodoAVL* nodo_ingrediente) {
         }
     }
 }
+**/

@@ -1,3 +1,24 @@
+/* Comandi run con debug
+*  wsl
+*  cd /mnt/c/Users/39392/CLionProjects/API/cmake-build-debug
+*  gcc -g -o API main.c header.c   (Opzionale)
+*  gdb ./API
+*  run
+*/
+
+/* 02/08/2024 -> 30,593s e 14,6MiB, comandi Valgrind
+*  wsl
+*  cd /mnt/c/Users/39392/CLionProjects/def1/cmake-build-debug
+*  rm -rf *
+*  cmake ..
+*  make
+*  valgrind --tool=callgrind ./def1
+*  callgrind_annotate callgrind.out.*
+*  kcachegrind callgrind.out.*
+*
+*  Ricordati di mettere da 25 a 256
+*/
+
 /*  4 Azioni da svolgere   aggiungi_ricetta: devo controllare nel BST se è già presente
 *                          rimuovi_ricetta:  devo controllare sia se è presente nel BST sia nelle 3 strutture di ordini
 *                          rifornimento:     non devo fare controlli anteriori, ma devo controllare dopo se posso fare ordini sulla coda
@@ -19,7 +40,7 @@
 
 // Dichiarazione globale delle strutture dati
 NodoBST* bst = NULL;
-NodoAVL* avl = NULL;
+NodoTreap* trap = NULL;
 CodaOrdini* coda_ordini = NULL;
 MinHeap* heap_ordini_fatti = NULL;
 MaxHeapSpedizioni* max_heap_spedizioni = NULL;
@@ -119,8 +140,10 @@ void gestioneComandi(FILE *file) {
         }
         free(line);
     }
-    if((tempoCorrente + 1) % tempoCamion == 0 && tempoCorrente != 0)                                  //Le righe finiscono a n*(tempoCamion-1) ma io devo "leggere" comunque la prossima perché
+    if((tempoCorrente + 1) % tempoCamion == 0 && tempoCorrente != 0) {
+        //Le righe finiscono a n*(tempoCamion-1) ma io devo "leggere" comunque la prossima perché
         caricaCamion();                                                                               //il caricaCamion va fatto prima delle 4 azioni canoniche
+    }
 }
 
 void rimuovi_ricetta(const char* nome_ricetta) {                                          //Posso provare a cambiare ordine ai cicli per vedere se guadagno tempo
@@ -151,23 +174,24 @@ void rifornimento(const char* comando) {
     int quantita, scadenza;
     const char *ptr = comando;
     while (sscanf(ptr, "%s %d %d", nome_ingrediente, &quantita, &scadenza) == 3) {
-        NodoAVL* nodo = cercaAVL(avl, nome_ingrediente);
+        NodoTreap* nodo = cercaTreap(trap, nome_ingrediente);
         if (nodo != NULL) {
-            inserisciIngrediente(&nodo->heap, scadenza, quantita);
+            nodo->scadenza = scadenza;
+            nodo->quantita = quantita;
         } else {
-            avl = inserisciAVL(avl, nome_ingrediente, scadenza, quantita, 10);
+            trap = inserisciTreap(trap, nome_ingrediente, scadenza, quantita);
         }
         ptr += strlen(nome_ingrediente) + 1 + snprintf(NULL, 0, "%d", quantita) + 1 + snprintf(NULL, 0, "%d", scadenza) + 1;
     }
     printf("rifornito\n");
-    verificaOrdini();                                                               //Ad ogni rifornimento verifico se posso liberare la coda di ordini da fare
+    verificaOrdini();  // Verifica gli ordini in sospeso dopo il rifornimento
 }
 
 // FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open11.txt", "r"); //stdin
 // FILE *file = fopen("/mnt/c/Users/39392/CLionProjects/def1/input.txt", "r");
 // Main - Gestione del giorno
 int main(void) {
-    FILE *file = fopen("C:/Users/39392/CLionProjects/API/tests/open11.txt", "r"); //stdin
+    FILE *file = fopen("/mnt/c/Users/39392/CLionProjects/API/tests/example.txt", "r");
     gestioneComandi(file);
     fclose(file);
     return 0;

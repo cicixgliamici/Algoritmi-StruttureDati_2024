@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <string.h>
 
+/**
 // Funzione per verificare la correttezza del MinHeap
 bool verificaMinHeap(MinHeapIngrediente* heap) {
     for (int i = 0; i <= (heap->dimensione - 2) / 2; i++) {
@@ -221,6 +222,7 @@ void testMinHeapIngrediente() {
     testMinHeapOverflow();
     testMinHeapInit();
 }
+**/
 
 void testCodaOrdini() {
     CodaOrdini* coda = creaCoda();
@@ -235,6 +237,7 @@ void testCodaOrdini() {
     liberaCoda(coda);
 }
 
+/**
 void verificaInserimento(NodoAVL* nodo, const char* nome) {
     NodoAVL* risultato = cercaAVL(nodo, nome);
     if (risultato != NULL) {
@@ -243,8 +246,10 @@ void verificaInserimento(NodoAVL* nodo, const char* nome) {
         printf("Verifica fallita: Ingrediente '%s' non è stato trovato.\n", nome);
     }
 }
+**/
 
 //Funzioni di stampa
+/**
 void stampaHeapIngredienti1(MinHeapIngrediente* heap) {
     for (int i = 0; i < heap->dimensione; i++) {
         printf("  Ingrediente scadenza: %d, Quantita: %d\n", heap->lotto[i].scadenza, heap->lotto[i].quantita);
@@ -287,6 +292,25 @@ void stampaAVL2(NodoAVL* nodo, int* count) {
     }
     stampaAVL2(nodo->destro, count);
 }
+**/
+
+void stampaTreap(NodoTreap* root, int livello) {
+    if (root == NULL) {
+        return;
+    }
+    stampaTreap(root->destro, livello + 1);
+    for (int i = 0; i < livello; i++) {
+        printf("\t");
+    }
+    printf("Nome: %s, Scadenza: %d, Quantita: %d, Priorita: %d\n", root->nome, root->scadenza, root->quantita, root->priorita);
+    stampaTreap(root->sinistro, livello + 1);
+}
+
+// Funzione di supporto per stampare il Treap senza dover specificare il livello iniziale
+void stampaTreapWrapper(NodoTreap* root) {
+    stampaTreap(root, 0);
+}
+
 
 void stampaBST1(NodoBST* nodo) {
     if (nodo == NULL) {
@@ -358,11 +382,19 @@ void print_string_info(const char* str) {
 void stampaTutto() {
     printf("\nStato corrente delle strutture dati:\n");
     int count = 0;
+/**
     if (avl != NULL) {
         stampaAVL2(avl, &count);
         printf("Numero di ingredienti AVL: %d\n", count);
     } else {
         printf("AVL e vuoto.\n");
+    }
+**/
+    if(trap!=NULL) {
+        stampaTreapWrapper(trap);
+    }
+    else {
+        printf("Treap e vuoto.\n");
     }
     count = 0;
     if (bst != NULL) {
