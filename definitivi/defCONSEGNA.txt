@@ -1,10 +1,16 @@
 /* 5 Strutture dati    Ingredienti:      Heap di min-Heap  -> Ingredienti ordinati per scadenza nel min-Heap, lessicograficamente per lotti
 *                      Ricette:          Heap di liste     -> Ordinamento lessicografico
-*                      Ordini da Fare:   Coda FIFO        -> Mantiene l'ordine di arrivo degli ordini
-*                      Ordini fatti:     min-Heap         -> Istante di arrivo dell'ordine
-*                      Camioncino:       max-Heap         -> Peso totale dell'ordine (a parità di peso, istante di arrivo)
+*                      Ordini da Fare:   Coda FIFO         -> Mantiene l'ordine di arrivo degli ordini
+*                      Ordini fatti:     min-Heap          -> Istante di arrivo dell'ordine
+*                      Camioncino:       max-Heap          -> Peso totale dell'ordine (a parità di peso, istante di arrivo)
 */
-/* Varie ed Eventuali 1) La funzione di Hash è in comune per le due tabelle ma la gestione è separata onde evitare che io possa fare casini
+
+/* Come funziona      Tabella di Hash:
+*                     Min/MaxHeap: 
+*                     Coda:
+*/
+
+/* Varie ed Eventuali 1) La funzione di Hash è in comune per le due tabelle ma la gestione è separata onde evitare che io possa fare casini perché già ne sono successi abbastanza
 */
 #include <stdio.h>
 #include <stdlib.h>
