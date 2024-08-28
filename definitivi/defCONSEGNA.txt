@@ -1,3 +1,9 @@
+/* 5 Strutture dati   Ingredienti:      Heap di min-Heap  -> Ingredienti ordinati per scadenza nel min-Heap, lessicograficamente per lotti
+*                     Ricette:          Heap di liste     -> Ordinamento lessicografico
+*                     Ordini da Fare:   Coda FIFO        -> Mantiene l'ordine di arrivo degli ordini
+*                     Ordini fatti:     min-Heap         -> Istante di arrivo dell'ordine
+*                     Camioncino:       max-Heap         -> Peso totale dell'ordine (a parità di peso, istante di arrivo)
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -108,13 +114,6 @@ typedef struct {
     int capacita;
 } MaxHeapSpedizioni;
 
-void heapifySpedizioni(MaxHeapSpedizioni* heap, int i);
-void inserisciSpedizione(MaxHeapSpedizioni* heap, char* nome, int istante_arrivo, int quantita, int peso);
-void liberaMaxHeap(MaxHeapSpedizioni* heap);
-MaxHeapSpedizioni* creaMaxHeap(int capacita);
-Spedizione rimuoviMax(MaxHeapSpedizioni* heap);
-int heapVuotoMax(MaxHeapSpedizioni* heap);
-
 void scambia(IngredienteMinHeap* a, IngredienteMinHeap* b);
 void heapifyIngredienti(MinHeapIngrediente* heap, int i);
 void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita);
@@ -150,6 +149,13 @@ int heapVuotoMinOrdine(MinHeap* heap);
 MinHeap* creaMinHeap(int capacita);
 OrdineHeap rimuoviMin(MinHeap* heap);
 
+void heapifySpedizioni(MaxHeapSpedizioni* heap, int i);
+void inserisciSpedizione(MaxHeapSpedizioni* heap, char* nome, int istante_arrivo, int quantita, int peso);
+void liberaMaxHeap(MaxHeapSpedizioni* heap);
+MaxHeapSpedizioni* creaMaxHeap(int capacita);
+Spedizione rimuoviMax(MaxHeapSpedizioni* heap);
+int heapVuotoMax(MaxHeapSpedizioni* heap);
+
 void liberaListaIng(IngredienteRicetta* ingrediente);
 
 char* letturaRiga(FILE* file);
@@ -164,7 +170,6 @@ void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int te
 void verificaOrdini();
 void caricaCamion();
 int calcolaPeso(Ricetta ricetta, int numero_elementi_ordinati);
-
 int tempoCorrente = -1;
 int capienzaCamion;
 HashTableIngredienti* hashTableIngredienti = NULL;
@@ -179,11 +184,6 @@ int main(void) {
     FILE *file = stdin;
     gestioneComandi(file);
     fclose(file);
-    liberaTabellaHashIngredienti(hashTableIngredienti);
-    liberaTabellaHashRicette(hashTableRicette);
-    liberaCoda(coda_ordini);
-    liberaMinHeapOrdini(heap_ordini_fatti);
-    liberaMaxHeap(max_heap_spedizioni);
     return 0;
 }
 
