@@ -295,7 +295,7 @@ void gestioneComandi(FILE *file) {
         }
         free(line);
     }
-    if ((tempoCorrente + 1) % tempoCamion == 0 && tempoCorrente != 0) {
+    if ((tempoCorrente+1) % tempoCamion==0 && tempoCorrente !=0) {
         caricaCamion();
     }
 }
@@ -363,23 +363,20 @@ void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
 // Gestione ordini e caricamento camioncino
 bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
     NodoHashRicetta* nodo_ricetta = cercaRicettaHash(hashTableRicette, nome_ricetta);
-    if (nodo_ricetta == NULL) return false;
-
+    if (nodo_ricetta==NULL) 
+        return false;
     IngredienteRicetta* ing = nodo_ricetta->ricetta.ingredienti;
     while (ing != NULL) {
         NodoHashIngrediente* nodo_ingrediente = cercaIngredienteHash(hashTableIngredienti, ing->nome);
         if (nodo_ingrediente == NULL) return false;
-
         if (nodo_ingrediente->heap.lotto[0].scadenza <= tempoCorrente) {
             while (nodo_ingrediente->heap.dimensione > 0 && nodo_ingrediente->heap.lotto[0].scadenza <= tempoCorrente) {
                 rimuoviIngrediente(&nodo_ingrediente->heap);
             }
         }
-
         if (nodo_ingrediente->heap.quantita_totale < ing->quantita * numero_elementi_ordinati) {
             return false;
         }
-
         ing = ing->next;
     }
     return true;
@@ -503,12 +500,10 @@ void heapifyIngredienti(MinHeapIngrediente* heap, int i) {
     int piuPiccolo = i;
     int sinistra = 2 * i + 1;
     int destra = 2 * i + 2;
-
     if (sinistra < heap->dimensione && heap->lotto[sinistra].scadenza < heap->lotto[piuPiccolo].scadenza)
         piuPiccolo = sinistra;
     if (destra < heap->dimensione && heap->lotto[destra].scadenza < heap->lotto[piuPiccolo].scadenza)
         piuPiccolo = destra;
-
     if (piuPiccolo != i) {
         scambia(&heap->lotto[i], &heap->lotto[piuPiccolo]);
         heapifyIngredienti(heap, piuPiccolo);
@@ -524,7 +519,6 @@ void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita) 
     heap->lotto[i].scadenza = scadenza;
     heap->lotto[i].quantita = quantita;
     heap->quantita_totale += quantita;
-
     while (i != 0 && heap->lotto[(i - 1) / 2].scadenza > heap->lotto[i].scadenza) {
         scambia(&heap->lotto[i], &heap->lotto[(i - 1) / 2]);
         i = (i - 1) / 2;
@@ -928,7 +922,6 @@ void inserisciSpedizione(MaxHeapSpedizioni* heap, char* nome, int istante_arrivo
     heap->spedizioni[i].istante_arrivo = istante_arrivo;
     heap->spedizioni[i].quantita = quantita;
     heap->spedizioni[i].peso = peso;
-
     while (i != 0) {
         int parent = (i - 1) / 2;
         if (heap->spedizioni[parent].peso < heap->spedizioni[i].peso) {
