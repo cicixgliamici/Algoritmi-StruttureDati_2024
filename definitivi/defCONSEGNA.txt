@@ -207,14 +207,14 @@ int main(void) {
 
 //Lettura da File
 char* letturaRiga(FILE* file) {
-    size_t capacita = 256;
+    size_t capacita=256;
     char *riga = (char *)malloc(capacita);
     if (fgets(riga, capacita, file) != NULL) {
         size_t lunghezza = strlen(riga);
-        while (lunghezza > 0 && riga[lunghezza - 1] != '\n') {
+        while (lunghezza>0 && riga[lunghezza-1] != '\n') {
             capacita *= 2;
             riga = (char *)realloc(riga, capacita);
-            if (fgets(riga + lunghezza, capacita - lunghezza, file) == NULL) {
+            if (fgets(riga+lunghezza, capacita-lunghezza, file) == NULL) {
                 break;
             }
             lunghezza = strlen(riga);
@@ -230,8 +230,8 @@ char* letturaRiga(FILE* file) {
 void gestioneComandi(FILE *file) {
     int tempoCamion, capacitaMaxHeap = 0;
     if (fscanf(file, "%d %d", &tempoCamion, &capienzaCamion) != 2);
-    if (capienzaCamion >= 100000) {
-        capacitaMaxHeap = capienzaCamion / 1000;
+    if (capienzaCamion >=100000) {
+        capacitaMaxHeap = capienzaCamion/1000;
     } else {
         capacitaMaxHeap = capienzaCamion;
     }
@@ -243,12 +243,12 @@ void gestioneComandi(FILE *file) {
         char command[20];
         if (sscanf(line, "%19s", command) == 1) {
             tempoCorrente++;
-            if (tempoCorrente % tempoCamion == 0 && tempoCorrente != 0) {
+            if (tempoCorrente % tempoCamion == 0 && tempoCorrente !=0) {
                 caricaCamion();
             }
             if (strcmp(command, "aggiungi_ricetta") == 0) {
                 char nome_ricetta[25];
-                if (sscanf(line + strlen(command), "%24s", nome_ricetta) == 1) {
+                if (sscanf(line + strlen(command), "%24s", nome_ricetta)==1) {
                     if (cercaRicettaHash(hashTableRicette, nome_ricetta) != NULL) {
                         printf("ignorato\n");
                     } else {
@@ -280,7 +280,7 @@ void gestioneComandi(FILE *file) {
                 }
             } else if (strcmp(command, "rimuovi_ricetta") == 0) {
                 char nome_ricetta[25];
-                if (sscanf(line + strlen(command), "%24s", nome_ricetta) == 1) {
+                if (sscanf(line + strlen(command), "%24s", nome_ricetta)==1) {
                     rimuovi_ricetta(nome_ricetta);
                 }
             } else if (strcmp(command, "rifornimento") == 0) {
@@ -288,7 +288,7 @@ void gestioneComandi(FILE *file) {
             } else if (strcmp(command, "ordine") == 0) {
                 char nome_ricetta[25];
                 int quantita;
-                if (sscanf(line + strlen(command), "%24s %d", nome_ricetta, &quantita) == 2) {
+                if (sscanf(line + strlen(command), "%24s %d", nome_ricetta, &quantita)==2) {
                     ordine(nome_ricetta, quantita);
                 }
             }
