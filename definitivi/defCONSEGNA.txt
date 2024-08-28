@@ -1,8 +1,10 @@
-/* 5 Strutture dati   Ingredienti:      Heap di min-Heap  -> Ingredienti ordinati per scadenza nel min-Heap, lessicograficamente per lotti
-*                     Ricette:          Heap di liste     -> Ordinamento lessicografico
-*                     Ordini da Fare:   Coda FIFO        -> Mantiene l'ordine di arrivo degli ordini
-*                     Ordini fatti:     min-Heap         -> Istante di arrivo dell'ordine
-*                     Camioncino:       max-Heap         -> Peso totale dell'ordine (a parità di peso, istante di arrivo)
+/* 5 Strutture dati    Ingredienti:      Heap di min-Heap  -> Ingredienti ordinati per scadenza nel min-Heap, lessicograficamente per lotti
+*                      Ricette:          Heap di liste     -> Ordinamento lessicografico
+*                      Ordini da Fare:   Coda FIFO        -> Mantiene l'ordine di arrivo degli ordini
+*                      Ordini fatti:     min-Heap         -> Istante di arrivo dell'ordine
+*                      Camioncino:       max-Heap         -> Peso totale dell'ordine (a parità di peso, istante di arrivo)
+*/
+/* Varie ed Eventuali 1) La funzione di Hash è in comune per le due tabelle ma la gestione è separata onde evitare che io possa fare casini
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,7 +16,7 @@
 #define INITIAL_HEAP_CAPACITY 256
 #define LOAD_FACTOR_THRESHOLD 0.75
 
-/* Ingredienti: 
+/* Ingredienti: IngredienteMinHeap->MinHeapIngrediente->NodoHashIngrediente->HashTableIngredienti
 */
 typedef struct IngredienteMinHeap {
     int scadenza;
@@ -54,7 +56,7 @@ void inserisciIngredienteHash(HashTableIngredienti* table, const char* nome, int
 NodoHashIngrediente* cercaIngredienteHash(HashTableIngredienti* table, const char* nome);
 void rimuoviIngredienteHash(HashTableIngredienti* table, const char* nome);
 
-/* Ricette:
+/* Ricette: IngredienteRicetta->Ricetta->NodoHashRicetta->HashTableRicette
 */
 typedef struct IngredienteRicetta {
     char nome[20];
@@ -88,7 +90,7 @@ HashTableRicette* creaTabellaHashRicette(int size);
 NodoHashRicetta* creaNodoHashRicetta(Ricetta ricetta);
 NodoHashRicetta* cercaRicettaHash(HashTableRicette* table, const char* nome);
 
-/* Ordini da fare:
+/* Ordini presi in consegna:  Ordine->CodaOrdini                     
 */
 typedef struct Ordine {
     int tempo_arrivo;
@@ -102,6 +104,14 @@ typedef struct {
     Ordine* coda;
 } CodaOrdini;
 
+void liberaCoda(CodaOrdini* coda);
+void aggiungiCoda(CodaOrdini* coda, const char* nome_ricetta, int quantita, int tempo_arrivo);
+int codaVuota(CodaOrdini* coda);
+CodaOrdini* creaCoda();
+Ordine* rimuoviCoda(CodaOrdini* coda);
+
+/* Ordini fatti:  OrdineHeap->MinHeap                     
+*/
 typedef struct OrdineHeap {
     int tempo_arrivo;
     char ricetta[20];
@@ -114,12 +124,6 @@ typedef struct {
     int capacita;
 } MinHeap;
 
-void liberaCoda(CodaOrdini* coda);
-void aggiungiCoda(CodaOrdini* coda, const char* nome_ricetta, int quantita, int tempo_arrivo);
-int codaVuota(CodaOrdini* coda);
-CodaOrdini* creaCoda();
-Ordine* rimuoviCoda(CodaOrdini* coda);
-
 void liberaMinHeapOrdini(MinHeap* heap);
 void scambiaOrdini(OrdineHeap* a, OrdineHeap* b);
 void heapifyOrdini(MinHeap* heap, int i);
@@ -128,7 +132,7 @@ int heapVuotoMinOrdine(MinHeap* heap);
 MinHeap* creaMinHeap(int capacita);
 OrdineHeap rimuoviMin(MinHeap* heap);
 
-/* Spedizioni:
+/* Spedizioni: Spedizione->MaxHeapSpedizioni
 */
 typedef struct Spedizione {
     char nome[20];
@@ -143,14 +147,14 @@ typedef struct {
     int capacita;
 } MaxHeapSpedizioni;
 
-unsigned int hash(const char* str, int size);
-
 void heapifySpedizioni(MaxHeapSpedizioni* heap, int i);
 void inserisciSpedizione(MaxHeapSpedizioni* heap, char* nome, int istante_arrivo, int quantita, int peso);
 void liberaMaxHeap(MaxHeapSpedizioni* heap);
 MaxHeapSpedizioni* creaMaxHeap(int capacita);
 Spedizione rimuoviMax(MaxHeapSpedizioni* heap);
 int heapVuotoMax(MaxHeapSpedizioni* heap);
+
+unsigned int hash(const char* str, int size);
 
 /* Funzioni di lettura file
 */
