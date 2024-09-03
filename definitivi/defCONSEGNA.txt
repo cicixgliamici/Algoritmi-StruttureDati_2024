@@ -1,12 +1,15 @@
 /* 5 Strutture dati   Ingredienti:      Hash di min-Heap  -> Ingredienti ordinati per scadenza nel min-Heap, lessicograficamente per lotti
-*                     Ricette:          Hash di liste     -> Ordinamento lessicografico
+*                     Ricette:          Hash di liste     -> Si punta sulla velocità dell'hash in ricerca, inserimento ed eliminazione
 *                     Ordini da Fare:   Coda FIFO         -> Mantiene l'ordine di arrivo degli ordini
 *                     Ordini fatti:     min-Heap          -> Istante di arrivo dell'ordine
 *                     Camioncino:       max-Heap          -> Peso totale dell'ordine (a parità di peso, istante di arrivo)
 */
 
-/* Come funziona      Tabella di Hash:  Funzione di Hash genera una chiave che verrà usata come indice di un "array" -> O(1) per le ricerche e l'inserimento
-*                     Min/MaxHeap:      Albero binario in cui ogni nodo è minore/maggiore dei suoi figli -> la root è il numero minimo/massimo
+/* Come funziona      Min/MaxHeap:      Albero binario in cui ogni nodo è minore/maggiore dei suoi figli -> la root è il numero minimo/massimo
+*                                       Ci sono sostanzialmente due MinHeap uguali con le stesse funzioni ma ho preferito separarli per avere maggiore chiarezza in fase di debugg (dovrei fare altri tipi di dato 
+*                                       oltretutto)
+*                     Tabella di Hash:  Funzione di Hash genera una chiave che verrà usata come indice di un "array" -> O(1) per le ricerche e l'inserimento
+*                                       Idem con patate per quanto riguarda il fatto che ce ne siano 2 pressoché uguali (condividono la funzione generatrice)
 *                     Coda:             Coda FIFO, chi prima entra prima esce
 */
 
@@ -22,6 +25,7 @@
 
 /* Ingredienti: IngredienteMinHeap->MinHeapIngrediente->NodoHashIngrediente->HashTableIngredienti
 *               Bisogna rispettare la proprietà dell'usare sempre gli ingredienti a scadenza più breve
+*               Il MinHeap puntato dalla tabella conserva il peso totale di quell'ingrediente, per velocizzare il tutto nel controllo di fattibilità
 */
 typedef struct IngredienteMinHeap {
     int scadenza;
@@ -50,16 +54,16 @@ typedef struct {
 void scambia(IngredienteMinHeap* a, IngredienteMinHeap* b);
 void heapifyIngredienti(MinHeapIngrediente* heap, int i);
 void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita);
+void liberaLotto(MinHeapIngrediente* heap);
 IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap);
 MinHeapIngrediente nuovoHeapIngredienti(int capacita);
-void liberaLotto(MinHeapIngrediente* heap);
 
-HashTableIngredienti* creaTabellaHashIngredienti(int size);
+void inserisciIngredienteHash(HashTableIngredienti* table, const char* nome, int scadenza, int quantita);
+void rimuoviIngredienteHash(HashTableIngredienti* table, const char* nome);
 void liberaTabellaHashIngredienti(HashTableIngredienti* table);
 NodoHashIngrediente* creaNodoHashIngrediente(const char* nome, int capacita);
-void inserisciIngredienteHash(HashTableIngredienti* table, const char* nome, int scadenza, int quantita);
 NodoHashIngrediente* cercaIngredienteHash(HashTableIngredienti* table, const char* nome);
-void rimuoviIngredienteHash(HashTableIngredienti* table, const char* nome);
+HashTableIngredienti* creaTabellaHashIngredienti(int size);
 
 /* Ricette: IngredienteRicetta->Ricetta->NodoHashRicetta->HashTableRicette
 *           Nessuna proprietà da soddisfare, serve solo essere veloci perché fai molti inserimenti/eliminazioni e ricerche
@@ -87,8 +91,8 @@ typedef struct {
     int count;
 } HashTableRicette;
 
-
 void liberaListaIng(IngredienteRicetta* ingrediente);
+
 void liberaTabellaHashRicette(HashTableRicette* table);
 void inserisciRicettaHash(HashTableRicette* table, Ricetta ricetta);
 void rimuoviRicettaHash(HashTableRicette* table, const char* nome);
@@ -97,7 +101,7 @@ NodoHashRicetta* creaNodoHashRicetta(Ricetta ricetta);
 NodoHashRicetta* cercaRicettaHash(HashTableRicette* table, const char* nome);
 
 /* Ordini presi in consegna:  Ordine->CodaOrdini
-*                             Bisogna sempre fare gli ordini arrivati per tempo di arrivo
+*                             Bisogna sempre fare gli ordini arrivati per tempo di arrivo e ricontrollarli ad ogni rifornimento 
 */
 typedef struct Ordine {
     int tempo_arrivo;
@@ -141,7 +145,7 @@ MinHeap* creaMinHeap(int capacita);
 OrdineHeap rimuoviMin(MinHeap* heap);
 
 /* Spedizioni: Spedizione->MaxHeapSpedizioni
-*              Ordinato per peso 
+*              Ordinato per peso, il maxHeap alla fine si poteva fare con un array e un sort tipo bubble o qsort però così mi risulta più semplice
 */
 typedef struct Spedizione {
     char nome[20];
@@ -159,12 +163,13 @@ typedef struct {
 void heapifySpedizioni(MaxHeapSpedizioni* heap, int i);
 void inserisciSpedizione(MaxHeapSpedizioni* heap, char* nome, int istante_arrivo, int quantita, int peso);
 void liberaMaxHeap(MaxHeapSpedizioni* heap);
+int MaxHeapVuoto(MaxHeapSpedizioni* heap);
 MaxHeapSpedizioni* creaMaxHeap(int capacita);
 Spedizione rimuoviMax(MaxHeapSpedizioni* heap);
-int heapVuotoMax(MaxHeapSpedizioni* heap);
 
 // Funzione della tabella di hash che è generica per entrambe 
 unsigned int hash(const char* str, int size);
+
 /* Funzioni di lettura file
 */
 char* letturaRiga(FILE* file);
@@ -185,7 +190,7 @@ void verificaOrdini();
 void caricaCamion();
 int calcolaPeso(Ricetta ricetta, int numero_elementi_ordinati);
 
-/* Variabili Globali: parto da -1 nel tempo per la lettura del tempo/capienza del camioncino
+/* Variabili Globali: parto da -1 nel tempo per la lettura del tempo/capienza del camioncino, le strutture dati sono globali almeno non ho doppi puntatori ovunque (e forse va anche più veloce)
 */
 int tempoCorrente = -1;
 int capienzaCamion;
@@ -209,7 +214,7 @@ int main(void) {
 */
 
 //Lettura da File: Per cercare di ottimizzare, ipotizzo una lunghezza della riga che devo leggere
-//                 e in caso la allungo
+//                 e in caso la allungo (funziona bene da open7 in su)
 char* letturaRiga(FILE* file) {
     size_t capacita = 256;
     char *riga = (char *)malloc(capacita);
@@ -231,6 +236,9 @@ char* letturaRiga(FILE* file) {
     return riga;
 }
 
+//Crea il maxHeap sulla base del camioncino, ma non troppo grande sennò mi da memory leaks (open 6/7), dopodiché vedi se tempoCorrente è multiplo di tempoCamion (se sì passa), sennnò leggi il comando
+//Importante: se finiamo a un (tempoCamion*n)-1, dobbiamo passare col camion alla fine
+//Le letture sono dimensionate in base alla lunghezza dei comandi letti e al fatto che ingredienti e ricette non dovrebbero essere più lunghe di 20-25 caratteri
 void gestioneComandi(FILE *file) {
     int tempoCamion, capacitaMaxHeap = 0;
     if (fscanf(file, "%d %d", &tempoCamion, &capienzaCamion) != 2);
@@ -245,15 +253,15 @@ void gestioneComandi(FILE *file) {
     heap_ordini_fatti = creaMinHeap(INITIAL_HEAP_CAPACITY);
     char *line;
     while ((line = letturaRiga(file)) != NULL) {
-        char command[20];
-        if (sscanf(line, "%19s", command) == 1) {
+        char comando[20];
+        if (sscanf(line, "%19s", comando) == 1) {
             tempoCorrente++;
             if (tempoCorrente % tempoCamion == 0 && tempoCorrente != 0) {
                 caricaCamion();
             }
-            if (strcmp(command, "aggiungi_ricetta") == 0) {
+            if (strcmp(comando, "aggiungi_ricetta") == 0) {
                 char nome_ricetta[25];
-                if (sscanf(line + strlen(command), "%24s", nome_ricetta) == 1) {
+                if (sscanf(line + strlen(comando), "%24s", nome_ricetta) == 1) {
                     if (cercaRicettaHash(hashTableRicette, nome_ricetta) != NULL) {
                         printf("ignorato\n");
                     }
@@ -265,7 +273,7 @@ void gestioneComandi(FILE *file) {
                         IngredienteRicetta *tail = NULL;
                         char ingrediente[25];
                         int quantita;
-                        char *ptr = line + strlen(command) + strlen(nome_ricetta) + 1;
+                        char *ptr = line + strlen(comando) + strlen(nome_ricetta) + 1;
                         while (sscanf(ptr, "%24s %d", ingrediente, &quantita) == 2) {
                             IngredienteRicetta *nuovo_ingrediente = (IngredienteRicetta*)malloc(sizeof(IngredienteRicetta));
                             strncpy(nuovo_ingrediente->nome, ingrediente, sizeof(nuovo_ingrediente->nome) - 1);
@@ -285,19 +293,19 @@ void gestioneComandi(FILE *file) {
                     }
                 }
             }
-            else if (strcmp(command, "rimuovi_ricetta") == 0) {
+            else if (strcmp(comando, "rimuovi_ricetta") == 0) {
                 char nome_ricetta[25];
-                if (sscanf(line + strlen(command), "%24s", nome_ricetta) == 1) {
+                if (sscanf(line + strlen(comando), "%24s", nome_ricetta) == 1) {
                     rimuovi_ricetta(nome_ricetta);
                 }
             }
-            else if (strcmp(command, "rifornimento") == 0) {
-                rifornimento(line + strlen(command) + 1);
+            else if (strcmp(comando, "rifornimento") == 0) {
+                rifornimento(line + strlen(comando) + 1);
             }
-            else if (strcmp(command, "ordine") == 0) {
+            else if (strcmp(comando, "ordine") == 0) {
                 char nome_ricetta[25];
                 int quantita;
-                if (sscanf(line + strlen(command), "%24s %d", nome_ricetta, &quantita) == 2) {
+                if (sscanf(line + strlen(comando), "%24s %d", nome_ricetta, &quantita) == 2) {
                     ordine(nome_ricetta, quantita);
                 }
             }
@@ -322,19 +330,19 @@ void aggiungi_ricetta(Ricetta nuova_ricetta) {
 void rimuovi_ricetta(const char* nome_ricetta) {
     Ordine* ordine_corrente = coda_ordini->testa;
     for (int i = 0; i < heap_ordini_fatti->dimensione; i++) {
-        if (strcmp(heap_ordini_fatti->ordini[i].ricetta, nome_ricetta) == 0) {
+        if (strcmp(heap_ordini_fatti->ordini[i].ricetta, nome_ricetta) ==0) {
             printf("ordini in sospeso\n");
             return;
-        }
+            }
     }
     while (ordine_corrente != NULL) {
-        if (strcmp(ordine_corrente->nome_ricetta, nome_ricetta) == 0) {
+        if (strcmp(ordine_corrente->nome_ricetta, nome_ricetta)==0) {
             printf("ordini in sospeso\n");
             return;
         }
         ordine_corrente = ordine_corrente->next;
     }
-    if (cercaRicettaHash(hashTableRicette, nome_ricetta) == NULL) {
+    if (cercaRicettaHash(hashTableRicette, nome_ricetta)==NULL) {
         printf("non presente\n");
     }
     else {
@@ -347,9 +355,9 @@ void rifornimento(const char* comando) {
     char nome_ingrediente[25];
     int quantita, scadenza;
     const char *ptr = comando;
-    while (sscanf(ptr, "%s %d %d", nome_ingrediente, &quantita, &scadenza) == 3) {
+    while (sscanf(ptr, "%s %d %d", nome_ingrediente, &quantita, &scadenza)== 3) {
         inserisciIngredienteHash(hashTableIngredienti, nome_ingrediente, scadenza, quantita);
-        ptr += strlen(nome_ingrediente) + 1 + snprintf(NULL, 0, "%d", quantita) + 1 + snprintf(NULL, 0, "%d", scadenza) + 1;
+        ptr += strlen(nome_ingrediente) +1+ snprintf(NULL, 0, "%d", quantita) +1+ snprintf(NULL, 0, "%d", scadenza) +1;
     }
     printf("rifornito\n");
     verificaOrdini();
@@ -364,21 +372,23 @@ void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
     if (fattibilita(nome_ricetta, numero_elementi_ordinati)) {
         preparazione(nome_ricetta, numero_elementi_ordinati, tempoCorrente);
         printf("accettato\n");
-    } else {
+    } 
+    else {
         aggiungiCoda(coda_ordini, nome_ricetta, numero_elementi_ordinati, tempoCorrente);
         printf("accettato\n");
     }
 }
 
-// Gestione ordini e caricamento camioncino
+// Gestione ordini e caricamento camioncino - prima si vede se effetivamente si possono fare con la quantità totale presente
+// poi eventualmente si tolgono, perché a fare togli e rimetti sicuro mi perdo qualcosa
 bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
     NodoHashRicetta* nodo_ricetta = cercaRicettaHash(hashTableRicette, nome_ricetta);
     if (nodo_ricetta == NULL) return false;
     IngredienteRicetta* ing = nodo_ricetta->ricetta.ingredienti;
     while (ing != NULL) {
         NodoHashIngrediente* nodo_ingrediente = cercaIngredienteHash(hashTableIngredienti, ing->nome);
-        if (nodo_ingrediente == NULL) return false;
-
+        if (nodo_ingrediente == NULL) 
+            return false;
         if (nodo_ingrediente->heap.lotto[0].scadenza <= tempoCorrente) {
             while (nodo_ingrediente->heap.dimensione > 0 && nodo_ingrediente->heap.lotto[0].scadenza <= tempoCorrente) {
                 rimuoviIngrediente(&nodo_ingrediente->heap);
@@ -402,7 +412,8 @@ void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int te
             IngredienteMinHeap min_ingrediente = rimuoviIngrediente(&nodo_ingrediente->heap);
             if (min_ingrediente.quantita <= quantita_richiesta) {
                 quantita_richiesta -= min_ingrediente.quantita;
-            } else {
+            } 
+            else {
                 min_ingrediente.quantita -= quantita_richiesta;
                 quantita_richiesta = 0;
                 inserisciIngrediente(&nodo_ingrediente->heap, min_ingrediente.scadenza, min_ingrediente.quantita);
@@ -424,11 +435,12 @@ void verificaOrdini() {
                 if (coda_ordini->testa == NULL) {
                     coda_ordini->coda = NULL;
                 }
-            } else {
+            } 
+            else {
                 precedente->next = ordineCorrente->next;
                 if (precedente->next == NULL) {
                     coda_ordini->coda = precedente;
-                }
+                    }
             }
             Ordine* temp = ordineCorrente;
             ordineCorrente = ordineCorrente->next;
@@ -457,7 +469,7 @@ void caricaCamion() {
         } else {
             inserisciOrdineHeap(tempHeap, ordine.tempo_arrivo, ordine.ricetta, ordine.quantita);
             break;
-        }
+            }
     }
     while (!heapVuotoMinOrdine(heap_ordini_fatti)) {
         OrdineHeap ordine = rimuoviMin(heap_ordini_fatti);
@@ -477,13 +489,13 @@ void caricaCamion() {
 }
 
 int calcolaPeso(Ricetta ricetta, int numero_elementi_ordinati) {
-    int peso = 0;
+    int peso=0;
     IngredienteRicetta* ingrediente = ricetta.ingredienti;
-    while (ingrediente != NULL) {
-        peso += ingrediente->quantita;
+    while (ingrediente !=NULL) {
+        peso+= ingrediente->quantita;
         ingrediente = ingrediente->next;
     }
-    peso *= numero_elementi_ordinati;
+    peso*= numero_elementi_ordinati;
     return peso;
 }
 
@@ -496,10 +508,10 @@ unsigned int hash(const char* str, int size) {
     while (*str) {
         hash = (hash << 5) + *str++;
     }
-    return hash % size;
+    return hash%size;
 }
 
-// Ingredienti
+// Ingredienti - un classicone questo
 void scambia(IngredienteMinHeap* a, IngredienteMinHeap* b) {
     IngredienteMinHeap temp = *a;
     *a = *b;
@@ -508,13 +520,13 @@ void scambia(IngredienteMinHeap* a, IngredienteMinHeap* b) {
 
 void heapifyIngredienti(MinHeapIngrediente* heap, int i) {
     int minore = i;
-    int sinistra = 2*i +1;
-    int destra = 2*i +2;
-    if (sinistra < heap->dimensione && heap->lotto[sinistra].scadenza < heap->lotto[minore].scadenza) {
-        minore = sinistra;
+    int sx = 2*i+1;
+    int dx = 2*i+2;
+    if (sx < heap->dimensione && heap->lotto[sx].scadenza < heap->lotto[minore].scadenza) {
+        minore = sx;
         }
-    if (destra < heap->dimensione && heap->lotto[destra].scadenza < heap->lotto[minore].scadenza) {
-        minore = destra;
+    if (dx < heap->dimensione && heap->lotto[dx].scadenza < heap->lotto[minore].scadenza) {
+        minore = dx;
         }
     if (minore != i) {
         scambia(&heap->lotto[i], &heap->lotto[minore]);
@@ -524,15 +536,15 @@ void heapifyIngredienti(MinHeapIngrediente* heap, int i) {
 
 void inserisciIngrediente(MinHeapIngrediente* heap, int scadenza, int quantita) {
     if (heap->dimensione == heap->capacita) {
-        heap->capacita *= 2;
-        heap->lotto = (IngredienteMinHeap*) realloc(heap->lotto, heap->capacita * sizeof(IngredienteMinHeap));
+        heap->capacita*= 2;
+        heap->lotto = (IngredienteMinHeap*)realloc(heap->lotto, heap->capacita*sizeof(IngredienteMinHeap));
     }
     int i = heap->dimensione++;
     heap->lotto[i].scadenza = scadenza;
     heap->lotto[i].quantita = quantita;
     heap->quantita_totale += quantita;
-    while (i != 0 && heap->lotto[(i-1) /2].scadenza > heap->lotto[i].scadenza) {
-        scambia(&heap->lotto[i], &heap->lotto[(i - 1) / 2]);
+    while (i != 0 && heap->lotto[(i-1)/2].scadenza > heap->lotto[i].scadenza) {
+        scambia(&heap->lotto[i], &heap->lotto[(i-1)/2]);
         i = (i-1)/2;
     }
 }
@@ -546,25 +558,25 @@ IngredienteMinHeap rimuoviIngrediente(MinHeapIngrediente* heap) {
     heap->lotto[0] = heap->lotto[--heap->dimensione];
     heap->quantita_totale -= radice.quantita;
     heapifyIngredienti(heap, 0);
-    return radice;
+     return radice;
 }
 
 MinHeapIngrediente nuovoHeapIngredienti(int capacita) {
     MinHeapIngrediente heap;
-    heap.lotto = (IngredienteMinHeap*) malloc(capacita * sizeof(IngredienteMinHeap));
-    heap.dimensione = 0;
+    heap.lotto = (IngredienteMinHeap*)malloc(capacita * sizeof(IngredienteMinHeap));
+    heap.dimensione =0;
     heap.capacita = capacita;
     heap.quantita_totale = 0;
     return heap;
 }
 
 void liberaLotto(MinHeapIngrediente* heap) {
-    if (heap != NULL && heap->lotto != NULL) {
+    if (heap !=NULL && heap->lotto !=NULL) {
         free(heap->lotto);
         heap->lotto = NULL;
-        heap->dimensione = 0;
-        heap->capacita = 0;
-        heap->quantita_totale = 0;
+        heap->dimensione =0;
+        heap->capacita =0;
+        heap->quantita_totale =0;
         }
 }
 
@@ -572,7 +584,7 @@ HashTableIngredienti* creaTabellaHashIngredienti(int size) {
     HashTableIngredienti* table = (HashTableIngredienti*)malloc(sizeof(HashTableIngredienti));
     table->buckets = (NodoHashIngrediente**)calloc(size, sizeof(NodoHashIngrediente*));
     table->size = size;
-    table->count = 0;
+    table->count =0;
     return table;
 }
 
@@ -600,7 +612,7 @@ NodoHashIngrediente* creaNodoHashIngrediente(const char* nome, int capacita) {
 
 void inserisciIngredienteHash(HashTableIngredienti* table, const char* nome, int scadenza, int quantita) {
     if (table->count >= table->size * LOAD_FACTOR_THRESHOLD) {
-        int newSize = table->size * 2;
+        int newSize = table->size*2;
         NodoHashIngrediente** newBuckets = (NodoHashIngrediente**)calloc(newSize, sizeof(NodoHashIngrediente*));
         for (int i = 0; i < table->size; i++) {
             NodoHashIngrediente* nodo = table->buckets[i];
@@ -706,7 +718,7 @@ void inserisciRicettaHash(HashTableRicette* table, Ricetta ricetta) {
                 nodo->next = newBuckets[newBucket];
                 newBuckets[newBucket] = nodo;
                 nodo = next;
-            }
+                }
         }
         free(table->buckets);
         table->buckets = newBuckets;
@@ -746,7 +758,7 @@ void rimuoviRicettaHash(HashTableRicette* table, const char* nome) {
             free(nodo);
             table->count--;
             return;
-        }
+            }
         prev = nodo;
         nodo = nodo->next;
     }
@@ -841,35 +853,35 @@ void scambiaOrdini(OrdineHeap* a, OrdineHeap* b) {
     *a = *b;
     *b = temp;
 }
-
+//Praticamente uguale all'altro però ne faccio due diversi per non fare disastri
 void heapifyOrdini(MinHeap* heap, int i) {
-    int minIndex = i;
-    int left = 2 * i + 1;
-    int right = 2 * i + 2;
-    if (left < heap->dimensione && heap->ordini[left].tempo_arrivo < heap->ordini[minIndex].tempo_arrivo) {
-        minIndex = left;
+    int min = i;
+    int sx = 2*i+1;
+    int dx = 2*i+2;
+    if (sx < heap->dimensione && heap->ordini[sx].tempo_arrivo < heap->ordini[min].tempo_arrivo) {
+        min = sx;
     }
-    if (right < heap->dimensione && heap->ordini[right].tempo_arrivo < heap->ordini[minIndex].tempo_arrivo) {
-        minIndex = right;
+    if (dx < heap->dimensione && heap->ordini[dx].tempo_arrivo < heap->ordini[min].tempo_arrivo) {
+        min = dx;
     }
-    if (minIndex != i) {
-        scambiaOrdini(&heap->ordini[i], &heap->ordini[minIndex]);
-        heapifyOrdini(heap, minIndex);
+    if (min != i) {
+        scambiaOrdini(&heap->ordini[i], &heap->ordini[min]);
+        heapifyOrdini(heap, min);
     }
 }
 
 void inserisciOrdineHeap(MinHeap* heap, int tempo_arrivo, char* ricetta, int quantita) {
     if (heap->dimensione == heap->capacita) {
-        heap->capacita *= 2;
+        heap->capacita *= 2; //Puoi provare 1.5
         heap->ordini = (OrdineHeap*) realloc(heap->ordini, heap->capacita * sizeof(OrdineHeap));
         }
     int i = heap->dimensione++;
     heap->ordini[i].tempo_arrivo = tempo_arrivo;
     strcpy(heap->ordini[i].ricetta, ricetta);
     heap->ordini[i].quantita = quantita;
-    while (i != 0 && heap->ordini[(i - 1) / 2].tempo_arrivo > heap->ordini[i].tempo_arrivo) {
-        scambiaOrdini(&heap->ordini[i], &heap->ordini[(i - 1) / 2]);
-        i = (i - 1) / 2;
+    while (i != 0 && heap->ordini[(i-1)/2].tempo_arrivo > heap->ordini[i].tempo_arrivo) {
+        scambiaOrdini(&heap->ordini[i], &heap->ordini[(i-1)/2]);
+        i = (i-1)/2;
     }
 }
 
@@ -879,7 +891,7 @@ int heapVuotoMinOrdine(MinHeap* heap) {
 
 MinHeap* creaMinHeap(int capacita) {
     MinHeap* heap = (MinHeap*)malloc(sizeof(MinHeap));
-    heap->ordini = (OrdineHeap*)malloc(capacita * sizeof(OrdineHeap));
+    heap->ordini = (OrdineHeap*)malloc(capacita*sizeof(OrdineHeap));
     heap->dimensione = 0;
     heap->capacita = capacita;
     return heap;
@@ -899,24 +911,24 @@ OrdineHeap rimuoviMin(MinHeap* heap) {
 
 //MaxHeap Spedizioni
 void heapifySpedizioni(MaxHeapSpedizioni* heap, int i) {
-    int maggiore = i;
-    int sinistro = 2*i + 1;
-    int destro = 2*i + 2;
-    if (sinistro < heap->dimensione && (heap->spedizioni[sinistro].peso > heap->spedizioni[maggiore].peso ||
-       (heap->spedizioni[sinistro].peso == heap->spedizioni[maggiore].peso &&
-        heap->spedizioni[sinistro].istante_arrivo < heap->spedizioni[maggiore].istante_arrivo))) {
-        maggiore = sinistro;
+    int max = i;
+    int sx = 2*i +1;
+    int dx = 2*i+ 2;
+    if (sx < heap->dimensione && (heap->spedizioni[sx].peso > heap->spedizioni[max].peso ||
+       (heap->spedizioni[sx].peso == heap->spedizioni[max].peso &&
+        heap->spedizioni[sx].istante_arrivo < heap->spedizioni[max].istante_arrivo))) {
+        max = sx;
     }
-    if (destro < heap->dimensione && (heap->spedizioni[destro].peso > heap->spedizioni[maggiore].peso ||
-       (heap->spedizioni[destro].peso == heap->spedizioni[maggiore].peso &&
-        heap->spedizioni[destro].istante_arrivo < heap->spedizioni[maggiore].istante_arrivo))) {
-        maggiore = destro;
+    if (dx < heap->dimensione && (heap->spedizioni[dx].peso > heap->spedizioni[max].peso ||
+       (heap->spedizioni[dx].peso == heap->spedizioni[max].peso &&
+        heap->spedizioni[dx].istante_arrivo < heap->spedizioni[max].istante_arrivo))) {
+        max = dx;
     }
-    if (maggiore != i) {
+    if (max != i) {
         Spedizione temp = heap->spedizioni[i];
-        heap->spedizioni[i] = heap->spedizioni[maggiore];
-        heap->spedizioni[maggiore] = temp;
-        heapifySpedizioni(heap, maggiore);
+        heap->spedizioni[i] = heap->spedizioni[max];
+        heap->spedizioni[max] = temp;
+        heapifySpedizioni(heap, max);
     }
 }
 
@@ -979,6 +991,6 @@ Spedizione rimuoviMax(MaxHeapSpedizioni* heap) {
     return root;
 }
 
-int heapVuotoMax(MaxHeapSpedizioni* heap) {
+int MaxHeapVuoto(MaxHeapSpedizioni* heap) {
     return heap->dimensione == 0;
 }
