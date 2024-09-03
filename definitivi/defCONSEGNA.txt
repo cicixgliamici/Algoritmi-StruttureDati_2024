@@ -480,8 +480,8 @@ void caricaCamion() {
         inserisciOrdineHeap(heap_ordini_fatti, ordine.tempo_arrivo, ordine.ricetta, ordine.quantita);
     }
     liberaMinHeapOrdini(tempHeap);
-    if (!heapVuotoMax(max_heap_spedizioni)) {
-        while (!heapVuotoMax(max_heap_spedizioni)) {
+    if (!MaxHeapVuoto(max_heap_spedizioni)) {
+        while (!MaxHeapVuoto(max_heap_spedizioni)) {
             Spedizione spedizione = rimuoviMax(max_heap_spedizioni);
             printf("%d %s %d\n", spedizione.istante_arrivo, spedizione.nome, spedizione.quantita);
         }
@@ -514,7 +514,7 @@ unsigned int hash(const char* str, int size) {
 // Ingredienti - un classicone questo
 void scambia(IngredienteMinHeap* a, IngredienteMinHeap* b) {
     IngredienteMinHeap temp = *a;
-    *a = *b;
+    *a =*b;
     *b = temp;
 }
 
@@ -650,7 +650,7 @@ NodoHashIngrediente* cercaIngredienteHash(HashTableIngredienti* table, const cha
     while (nodo) {
         if (strcmp(nodo->nome, nome) == 0) {
             return nodo;
-        }
+            }
         nodo = nodo->next;
     }
     return NULL;
@@ -746,7 +746,8 @@ void rimuoviRicettaHash(HashTableRicette* table, const char* nome) {
         if (strcmp(nodo->nome, nome) == 0) {
             if (prev) {
                 prev->next = nodo->next;
-            } else {
+            } 
+            else {
                 table->buckets[bucket] = nodo->next;
             }
             IngredienteRicetta* ingrediente = nodo->ricetta.ingredienti;
@@ -807,7 +808,7 @@ void aggiungiCoda(CodaOrdini* coda, const char* nome_ricetta, int quantita, int 
     nuovoOrdine->tempo_arrivo = tempo_arrivo;
     strcpy(nuovoOrdine->nome_ricetta, nome_ricetta);
     nuovoOrdine->quantita = quantita;
-    nuovoOrdine->next = NULL;
+    nuovoOrdine->next =NULL;
     if (coda->coda == NULL) {
         coda->testa = nuovoOrdine;
         coda->coda = nuovoOrdine;
@@ -819,7 +820,7 @@ void aggiungiCoda(CodaOrdini* coda, const char* nome_ricetta, int quantita, int 
 }
 
 int codaVuota(CodaOrdini* coda) {
-    return coda->testa == NULL;
+    return coda->testa ==NULL;
 }
 
 CodaOrdini* creaCoda() {
@@ -830,12 +831,12 @@ CodaOrdini* creaCoda() {
 }
 
 Ordine* rimuoviCoda(CodaOrdini* coda) {
-    if (coda->testa == NULL) {
+    if (coda->testa ==NULL) {
         return NULL;
     }
     Ordine* ordineRimosso = coda->testa;
     coda->testa = coda->testa->next;
-    if (coda->testa == NULL) {
+    if (coda->testa ==NULL) {
         coda->coda = NULL;
     }
     free(ordineRimosso);
@@ -848,11 +849,12 @@ void liberaMinHeapOrdini(MinHeap* heap) {
     free(heap);
 }
 
-void scambiaOrdini(OrdineHeap* a, OrdineHeap* b) {
-    OrdineHeap temp = *a;
-    *a = *b;
-    *b = temp;
+void scambiaOrdini(OrdineHeap* x, OrdineHeap* y) {
+    OrdineHeap temp = *x;
+    *x =*y;
+    *y = temp;
 }
+
 //Praticamente uguale all'altro però ne faccio due diversi per non fare disastri
 void heapifyOrdini(MinHeap* heap, int i) {
     int min = i;
@@ -863,7 +865,7 @@ void heapifyOrdini(MinHeap* heap, int i) {
     }
     if (dx < heap->dimensione && heap->ordini[dx].tempo_arrivo < heap->ordini[min].tempo_arrivo) {
         min = dx;
-    }
+        }
     if (min != i) {
         scambiaOrdini(&heap->ordini[i], &heap->ordini[min]);
         heapifyOrdini(heap, min);
@@ -918,7 +920,7 @@ void heapifySpedizioni(MaxHeapSpedizioni* heap, int i) {
        (heap->spedizioni[sx].peso == heap->spedizioni[max].peso &&
         heap->spedizioni[sx].istante_arrivo < heap->spedizioni[max].istante_arrivo))) {
         max = sx;
-    }
+        }
     if (dx < heap->dimensione && (heap->spedizioni[dx].peso > heap->spedizioni[max].peso ||
        (heap->spedizioni[dx].peso == heap->spedizioni[max].peso &&
         heap->spedizioni[dx].istante_arrivo < heap->spedizioni[max].istante_arrivo))) {
@@ -970,8 +972,8 @@ void liberaMaxHeap(MaxHeapSpedizioni* heap) {
 
 MaxHeapSpedizioni* creaMaxHeap(int capacita) {
     MaxHeapSpedizioni* heap = (MaxHeapSpedizioni*)malloc(sizeof(MaxHeapSpedizioni));
-    heap->spedizioni = (Spedizione*) malloc(capacita * sizeof(Spedizione));
-    heap->dimensione = 0;
+    heap->spedizioni = (Spedizione*)malloc(capacita * sizeof(Spedizione));
+    heap->dimensione =0;
     heap->capacita = capacita;
     return heap;
 }
@@ -985,7 +987,7 @@ Spedizione rimuoviMax(MaxHeapSpedizioni* heap) {
     if (heap->dimensione == 1) {
         heap->dimensione--;
         return root;
-    }
+        }
     heap->spedizioni[0] = heap->spedizioni[--heap->dimensione];
     heapifySpedizioni(heap, 0);
     return root;
