@@ -2,6 +2,7 @@
 
 ## Project Overview
 This project is a robust and modular Bakery Management System implemented in C. It simulates the process of managing ingredients, recipes, and orders using advanced data structures such as hash tables, min-heaps, max-heaps, and queues. The system efficiently handles ingredient inventory, recipe management, order processing, and truck shipment planning.
+The project is the practical development of the concepts learned in the course **'Algorithms and Principles of Computer Science'** which I took at the Politecnico di Milano during the 2023-2024 academic year.
 
 ---
 
@@ -37,6 +38,10 @@ This project is a robust and modular Bakery Management System implemented in C. 
      - Header file with all structure definitions and function prototypes.
 5. test.c:
      - Contains tests verifying the correctness of the data structures.
+6. definitivi:
+     - It includes previous versions of the code to allow seeing the reasoning process I went through.
+7. test:
+     - It contains the input and output provided by the university to test the correctness of the code.
 
 ---
 
