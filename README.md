@@ -27,15 +27,15 @@ This project is a robust and modular Food Order Management System implemented in
 
 ## Project Structure
 
-### 1. main.c:
+ 1. main.c:
    - Contains the main entry point and global variable definitions.
-### 2. strutture_dati.c:
+ 2. strutture_dati.c:
    - Implements the core data structures (hash tables, heaps, queues).
-### 3. ordini.c:
+ 3. ordini.c:
    - Handles order processing and command management.
-### 4. header.h:
+ 4. header.h:
    - Header file with all structure definitions and function prototypes.
-### 5. test.c:
+ 5. test.c:
    - Contains tests verifying the correctness of the data structures.
 
 ---
