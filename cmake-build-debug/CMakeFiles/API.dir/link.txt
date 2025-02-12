@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/API.dir/main.c.o CMakeFiles/API.dir/test.c.o CMakeFiles/API.dir/strutture_dati.c.o CMakeFiles/API.dir/ordini.c.o -o API 

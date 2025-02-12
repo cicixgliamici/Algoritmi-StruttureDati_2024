@@ -1,180 +1,307 @@
-/* Gestione degli ordini       ordine:             se non esiste la ricetta, lo rifiuto, altrimenti prima lo aggiungo in coda
-*                                                  poi ne verifico la fattibilita ed eventualmente lo preparo
-*
-*                              fattibilita:        verifica la fattibilita dell'ordine guardando la quantita totale di ingredienti
-*                                                  nell'AVL, senza togliere nulla
-*
-*                              preparazione:       prepara effetivamente l'ordine togliendo sempre gli ingredienti con scadenza minore
-*                                                  svuota anche l'heap degli ingredienti scaduti
-*
-*                              verificaOrdini:     sostanzialmente è la funzione ordine ma chiamata su tutta la coda, usata quando si fa
-*                                                  rifornimento
-*
-*                              caricaCamion:       passa gli ordini dal minHeap (istante arrivo) al maxHeap (peso), si ferma al primo che supera la
-*                                                  capacità restante
-*
-*                              calcolaPeso:        calcola il peso dell'ordine in toto
-*
-*                              controllaScadenza:  controlla se la scadenza del primo elemento del minHeap è minore del tempoCorrente, se si rimuove
-*                                                  e continua a controllare
-*/
 #include "header.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-void ordine(const char* nome_ricetta, int numero_elementi_ordinati) {
-    NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
-    if (nodo_ricetta == NULL) {
-        printf("rifiutato\n");
-        return;
-    }
-    if (fattibilita(nome_ricetta, numero_elementi_ordinati)) {
-        preparazione(nome_ricetta, numero_elementi_ordinati, tempoCorrente);
-        printf("accettato\n");
+// Reads a line from a file (dynamically increasing buffer if necessary)
+char* readLine(FILE* file) {
+    size_t bufferSize = 256;
+    char *line = (char *)malloc(bufferSize);
+    if (fgets(line, bufferSize, file) != NULL) {
+        size_t len = strlen(line);
+        while (len > 0 && line[len - 1] != '\n') {
+            bufferSize *= 2;
+            line = (char *)realloc(line, bufferSize);
+            if (fgets(line + len, bufferSize - len, file) == NULL)
+                break;
+            len = strlen(line);
+        }
+        line[strcspn(line, "\n")] = 0; // Remove newline
     } else {
-        aggiungiCoda(coda_ordini, (char*)nome_ricetta, numero_elementi_ordinati, tempoCorrente);
-        printf("accettato\n");
+        free(line);
+        line = NULL;
+    }
+    return line;
+}
+
+/* ========================================================= */
+/*              Command and Order Functions                */
+/* ========================================================= */
+
+// Processes commands from the input file
+void processCommands(FILE *file) {
+    int truckTime, shipmentHeapCapacity = 0;
+    
+    // Read the truck loading interval and capacity from the first line
+    if (fscanf(file, "%d %d", &truckTime, &truckCapacity) != 2);
+    
+    // Choose a capacity for the shipment max-heap based on truckCapacity
+    if (truckCapacity >= 100000) {
+        shipmentHeapCapacity = truckCapacity / 1000;
+    } else {
+        shipmentHeapCapacity = truckCapacity;
+    }
+    maxShipmentHeap = createMaxShipmentHeap(shipmentHeapCapacity);
+    
+    orderQueue = createOrderQueue();
+    processedOrderHeap = createMinOrderHeap(INITIAL_HEAP_CAPACITY);
+    
+    char *line;
+    // Read each command line
+    while ((line = readLine(file)) != NULL) {
+        char command[20];
+        if (sscanf(line, "%19s", command) == 1) {
+            currentTime++;
+            // At each truckTime interval (except time 0), load the truck
+            if (currentTime % truckTime == 0 && currentTime != 0) {
+                loadTruck();
+            }
+            
+            if (strcmp(command, "add_recipe") == 0) {
+                char recipeName[25];
+                if (sscanf(line + strlen(command), "%24s", recipeName) == 1) {
+                    if (searchRecipeHash(recipeHashTable, recipeName) != NULL) {
+                        printf("ignored\n");
+                    } else {
+                        Recipe new_recipe;
+                        strncpy(new_recipe.name, recipeName, sizeof(new_recipe.name) - 1);
+                        new_recipe.name[sizeof(new_recipe.name) - 1] = '\0';
+                        new_recipe.ingredients = NULL;
+                        RecipeIngredient *tail = NULL;
+                        char ingredient[21];
+                        int quantity;
+                        char *ptr = line + strlen(command) + strlen(recipeName) + 1;
+                        // Parse pairs: ingredient name and quantity
+                        while (sscanf(ptr, "%20s %d", ingredient, &quantity) == 2) {
+                            RecipeIngredient *newIngredient = (RecipeIngredient*)malloc(sizeof(RecipeIngredient));
+                            strncpy(newIngredient->name, ingredient, sizeof(newIngredient->name) - 1);
+                            newIngredient->name[sizeof(newIngredient->name) - 1] = '\0';
+                            newIngredient->quantity = quantity;
+                            newIngredient->next = NULL;
+                            if (tail == NULL) {
+                                new_recipe.ingredients = newIngredient;
+                            } else {
+                                tail->next = newIngredient;
+                            }
+                            tail = newIngredient;
+                            // Advance the pointer (estimate the space needed)
+                            ptr += strlen(ingredient) + 1 + snprintf(NULL, 0, "%d", quantity) + 1;
+                        }
+                        insertRecipeHash(recipeHashTable, new_recipe);
+                        printf("added\n");
+                    }
+                }
+            }
+            else if (strcmp(command, "remove_recipe") == 0) {
+                char recipeName[21];
+                if (sscanf(line + strlen(command), "%20s", recipeName) == 1) {
+                    remove_recipe(recipeName);
+                }
+            }
+            else if (strcmp(command, "restock") == 0) {
+                restock(line + strlen(command) + 1);
+            }
+            else if (strcmp(command, "order") == 0) {
+                char recipeName[21];
+                int quantity;
+                if (sscanf(line + strlen(command), "%20s %d", recipeName, &quantity) == 2) {
+                    order_command(recipeName, quantity);
+                }
+            }
+        }
+        free(line);
+    }
+    
+    // Final truck loading if the time is at the end of a truckTime interval
+    if ((currentTime + 1) % truckTime == 0 && currentTime != 0) {
+        loadTruck();
     }
 }
 
-bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati) {
-    NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
-    if (nodo_ricetta == NULL) return false;
-    IngredienteRicetta* ing = nodo_ricetta->ricetta.ingredienti;
+// Command: Add a recipe
+void add_recipe(Recipe new_recipe) {
+    if (searchRecipeHash(recipeHashTable, new_recipe.name) != NULL) {
+        printf("ignored\n");
+    } else {
+        insertRecipeHash(recipeHashTable, new_recipe);
+        printf("added\n");
+    }
+}
+
+// Command: Remove a recipe. If any pending or processed orders use it, output "orders pending"
+void remove_recipe(const char* recipeName) {
+    // Check processed orders min-heap for orders with this recipe
+    for (int i = 0; i < processedOrderHeap->size; i++) {
+        if (strcmp(processedOrderHeap->orders[i].recipe, recipeName) == 0) {
+            printf("orders pending\n");
+            return;
+        }
+    }
+    // Check pending orders queue
+    Order* current = orderQueue->head;
+    while (current != NULL) {
+        if (strcmp(current->recipeName, recipeName) == 0) {
+            printf("orders pending\n");
+            return;
+        }
+        current = current->next;
+    }
+    if (searchRecipeHash(recipeHashTable, recipeName) == NULL) {
+        printf("not present\n");
+    } else {
+        removeRecipeHash(recipeHashTable, recipeName);
+        printf("removed\n");
+    }
+}
+
+// Command: Restock ingredients. Multiple groups: ingredient name, quantity, expiration.
+void restock(const char* command) {
+    char ingredientName[25];
+    int quantity, expiration;
+    const char *ptr = command;
+    while (sscanf(ptr, "%24s %d %d", ingredientName, &quantity, &expiration) == 3) {
+        insertIngredientHash(ingredientHashTable, ingredientName, expiration, quantity);
+        // Advance pointer (estimate the length to move past current triplet)
+        ptr += strlen(ingredientName) + 1 + snprintf(NULL, 0, "%d", quantity) + 1 + snprintf(NULL, 0, "%d", expiration) + 1;
+    }
+    printf("restocked\n");
+    checkPendingOrders();
+}
+
+// Command: Process an order for a given recipe and quantity
+void order_command(const char* recipeName, int quantityOrdered) {
+    RecipeHashNode* recipeNode = searchRecipeHash(recipeHashTable, recipeName);
+    if (recipeNode == NULL) {
+        printf("rejected\n");
+        return;
+    }
+    if (isFeasible(recipeName, quantityOrdered)) {
+        processOrder(recipeName, quantityOrdered, currentTime);
+        printf("accepted\n");
+    } else {
+        enqueueOrder(orderQueue, recipeName, quantityOrdered, currentTime);
+        printf("accepted\n");
+    }
+}
+
+// Checks if an order is feasible (sufficient ingredients available and not expired)
+bool isFeasible(const char* recipeName, int quantityOrdered) {
+    RecipeHashNode* recipeNode = searchRecipeHash(recipeHashTable, recipeName);
+    if (recipeNode == NULL)
+        return false;
+    RecipeIngredient* ing = recipeNode->recipe.ingredients;
     while (ing != NULL) {
-        NodoTreap* nodo_ingrediente = cercaTreap(trap, ing->nome);
-        int quantita_totale = 0;
-        while (nodo_ingrediente != NULL) {
-            if (nodo_ingrediente->scadenza > tempoCorrente) {
-                quantita_totale += nodo_ingrediente->quantita;
-            }
-            nodo_ingrediente = (strcmp(ing->nome, nodo_ingrediente->nome) < 0) ? nodo_ingrediente->sinistro : nodo_ingrediente->destro;
-        }
-        if (quantita_totale < ing->quantita * numero_elementi_ordinati) {
+        IngredientHashNode* ingredientNode = searchIngredientHash(ingredientHashTable, ing->name);
+        if (ingredientNode == NULL)
             return false;
+        // Remove expired lots
+        if (ingredientNode->heap.batch[0].expiration <= currentTime) {
+            while (ingredientNode->heap.size > 0 && ingredientNode->heap.batch[0].expiration <= currentTime) {
+                removeIngredient(&ingredientNode->heap);
+            }
         }
+        if (ingredientNode->heap.total_quantity < ing->quantity * quantityOrdered)
+            return false;
         ing = ing->next;
     }
     return true;
 }
 
-void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int tempo_arrivo) {
-    NodoBST* nodo_ricetta = cercaBST(bst, (char*)nome_ricetta);
-    IngredienteRicetta* ing = nodo_ricetta->ricetta.ingredienti;
+// Processes an order by removing the required ingredients from the corresponding heaps,
+// then inserting the order into the processed orders min-heap.
+void processOrder(const char* recipeName, int quantityOrdered, int arrivalTime) {
+    RecipeHashNode* recipeNode = searchRecipeHash(recipeHashTable, recipeName);
+    RecipeIngredient* ing = recipeNode->recipe.ingredients;
     while (ing != NULL) {
-        int quantita_richiesta = ing->quantita * numero_elementi_ordinati;
-        while (quantita_richiesta > 0) {
-            NodoTreap* nodo_ingrediente = cercaTreap(trap, ing->nome);
-            if (nodo_ingrediente == NULL || nodo_ingrediente->quantita == 0) {
-                return; // Non ci sono abbastanza ingredienti
-            }
-            if (nodo_ingrediente->scadenza <= tempoCorrente) {
-                trap = eliminaTreap(trap, nodo_ingrediente->nome);
-                nodo_ingrediente = cercaTreap(trap, ing->nome);
-                continue;
-            }
-            if (nodo_ingrediente->quantita <= quantita_richiesta) {
-                quantita_richiesta -= nodo_ingrediente->quantita;
-                trap = eliminaTreap(trap, nodo_ingrediente->nome);
+        IngredientHashNode* ingredientNode = searchIngredientHash(ingredientHashTable, ing->name);
+        int requiredQuantity = ing->quantity * quantityOrdered;
+        while (requiredQuantity > 0) {
+            IngredientHeapNode lot = removeIngredient(&ingredientNode->heap);
+            if (lot.quantity <= requiredQuantity) {
+                requiredQuantity -= lot.quantity;
             } else {
-                nodo_ingrediente->quantita -= quantita_richiesta;
-                quantita_richiesta = 0;
+                lot.quantity -= requiredQuantity;
+                requiredQuantity = 0;
+                insertIngredient(&ingredientNode->heap, lot.expiration, lot.quantity);
             }
         }
         ing = ing->next;
     }
-    inserisciOrdineHeap(heap_ordini_fatti, tempo_arrivo, (char*)nome_ricetta, numero_elementi_ordinati);
+    insertOrderHeap(processedOrderHeap, arrivalTime, (char*)recipeName, quantityOrdered);
 }
 
-void verificaOrdini() {
-    Ordine* ordineCorrente = coda_ordini->testa;
-    Ordine* precedente = NULL;
-    while (ordineCorrente != NULL) {
-        if (fattibilita(ordineCorrente->nome_ricetta, ordineCorrente->quantita)) {
-            preparazione(ordineCorrente->nome_ricetta, ordineCorrente->quantita, ordineCorrente->tempo_arrivo);
-            if (precedente == NULL) {
-                coda_ordini->testa = ordineCorrente->next;
-                if (coda_ordini->testa == NULL) {
-                    coda_ordini->coda = NULL;
-                }
+// Checks the pending orders queue and processes any orders that have become feasible
+void checkPendingOrders() {
+    Order* current = orderQueue->head;
+    Order* previous = NULL;
+    while (current != NULL) {
+        if (isFeasible(current->recipeName, current->quantity)) {
+            processOrder(current->recipeName, current->quantity, current->arrivalTime);
+            // Remove the order from the queue
+            if (previous == NULL) {
+                orderQueue->head = current->next;
+                if (orderQueue->head == NULL)
+                    orderQueue->tail = NULL;
             } else {
-                precedente->next = ordineCorrente->next;
-                if (precedente->next == NULL) {
-                    coda_ordini->coda = precedente;
-                }
+                previous->next = current->next;
+                if (previous->next == NULL)
+                    orderQueue->tail = previous;
             }
-            Ordine* temp = ordineCorrente;
-            ordineCorrente = ordineCorrente->next;
+            Order* temp = current;
+            current = current->next;
             free(temp);
         } else {
-            precedente = ordineCorrente;
-            ordineCorrente = ordineCorrente->next;
+            previous = current;
+            current = current->next;
         }
     }
 }
 
-void caricaCamion() {
-    if (heapVuotoMinOrdine(heap_ordini_fatti)) {
-        printf("camioncino vuoto\n");
+// Loads the truck with processed orders from the min-heap.
+// Orders are loaded by their weight, and the process stops when the truck capacity is exceeded.
+void loadTruck() {
+    if (isMinOrderHeapEmpty(processedOrderHeap)) {
+        printf("truck empty\n");
         return;
     }
-    int capienzaRestante = capienzaCamion;
-    MinHeap* tempHeap = creaMinHeap(heap_ordini_fatti->capacita);
-    while (!heapVuotoMinOrdine(heap_ordini_fatti)) {
-        OrdineHeap ordine = rimuoviMin(heap_ordini_fatti);
-        NodoBST* nodo_ricetta = cercaBST(bst, ordine.ricetta);
-        int peso_ordine = calcolaPeso(nodo_ricetta->ricetta, ordine.quantita);
-        if (peso_ordine <= capienzaRestante) {
-            inserisciSpedizione(max_heap_spedizioni, ordine.ricetta, ordine.tempo_arrivo, ordine.quantita, peso_ordine);
-            capienzaRestante -= peso_ordine;
+    int remainingCapacity = truckCapacity;
+    MinOrderHeap* tempHeap = createMinOrderHeap(processedOrderHeap->capacity);
+    while (!isMinOrderHeapEmpty(processedOrderHeap)) {
+        ProcessedOrder order = removeMinOrder(processedOrderHeap);
+        RecipeHashNode* recipeNode = searchRecipeHash(recipeHashTable, order.recipe);
+        int orderWeight = calculateWeight(recipeNode->recipe, order.quantity);
+        if (orderWeight <= remainingCapacity) {
+            insertShipment(maxShipmentHeap, order.recipe, order.arrivalTime, order.quantity, orderWeight);
+            remainingCapacity -= orderWeight;
         } else {
-            inserisciOrdineHeap(tempHeap, ordine.tempo_arrivo, ordine.ricetta, ordine.quantita);
+            insertOrderHeap(tempHeap, order.arrivalTime, order.recipe, order.quantity);
             break;
         }
     }
-    while (!heapVuotoMinOrdine(heap_ordini_fatti)) {
-        OrdineHeap ordine = rimuoviMin(heap_ordini_fatti);
-        inserisciOrdineHeap(tempHeap, ordine.tempo_arrivo, ordine.ricetta, ordine.quantita);
+    while (!isMinOrderHeapEmpty(processedOrderHeap)) {
+        ProcessedOrder order = removeMinOrder(processedOrderHeap);
+        insertOrderHeap(tempHeap, order.arrivalTime, order.recipe, order.quantity);
     }
-    while (!heapVuotoMinOrdine(tempHeap)) {
-        OrdineHeap ordine = rimuoviMin(tempHeap);
-        inserisciOrdineHeap(heap_ordini_fatti, ordine.tempo_arrivo, ordine.ricetta, ordine.quantita);
+    while (!isMinOrderHeapEmpty(tempHeap)) {
+        ProcessedOrder order = removeMinOrder(tempHeap);
+        insertOrderHeap(processedOrderHeap, order.arrivalTime, order.recipe, order.quantity);
     }
-    liberaMinHeapOrdini(tempHeap);
-    if (!heapVuotoMax(max_heap_spedizioni)) {
-        while (!heapVuotoMax(max_heap_spedizioni)) {
-            Spedizione spedizione = rimuoviMax(max_heap_spedizioni);
-            printf("%d %s %d\n", spedizione.istante_arrivo, spedizione.nome, spedizione.quantita);
+    freeMinOrderHeap(tempHeap);
+    
+    // Print out all shipments in order (by max weight)
+    if (!isMaxShipmentHeapEmpty(maxShipmentHeap)) {
+        while (!isMaxShipmentHeapEmpty(maxShipmentHeap)) {
+            Shipment shipment = removeMaxShipment(maxShipmentHeap);
+            printf("%d %s %d\n", shipment.arrivalTime, shipment.name, shipment.quantity);
         }
     }
 }
 
-int calcolaPeso(Ricetta ricetta, int numero_elementi_ordinati) {
-    int peso = 0;
-    IngredienteRicetta* ingrediente = ricetta.ingredienti;
-    while (ingrediente != NULL) {
-        peso += ingrediente->quantita;
-        ingrediente = ingrediente->next;
+// Calculates the total weight of an order based on its recipe and quantity ordered.
+int calculateWeight(Recipe recipe, int quantityOrdered) {
+    int weight = 0;
+    RecipeIngredient* ingredient = recipe.ingredients;
+    while (ingredient != NULL) {
+        weight += ingredient->quantity;
+        ingredient = ingredient->next;
     }
-    peso *= numero_elementi_ordinati;
-    return peso;
+    weight *= quantityOrdered;
+    return weight;
 }
-
-/**
-void controllaScadenza(NodoAVL* nodo_ingrediente) {
-    if (nodo_ingrediente == NULL) {
-        return;
-    }
-    MinHeapIngrediente* heap = &nodo_ingrediente->heap;
-    int i = 0;
-    while (i < heap->dimensione) {
-        if (heap->lotto[i].scadenza <= tempoCorrente) {
-            heap->lotto[i] = heap->lotto[--heap->dimensione];
-            heapifyIngredienti(heap, i);
-        } else {
-            i++;
-        }
-    }
-}
-**/

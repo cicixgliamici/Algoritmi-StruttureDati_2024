@@ -1,430 +1,456 @@
-/*  Problemi riscontrati e edge cases:  1)  A parità di peso, gli ordini del camioncino vanno per istante di arrivo
-*                                       2)  Il camioncino passa anche se l'ultima riga è al comando n*(tempoCamion-1) quindi devo fare un ultimo controllo
-*                                       3)  Nell'example.txt la ciambella 9-3 sostituiva la 5-6, tolto l'inseirmento a priori in Coda FIFO
-*                                       4)  La liberazione di un nodo nell'AVL e la stampa del minHeap generava problemi nell'example.txt sulla torta 10 1
-*                                       5)  Rifornimento al tempo 8/9 non va a buon fine in open4 -> facevo lettura fino a 256
-*                                       6)  Secondo giro di open4 il camion svuotava scorrettamente il minHeapOrdini
-*                                       7)  Secondo giro di open4 il camion carica due ordini di troppo, ha la capacità per farlo,
-*                                           quindi non andavano prodotti -> Camion si ferma al primo che incontra troppo pesante
-*                                       8)  open5 access violation al primo caricamento del camion, sembra essere un problema nel minHeap ordini -> era un 
-*                                           problema di dimensione del maxHeap basato sulla capienzaCamion -> credo ci sia un "limite" al malloc
-*                                       9)  open7 sfaciola totalmente ordini -> problema legato alla lunghezza delle righe di input e come venivano lette
-*                                       10) passati tutti gli open tranne 8 (rimarrà un mistero), passato a Open -> usava troppo spazio -> cambiati i char
-*                                           da 256 a 25 (il minimo è 20)
-*                                       11) installato con non poca difficolta valgrind, dava controlloScadenza come funzione più chiamata, insieme alla 
-*                                           lettura stringhe, qualche sospetto sulla struttura degli ingredienti
-*                                       11) Per passare 18 bisogna grattare 15.857 secondi -> 
-*                                                                                             le puts non sembrano aver funzionato
-*                                                                                             accorpato il controlloScadenza alla fattibilita
-*                                                                                             provare a cambiare il caricamento del camion
-*                                                                                             def4.1 passa da AVL di minHeap a Treap
-*                                                                                             def4.2 passa da AVL di minHeap a minHeap
-*                                                        
-*
-*/
-//Elenco di tutte le funzioni riguardanti le strutture dati
 #include "header.h"
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 
-// Funzione per creare un nuovo nodo Treap
-NodoTreap* nuovoNodoTreap(char* nome, int scadenza, int quantita) {
-    NodoTreap* nodo = (NodoTreap*)malloc(sizeof(NodoTreap));
-    strcpy(nodo->nome, nome);
-    nodo->scadenza = scadenza;
-    nodo->quantita = quantita;
-    nodo->priorita = rand() % 100; // Assegna una priorità casuale
-    nodo->sinistro = nodo->destro = NULL;
-    return nodo;
+/* ========================================================= */
+/*           Ingredient Data Structure Functions           */
+/* ========================================================= */
+
+// Swap two IngredientHeapNodes
+void swapIngredientNodes(IngredientHeapNode* a, IngredientHeapNode* b) {
+    IngredientHeapNode temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
-// Funzione di rotazione a destra
-NodoTreap* ruotaDestraTreap(NodoTreap* y) {
-    NodoTreap* x = y->sinistro;
-    NodoTreap* T2 = x->destro;
-    x->destro = y;
-    y->sinistro = T2;
-    return x;
-}
+// Maintains the min-heap property for ingredients by expiration time
+void heapifyIngredient(IngredientMinHeap* heap, int i) {
+    int smallest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
 
-// Funzione di rotazione a sinistra
-NodoTreap* ruotaSinistraTreap(NodoTreap* x) {
-    NodoTreap* y = x->destro;
-    NodoTreap* T2 = y->sinistro;
-    y->sinistro = x;
-    x->destro = T2;
-    return y;
-}
-
-// Funzione di inserimento nel Treap
-NodoTreap* inserisciTreap(NodoTreap* root, char* nome, int scadenza, int quantita) {
-    if (root == NULL) {
-        return nuovoNodoTreap(nome, scadenza, quantita);
+    if (left < heap->size && heap->batch[left].expiration < heap->batch[smallest].expiration) {
+        smallest = left;
     }
-
-    if (strcmp(nome, root->nome) == 0 && scadenza == root->scadenza) {
-        root->quantita += quantita;
-    } else if (scadenza < root->scadenza || (scadenza == root->scadenza && strcmp(nome, root->nome) < 0)) {
-        root->sinistro = inserisciTreap(root->sinistro, nome, scadenza, quantita);
-        if (root->sinistro->priorita > root->priorita) {
-            root = ruotaDestraTreap(root);
-        }
-    } else {
-        root->destro = inserisciTreap(root->destro, nome, scadenza, quantita);
-        if (root->destro->priorita > root->priorita) {
-            root = ruotaSinistraTreap(root);
-        }
+    if (right < heap->size && heap->batch[right].expiration < heap->batch[smallest].expiration) {
+        smallest = right;
     }
-
-    return root;
-}
-
-// Funzione di eliminazione dal Treap
-NodoTreap* eliminaTreap(NodoTreap* root, char* nome) {
-    if (root == NULL) {
-        return root;
-    }
-
-    if (strcmp(nome, root->nome) < 0) {
-        root->sinistro = eliminaTreap(root->sinistro, nome);
-    } else if (strcmp(nome, root->nome) > 0) {
-        root->destro = eliminaTreap(root->destro, nome);
-    } else {
-        if (root->sinistro == NULL) {
-            NodoTreap* temp = root->destro;
-            free(root);
-            return temp;
-        } else if (root->destro == NULL) {
-            NodoTreap* temp = root->sinistro;
-            free(root);
-            return temp;
-        }
-
-        if (root->sinistro->priorita < root->destro->priorita) {
-            root = ruotaSinistraTreap(root);
-            root->destro = eliminaTreap(root->destro, nome);
-        } else {
-            root = ruotaDestraTreap(root);
-            root->sinistro = eliminaTreap(root->sinistro, nome);
-        }
-    }
-
-    return root;
-}
-
-// Funzione di ricerca nel Treap
-NodoTreap* cercaTreap(NodoTreap* root, char* nome) {
-    if (root == NULL) {
-        return NULL;
-    }
-
-    NodoTreap* result = NULL;
-    if (strcmp(root->nome, nome) == 0) {
-        if (result == NULL || root->scadenza < result->scadenza) {
-            result = root;
-        }
-    }
-
-    NodoTreap* left_result = cercaTreap(root->sinistro, nome);
-    NodoTreap* right_result = cercaTreap(root->destro, nome);
-
-    if (result == NULL) {
-        result = left_result ? left_result : right_result;
-    } else {
-        if (left_result && left_result->scadenza < result->scadenza) {
-            result = left_result;
-        }
-        if (right_result && right_result->scadenza < result->scadenza) {
-            result = right_result;
-        }
-    }
-
-    return result;
-}
-
-// Funzione per liberare la memoria del Treap
-void liberaTreap(NodoTreap* root) {
-    if (root != NULL) {
-        liberaTreap(root->sinistro);
-        liberaTreap(root->destro);
-        free(root);
+    if (smallest != i) {
+        swapIngredientNodes(&heap->batch[i], &heap->batch[smallest]);
+        heapifyIngredient(heap, smallest);
     }
 }
 
-//Funzioni BST - Ricette
-void liberaBST(NodoBST* root) {
-   if(root!=NULL) {
-       liberaBST(root->sinistro);
-       liberaBST(root->destro);
-       liberaListaIng(root->ricetta.ingredienti);
-       free(root);
-   }
-}
-
-void liberaListaIng(IngredienteRicetta* ingrediente) {
-    IngredienteRicetta* temp;
-    while(ingrediente!=NULL) {
-        temp=ingrediente;
-        ingrediente=ingrediente->next;
-        free(temp);
+// Inserts a new ingredient lot into the min-heap
+void insertIngredient(IngredientMinHeap* heap, int expiration, int quantity) {
+    if (heap->size == heap->capacity) {
+        heap->capacity *= 2;
+        heap->batch = (IngredientHeapNode*)realloc(heap->batch, heap->capacity * sizeof(IngredientHeapNode));
     }
-}
+    int i = heap->size++;
+    heap->batch[i].expiration = expiration;
+    heap->batch[i].quantity = quantity;
+    heap->total_quantity += quantity;
 
-NodoBST* nuovoBST(Ricetta ricetta) {
-    NodoBST* nodo=(NodoBST*)malloc(sizeof(NodoBST));
-    nodo->ricetta =ricetta;
-    nodo-> sinistro= nodo ->destro=NULL;
-    return nodo;
-}
-
-NodoBST* minValueBST(NodoBST* nodo) {
-    NodoBST* corrente=nodo;
-    while(corrente && corrente->sinistro!=NULL)
-        corrente=corrente->sinistro;
-    return corrente;
-}
-
-NodoBST* inserisciBST(NodoBST* nodo, Ricetta ricetta) {
-    if (nodo == NULL)
-        return nuovoBST(ricetta);
-    if (strcmp(ricetta.nome, nodo->ricetta.nome) < 0)
-        nodo->sinistro = inserisciBST(nodo->sinistro, ricetta);
-    else if (strcmp(ricetta.nome, nodo->ricetta.nome) > 0)
-        nodo->destro = inserisciBST(nodo->destro, ricetta);
-    return nodo;
-}
-
-NodoBST* cercaBST(NodoBST* nodo, char* nome) {
-    if (nodo == NULL || strcmp(nodo->ricetta.nome, nome) == 0)
-        return nodo;
-    if (strcmp(nome, nodo->ricetta.nome) < 0)
-        return cercaBST(nodo->sinistro, nome);
-    return cercaBST(nodo->destro,nome);
-}
-
-NodoBST* eliminaBST(NodoBST* root, char* nome) {
-    if (root == NULL)
-        return root;
-    if (strcmp(nome, root->ricetta.nome) < 0)
-        root->sinistro = eliminaBST(root->sinistro, nome);
-    else if (strcmp(nome, root->ricetta.nome) > 0)
-        root->destro = eliminaBST(root->destro, nome);
-    else {
-        if (root->sinistro == NULL) {
-            NodoBST* temp = root->destro;
-            free(root);
-            return temp;
-        } else if (root->destro == NULL) {
-            NodoBST* temp = root->sinistro;
-            free(root);
-            return temp;
-        }
-        NodoBST* temp = minValueBST(root->destro);
-        root->ricetta = temp->ricetta;
-        root->destro = eliminaBST(root->destro, temp->ricetta.nome);
-    }
-    return root;
-}
-
-//Funzioni Coda FIFO - Ordini da Fare
-void liberaCoda(CodaOrdini* coda) {
-    Ordine* temp;
-    while(coda->testa!=NULL) {
-        temp=coda->testa;
-        coda->testa=coda->testa->next;
-        free(temp);
-    }
-    free(coda);
-}
-
-void aggiungiCoda(CodaOrdini* coda, const char* nome_ricetta, int quantita, int tempo_arrivo) {
-    Ordine* nuovoOrdine = (Ordine*)malloc(sizeof(Ordine));
-    nuovoOrdine->tempo_arrivo = tempo_arrivo;
-    strcpy(nuovoOrdine->nome_ricetta, nome_ricetta);
-    nuovoOrdine->quantita = quantita;
-    nuovoOrdine->next = NULL;
-    if (coda->coda == NULL) {
-        coda->testa = nuovoOrdine;
-        coda->coda = nuovoOrdine;
-    } else {
-        coda->coda->next = nuovoOrdine;
-        coda->coda = nuovoOrdine;
-    }
-}
-
-int codaVuota(CodaOrdini* coda) {
-    return coda->testa==NULL;
-}
-
-CodaOrdini* creaCoda() {
-    CodaOrdini* coda=(CodaOrdini*)malloc(sizeof(CodaOrdini));
-    coda->testa=NULL;
-    coda->coda=NULL;
-    return coda;
-}
-
-Ordine* rimuoviCoda(CodaOrdini* coda) {
-    if (coda->testa == NULL) {
-        return NULL;
-    }
-    Ordine* ordineRimosso = coda->testa;
-    coda->testa = coda->testa->next;
-    if (coda->testa == NULL) {
-        coda->coda = NULL;
-    }
-    free(ordineRimosso);
-    return coda->testa;
-}
-
-//Funzioni minHeap - Ordini Fatti
-void liberaMinHeapOrdini(MinHeap* heap) {
-    free(heap->ordini);
-    free(heap);
-}
-
-void scambiaOrdini(OrdineHeap* a, OrdineHeap* b) {
-    OrdineHeap temp= *a;
-    *a=*b;
-    *b=temp;
-}
-
-void heapifyOrdini(MinHeap* heap, int i) {
-    int minore = i;
-    int sx = 2 * i + 1;
-    int dx = 2 * i + 2;
-    if (sx < heap->dimensione && heap->ordini[sx].tempo_arrivo < heap->ordini[minore].tempo_arrivo)
-        minore = sx;
-    if (dx < heap->dimensione && heap->ordini[dx].tempo_arrivo < heap->ordini[minore].tempo_arrivo)
-        minore = dx;
-    if (minore != i) {
-        scambiaOrdini(&heap->ordini[i], &heap->ordini[minore]);
-        heapifyOrdini(heap, minore);
-    }
-}
-
-void inserisciOrdineHeap(MinHeap* heap, int tempo_arrivo, char* ricetta, int quantita) {
-    if (heap->dimensione == heap->capacita) {
-        heap->capacita *= 2;
-        heap->ordini = (OrdineHeap*)realloc(heap->ordini, heap->capacita * sizeof(OrdineHeap));
-    }
-    int i = heap->dimensione++;
-    heap->ordini[i].tempo_arrivo = tempo_arrivo;
-    strncpy(heap->ordini[i].ricetta, ricetta, sizeof(heap->ordini[i].ricetta) - 1);
-    heap->ordini[i].ricetta[sizeof(heap->ordini[i].ricetta) - 1] = '\0';
-    heap->ordini[i].quantita = quantita;
-    while (i != 0 && heap->ordini[(i - 1) / 2].tempo_arrivo > heap->ordini[i].tempo_arrivo) {
-        scambiaOrdini(&heap->ordini[i], &heap->ordini[(i - 1) / 2]);
+    // Bubble up to maintain heap property
+    while (i != 0 && heap->batch[(i - 1) / 2].expiration > heap->batch[i].expiration) {
+        swapIngredientNodes(&heap->batch[i], &heap->batch[(i - 1) / 2]);
         i = (i - 1) / 2;
     }
 }
 
-int heapVuotoMinOrdine(MinHeap* heap) {
-    return heap->dimensione==0;
-}
-
-MinHeap* creaMinHeap(int capacita) {
-    MinHeap* heap = (MinHeap*)malloc(sizeof(MinHeap));
-    heap->dimensione = 0;
-    heap->capacita = capacita;
-    heap->ordini = (OrdineHeap*)malloc(capacita * sizeof(OrdineHeap));
-    return heap;
-}
-
-OrdineHeap rimuoviMin(MinHeap* heap) {
-    if (heap->dimensione == 0) {
-        OrdineHeap ordineVuoto;
-        strcpy(ordineVuoto.ricetta, "");
-        ordineVuoto.quantita = 0;
-        ordineVuoto.tempo_arrivo = 0;
-        return ordineVuoto;
+// Removes the ingredient lot with the earliest expiration
+IngredientHeapNode removeIngredient(IngredientMinHeap* heap) {
+    if (heap->size == 0) {
+        IngredientHeapNode empty = { INT_MAX, 0 };
+        return empty;
     }
-    OrdineHeap min = heap->ordini[0];
-    heap->ordini[0] = heap->ordini[heap->dimensione - 1];
-    heap->dimensione--;
-    heapifyOrdini(heap, 0);
-    return min;
-}
-
-//Funzioni maxHeap - Camioncino Spedizioni
-void heapifySpedizioni(MaxHeapSpedizioni* heap, int i) {
-    int maggiore = i;
-    int sinistro = 2 * i + 1;
-    int destro = 2 * i + 2;
-    if (sinistro < heap->dimensione && heap->spedizioni[sinistro].peso > heap->spedizioni[maggiore].peso)
-        maggiore = sinistro;
-    else if (sinistro < heap->dimensione && heap->spedizioni[sinistro].peso == heap->spedizioni[maggiore].peso &&
-             heap->spedizioni[sinistro].istante_arrivo < heap->spedizioni[maggiore].istante_arrivo)
-        maggiore = sinistro;
-    if (destro < heap->dimensione && heap->spedizioni[destro].peso > heap->spedizioni[maggiore].peso)
-        maggiore = destro;
-    else if (destro < heap->dimensione && heap->spedizioni[destro].peso == heap->spedizioni[maggiore].peso &&
-             heap->spedizioni[destro].istante_arrivo < heap->spedizioni[maggiore].istante_arrivo)
-        maggiore = destro;
-    if (maggiore != i) {
-        Spedizione temp = heap->spedizioni[i];
-        heap->spedizioni[i] = heap->spedizioni[maggiore];
-        heap->spedizioni[maggiore] = temp;
-        heapifySpedizioni(heap, maggiore);
-    }
-}
-
-void inserisciSpedizione(MaxHeapSpedizioni* heap, char* nome, int istante_arrivo, int quantita, int peso) {
-    if (heap->dimensione == heap->capacita) {
-        heap->capacita *= 2;
-        heap->spedizioni = (Spedizione*) realloc(heap->spedizioni, heap->capacita * sizeof(Spedizione));
-    }
-    int i = heap->dimensione++;
-    strcpy(heap->spedizioni[i].nome, nome);
-    heap->spedizioni[i].istante_arrivo = istante_arrivo;
-    heap->spedizioni[i].quantita = quantita;
-    heap->spedizioni[i].peso = peso;
-    while (i != 0) {
-        int parent = (i - 1) / 2;
-        if (heap->spedizioni[parent].peso < heap->spedizioni[i].peso) {
-            Spedizione temp = heap->spedizioni[i];
-            heap->spedizioni[i] = heap->spedizioni[parent];
-            heap->spedizioni[parent] = temp;
-            i = parent;
-        } else if (heap->spedizioni[parent].peso == heap->spedizioni[i].peso &&
-                   heap->spedizioni[parent].istante_arrivo > heap->spedizioni[i].istante_arrivo) {
-            Spedizione temp = heap->spedizioni[i];
-            heap->spedizioni[i] = heap->spedizioni[parent];
-            heap->spedizioni[parent] = temp;
-            i = parent;
-                   } else {
-                       break;
-                   }
-    }
-}
-
-void liberaMaxHeap(MaxHeapSpedizioni* heap) {
-    free(heap->spedizioni);
-}
-
-MaxHeapSpedizioni* creaMaxHeap(int capacita) {
-    MaxHeapSpedizioni* heap = (MaxHeapSpedizioni*)malloc(sizeof(MaxHeapSpedizioni));
-    heap->spedizioni = (Spedizione*) malloc(capacita * sizeof(Spedizione));
-    heap->dimensione = 0;
-    heap->capacita = capacita;
-    return heap;
-}
-
-Spedizione rimuoviMax(MaxHeapSpedizioni* heap) {
-    if (heap->dimensione<=0) {
-        Spedizione nullSpedizione = {"", 0, 0, 0};
-        return nullSpedizione;
-    }
-    Spedizione root=heap->spedizioni[0];
-    if (heap->dimensione==1) {
-        heap->dimensione--;
-        return root;
-    }
-    heap->spedizioni[0]=heap->spedizioni[--heap->dimensione];
-    heapifySpedizioni(heap, 0);
+    IngredientHeapNode root = heap->batch[0];
+    heap->batch[0] = heap->batch[--heap->size];
+    heap->total_quantity -= root.quantity;
+    heapifyIngredient(heap, 0);
     return root;
 }
 
-int heapVuotoMax(MaxHeapSpedizioni* heap) {
-    return heap->dimensione == 0;
+// Creates a new IngredientMinHeap with the specified capacity
+IngredientMinHeap createIngredientMinHeap(int capacity) {
+    IngredientMinHeap heap;
+    heap.batch = (IngredientHeapNode*)malloc(capacity * sizeof(IngredientHeapNode));
+    heap.capacity = capacity;
+    heap.size = 0;
+    heap.total_quantity = 0;
+    return heap;
+}
+
+/* ========================================================= */
+/*          Ingredient Hash Table Functions                */
+/* ========================================================= */
+
+// Creates a new hash table node for an ingredient
+IngredientHashNode* createIngredientHashNode(const char* name, int capacity) {
+    IngredientHashNode* node = (IngredientHashNode*)malloc(sizeof(IngredientHashNode));
+    strcpy(node->name, name);
+    node->heap = createIngredientMinHeap(capacity);
+    node->next = NULL;
+    return node;
+}
+
+// Inserts an ingredient lot into the ingredient hash table
+void insertIngredientHash(IngredientHashTable* table, const char* name, int expiration, int quantity) {
+    // Resize table if load factor threshold is reached
+    if (table->count >= table->size * LOAD_FACTOR_THRESHOLD) {
+        int newSize = table->size * 2;
+        IngredientHashNode** newBuckets = (IngredientHashNode**)calloc(newSize, sizeof(IngredientHashNode*));
+        for (int i = 0; i < table->size; i++) {
+            IngredientHashNode* node = table->buckets[i];
+            while (node) {
+                IngredientHashNode* next = node->next;
+                unsigned int newBucket = hashString(node->name, newSize);
+                node->next = newBuckets[newBucket];
+                newBuckets[newBucket] = node;
+                node = next;
+            }
+        }
+        free(table->buckets);
+        table->buckets = newBuckets;
+        table->size = newSize;
+    }
+
+    unsigned int bucket = hashString(name, table->size);
+    IngredientHashNode* node = table->buckets[bucket];
+    while (node) {
+        if (strcmp(node->name, name) == 0) {
+            insertIngredient(&node->heap, expiration, quantity);
+            return;
+        }
+        node = node->next;
+    }
+    // Create new node if not found
+    IngredientHashNode* newNode = createIngredientHashNode(name, INITIAL_HEAP_CAPACITY);
+    insertIngredient(&newNode->heap, expiration, quantity);
+    newNode->next = table->buckets[bucket];
+    table->buckets[bucket] = newNode;
+    table->count++;
+}
+
+// Searches for an ingredient in the hash table by name
+IngredientHashNode* searchIngredientHash(IngredientHashTable* table, const char* name) {
+    unsigned int bucket = hashString(name, table->size);
+    IngredientHashNode* node = table->buckets[bucket];
+    while (node) {
+        if (strcmp(node->name, name) == 0)
+            return node;
+        node = node->next;
+    }
+    return NULL;
+}
+
+// Creates a new ingredient hash table with a given size
+IngredientHashTable* createIngredientHashTable(int size) {
+    IngredientHashTable* table = (IngredientHashTable*)malloc(sizeof(IngredientHashTable));
+    table->buckets = (IngredientHashNode**)calloc(size, sizeof(IngredientHashNode*));
+    table->size = size;
+    table->count = 0;
+    return table;
+}
+
+/* ========================================================= */
+/*            Recipe Hash Table Functions                  */
+/* ========================================================= */
+
+// Inserts a recipe into the recipe hash table
+void insertRecipeHash(RecipeHashTable* table, Recipe recipe) {
+    if (table->count >= table->size * LOAD_FACTOR_THRESHOLD) {
+        int newSize = table->size * 2;
+        RecipeHashNode** newBuckets = (RecipeHashNode**)calloc(newSize, sizeof(RecipeHashNode*));
+        for (int i = 0; i < table->size; i++) {
+            RecipeHashNode* node = table->buckets[i];
+            while (node) {
+                RecipeHashNode* next = node->next;
+                unsigned int newBucket = hashString(node->name, newSize);
+                node->next = newBuckets[newBucket];
+                newBuckets[newBucket] = node;
+                node = next;
+            }
+        }
+        free(table->buckets);
+        table->buckets = newBuckets;
+        table->size = newSize;
+    }
+
+    unsigned int bucket = hashString(recipe.name, table->size);
+    RecipeHashNode* node = table->buckets[bucket];
+    while (node) {
+        if (strcmp(node->name, recipe.name) == 0)
+            return;
+        node = node->next;
+    }
+    RecipeHashNode* newNode = createRecipeHashNode(recipe);
+    newNode->next = table->buckets[bucket];
+    table->buckets[bucket] = newNode;
+    table->count++;
+}
+
+// Removes a recipe from the recipe hash table
+void removeRecipeHash(RecipeHashTable* table, const char* name) {
+    unsigned int bucket = hashString(name, table->size);
+    RecipeHashNode* node = table->buckets[bucket];
+    RecipeHashNode* prev = NULL;
+    while (node) {
+        if (strcmp(node->name, name) == 0) {
+            if (prev)
+                prev->next = node->next;
+            else
+                table->buckets[bucket] = node->next;
+            // Free the linked list of recipe ingredients
+            RecipeIngredient* ingredient = node->recipe.ingredients;
+            while (ingredient) {
+                RecipeIngredient* temp = ingredient;
+                ingredient = ingredient->next;
+                free(temp);
+            }
+            free(node);
+            table->count--;
+            return;
+        }
+        prev = node;
+        node = node->next;
+    }
+}
+
+// Creates a new recipe hash table with a given size
+RecipeHashTable* createRecipeHashTable(int size) {
+    RecipeHashTable* table = (RecipeHashTable*)malloc(sizeof(RecipeHashTable));
+    table->buckets = (RecipeHashNode**)calloc(size, sizeof(RecipeHashNode*));
+    table->size = size;
+    table->count = 0;
+    return table;
+}
+
+// Creates a new recipe hash node
+RecipeHashNode* createRecipeHashNode(Recipe recipe) {
+    RecipeHashNode* node = (RecipeHashNode*)malloc(sizeof(RecipeHashNode));
+    strcpy(node->name, recipe.name);
+    node->recipe = recipe;
+    node->next = NULL;
+    return node;
+}
+
+// Searches for a recipe in the hash table by name
+RecipeHashNode* searchRecipeHash(RecipeHashTable* table, const char* name) {
+    unsigned int bucket = hashString(name, table->size);
+    RecipeHashNode* node = table->buckets[bucket];
+    while (node) {
+        if (strcmp(node->name, name) == 0)
+            return node;
+        node = node->next;
+    }
+    return NULL;
+}
+
+/* ========================================================= */
+/*             Order Queue Functions                       */
+/* ========================================================= */
+
+// Enqueues a new order into the pending orders queue
+void enqueueOrder(OrderQueue* queue, const char* recipeName, int quantity, int arrivalTime) {
+    Order* newOrder = (Order*)malloc(sizeof(Order));
+    newOrder->arrivalTime = arrivalTime;
+    strcpy(newOrder->recipeName, recipeName);
+    newOrder->quantity = quantity;
+    newOrder->next = NULL;
+    if (queue->tail == NULL) {
+        queue->head = newOrder;
+        queue->tail = newOrder;
+    } else {
+        queue->tail->next = newOrder;
+        queue->tail = newOrder;
+    }
+}
+
+// Creates a new empty order queue
+OrderQueue* createOrderQueue() {
+    OrderQueue* queue = (OrderQueue*)malloc(sizeof(OrderQueue));
+    queue->head = NULL;
+    queue->tail = NULL;
+    return queue;
+}
+
+// Dequeues an order from the pending orders queue
+Order* dequeueOrder(OrderQueue* queue) {
+    if (queue->head == NULL)
+        return NULL;
+    Order* order = queue->head;
+    queue->head = queue->head->next;
+    if (queue->head == NULL)
+        queue->tail = NULL;
+    return order;
+}
+
+/* ========================================================= */
+/*          Processed Order Min-Heap Functions             */
+/* ========================================================= */
+
+// Frees the memory allocated for a processed order min-heap
+void freeMinOrderHeap(MinOrderHeap* heap) {
+    free(heap->orders);
+    free(heap);
+}
+
+// Swap two processed orders
+void swapProcessedOrders(ProcessedOrder* x, ProcessedOrder* y) {
+    ProcessedOrder temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+// Maintains the min-heap property based on arrival time
+void heapifyProcessedOrders(MinOrderHeap* heap, int i) {
+    int smallest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+
+    if (left < heap->size && heap->orders[left].arrivalTime < heap->orders[smallest].arrivalTime)
+        smallest = left;
+    if (right < heap->size && heap->orders[right].arrivalTime < heap->orders[smallest].arrivalTime)
+        smallest = right;
+    if (smallest != i) {
+        swapProcessedOrders(&heap->orders[i], &heap->orders[smallest]);
+        heapifyProcessedOrders(heap, smallest);
+    }
+}
+
+// Inserts a processed order into the min-heap
+void insertOrderHeap(MinOrderHeap* heap, int arrivalTime, char* recipe, int quantity) {
+    if (heap->size == heap->capacity) {
+        heap->capacity *= 2;
+        heap->orders = (ProcessedOrder*)realloc(heap->orders, heap->capacity * sizeof(ProcessedOrder));
+    }
+    int i = heap->size++;
+    heap->orders[i].arrivalTime = arrivalTime;
+    strcpy(heap->orders[i].recipe, recipe);
+    heap->orders[i].quantity = quantity;
+
+    // Bubble up to maintain heap property
+    while (i != 0 && heap->orders[(i - 1) / 2].arrivalTime > heap->orders[i].arrivalTime) {
+        swapProcessedOrders(&heap->orders[i], &heap->orders[(i - 1) / 2]);
+        i = (i - 1) / 2;
+    }
+}
+
+// Returns 1 if the min-heap is empty, 0 otherwise
+int isMinOrderHeapEmpty(MinOrderHeap* heap) {
+    return heap->size == 0;
+}
+
+// Creates a new processed order min-heap with the given capacity
+MinOrderHeap* createMinOrderHeap(int capacity) {
+    MinOrderHeap* heap = (MinOrderHeap*)malloc(sizeof(MinOrderHeap));
+    heap->orders = (ProcessedOrder*)malloc(capacity * sizeof(ProcessedOrder));
+    heap->size = 0;
+    heap->capacity = capacity;
+    return heap;
+}
+
+// Removes and returns the processed order with the smallest arrival time
+ProcessedOrder removeMinOrder(MinOrderHeap* heap) {
+    if (heap->size == 0) {
+        ProcessedOrder empty = {0, "", 0};
+        return empty;
+    }
+    ProcessedOrder minOrder = heap->orders[0];
+    heap->orders[0] = heap->orders[--heap->size];
+    heapifyProcessedOrders(heap, 0);
+    return minOrder;
+}
+
+/* ========================================================= */
+/*         Shipment Max-Heap Functions                     */
+/* ========================================================= */
+
+// Maintains the max-heap property for shipments based on weight.
+// For equal weight, the shipment with the earlier arrival comes first.
+void heapifyShipments(MaxShipmentHeap* heap, int i) {
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+
+    if (left < heap->size && (heap->shipments[left].weight > heap->shipments[largest].weight ||
+       (heap->shipments[left].weight == heap->shipments[largest].weight &&
+        heap->shipments[left].arrivalTime < heap->shipments[largest].arrivalTime)))
+    {
+        largest = left;
+    }
+    if (right < heap->size && (heap->shipments[right].weight > heap->shipments[largest].weight ||
+       (heap->shipments[right].weight == heap->shipments[largest].weight &&
+        heap->shipments[right].arrivalTime < heap->shipments[largest].arrivalTime)))
+    {
+        largest = right;
+    }
+    if (largest != i) {
+        Shipment temp = heap->shipments[i];
+        heap->shipments[i] = heap->shipments[largest];
+        heap->shipments[largest] = temp;
+        heapifyShipments(heap, largest);
+    }
+}
+
+// Inserts a shipment into the max-heap
+void insertShipment(MaxShipmentHeap* heap, char* name, int arrivalTime, int quantity, int weight) {
+    if (heap->size == heap->capacity) {
+        heap->capacity *= 2;
+        heap->shipments = (Shipment*)realloc(heap->shipments, heap->capacity * sizeof(Shipment));
+    }
+    int i = heap->size++;
+    strcpy(heap->shipments[i].name, name);
+    heap->shipments[i].arrivalTime = arrivalTime;
+    heap->shipments[i].quantity = quantity;
+    heap->shipments[i].weight = weight;
+
+    // Bubble up to maintain heap property (by weight, then by arrival time)
+    while (i != 0) {
+        int parent = (i - 1) / 2;
+        if (heap->shipments[parent].weight < heap->shipments[i].weight ||
+           (heap->shipments[parent].weight == heap->shipments[i].weight &&
+            heap->shipments[parent].arrivalTime > heap->shipments[i].arrivalTime))
+        {
+            Shipment temp = heap->shipments[i];
+            heap->shipments[i] = heap->shipments[parent];
+            heap->shipments[parent] = temp;
+            i = parent;
+        } else {
+            break;
+        }
+    }
+}
+
+// Returns 1 if the max-heap is empty, 0 otherwise
+int isMaxShipmentHeapEmpty(MaxShipmentHeap* heap) {
+    return heap->size == 0;
+}
+
+// Creates a new shipment max-heap with the given capacity
+MaxShipmentHeap* createMaxShipmentHeap(int capacity) {
+    MaxShipmentHeap* heap = (MaxShipmentHeap*)malloc(sizeof(MaxShipmentHeap));
+    heap->shipments = (Shipment*)malloc(capacity * sizeof(Shipment));
+    heap->size = 0;
+    heap->capacity = capacity;
+    return heap;
+}
+
+// Removes and returns the shipment with the maximum weight
+Shipment removeMaxShipment(MaxShipmentHeap* heap) {
+    if (heap->size <= 0) {
+        Shipment nullShipment = {"", 0, 0, 0};
+        return nullShipment;
+    }
+    Shipment root = heap->shipments[0];
+    if (heap->size == 1) {
+        heap->size--;
+        return root;
+    }
+    heap->shipments[0] = heap->shipments[--heap->size];
+    heapifyShipments(heap, 0);
+    return root;
+}
+
+/* ========================================================= */
+/*                    Utility Functions                    */
+/* ========================================================= */
+
+// Generic hash function: shifts the hash 6 bits to the left and adds the ASCII code
+unsigned int hashString(const char* str, int size) {
+    unsigned int hash = 0;
+    while (*str) {
+        hash = (hash << 6) + *str++;
+    }
+    return hash % size;
 }

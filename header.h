@@ -1,194 +1,255 @@
-/* 02/08/2024 -> 30,593s e 14,6MiB, comandi Valgrind
-*  wsl
-*  cd /mnt/c/Users/39392/CLionProjects/def1/cmake-build-debug
-*  rm -rf *
-*  cmake ..
-*  make
-*  valgrind --tool=callgrind ./def1
-*  callgrind_annotate callgrind.out.*
-*  kcachegrind callgrind.out.*
-*
-*  Ricordati di mettere da 25 a 256
-*/
-/* 5 Strutture dati   Ingredienti:      AVL di min-Heap  -> Ingredienti ordinati per scadenza nel min-Heap, lessicograficamente per lotti
-*                     Ricette:          BST di liste     -> Ordinamento lessicografico
-*                     Ordini da Fare:   Coda FIFO        -> Mantiene l'ordine di arrivo degli ordini
-*                     Ordini fatti:     min-Heap         -> Istante di arrivo dell'ordine
-*                     Camioncino:       max-Heap         -> Peso totale dell'ordine (a parità di peso, istante di arrivo)
-*/
-#ifndef HEADER_H
-#define HEADER_H
+#ifndef header_h
+#define header_h
+
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <stdbool.h>
+#include <limits.h>
 
-// Ingredienti - Heap - ordino tutti i prodotti dello stesso tipo per scadenza(asc), così da rispettare la specifica
-// Struttura del Nodo Treap
-typedef struct NodoTreap {
-    char nome[200];
-    int scadenza;
-    int quantita;
-    int priorita;
-    struct NodoTreap *sinistro;
-    struct NodoTreap *destro;
-} NodoTreap;
+/*
+Data Structures Used in This Project:
+    Ingredients:       Hash table of min-heaps
+                       -> Each ingredient is stored in a min-heap (organized by expiration date,
+                          and, if needed, lexicographically by lot) within a hash table for fast lookup.
 
-// Funzioni per il Treap
-NodoTreap* nuovoNodoTreap(char* nome, int scadenza, int quantita);
-NodoTreap* ruotaDestraTreap(NodoTreap* y);
-NodoTreap* ruotaSinistraTreap(NodoTreap* x);
-NodoTreap* inserisciTreap(NodoTreap* root, char* nome, int scadenza, int quantita);
-NodoTreap* eliminaTreap(NodoTreap* root, char* nome);
-NodoTreap* cercaTreap(NodoTreap* root, char* nome);
-void liberaTreap(NodoTreap* root);
-void scambia(NodoTreap* a, NodoTreap* b);
-void heapifyTreap(NodoTreap* root);
+    Recipes:           Hash table of linked lists
+                       -> Recipes are stored in a hash table with linked lists to enable rapid search,
+                          insertion, and deletion.
 
-//Ricette - Lista - Non esistono criteri specifici di inserimento o ricerca
-typedef struct IngredienteRicetta {
-    char nome[200];
-    int quantita;
-    struct IngredienteRicetta *next;
-} IngredienteRicetta;
+    Pending Orders:    FIFO Queue
+                       -> Maintains the order in which orders arrive (First-In-First-Out).
 
-typedef struct Ricetta {
-    char nome[200];
-    IngredienteRicetta *ingredienti;
-} Ricetta;
+    Processed Orders:  Min-Heap
+                       -> Orders that have been processed are stored in a min-heap, ordered by the order’s arrival time.
 
-//Ricette - BST - ogni nodo contiene la lista di ingredienti richiesti
-typedef struct NodoBST {
-    Ricetta ricetta;
-    struct NodoBST *sinistro;
-    struct NodoBST *destro;
-} NodoBST;
+    Delivery Truck:    Max-Heap
+                       -> Orders to be loaded on the truck are stored in a max-heap, ordered by the total order weight;
+                          in case of equal weight, the order with the earlier arrival time is given priority.
 
-void liberaBST(NodoBST* root);                                 //Libera la memoria del nodo
-void liberaListaIng(IngredienteRicetta* ingrediente);          //Libera la memoria della lista di ingredienti di un nodo
-NodoBST* nuovoBST(Ricetta ricetta);                            //Crea un nuovo nodo (e restituisce il suo puntatore)
-NodoBST* minValueBST(NodoBST* nodo);                           //Trova e ritorna il nodo con il valore minimo in un BST (puntatore)
-NodoBST* inserisciBST(NodoBST* nodo, Ricetta ricetta);         //Inserisce un nodo
-NodoBST* cercaBST(NodoBST* nodo, char* nome);                  //Cerca un nodo
-NodoBST* eliminaBST(NodoBST* root, char* nome);                //Elimina un nodo
+How It Works:
+    Min/Max Heap:      A binary tree in which every node is smaller/larger than its children, meaning the root is the minimum/maximum.
+                       (There are essentially two similar min-heaps in use – one for ingredients and one for processed orders – with the same basic operations,
+                        but they are kept separate for clarity during debugging.)
 
-//Ordine da Fare - Coda FIFO basata sul tempo d'arrivo
-typedef struct Ordine {
-    int tempo_arrivo; 
-    char nome_ricetta[200];
-    int quantita;
-    struct Ordine* next;
-} Ordine;
+    Hash Table:        A hash function generates a key that is used as an index in an array, providing O(1) average time for search and insertion.
+                       (Both the ingredient and recipe hash tables share the same hash function implementation.)
 
-typedef struct {
-    Ordine* testa;
-    Ordine* coda;
-} CodaOrdini;
-
-void liberaCoda(CodaOrdini* coda);                                                          //Libera la memoria
-void aggiungiCoda(CodaOrdini* coda, const char* nome_ricetta, int quantita, int tempo_arrivo);    //Aggiunge un ordine
-int codaVuota(CodaOrdini* coda);                                                            //Verifica se la coda è vuota
-CodaOrdini* creaCoda();                                                                     //Crea una nuova coda (e restituisce il suo puntatore)
-Ordine* rimuoviCoda(CodaOrdini* coda);                                                      //Rimuove e ritorna un ordine dalla coda (puntatore)
-
-//Ordini fatti - minHeap basato sempre sul tempo d'arrivo
-typedef struct OrdineHeap {
-    int tempo_arrivo;
-    char ricetta[200];
-    int quantita;
-} OrdineHeap;
-
-typedef struct {
-    OrdineHeap* ordini;
-    int dimensione;
-    int capacita;
-} MinHeap;
-
-void liberaMinHeapOrdini(MinHeap* heap);                                                       //Libera la memoria
-void scambiaOrdini(OrdineHeap* a, OrdineHeap* b);                                              //Scambia due ordini
-void heapifyOrdini(MinHeap* heap, int i);                                                      //Riordina gli elementi
-void inserisciOrdineHeap(MinHeap* heap, int tempo_arrivo, char* nome_ricetta, int quantita);   //Inserisce un ordine
-int heapVuotoMinOrdine(MinHeap* heap);                                                         //Verifica se il min-heap è vuoto
-MinHeap* creaMinHeap(int capacita);                                                            //Crea un nuovo min-heap (e restituisce il suo puntatore)
-OrdineHeap rimuoviMin(MinHeap* heap);                                                          //Rimuove e ritorna l'ordine (puntatore)
-
-//Spedizione - maxHeap basato sul peso, a parità di peso conta l'ordine di arrivo
-typedef struct Spedizione {
-    char nome[200];
-    int istante_arrivo;
-    int quantita;
-    int peso;
-} Spedizione;
-
-typedef struct {
-    Spedizione* spedizioni;
-    int dimensione;
-    int capacita;
-} MaxHeapSpedizioni;
-
-void heapifySpedizioni(MaxHeapSpedizioni* heap, int i);                                                       //Riordina gli elementi
-void inserisciSpedizione(MaxHeapSpedizioni* heap, char* nome, int istante_arrivo, int quantita, int peso);    //Inserisce una spedizione
-void liberaMaxHeap(MaxHeapSpedizioni* heap);                                                                  //Libera la memoria
-MaxHeapSpedizioni* creaMaxHeap(int capacita);                                                                 // Crea un nuovo max-heap (e restituisce il suo puntatore)
-Spedizione rimuoviMax(MaxHeapSpedizioni* heap);                                                               //Rimuove e ritorna la spedizione (puntatore)
-int heapVuotoMax(MaxHeapSpedizioni* heap);
-
-//Funzioni Generiche
-int max(int a, int b);
-
-//Funzioni per l'Algoritmo
-char* letturaRiga(FILE* file);
-void gestioneComandi(FILE *file);                                                                //Leggi comando con strcmp
-void rimuovi_ricetta(const char* nome_ricetta);                                                  //Controlla se esiste o se è in ordinazione, se no rimuovi
-void rifornimento(const char* comando);                                                          //Nessun controllo
-void ordine(const char* nome_ricetta, int numero_elementi_ordinati);                             //Controlla esistenza in ricettario, se si aggiungi a Coda e poi prova a fare
-
-bool fattibilita(const char* nome_ricetta, int numero_elementi_ordinati);                        //Verifica la fattiblità di un ordine guardando peso_totale e peso ordine
-void preparazione(const char* nome_ricetta, int numero_elementi_ordinati, int tempo_arrivo);     //Effettua la preparazione rispettando la specifica di rimozione ingredienti scadenza minore
-void verificaOrdini();                                                                           //Verifica la fattibilità di tutti gli ordini in Coda
-void caricaCamion();                                                                             //Passaggio da minHeap ordini fatti a maxHeap spedizione
-int calcolaPeso(Ricetta ricetta, int numero_elementi_ordinati);                                  //Calcola il peso di un ordine
-//void controllaScadenza(NodoAVL* nodo_ingrediente);                                             //Controlla la scadenza di un singolo lotto-minHeap
-
-/* Zona T&S     test:
-*
-*               stampa:
+    Queue:             A First-In-First-Out (FIFO) structure, ensuring that orders are handled in the order they arrive.
 */
-/**
-bool verificaMinHeap(MinHeapIngrediente* heap);                                          //Verifica la correttezza del min-heap
-void testHeapOrder(MinHeapIngrediente* heap);                                            //Stampa verificando la correttezza dell'ordine
-void testMinHeapInserimento();                                                           //Test di inserimento
-void testMinHeapRimozione();                                                             //Test di rimozione
-void testMinHeapOverflow();                                                              //Test di overflow
-void testMinHeapInit();                                                                  //Test di inizializzazione
-void testMinHeapIngrediente();                                                           //Raccoglie i test
-void testUsoParzialeIngrediente();                                                       //Test per verificare la correttezza dell'inserimento
-void testRifornimentoRicetta();                                                          //Test per verificare la correttezza dell'inserimento(migliore)
-void testAggiungiRimuoviIngredienti_AVL();
-void testDeallocazioneAVL();
-void testCodaOrdini();
-//void verificaInserimento(NodoAVL* nodo, const char* nome);
 
-void stampaHeapIngredienti1(MinHeapIngrediente* heap);
-void stampaHeapIngredienti2(MinHeapIngrediente* heap, int *count);
-void stampaAVL1(NodoAVL* nodo);
-void stampaAVL2(NodoAVL* nodo, int *count);
-**/
-void stampaTreap(NodoTreap* root, int livello);
-void stampaTreapWrapper(NodoTreap* root);
-void stampaBST1(NodoBST* nodo);
-void stampaBST2(NodoBST* nodo, int *count);
-int stampaCodaFIFO(CodaOrdini* coda);
-void stampaMinHeapOrdini(MinHeap* heap);
-void stampaMaxHeapSpedizioni(MaxHeapSpedizioni* heap);
-void print_string_info(const char* str);
-void stampaTutto();
 
-// Dichiarazione delle variabili globali (rimuovere quando metti tutto insieme)
-extern NodoBST* bst;
-extern NodoTreap* trap;
-extern CodaOrdini* coda_ordini;
-extern MinHeap* heap_ordini_fatti;
-extern MaxHeapSpedizioni* max_heap_spedizioni;
-extern int tempoCorrente;
-extern int capienzaCamion;
+/* Macros */
+#define INITIAL_TABLE_SIZE 101          // Chosen prime number to reduce collisions
+#define LOAD_FACTOR_THRESHOLD 0.75      // Determines when to resize the hash table
+#define INITIAL_HEAP_CAPACITY 256
 
-#endif //HEADER_H
+/* ------------------------------ */
+/*       Ingredient Structures    */
+/* ------------------------------ */
+
+// Node stored in the min-heap for ingredients,
+// ordered by expiration date (and lexicographically by lot if needed)
+typedef struct {
+    int expiration;    // Expiration time
+    int quantity;      // Quantity of the ingredient in that lot
+} IngredientHeapNode;
+
+// Min-heap structure for ingredients, keeping track of the total quantity
+typedef struct {
+    IngredientHeapNode* batch;
+    int size;
+    int capacity;
+    int total_quantity;
+} IngredientMinHeap;
+
+// Node for the ingredient hash table
+typedef struct IngredientHashNode {
+    char name[21];
+    IngredientMinHeap heap;
+    struct IngredientHashNode* next;
+} IngredientHashNode;
+
+// Hash table for ingredients
+typedef struct {
+    IngredientHashNode** buckets;
+    int size;
+    int count;
+} IngredientHashTable;
+
+/* Function prototypes for Ingredient data structures */
+void swapIngredientNodes(IngredientHeapNode* a, IngredientHeapNode* b);
+void heapifyIngredient(IngredientMinHeap* heap, int i);
+void insertIngredient(IngredientMinHeap* heap, int expiration, int quantity);
+IngredientHeapNode removeIngredient(IngredientMinHeap* heap);
+IngredientMinHeap createIngredientMinHeap(int capacity);
+
+void insertIngredientHash(IngredientHashTable* table, const char* name, int expiration, int quantity);
+IngredientHashNode* createIngredientHashNode(const char* name, int capacity);
+IngredientHashNode* searchIngredientHash(IngredientHashTable* table, const char* name);
+IngredientHashTable* createIngredientHashTable(int size);
+
+/* ------------------------------ */
+/*        Recipe Structures       */
+/* ------------------------------ */
+
+// Linked list for a recipe’s ingredients
+typedef struct RecipeIngredient {
+    char name[21];
+    int quantity;
+    struct RecipeIngredient* next;
+} RecipeIngredient;
+
+// Recipe structure (name + list of ingredients)
+typedef struct Recipe {
+    char name[21];
+    RecipeIngredient* ingredients;
+} Recipe;
+
+// Node for the recipe hash table
+typedef struct RecipeHashNode {
+    char name[21];
+    Recipe recipe;
+    struct RecipeHashNode* next;
+} RecipeHashNode;
+
+// Hash table for recipes
+typedef struct {
+    RecipeHashNode** buckets;
+    int size;
+    int count;
+} RecipeHashTable;
+
+/* Function prototypes for Recipe data structures */
+void insertRecipeHash(RecipeHashTable* table, Recipe recipe);
+void removeRecipeHash(RecipeHashTable* table, const char* name);
+RecipeHashTable* createRecipeHashTable(int size);
+RecipeHashNode* createRecipeHashNode(Recipe recipe);
+RecipeHashNode* searchRecipeHash(RecipeHashTable* table, const char* name);
+
+/* ------------------------------ */
+/*         Order Structures       */
+/* ------------------------------ */
+
+// Order in the pending orders queue (FIFO)
+typedef struct Order {
+    int arrivalTime;
+    char recipeName[21];
+    int quantity;
+    struct Order* next;
+} Order;
+
+// FIFO queue for pending orders
+typedef struct {
+    Order* head;
+    Order* tail;
+} OrderQueue;
+
+/* Function prototypes for Order Queue */
+void enqueueOrder(OrderQueue* queue, const char* recipeName, int quantity, int arrivalTime);
+OrderQueue* createOrderQueue();
+Order* dequeueOrder(OrderQueue* queue);
+
+// Processed orders are stored in a min-heap ordered by arrival time
+typedef struct ProcessedOrder {
+    int arrivalTime;
+    char recipe[21];
+    int quantity;
+} ProcessedOrder;
+
+typedef struct {
+    ProcessedOrder* orders;
+    int size;
+    int capacity;
+} MinOrderHeap;
+
+/* Function prototypes for Processed Order Min-Heap */
+void freeMinOrderHeap(MinOrderHeap* heap);
+void swapProcessedOrders(ProcessedOrder* x, ProcessedOrder* y);
+void heapifyProcessedOrders(MinOrderHeap* heap, int i);
+void insertOrderHeap(MinOrderHeap* heap, int arrivalTime, char* recipe, int quantity);
+int isMinOrderHeapEmpty(MinOrderHeap* heap);
+MinOrderHeap* createMinOrderHeap(int capacity);
+ProcessedOrder removeMinOrder(MinOrderHeap* heap);
+
+/* ------------------------------ */
+/*        Shipment Structures     */
+/* ------------------------------ */
+
+// Shipment structure for truck loading; orders are loaded by weight (max-heap)
+// (for equal weight, the earlier arrival comes first)
+typedef struct Shipment {
+    char name[20];
+    int arrivalTime;
+    int quantity;
+    int weight;
+} Shipment;
+
+typedef struct {
+    Shipment* shipments;
+    int size;
+    int capacity;
+} MaxShipmentHeap;
+
+/* Function prototypes for Shipment Max-Heap */
+void heapifyShipments(MaxShipmentHeap* heap, int i);
+void insertShipment(MaxShipmentHeap* heap, char* name, int arrivalTime, int quantity, int weight);
+int isMaxShipmentHeapEmpty(MaxShipmentHeap* heap);
+MaxShipmentHeap* createMaxShipmentHeap(int capacity);
+Shipment removeMaxShipment(MaxShipmentHeap* heap);
+
+/* ------------------------------ */
+/*           Utility              */
+/* ------------------------------ */
+
+// Generic hash function used by both hash tables
+unsigned int hashString(const char* str, int size);
+
+// File reading and command processing functions
+char* readLine(FILE* file);
+void processCommands(FILE* file);
+
+/* ------------------------------ */
+/*       Command Functions        */
+/* ------------------------------ */
+
+// Recipe commands
+void add_recipe(Recipe new_recipe);
+void remove_recipe(const char* recipeName);
+
+// Stocking and ordering commands
+void restock(const char* command);
+void order_command(const char* recipeName, int quantityOrdered);
+
+// Order processing and truck loading functions
+bool isFeasible(const char* recipeName, int quantityOrdered);
+void processOrder(const char* recipeName, int quantityOrdered, int arrivalTime);
+void checkPendingOrders();
+void loadTruck();
+int calculateWeight(Recipe recipe, int quantityOrdered);
+
+/* ------------------------------ */
+/*         Test Functions         */
+/* ------------------------------ */
+
+void testIngredientMinHeap();
+void testIngredientHashTable();
+void testRecipeHashTable();
+void testOrderQueue();
+void testMinOrderHeap();
+void testMaxShipmentHeap();
+
+/* ------------------------------ */
+/*       Global Variables         */
+/* ------------------------------ */
+
+// Global variables (defined in main.c)
+extern int currentTime;                     // Current time (starts at -1)
+extern int truckCapacity;                   // Truck capacity
+extern IngredientHashTable* ingredientHashTable;
+extern RecipeHashTable* recipeHashTable;
+extern OrderQueue* orderQueue;
+extern MinOrderHeap* processedOrderHeap;
+extern MaxShipmentHeap* maxShipmentHeap;
+
+#endif // header_h
