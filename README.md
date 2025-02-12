@@ -29,6 +29,8 @@ The project is the practical development of the concepts learned in the course *
 
 ## Project Structure
 
+### Code 
+
 1. main.c:
      - Contains the main entry point and global variable definitions.
 2. strutture_dati.c:
@@ -39,6 +41,8 @@ The project is the practical development of the concepts learned in the course *
      - Header file with all structure definitions and function prototypes.
 5. test.c:
      - Contains tests verifying the correctness of the data structures.
+   
+### Folders 
 6. definitivi:
      - It includes previous versions of the code to allow seeing the reasoning process I went through.
 7. test:
