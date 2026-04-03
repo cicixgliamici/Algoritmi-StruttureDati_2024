@@ -7,6 +7,11 @@ The project is the practical development of the concepts learned in the course *
 
 ---
 
+## Branches
+
+- `main`: original university submission
+- `v2-refactor`: improved version with refactoring, testing, and repository cleanup
+
 ## Key Features
 
 ### 1. Ingredient Management
@@ -68,6 +73,18 @@ The project is the practical development of the concepts learned in the course *
    - Addressed real-world challenges like inventory expiration management and order prioritization through careful algorithm design.
 
 ---
+
+## Build
+
+### With Make
+```bash
+make
+make test
+```
+
+### With CMake
+cmake -S . -B build
+cmake --build build
 
 ## Future Enhancements
 
