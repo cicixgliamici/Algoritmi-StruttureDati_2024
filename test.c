@@ -131,8 +131,6 @@ void testMaxShipmentHeap() {
     printf("MaxShipmentHeap tests passed.\n");
 }
 
-/**
-/ ----------------------- Main Test Runner ----------------------- /
 int main(void) {
     testIngredientMinHeap();
     testIngredientHashTable();
@@ -143,4 +141,3 @@ int main(void) {
     printf("All tests passed successfully.\n");
     return 0;
 }
-*/
