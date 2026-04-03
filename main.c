@@ -11,12 +11,16 @@ MinOrderHeap* processedOrderHeap = NULL;
 MaxShipmentHeap* maxShipmentHeap = NULL;
 
 int main(void) {
-    /* Initialize hash tables */
     ingredientHashTable = createIngredientHashTable(INITIAL_TABLE_SIZE);
     recipeHashTable = createRecipeHashTable(INITIAL_TABLE_SIZE);
 
-    /* Use standard input as the command file */
     processCommands(stdin);
+
+    freeIngredientHashTable(ingredientHashTable);
+    freeRecipeHashTable(recipeHashTable);
+    freeOrderQueue(orderQueue);
+    freeMinOrderHeap(processedOrderHeap);
+    freeMaxShipmentHeap(maxShipmentHeap);
 
     return 0;
 }
