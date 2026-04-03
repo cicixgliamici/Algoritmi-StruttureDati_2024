@@ -33,14 +33,22 @@ void heapifyIngredient(IngredientMinHeap* heap, int i) {
 void insertIngredient(IngredientMinHeap* heap, int expiration, int quantity) {
     if (heap->size == heap->capacity) {
         heap->capacity *= 2;
-        heap->batch = (IngredientHeapNode*)realloc(heap->batch, heap->capacity * sizeof(IngredientHeapNode));
+        IngredientHeapNode* newBatch =
+            (IngredientHeapNode*)realloc(heap->batch, heap->capacity * sizeof(IngredientHeapNode));
+
+        if (newBatch == NULL) {
+            fprintf(stderr, "Memory reallocation failed in insertIngredient.\n");
+            exit(EXIT_FAILURE);
+        }
+
+        heap->batch = newBatch;
     }
+
     int i = heap->size++;
     heap->batch[i].expiration = expiration;
     heap->batch[i].quantity = quantity;
     heap->total_quantity += quantity;
 
-    // Bubble up to maintain heap property
     while (i != 0 && heap->batch[(i - 1) / 2].expiration > heap->batch[i].expiration) {
         swapIngredientNodes(&heap->batch[i], &heap->batch[(i - 1) / 2]);
         i = (i - 1) / 2;
@@ -64,6 +72,12 @@ IngredientHeapNode removeIngredient(IngredientMinHeap* heap) {
 IngredientMinHeap createIngredientMinHeap(int capacity) {
     IngredientMinHeap heap;
     heap.batch = (IngredientHeapNode*)malloc(capacity * sizeof(IngredientHeapNode));
+
+    if (heap.batch == NULL) {
+        fprintf(stderr, "Memory allocation failed in createIngredientMinHeap.\n");
+        exit(EXIT_FAILURE);
+    }
+
     heap.capacity = capacity;
     heap.size = 0;
     heap.total_quantity = 0;
