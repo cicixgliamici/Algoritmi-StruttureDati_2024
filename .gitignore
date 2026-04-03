@@ -1,0 +1,25 @@
+# Build directories
+build/
+cmake-build-debug/
+cmake-build-release/
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# IDE files
+.idea/
+.vscode/
+
+# Executables and binaries
+*.exe
+*.out
+*.o
+*.obj
+*.a
+*.lib
+
+# macOS
+.DS_Store
