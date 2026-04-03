@@ -30,7 +30,9 @@ void processCommands(FILE *file) {
     int truckTime, shipmentHeapCapacity = 0;
     
     // Read the truck loading interval and capacity from the first line
-    if (fscanf(file, "%d %d", &truckTime, &truckCapacity) != 2);
+    if (fscanf(file, "%d %d", &truckTime, &truckCapacity) != 2) {
+    return;
+    }
     
     // Choose a capacity for the shipment max-heap based on truckCapacity
     if (truckCapacity >= 100000) {
@@ -186,21 +188,26 @@ bool isFeasible(const char* recipeName, int quantityOrdered) {
     RecipeHashNode* recipeNode = searchRecipeHash(recipeHashTable, recipeName);
     if (recipeNode == NULL)
         return false;
+
     RecipeIngredient* ing = recipeNode->recipe.ingredients;
+
     while (ing != NULL) {
         IngredientHashNode* ingredientNode = searchIngredientHash(ingredientHashTable, ing->name);
         if (ingredientNode == NULL)
             return false;
-        // Remove expired lots
-        if (ingredientNode->heap.batch[0].expiration <= currentTime) {
-            while (ingredientNode->heap.size > 0 && ingredientNode->heap.batch[0].expiration <= currentTime) {
-                removeIngredient(&ingredientNode->heap);
-            }
+
+        /* Remove expired lots only if the heap is not empty */
+        while (ingredientNode->heap.size > 0 &&
+               ingredientNode->heap.batch[0].expiration <= currentTime) {
+            removeIngredient(&ingredientNode->heap);
         }
+
         if (ingredientNode->heap.total_quantity < ing->quantity * quantityOrdered)
             return false;
+
         ing = ing->next;
     }
+
     return true;
 }
 
