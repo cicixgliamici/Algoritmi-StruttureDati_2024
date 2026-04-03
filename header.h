@@ -175,7 +175,6 @@ void insertOrderHeap(MinOrderHeap* heap, int arrivalTime, char* recipe, int quan
 int isMinOrderHeapEmpty(MinOrderHeap* heap);
 MinOrderHeap* createMinOrderHeap(int capacity);
 ProcessedOrder removeMinOrder(MinOrderHeap* heap);
-void freeMaxShipmentHeap(MaxShipmentHeap* heap);
 
 /* ------------------------------ */
 /*        Shipment Structures     */
@@ -202,6 +201,7 @@ void insertShipment(MaxShipmentHeap* heap, char* name, int arrivalTime, int quan
 int isMaxShipmentHeapEmpty(MaxShipmentHeap* heap);
 MaxShipmentHeap* createMaxShipmentHeap(int capacity);
 Shipment removeMaxShipment(MaxShipmentHeap* heap);
+void freeMaxShipmentHeap(MaxShipmentHeap* heap);
 
 /* ------------------------------ */
 /*           Utility              */
