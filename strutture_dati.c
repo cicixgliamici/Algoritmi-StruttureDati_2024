@@ -156,6 +156,24 @@ IngredientHashTable* createIngredientHashTable(int size) {
     return table;
 }
 
+void freeIngredientHashTable(IngredientHashTable* table) {
+    if (table == NULL)
+        return;
+
+    for (int i = 0; i < table->size; i++) {
+        IngredientHashNode* node = table->buckets[i];
+        while (node != NULL) {
+            IngredientHashNode* next = node->next;
+            free(node->heap.batch);
+            free(node);
+            node = next;
+        }
+    }
+
+    free(table->buckets);
+    free(table);
+}
+
 /* ========================================================= */
 /*            Recipe Hash Table Functions                  */
 /* ========================================================= */
@@ -250,6 +268,31 @@ RecipeHashNode* searchRecipeHash(RecipeHashTable* table, const char* name) {
     return NULL;
 }
 
+void freeRecipeHashTable(RecipeHashTable* table) {
+    if (table == NULL)
+        return;
+
+    for (int i = 0; i < table->size; i++) {
+        RecipeHashNode* node = table->buckets[i];
+        while (node != NULL) {
+            RecipeHashNode* next = node->next;
+
+            RecipeIngredient* ingredient = node->recipe.ingredients;
+            while (ingredient != NULL) {
+                RecipeIngredient* temp = ingredient;
+                ingredient = ingredient->next;
+                free(temp);
+            }
+
+            free(node);
+            node = next;
+        }
+    }
+
+    free(table->buckets);
+    free(table);
+}
+
 /* ========================================================= */
 /*             Order Queue Functions                       */
 /* ========================================================= */
@@ -287,6 +330,20 @@ Order* dequeueOrder(OrderQueue* queue) {
     if (queue->head == NULL)
         queue->tail = NULL;
     return order;
+}
+
+void freeOrderQueue(OrderQueue* queue) {
+    if (queue == NULL)
+        return;
+
+    Order* current = queue->head;
+    while (current != NULL) {
+        Order* next = current->next;
+        free(current);
+        current = next;
+    }
+
+    free(queue);
 }
 
 /* ========================================================= */
@@ -454,6 +511,14 @@ Shipment removeMaxShipment(MaxShipmentHeap* heap) {
     heap->shipments[0] = heap->shipments[--heap->size];
     heapifyShipments(heap, 0);
     return root;
+}
+
+void freeMaxShipmentHeap(MaxShipmentHeap* heap) {
+    if (heap == NULL)
+        return;
+
+    free(heap->shipments);
+    free(heap);
 }
 
 /* ========================================================= */
