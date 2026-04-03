@@ -89,6 +89,9 @@ IngredientHashNode* createIngredientHashNode(const char* name, int capacity);
 IngredientHashNode* searchIngredientHash(IngredientHashTable* table, const char* name);
 IngredientHashTable* createIngredientHashTable(int size);
 
+void freeIngredientHashTable(IngredientHashTable* table);
+void freeRecipeHashTable(RecipeHashTable* table);
+
 /* ------------------------------ */
 /*        Recipe Structures       */
 /* ------------------------------ */
@@ -149,6 +152,7 @@ typedef struct {
 void enqueueOrder(OrderQueue* queue, const char* recipeName, int quantity, int arrivalTime);
 OrderQueue* createOrderQueue();
 Order* dequeueOrder(OrderQueue* queue);
+void freeOrderQueue(OrderQueue* queue);
 
 // Processed orders are stored in a min-heap ordered by arrival time
 typedef struct ProcessedOrder {
@@ -171,6 +175,7 @@ void insertOrderHeap(MinOrderHeap* heap, int arrivalTime, char* recipe, int quan
 int isMinOrderHeapEmpty(MinOrderHeap* heap);
 MinOrderHeap* createMinOrderHeap(int capacity);
 ProcessedOrder removeMinOrder(MinOrderHeap* heap);
+void freeMaxShipmentHeap(MaxShipmentHeap* heap);
 
 /* ------------------------------ */
 /*        Shipment Structures     */
